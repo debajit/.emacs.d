@@ -16,9 +16,10 @@
    ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
  '(ansi-term-color-vector
    [unspecified "#1F1611" "#660000" "#144212" "#EFC232" "#5798AE" "#BE73FD" "#93C1BC" "#E6E1DC"])
+ '(column-number-mode t)
  '(custom-safe-themes
    (quote
-    ("957e1b72c5a39765c152d5967258463efde7387f177fcb72b5a8615b6d4b916a" "d55df21873ba9058e1bd85e6142c52f4c3b054cc9b3728e99e1e99ea3bcb3728" "e9b6fc5677c8e7f13fc681758cd6b0765ceaecdd7b706da156c30383852f7387" "3c837ab6df2be9c7c96bf0cc4c9cc71b2389343a68b23eb830f532639a170ae0" "bffba7a258ddd175fd85389ad2f472afe5cba8bfb9f5b723ae0c34ce290a3c09" "44eec3c3e6e673c0d41b523a67b64c43b6e38f8879a7969f306604dcf908832c" default)))
+    ("e84539eede64a272c84f3175f3e0aa7d09507a1dd0e85ca46725865dca779e1c" "957e1b72c5a39765c152d5967258463efde7387f177fcb72b5a8615b6d4b916a" "d55df21873ba9058e1bd85e6142c52f4c3b054cc9b3728e99e1e99ea3bcb3728" "e9b6fc5677c8e7f13fc681758cd6b0765ceaecdd7b706da156c30383852f7387" "3c837ab6df2be9c7c96bf0cc4c9cc71b2389343a68b23eb830f532639a170ae0" "bffba7a258ddd175fd85389ad2f472afe5cba8bfb9f5b723ae0c34ce290a3c09" "44eec3c3e6e673c0d41b523a67b64c43b6e38f8879a7969f306604dcf908832c" default)))
  '(fci-rule-character-color "#452E2E")
  '(fci-rule-color "#452E2E")
  '(fringe-mode nil nil (fringe))
@@ -31,7 +32,7 @@
  '(markdown-command "/Users/debajita/.rbenv/shims/octodown --raw")
  '(package-selected-packages
    (quote
-    (elixir-yasnippets dash-at-point dash yard-mode helm-ls-git comment-dwim-2 markdown-mode helm-google haml-mode birds-of-paradise-plus-theme helm-git-files helm helm-git-grep yasnippet easy-kill))))
+    (fill-column-indicator elixir-yasnippets dash-at-point dash yard-mode helm-ls-git comment-dwim-2 markdown-mode helm-google haml-mode birds-of-paradise-plus-theme helm-git-files helm helm-git-grep yasnippet easy-kill))))
 
 
 ;;----------------------------------------------------------------------
@@ -61,12 +62,22 @@
 ;; Always save and restore the open buffers
 (desktop-save-mode 1)
 
+;; Fill column indicator
+;; Print margin — Enable for all files
+(add-hook 'after-change-major-mode-hook 'fci-mode)
+
 ;; Toolbar off
 (tool-bar-mode 0)
 
 ;; Winner mode
 (winner-mode 1)
 
+;; Line number mode
+(setq linum-format " %d  ")
+
+;; Yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
 
 ;; Emacs Lisp mode
 
@@ -146,6 +157,14 @@
 
 ;; Save file - (Super + s)
 (global-set-key (kbd "s-s") 'save-buffer)
+
+
+;;----------------------------------------------------------------------
+;; Navigating
+;;----------------------------------------------------------------------
+	
+;; Jump to method: s-i
+(global-set-key (kbd "s-i") 'helm-semantic-or-imenu)
 
 
 ;;----------------------------------------------------------------------

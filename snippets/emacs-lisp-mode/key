@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: key
+# key: key
+# --
+;; (${1:Key chord}) - ${2:What the key does}
+(global-set-key ${3:(kbd "s-g")} '$4)

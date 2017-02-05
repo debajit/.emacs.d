@@ -85,7 +85,12 @@
    `(mode-line ((t (:background ,brown-2 :foreground ,white-1))))
    `(mode-line-inactive ((t (:background ,gray-1 :foreground ,white-1))))
    `(vertical-border ((t (:foreground ,brown-4))))
+
+   ;; Uncomment if not using line numbers
    `(fringe ((t (:background ,brown-7 :foreground ,white-3))))
+
+   ;; Uncomment if using line numbers
+   ;; `(fringe ((t (:background ,brown-1 :foreground ,white-3))))
 
    ;; Linum
    `(linum ((t (:background ,brown-7 :foreground ,white-3))))

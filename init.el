@@ -242,6 +242,16 @@
 ;; View
 ;;----------------------------------------------------------------------
 
+;; Zoom in to text (scale text up): s-=
+(global-set-key (kbd "s-=") 'text-scale-increase)
+
+;; Zoom out: s--
+(global-set-key (kbd "s--") 'text-scale-decrease)
+
+;; Reset zoom level: s-0
+(global-set-key (kbd "s-0") (lambda () (interactive) (text-scale-increase 0)))
+
+;; Toggle truncate lines: s-p
 (global-set-key (kbd "s-p") 'toggle-truncate-lines)
 
 

@@ -234,6 +234,10 @@
 (use-package markdown-mode
   :ensure t)
 
+;; Rainbow mode
+(use-package rainbow-mode
+  :ensure t)
+
 ;; Ruby mode
 (use-package ruby-mode
   ;; :diminish helm-mode

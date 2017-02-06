@@ -182,6 +182,10 @@
 (use-package elixir-yasnippets
     :ensure t)
 
+;; Emacs Lisp mode
+(use-package emacs-lisp-mode
+  :bind ("s-r" . eval-buffer))
+
 ;; Helm
 (use-package helm
   :ensure t
@@ -261,17 +265,6 @@
 ;; Fill column indicator
 ;; Print margin — Enable for all files
 (add-hook 'after-change-major-mode-hook 'fci-mode)
-
-;; Emacs Lisp mode
-
-(defun emacs-lisp-mode-keyboard-shortcuts ()
-  "Custom keys for Emacs Lisp mode."
-
-  ;; Eval-buffer
-  (local-set-key (kbd "s-r") 'eval-buffer)
-  )
-(add-hook 'emacs-lisp-mode-hook 'emacs-lisp-mode-keyboard-shortcuts)
-
 
 ;; Markdown mode
 

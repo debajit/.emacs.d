@@ -1,54 +1,104 @@
+;; Package setup
 (require 'package) 
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/")
 	     t)
 (package-initialize)
 
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(ansi-color-names-vector
-   ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
- '(ansi-term-color-vector
-   [unspecified "#1F1611" "#660000" "#144212" "#EFC232" "#5798AE" "#BE73FD" "#93C1BC" "#E6E1DC"])
- '(column-number-mode t)
- '(custom-safe-themes
-   (quote
-    ("e84539eede64a272c84f3175f3e0aa7d09507a1dd0e85ca46725865dca779e1c" "957e1b72c5a39765c152d5967258463efde7387f177fcb72b5a8615b6d4b916a" "d55df21873ba9058e1bd85e6142c52f4c3b054cc9b3728e99e1e99ea3bcb3728" "e9b6fc5677c8e7f13fc681758cd6b0765ceaecdd7b706da156c30383852f7387" "3c837ab6df2be9c7c96bf0cc4c9cc71b2389343a68b23eb830f532639a170ae0" "bffba7a258ddd175fd85389ad2f472afe5cba8bfb9f5b723ae0c34ce290a3c09" "44eec3c3e6e673c0d41b523a67b64c43b6e38f8879a7969f306604dcf908832c" default)))
- '(fci-rule-character-color "#452E2E")
- '(fci-rule-color "#452E2E")
- '(fringe-mode nil nil (fringe))
- '(helm-mode t)
- '(indicate-empty-lines t)
- '(line-number-mode nil)
- '(mac-command-modifier (quote super))
- '(mac-option-modifier (quote meta))
- '(mac-right-option-modifier nil)
- '(markdown-command "/Users/debajita/.rbenv/shims/octodown --raw")
- '(package-selected-packages
-   (quote
-    (use-package smartparens fill-column-indicator elixir-yasnippets dash-at-point dash yard-mode helm-ls-git comment-dwim-2 markdown-mode helm-google haml-mode birds-of-paradise-plus-theme helm-git-files helm helm-git-grep yasnippet easy-kill))))
-
-
 ;;----------------------------------------------------------------------
+;; General Emacs Settings
+;;----------------------------------------------------------------------
+
+;; Toolbar off
+(tool-bar-mode 0)
+
 ;; Status bar
+(line-number-mode t)			; Show line number
+(column-number-mode t)			; Show column number
+
+;; Line number mode. Not enabled currently. To make this look good, set
+;; the fringe color to the window background color.
+(setq linum-format " %d  ")
+
+;; Highlight matching parentheses
+(setq show-paren-delay 0)		; Highlight instantly, no delay
+(show-paren-mode 1)
+
+;; Desktop mode (Always save and restore the open buffers)
+(desktop-save-mode 1)
+
+;; Revert buffers automatically when underlying files are changed externally
+(global-auto-revert-mode t)
+
+;; Winner mode (undo and redo window layouts)
+(winner-mode 1)
+(global-set-key (kbd "s-y") 'winner-undo)
+(global-set-key (kbd "s-Y") 'winner-redo)
+
+;;----------------------------------------------------------------------
+;; General keyboard shortcuts
 ;;----------------------------------------------------------------------
 
-(line-number-mode t)
-(column-number-mode t)
-
+;; Save file: s-s
+(global-set-key (kbd "s-s") 'save-buffer)
 
 ;;----------------------------------------------------------------------
-;; Emacs commands
+;; View-related keys
 ;;----------------------------------------------------------------------
 
-(global-set-key (kbd "M-x") 'helm-M-x)
+;; Zoom in to text (scale text up): s-=
+(global-set-key (kbd "s-=") 'text-scale-increase)
 
+;; Zoom out: s--
+(global-set-key (kbd "s--") 'text-scale-decrease)
+
+;; Reset zoom level: s-0
+(global-set-key (kbd "s-0") (lambda () (interactive) (text-scale-increase 0)))
+
+;; Toggle truncate lines: s-p
+(global-set-key (kbd "s-p") 'toggle-truncate-lines)
+
+;;----------------------------------------------------------------------
+;; Window management keys.
+;; Windows => Emacs' frames
+;; Panes   => Emacs' windows
+;;----------------------------------------------------------------------
+
+;; New window: s-n   (default: C-x 5 2)
+(global-set-key (kbd "s-n") (lambda () (interactive) (find-file-other-frame "/tmp/scratch")))
+
+;; Close buffer: s-w
+(global-set-key (kbd "s-w") 'kill-this-buffer)
+
+;; Close pane: s-W   (default: C-x 0)
+(global-set-key (kbd "s-W") (lambda () (interactive) (delete-window) (balance-windows)))
+
+;; Close window (Emacs' frame): s-q
+(global-set-key (kbd "s-q") 'delete-frame)
+
+;; Maximize window: s-m   (default: C-x 1)
+(global-set-key (kbd "s-m") 'delete-other-windows)
+
+;; Split horizontally: s-J   (default: C-x 3)
+(global-set-key (kbd "s-J") (lambda () (interactive) (split-window-right) (windmove-right)))
+
+;; Split horizontally: s-K   (default: C-x 2)
+(global-set-key (kbd "s-K") (lambda () (interactive) (split-window-below) (windmove-down)))
+
+;; Move to window on left
+(global-set-key (kbd "s-U") 'windmove-left)
+
+;; Move to window on right
+(global-set-key (kbd "s-I") 'windmove-right)
+
+;; Move to window above
+(global-set-key (kbd "s-O") 'windmove-up)
+
+;; Move to window below
+(global-set-key (kbd "s-P") 'windmove-down)
+
+;; Balance windows
+(global-set-key (kbd "s-:") 'balance-windows)
 
 ;;----------------------------------------------------------------------
 ;; Fonts
@@ -63,35 +113,87 @@
     ;; (set-face-attribute 'default nil :font "Operator Mono-18")))
 
 ;;----------------------------------------------------------------------
-;; Modes
+;; Customizations based on external packages
 ;;----------------------------------------------------------------------
 
-;; Desktop mode
-;; Always save and restore the open buffers
-(desktop-save-mode 1)
+;; Setup use-package first. We will use this for everything else.
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(require 'use-package)
+(setq use-package-always-ensure t)	; Install packages if not already installed
+(setq use-package-verbose t)
+
+;; Comments
+(use-package comment-dwim-2
+  :bind ("s-;" . comment-dwim-2))
+
+;; CTags
+(use-package etags-select
+  :bind (("s-." . etags-select-find-tag-at-point)
+	 ("s->" . etags-select-find-tag)
+	 ("M-." . pop-tag-mark)))	; Jump back from tag found
+
+;; Dash-at-point (Lookup in Dash.app)
+(use-package dash-at-point
+  :bind ("s-e" . dash-at-point))
+
+;; Helm
+(use-package helm
+  :bind (("M-x" . helm-M-x)
+	 ("C-x C-f" . helm-find-files))
+  :config
+  (helm-mode 1))
+
+(use-package helm-git-grep
+  :bind ("s-F" . helm-git-grep-at-point))
+
+(use-package helm-ls-git
+  :bind ("s-t" . helm-ls-git-ls))	; Open file, like TextMate
+
+;; Smartparens
+(use-package smartparens
+  :config
+  (smartparens-global-mode 1))
+
+;; Yasnippet
+(use-package yasnippet
+  :config
+  (yas-global-mode 1))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
+ '(ansi-term-color-vector
+   [unspecified "#1F1611" "#660000" "#144212" "#EFC232" "#5798AE" "#BE73FD" "#93C1BC" "#E6E1DC"])
+ '(custom-safe-themes
+   (quote
+    ("e84539eede64a272c84f3175f3e0aa7d09507a1dd0e85ca46725865dca779e1c" "957e1b72c5a39765c152d5967258463efde7387f177fcb72b5a8615b6d4b916a" "d55df21873ba9058e1bd85e6142c52f4c3b054cc9b3728e99e1e99ea3bcb3728" "e9b6fc5677c8e7f13fc681758cd6b0765ceaecdd7b706da156c30383852f7387" "3c837ab6df2be9c7c96bf0cc4c9cc71b2389343a68b23eb830f532639a170ae0" "bffba7a258ddd175fd85389ad2f472afe5cba8bfb9f5b723ae0c34ce290a3c09" "44eec3c3e6e673c0d41b523a67b64c43b6e38f8879a7969f306604dcf908832c" default)))
+ '(fci-rule-character-color "#452E2E")
+ '(fci-rule-color "#452E2E")
+ '(fringe-mode nil nil (fringe))
+ '(indicate-empty-lines t)
+ '(line-number-mode nil)
+ '(mac-command-modifier (quote super))
+ '(mac-option-modifier (quote meta))
+ '(mac-right-option-modifier nil)
+ '(markdown-command "/Users/debajita/.rbenv/shims/octodown --raw")
+ '(package-selected-packages
+   (quote
+    (fill-column-indicator elixir-yasnippets yard-mode markdown-mode helm-google haml-mode birds-of-paradise-plus-theme easy-kill))))
+
+;;----------------------------------------------------------------------
+;; Modes
+;;----------------------------------------------------------------------
 
 ;; Fill column indicator
 ;; Print margin — Enable for all files
 (add-hook 'after-change-major-mode-hook 'fci-mode)
-
-;; Revert buffers automatically when underlying files are changed externally
-(global-auto-revert-mode t)
-
-;; Smartparens mode
-(smartparens-global-mode 1)		; Turn on globally
-
-;; Toolbar off
-(tool-bar-mode 0)
-
-;; Winner mode
-(winner-mode 1)
-
-;; Line number mode
-(setq linum-format " %d  ")
-
-;; Yasnippet
-(require 'yasnippet)
-(yas-global-mode 1)
 
 ;; Emacs Lisp mode
 
@@ -146,31 +248,9 @@
             (set-fill-column 72)
             (yard-mode)))
 
-
-;;----------------------------------------------------------------------
-;; Keyboard shortcuts
-;;----------------------------------------------------------------------
-
-;;----------------------------------------------------------------------
-;; Documentation
-;;----------------------------------------------------------------------
-
-(global-set-key (kbd "s-e") 'dash-at-point)
-
-
 ;;----------------------------------------------------------------------
 ;; File operations
 ;;----------------------------------------------------------------------
-
-;; Open file: s-t   (like TextMate)
-(global-set-key (kbd "s-t") 'helm-ls-git-ls)
-
-;; Open file: C-x C-f   (rebind the default to Helm)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-
-
-;; Save file - (Super + s)
-(global-set-key (kbd "s-s") 'save-buffer)
 
 
 ;;----------------------------------------------------------------------
@@ -188,8 +268,6 @@
 ;; Find: s-f   (default: C-s)
 (global-set-key (kbd "s-f") 'helm-occur)
 
-;; Find: s-F  
-(global-set-key (kbd "s-F") 'helm-git-grep-at-point)
 
 
 ;;----------------------------------------------------------------------
@@ -214,9 +292,6 @@
 ;; Select all: s-a   (default: C-x h)
 (global-set-key (kbd "s-a") 'mark-whole-buffer)
 
-;; Comment: s-;   (default: M-;)
-(global-set-key (kbd "s-;") 'comment-dwim-2)
-
 ;; Delete line: s-k   (default: C-k)
 (global-set-key (kbd "s-k") 'kill-whole-line)
 
@@ -226,72 +301,12 @@
 ;; Replace selection with a single keystroke
 (delete-selection-mode t)
 
-;;----------------------------------------------------------------------
-;; Window management
-;; Emacs calls windows "frames"
-;;----------------------------------------------------------------------
+;; Smart tab behavior - indent or complete
+(setq tab-always-indent 'complete)
 
-;; New window: s-n   (default: C-x 5 2)
-(global-set-key (kbd "s-n") (lambda () (interactive) (find-file-other-frame "/tmp/scratch")))
-
-;; Close buffer: s-w
-(global-set-key (kbd "s-w") 'kill-this-buffer)
-
-;; Close pane: s-W   (default: C-x 0)
-(global-set-key (kbd "s-W") (lambda () (interactive) (delete-window) (balance-windows)))
-
-;; Close window (Emacs' frame): s-q
-(global-set-key (kbd "s-q") 'delete-frame)
-
-;; Maximize window: s-m   (default: C-x 1)
-(global-set-key (kbd "s-m") 'delete-other-windows)
 
 ;; Buffers: super-shift-space   (as in "list bUffers, default: C-x b)
 (global-set-key (kbd "s-SPC") 'helm-buffers-list)
-
-;; Split horizontally: s-J   (default: C-x 3)
-(global-set-key (kbd "s-J") (lambda () (interactive) (split-window-right) (windmove-right)))
-
-;; Split horizontally: s-K   (default: C-x 2)
-(global-set-key (kbd "s-K") (lambda () (interactive) (split-window-below) (windmove-down)))
-
-;; Move to window on left
-(global-set-key (kbd "s-U") 'windmove-left)
-
-;; Move to window on right
-(global-set-key (kbd "s-I") 'windmove-right)
-
-;; Move to window above
-(global-set-key (kbd "s-O") 'windmove-up)
-
-;; Move to window below
-(global-set-key (kbd "s-P") 'windmove-down)
-
-;; Balance windows
-(global-set-key (kbd "s-:") 'balance-windows)
-
-;; Undo window layout: s-y
-(global-set-key (kbd "s-y") 'winner-undo)
-
-;; Undo window layout: s-Y
-(global-set-key (kbd "s-Y") 'winner-redo)
-
-
-;;----------------------------------------------------------------------
-;; View
-;;----------------------------------------------------------------------
-
-;; Zoom in to text (scale text up): s-=
-(global-set-key (kbd "s-=") 'text-scale-increase)
-
-;; Zoom out: s--
-(global-set-key (kbd "s--") 'text-scale-decrease)
-
-;; Reset zoom level: s-0
-(global-set-key (kbd "s-0") (lambda () (interactive) (text-scale-increase 0)))
-
-;; Toggle truncate lines: s-p
-(global-set-key (kbd "s-p") 'toggle-truncate-lines)
 
 
 ;;----------------------------------------------------------------------

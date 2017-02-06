@@ -252,12 +252,10 @@
 (use-package haml-mode
   :ensure t)
 
-;; Helm
 (use-package helm
   :ensure t
   :diminish helm-mode
   :bind (("M-x" . helm-M-x)
-         ("C-x C-f" . helm-find-files)
          ("s-SPC" . helm-mini)          ; List buffers, like C-x b
          ("s-f" . helm-occur)           ; Find, like C-s
          ("s-i" . helm-semantic-or-imenu) ; Jump to method
@@ -272,6 +270,9 @@
 (use-package helm-ls-git
   :ensure t
   :bind ("s-t" . helm-ls-git-ls))       ; Open file, like TextMate
+
+(use-package ido-mode
+  :bind ("C-x C-f" . ido-find-file))
 
 ;; Markdown Mode
 (use-package markdown-mode

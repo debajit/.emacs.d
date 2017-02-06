@@ -32,7 +32,15 @@
  '(markdown-command "/Users/debajita/.rbenv/shims/octodown --raw")
  '(package-selected-packages
    (quote
-    (smartparens fill-column-indicator elixir-yasnippets dash-at-point dash yard-mode helm-ls-git comment-dwim-2 markdown-mode helm-google haml-mode birds-of-paradise-plus-theme helm-git-files helm helm-git-grep yasnippet easy-kill))))
+    (use-package smartparens fill-column-indicator elixir-yasnippets dash-at-point dash yard-mode helm-ls-git comment-dwim-2 markdown-mode helm-google haml-mode birds-of-paradise-plus-theme helm-git-files helm helm-git-grep yasnippet easy-kill))))
+
+
+;;----------------------------------------------------------------------
+;; Status bar
+;;----------------------------------------------------------------------
+
+(line-number-mode t)
+(column-number-mode t)
 
 
 ;;----------------------------------------------------------------------
@@ -211,6 +219,12 @@
 
 ;; Delete line: s-k   (default: C-k)
 (global-set-key (kbd "s-k") 'kill-whole-line)
+
+;; Add a newline at end of file
+(setq require-final-newline t)
+
+;; Replace selection with a single keystroke
+(delete-selection-mode t)
 
 ;;----------------------------------------------------------------------
 ;; Window management

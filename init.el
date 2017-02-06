@@ -34,6 +34,9 @@
 ;; Desktop mode (Always save and restore the open buffers)
 (desktop-save-mode 1)
 
+;; Highlight the current line
+(global-hl-line-mode +1)
+
 ;; Winner mode (undo and redo window layouts)
 (winner-mode 1)
 (global-set-key (kbd "s-y") 'winner-undo)

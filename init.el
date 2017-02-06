@@ -32,7 +32,7 @@
  '(markdown-command "/Users/debajita/.rbenv/shims/octodown --raw")
  '(package-selected-packages
    (quote
-    (fill-column-indicator elixir-yasnippets dash-at-point dash yard-mode helm-ls-git comment-dwim-2 markdown-mode helm-google haml-mode birds-of-paradise-plus-theme helm-git-files helm helm-git-grep yasnippet easy-kill))))
+    (smartparens fill-column-indicator elixir-yasnippets dash-at-point dash yard-mode helm-ls-git comment-dwim-2 markdown-mode helm-google haml-mode birds-of-paradise-plus-theme helm-git-files helm helm-git-grep yasnippet easy-kill))))
 
 
 ;;----------------------------------------------------------------------
@@ -65,6 +65,12 @@
 ;; Fill column indicator
 ;; Print margin — Enable for all files
 (add-hook 'after-change-major-mode-hook 'fci-mode)
+
+;; Revert buffers automatically when underlying files are changed externally
+(global-auto-revert-mode t)
+
+;; Smartparens mode
+(smartparens-global-mode 1)		; Turn on globally
 
 ;; Toolbar off
 (tool-bar-mode 0)

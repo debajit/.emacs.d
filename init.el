@@ -9,6 +9,11 @@
 ;; General Emacs Settings
 ;;----------------------------------------------------------------------
 
+;; Regular scrolling
+(setq scroll-margin 0
+      scroll-conservatively 100000
+      scroll-preserve-screen-position 1)
+
 ;; Toolbar off
 (tool-bar-mode 0)
 
@@ -192,6 +197,7 @@
 ;; Helm
 (use-package helm
   :ensure t
+  :diminish helm-mode
   :bind (("M-x" . helm-M-x)
 	 ("C-x C-f" . helm-find-files)
 	 ("s-SPC" . helm-buffers-list)	; List buffers, like C-x b
@@ -209,6 +215,8 @@
 
 ;; Ruby mode
 (use-package ruby-mode
+  ;; :diminish helm-mode
+  ;; :diminish subword-mode
   :config
   (defun my-ruby-mode-hook ()
     (set-fill-column 72)
@@ -218,12 +226,18 @@
 ;; Smartparens
 (use-package smartparens
   :ensure t
+  :diminish smartparens-mode
   :config
   (smartparens-global-mode 1))
+
+;; Subword mode
+(use-package subword-mode
+  :diminish subword-mode)
 
 ;; Yard mode
 (use-package yard-mode
   :ensure t
+  :diminish yard-mode
   :config
   (add-hook 'ruby-mode-hook 'yard-mode))
 
@@ -251,8 +265,6 @@
  '(fci-rule-character-color "#452E2E")
  '(fci-rule-color "#452E2E")
  '(fringe-mode nil nil (fringe))
- '(indicate-empty-lines t)
- '(line-number-mode nil)
  '(mac-command-modifier (quote super))
  '(mac-option-modifier (quote meta))
  '(mac-right-option-modifier nil)

@@ -106,6 +106,14 @@
 
 
 ;;----------------------------------------------------------------------
+;; Mouse shortcuts
+;;----------------------------------------------------------------------
+
+;; Open link at mouse pointer: s-click
+(global-set-key [s-mouse-1] 'browse-url-at-mouse)
+
+
+;;----------------------------------------------------------------------
 ;; Window management keys.
 ;; Windows => Emacs' frames
 ;; Panes   => Emacs' windows

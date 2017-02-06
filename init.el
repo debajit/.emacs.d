@@ -235,6 +235,10 @@
 (use-package emacs-lisp-mode
   :bind ("s-r" . eval-buffer))
 
+(use-package expand-region
+  :ensure t
+  :bind ("C-=" . er/expand-region))
+
 ;; Fill column indicator (Print margin — Enable for all files)
 (use-package fill-column-indicator
   :ensure t

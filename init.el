@@ -50,6 +50,9 @@
 ;; the fringe color to the window background color.
 (setq linum-format " %d  ")
 
+;; Indentation
+(setq js-indent-level 2)                ; Use 2 spaces to indent JavaScript
+
 
 ;;----------------------------------------------------------------------
 ;; General keyboard shortcuts

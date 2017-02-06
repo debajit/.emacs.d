@@ -216,6 +216,9 @@
 (use-package helm-ls-git
   :bind ("s-t" . helm-ls-git-ls))	; Open file, like TextMate
 
+;; Markdown Mode
+(use-package markdown-mode)
+
 ;; Ruby mode
 (use-package ruby-mode
   ;; :diminish helm-mode
@@ -274,7 +277,7 @@
  '(markdown-command "/Users/debajita/.rbenv/shims/octodown --raw")
  '(package-selected-packages
    (quote
-    (fill-column-indicator markdown-mode helm-google birds-of-paradise-plus-theme easy-kill))))
+    (fill-column-indicator helm-google birds-of-paradise-plus-theme easy-kill))))
 
 ;;----------------------------------------------------------------------
 ;; Modes

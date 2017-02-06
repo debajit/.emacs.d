@@ -185,6 +185,9 @@
   :ensure t
   :bind ("s-;" . comment-dwim-2))
 
+(use-package company
+  :ensure t)
+
 ;; CTags
 (use-package etags-select
   :ensure t

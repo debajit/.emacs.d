@@ -1,5 +1,5 @@
 ;; Package setup
-(require 'package) 
+(require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/")
 	     t)
@@ -159,7 +159,7 @@
 ;; Fonts
 ;;----------------------------------------------------------------------
 
-(when (display-graphic-p)		
+(when (display-graphic-p)
   (when (member "Consolas" (font-family-list))
     (set-face-attribute 'default nil :font "Consolas-16")))
     ;; (set-face-attribute 'default nil :font "M+ 1m-18")))
@@ -217,7 +217,7 @@
 	 ("s-i" . helm-semantic-or-imenu)) ; Jump to method
   :config
   (helm-mode 1))
-	
+
 (use-package helm-git-grep
   :ensure t
   :bind ("s-F" . helm-git-grep-at-point))
@@ -256,6 +256,16 @@
   :ensure t
   :config (progn
             (require 'vlf-setup)))
+
+;; Whitespace mode
+(use-package whitespace
+  :init
+  (dolist (hook '(prog-mode-hook text-mode-hook))
+    (add-hook hook #'whitespace-mode))
+  (add-hook 'before-save-hook #'whitespace-cleanup)
+  :config
+  (setq whitespace-line-column 72) ;; limit line length
+  (setq whitespace-style '(face tabs empty trailing lines-tail)))
 
 ;; Yard mode
 (use-package yard-mode

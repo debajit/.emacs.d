@@ -187,7 +187,7 @@
    'apus
 
    ;; Fill Column Indicator mode
-   `(fci-rule-color ,brown-1) ;; renders much brighter for some reason
+   `(fci-rule-color ,brown-4)
    `(fci-rule-character-color ,brown-1)
 
    ;; Misc.

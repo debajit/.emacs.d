@@ -102,9 +102,6 @@
 ;; Delete line: s-k   (default: C-k)
 (global-set-key (kbd "s-k") 'kill-whole-line)
 
-;; Join line
-(global-set-key (kbd "s-j") 'join-line)
-
 ;; Add a newline at end of file
 (setq require-final-newline t)
 
@@ -191,15 +188,28 @@
 (use-package aggressive-indent
   :ensure t
   :config
-  (global-aggressive-indent-mode 1))
+  (global-aggressive-indent-mode 1)
+  (add-to-list 'aggressive-indent-excluded-modes 'haml-mode))
 
 ;; Comments
 (use-package comment-dwim-2
   :ensure t
   :bind ("s-;" . comment-dwim-2))
 
+;; Company
 (use-package company
   :ensure t)
+
+;; Crux
+(use-package crux
+  :ensure t
+  :bind (("s-d" . crux-duplicate-current-line-or-region)
+         ("s-o" . crux-smart-open-line)
+         ("M-o" . crux-smart-open-line-above)
+         ("s-j" . crux-top-join-line)
+         ("C-j" . crux-top-join-line)
+         ("s-<backspace>" . crux-kill-line-backwards)
+         ("C-<backspace>" . crux-kill-line-backwards)))
 
 ;; CTags
 (use-package etags-select
@@ -241,7 +251,7 @@
   :diminish helm-mode
   :bind (("M-x" . helm-M-x)
          ("C-x C-f" . helm-find-files)
-         ("s-SPC" . helm-buffers-list)  ; List buffers, like C-x b
+         ("s-SPC" . helm-mini)          ; List buffers, like C-x b
          ("s-f" . helm-occur)           ; Find, like C-s
          ("s-i" . helm-semantic-or-imenu) ; Jump to method
          ("s-b" . helm-bookmarks))

@@ -200,6 +200,10 @@
   :ensure t
   :bind ("s-e" . dash-at-point))
 
+;; Elixir mode
+(use-package elixir-mode
+    :ensure t)
+
 ;; Elixir snippets
 (use-package elixir-yasnippets
     :ensure t)

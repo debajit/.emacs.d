@@ -16,24 +16,28 @@
 (line-number-mode t)			; Show line number
 (column-number-mode t)			; Show column number
 
-;; Line number mode. Not enabled currently. To make this look good, set
-;; the fringe color to the window background color.
-(setq linum-format " %d  ")
-
 ;; Highlight matching parentheses
 (setq show-paren-delay 0)		; Highlight instantly, no delay
 (show-paren-mode 1)
 
-;; Desktop mode (Always save and restore the open buffers)
-(desktop-save-mode 1)
+;; Smart tab behavior - indent or complete
+(setq tab-always-indent 'complete)
 
 ;; Revert buffers automatically when underlying files are changed externally
 (global-auto-revert-mode t)
+
+;; Desktop mode (Always save and restore the open buffers)
+(desktop-save-mode 1)
 
 ;; Winner mode (undo and redo window layouts)
 (winner-mode 1)
 (global-set-key (kbd "s-y") 'winner-undo)
 (global-set-key (kbd "s-Y") 'winner-redo)
+
+;; Line number mode. Not enabled currently. To make this look good, set
+;; the fringe color to the window background color.
+(setq linum-format " %d  ")
+
 
 ;;----------------------------------------------------------------------
 ;; General keyboard shortcuts
@@ -41,6 +45,26 @@
 
 ;; Save file: s-s
 (global-set-key (kbd "s-s") 'save-buffer)
+
+;; Autocomplete: s-/   (default: M-/)
+(global-set-key (kbd "s-/") 'hippie-expand)
+(global-set-key (kbd "M-/") 'hippie-expand)
+
+;; Undo: s-z   (default: C-/)
+(global-set-key (kbd "s-z") 'undo)
+
+;; Cut: s-x   (default: C-w)
+(global-set-key (kbd "s-x") 'kill-region)
+
+;; Copy: s-c   (default: M-w)
+(global-set-key (kbd "s-c") 'kill-ring-save)
+
+;; Paste: s-v   (default: C-y)
+(global-set-key (kbd "s-v") 'yank)
+
+;; Select all: s-a   (default: C-x h)
+(global-set-key (kbd "s-a") 'mark-whole-buffer)
+
 
 ;;----------------------------------------------------------------------
 ;; View-related keys
@@ -57,6 +81,21 @@
 
 ;; Toggle truncate lines: s-p
 (global-set-key (kbd "s-p") 'toggle-truncate-lines)
+
+
+;;----------------------------------------------------------------------
+;; Text editing
+;;----------------------------------------------------------------------
+
+;; Delete line: s-k   (default: C-k)
+(global-set-key (kbd "s-k") 'kill-whole-line)
+
+;; Add a newline at end of file
+(setq require-final-newline t)
+
+;; Replace selection with a single keystroke
+(delete-selection-mode t)
+
 
 ;;----------------------------------------------------------------------
 ;; Window management keys.
@@ -140,10 +179,13 @@
 ;; Helm
 (use-package helm
   :bind (("M-x" . helm-M-x)
-	 ("C-x C-f" . helm-find-files))
+	 ("C-x C-f" . helm-find-files)
+	 ("s-SPC" . helm-buffers-list)	; List buffers, like C-x b
+	 ("s-f" . helm-occur)		; Find, like C-s
+	 ("s-i" . helm-semantic-or-imenu)) ; Jump to method
   :config
   (helm-mode 1))
-
+	
 (use-package helm-git-grep
   :bind ("s-F" . helm-git-grep-at-point))
 
@@ -257,56 +299,8 @@
 ;; Navigating
 ;;----------------------------------------------------------------------
 	
-;; Jump to method: s-i
-(global-set-key (kbd "s-i") 'helm-semantic-or-imenu)
 
 
-;;----------------------------------------------------------------------
-;; Searching
-;;----------------------------------------------------------------------
-
-;; Find: s-f   (default: C-s)
-(global-set-key (kbd "s-f") 'helm-occur)
-
-
-
-;;----------------------------------------------------------------------
-;; Text editing
-;;----------------------------------------------------------------------
-
-;; Autocomplete: s-/   (default: M-/)
-(global-set-key (kbd "s-/") 'hippie-expand)
-
-;; Undo: s-z   (default: C-/)
-(global-set-key (kbd "s-z") 'undo)
-
-;; Cut: s-x   (default: C-w)
-(global-set-key (kbd "s-x") 'kill-region)
-
-;; Copy: s-c   (default: M-w)
-(global-set-key (kbd "s-c") 'kill-ring-save)
-
-;; Paste: s-v   (default: C-y)
-(global-set-key (kbd "s-v") 'yank)
-
-;; Select all: s-a   (default: C-x h)
-(global-set-key (kbd "s-a") 'mark-whole-buffer)
-
-;; Delete line: s-k   (default: C-k)
-(global-set-key (kbd "s-k") 'kill-whole-line)
-
-;; Add a newline at end of file
-(setq require-final-newline t)
-
-;; Replace selection with a single keystroke
-(delete-selection-mode t)
-
-;; Smart tab behavior - indent or complete
-(setq tab-always-indent 'complete)
-
-
-;; Buffers: super-shift-space   (as in "list bUffers, default: C-x b)
-(global-set-key (kbd "s-SPC") 'helm-buffers-list)
 
 
 ;;----------------------------------------------------------------------
@@ -316,7 +310,6 @@
 (if (display-graphic-p)
     (load-theme 'apus t)
   (load-theme 'stygian t))
-
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

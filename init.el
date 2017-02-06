@@ -217,7 +217,8 @@
          ("C-x C-f" . helm-find-files)
          ("s-SPC" . helm-buffers-list)  ; List buffers, like C-x b
          ("s-f" . helm-occur)           ; Find, like C-s
-         ("s-i" . helm-semantic-or-imenu)) ; Jump to method
+         ("s-i" . helm-semantic-or-imenu) ; Jump to method
+         ("s-b" . helm-bookmarks))
   :config
   (helm-mode 1))
 

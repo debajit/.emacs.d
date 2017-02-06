@@ -90,6 +90,9 @@
 ;; Delete line: s-k   (default: C-k)
 (global-set-key (kbd "s-k") 'kill-whole-line)
 
+;; Join line
+(global-set-key (kbd "s-j") 'join-line)
+
 ;; Add a newline at end of file
 (setq require-final-newline t)
 

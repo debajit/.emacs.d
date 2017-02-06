@@ -2,7 +2,7 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/")
-	     t)
+             t)
 (package-initialize)
 
 ;;----------------------------------------------------------------------
@@ -18,11 +18,11 @@
 (tool-bar-mode 0)
 
 ;; Status bar
-(line-number-mode t)			; Show line number
-(column-number-mode t)			; Show column number
+(line-number-mode t)                    ; Show line number
+(column-number-mode t)                  ; Show column number
 
 ;; Highlight matching parentheses
-(setq show-paren-delay 0)		; Highlight instantly, no delay
+(setq show-paren-delay 0)               ; Highlight instantly, no delay
 (show-paren-mode 1)
 
 ;; Smart tab behavior - indent or complete
@@ -186,8 +186,8 @@
 (use-package etags-select
   :ensure t
   :bind (("s-." . etags-select-find-tag-at-point)
-	 ("s->" . etags-select-find-tag)
-	 ("M-." . pop-tag-mark)))	; Jump back from tag found
+         ("s->" . etags-select-find-tag)
+         ("M-." . pop-tag-mark)))       ; Jump back from tag found
 
 ;; Dash-at-point (Lookup in Dash.app)
 (use-package dash-at-point
@@ -211,10 +211,10 @@
   :ensure t
   :diminish helm-mode
   :bind (("M-x" . helm-M-x)
-	 ("C-x C-f" . helm-find-files)
-	 ("s-SPC" . helm-buffers-list)	; List buffers, like C-x b
-	 ("s-f" . helm-occur)		; Find, like C-s
-	 ("s-i" . helm-semantic-or-imenu)) ; Jump to method
+         ("C-x C-f" . helm-find-files)
+         ("s-SPC" . helm-buffers-list)  ; List buffers, like C-x b
+         ("s-f" . helm-occur)           ; Find, like C-s
+         ("s-i" . helm-semantic-or-imenu)) ; Jump to method
   :config
   (helm-mode 1))
 
@@ -224,7 +224,7 @@
 
 (use-package helm-ls-git
   :ensure t
-  :bind ("s-t" . helm-ls-git-ls))	; Open file, like TextMate
+  :bind ("s-t" . helm-ls-git-ls))       ; Open file, like TextMate
 
 ;; Markdown Mode
 (use-package markdown-mode
@@ -254,11 +254,12 @@
 ;; VLF (Very large files) support
 (use-package vlf
   :ensure t
-  :config (progn
-            (require 'vlf-setup)))
+  :config
+  (custom-set-variables '(vlf-application 'dont-ask)))
 
 ;; Whitespace mode
 (use-package whitespace
+  :diminish whitespace-mode
   :init
   (dolist (hook '(prog-mode-hook text-mode-hook))
     (add-hook hook #'whitespace-mode))
@@ -294,7 +295,7 @@
    [unspecified "#1F1611" "#660000" "#144212" "#EFC232" "#5798AE" "#BE73FD" "#93C1BC" "#E6E1DC"])
  '(custom-safe-themes
    (quote
-    ("e84539eede64a272c84f3175f3e0aa7d09507a1dd0e85ca46725865dca779e1c" "957e1b72c5a39765c152d5967258463efde7387f177fcb72b5a8615b6d4b916a" "d55df21873ba9058e1bd85e6142c52f4c3b054cc9b3728e99e1e99ea3bcb3728" "e9b6fc5677c8e7f13fc681758cd6b0765ceaecdd7b706da156c30383852f7387" "3c837ab6df2be9c7c96bf0cc4c9cc71b2389343a68b23eb830f532639a170ae0" "bffba7a258ddd175fd85389ad2f472afe5cba8bfb9f5b723ae0c34ce290a3c09" "44eec3c3e6e673c0d41b523a67b64c43b6e38f8879a7969f306604dcf908832c" default)))
+    ("10e231624707d46f7b2059cc9280c332f7c7a530ebc17dba7e506df34c5332c4" "e84539eede64a272c84f3175f3e0aa7d09507a1dd0e85ca46725865dca779e1c" "957e1b72c5a39765c152d5967258463efde7387f177fcb72b5a8615b6d4b916a" "d55df21873ba9058e1bd85e6142c52f4c3b054cc9b3728e99e1e99ea3bcb3728" "e9b6fc5677c8e7f13fc681758cd6b0765ceaecdd7b706da156c30383852f7387" "3c837ab6df2be9c7c96bf0cc4c9cc71b2389343a68b23eb830f532639a170ae0" "bffba7a258ddd175fd85389ad2f472afe5cba8bfb9f5b723ae0c34ce290a3c09" "44eec3c3e6e673c0d41b523a67b64c43b6e38f8879a7969f306604dcf908832c" default)))
  '(fci-rule-character-color "#452E2E")
  '(fci-rule-color "#452E2E")
  '(fringe-mode nil nil (fringe))
@@ -304,7 +305,8 @@
  '(markdown-command "/Users/debajita/.rbenv/shims/octodown --raw")
  '(package-selected-packages
    (quote
-    (fill-column-indicator helm-google birds-of-paradise-plus-theme easy-kill))))
+    (fill-column-indicator helm-google easy-kill)))
+ '(vlf-application (quote dont-ask)))
 
 ;;----------------------------------------------------------------------
 ;; Modes
@@ -352,6 +354,12 @@
 ;;----------------------------------------------------------------------
 ;; Theme
 ;;----------------------------------------------------------------------
+
+(use-package birds-of-paradise-plus-theme
+  :ensure t)
+
+(use-package gruvbox-theme
+  :ensure t)
 
 (if (display-graphic-p)
     (load-theme 'apus t)

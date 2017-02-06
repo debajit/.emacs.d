@@ -205,6 +205,12 @@
 (use-package emacs-lisp-mode
   :bind ("s-r" . eval-buffer))
 
+;; Fill column indicator (Print margin — Enable for all files)
+(use-package fill-column-indicator
+  :ensure t
+  :config
+  (add-hook 'after-change-major-mode-hook 'fci-mode))
+
 ;; HAML mode
 (use-package haml-mode
   :ensure t)
@@ -233,6 +239,40 @@
 ;; Markdown Mode
 (use-package markdown-mode
   :ensure t)
+
+;; Markdown mode
+;; Use Octodown as Markdown parser
+;; TODO: Organize this section
+(defun markdown-mode-keyboard-shortcuts ()
+  "Custom keys for Markdown mode."
+
+  ;; Preview in browser: s-r, M-r
+  (local-set-key (kbd "s-r") 'markdown-preview)
+  (local-set-key (kbd "M-r") 'markdown-preview)
+
+  ;; Super + B  =>  Bold
+  (local-set-key (kbd "s-b") 'markdown-insert-bold)
+
+  ;; Super + 1  =>  Insert heading 1
+  (local-set-key (kbd "s-1") 'markdown-insert-header-setext-1)
+
+  ;; Super + 2  =>  Insert heading 2
+  (local-set-key (kbd "s-2") 'markdown-insert-header-setext-2)
+
+  ;; Super + 3  =>  Insert heading 3
+  (local-set-key (kbd "s-3") (lambda () (interactive) (markdown-insert-header-setext-dwim 3)))
+
+  ;; Super + 4  =>  Insert heading 4
+  (local-set-key (kbd "s-4") (lambda () (interactive) (markdown-insert-header-setext-dwim 4)))
+
+  ;; Super + 5  =>  Insert heading 5
+  (local-set-key (kbd "s-5") (lambda () (interactive) (markdown-insert-header-setext-dwim 5)))
+
+  ;; Super + 6  =>  Insert heading 6
+  (local-set-key (kbd "s-6") (lambda () (interactive) (markdown-insert-header-setext-dwim 6)))
+
+  )
+(add-hook 'markdown-mode-hook 'markdown-mode-keyboard-shortcuts)
 
 ;; Rainbow mode
 (use-package rainbow-mode
@@ -311,52 +351,6 @@
  '(markdown-command "/Users/debajita/.rbenv/shims/octodown --raw")
  '(package-selected-packages (quote (helm-google easy-kill)))
  '(vlf-application (quote dont-ask)))
-
-;;----------------------------------------------------------------------
-;; Modes
-;;----------------------------------------------------------------------
-
-;; Fill column indicator
-;; Print margin — Enable for all files
-(use-package fill-column-indicator
-  :ensure t
-  :config
-  (add-hook 'after-change-major-mode-hook 'fci-mode))
-
-;; Markdown mode
-
-;; Use Octodown as Markdown parser
-
-(defun markdown-mode-keyboard-shortcuts ()
-  "Custom keys for Markdown mode."
-
-  ;; Preview in browser: s-r, M-r
-  (local-set-key (kbd "s-r") 'markdown-preview)
-  (local-set-key (kbd "M-r") 'markdown-preview)
-
-  ;; Super + B  =>  Bold
-  (local-set-key (kbd "s-b") 'markdown-insert-bold)
-
-  ;; Super + 1  =>  Insert heading 1
-  (local-set-key (kbd "s-1") 'markdown-insert-header-setext-1)
-
-  ;; Super + 2  =>  Insert heading 2
-  (local-set-key (kbd "s-2") 'markdown-insert-header-setext-2)
-
-  ;; Super + 3  =>  Insert heading 3
-  (local-set-key (kbd "s-3") (lambda () (interactive) (markdown-insert-header-setext-dwim 3)))
-
-  ;; Super + 4  =>  Insert heading 4
-  (local-set-key (kbd "s-4") (lambda () (interactive) (markdown-insert-header-setext-dwim 4)))
-
-  ;; Super + 5  =>  Insert heading 5
-  (local-set-key (kbd "s-5") (lambda () (interactive) (markdown-insert-header-setext-dwim 5)))
-
-  ;; Super + 6  =>  Insert heading 6
-  (local-set-key (kbd "s-6") (lambda () (interactive) (markdown-insert-header-setext-dwim 6)))
-
-  )
-(add-hook 'markdown-mode-hook 'markdown-mode-keyboard-shortcuts)
 
 ;;----------------------------------------------------------------------
 ;; Theme

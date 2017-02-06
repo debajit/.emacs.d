@@ -152,32 +152,39 @@
     ;; (set-face-attribute 'default nil :font "Operator Mono-18")))
 
 ;;----------------------------------------------------------------------
-;; Customizations based on external packages
+;; External Packages
 ;;----------------------------------------------------------------------
 
 ;; Setup use-package first. We will use this for everything else.
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 (require 'use-package)
-(setq use-package-always-ensure t)	; Install packages if not already installed
 (setq use-package-verbose t)
 
 ;; Comments
 (use-package comment-dwim-2
+  :ensure t
   :bind ("s-;" . comment-dwim-2))
 
 ;; CTags
 (use-package etags-select
+  :ensure t
   :bind (("s-." . etags-select-find-tag-at-point)
 	 ("s->" . etags-select-find-tag)
 	 ("M-." . pop-tag-mark)))	; Jump back from tag found
 
 ;; Dash-at-point (Lookup in Dash.app)
 (use-package dash-at-point
+  :ensure t
   :bind ("s-e" . dash-at-point))
+
+;; Elixir snippets
+(use-package elixir-yasnippets
+    :ensure t)
 
 ;; Helm
 (use-package helm
+  :ensure t
   :bind (("M-x" . helm-M-x)
 	 ("C-x C-f" . helm-find-files)
 	 ("s-SPC" . helm-buffers-list)	; List buffers, like C-x b
@@ -187,20 +194,38 @@
   (helm-mode 1))
 	
 (use-package helm-git-grep
+  :ensure t
   :bind ("s-F" . helm-git-grep-at-point))
 
 (use-package helm-ls-git
   :bind ("s-t" . helm-ls-git-ls))	; Open file, like TextMate
 
+;; Ruby mode
+(use-package ruby-mode
+  :config
+  (defun my-ruby-mode-hook ()
+    (set-fill-column 72)
+    (subword-mode))
+  (add-hook 'ruby-mode-hook 'my-ruby-mode-hook))
+
 ;; Smartparens
 (use-package smartparens
+  :ensure t
   :config
   (smartparens-global-mode 1))
 
+;; Yard mode
+(use-package yard-mode
+  :ensure t
+  :config
+  (add-hook 'ruby-mode-hook 'yard-mode))
+
 ;; Yasnippet
 (use-package yasnippet
+  :ensure t
   :config
   (yas-global-mode 1))
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -227,7 +252,7 @@
  '(markdown-command "/Users/debajita/.rbenv/shims/octodown --raw")
  '(package-selected-packages
    (quote
-    (fill-column-indicator elixir-yasnippets yard-mode markdown-mode helm-google haml-mode birds-of-paradise-plus-theme easy-kill))))
+    (fill-column-indicator markdown-mode helm-google haml-mode birds-of-paradise-plus-theme easy-kill))))
 
 ;;----------------------------------------------------------------------
 ;; Modes
@@ -282,26 +307,6 @@
 
   )
 (add-hook 'markdown-mode-hook 'markdown-mode-keyboard-shortcuts)
-
-;; Ruby mode
-
-(add-hook 'ruby-mode-hook
-          (lambda ()
-            (set-fill-column 72)
-            (yard-mode)))
-
-;;----------------------------------------------------------------------
-;; File operations
-;;----------------------------------------------------------------------
-
-
-;;----------------------------------------------------------------------
-;; Navigating
-;;----------------------------------------------------------------------
-	
-
-
-
 
 ;;----------------------------------------------------------------------
 ;; Theme

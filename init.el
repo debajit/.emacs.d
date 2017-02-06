@@ -104,6 +104,9 @@
 ;; Replace selection with a single keystroke
 (delete-selection-mode t)
 
+;; Use spaces not tabs
+(setq-default indent-tabs-mode nil)   ;; Don't use tabs to indent
+(setq-default tab-width 4)            ;; Ensure tabs are aligned well
 
 ;;----------------------------------------------------------------------
 ;; Mouse shortcuts

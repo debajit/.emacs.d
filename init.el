@@ -195,7 +195,8 @@
   :bind ("s-r" . eval-buffer))
 
 ;; HAML mode
-(use-package haml-mode)
+(use-package haml-mode
+  :ensure t)
 
 ;; Helm
 (use-package helm
@@ -214,10 +215,12 @@
   :bind ("s-F" . helm-git-grep-at-point))
 
 (use-package helm-ls-git
+  :ensure t
   :bind ("s-t" . helm-ls-git-ls))	; Open file, like TextMate
 
 ;; Markdown Mode
-(use-package markdown-mode)
+(use-package markdown-mode
+  :ensure t)
 
 ;; Ruby mode
 (use-package ruby-mode

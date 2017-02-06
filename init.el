@@ -187,6 +187,12 @@
 (require 'use-package)
 (setq use-package-verbose t)
 
+;; Aggressive indent
+(use-package aggressive-indent
+  :ensure t
+  :config
+  (global-aggressive-indent-mode 1))
+
 ;; Comments
 (use-package comment-dwim-2
   :ensure t

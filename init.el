@@ -251,6 +251,12 @@
 (use-package subword-mode
   :diminish subword-mode)
 
+;; VLF (Very large files) support
+(use-package vlf
+  :ensure t
+  :config (progn
+            (require 'vlf-setup)))
+
 ;; Yard mode
 (use-package yard-mode
   :ensure t

@@ -194,6 +194,9 @@
 (use-package emacs-lisp-mode
   :bind ("s-r" . eval-buffer))
 
+;; HAML mode
+(use-package haml-mode)
+
 ;; Helm
 (use-package helm
   :ensure t
@@ -271,7 +274,7 @@
  '(markdown-command "/Users/debajita/.rbenv/shims/octodown --raw")
  '(package-selected-packages
    (quote
-    (fill-column-indicator markdown-mode helm-google haml-mode birds-of-paradise-plus-theme easy-kill))))
+    (fill-column-indicator markdown-mode helm-google birds-of-paradise-plus-theme easy-kill))))
 
 ;;----------------------------------------------------------------------
 ;; Modes

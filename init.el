@@ -207,8 +207,8 @@
 (use-package crux
   :ensure t
   :bind (("s-d" . crux-duplicate-current-line-or-region)
-         ("s-o" . crux-smart-open-line)
-         ("M-o" . crux-smart-open-line-above)
+         ("M-o" . crux-smart-open-line)
+         ("s-o" . crux-smart-open-line-above)
          ("s-j" . crux-top-join-line)
          ("C-j" . crux-top-join-line)
          ("s-<backspace>" . crux-kill-line-backwards)

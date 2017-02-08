@@ -51,7 +51,8 @@
 (setq linum-format " %d  ")
 
 ;; Indentation
-(setq js-indent-level 2)                ; Use 2 spaces to indent JavaScript
+(setq css-indent-offset 2)              ; CSS
+(setq js-indent-level 2)                ; JavaScript
 
 
 ;;----------------------------------------------------------------------

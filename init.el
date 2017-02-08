@@ -50,9 +50,12 @@
 ;; the fringe color to the window background color.
 (setq linum-format " %d  ")
 
-;; Indentation
-(setq css-indent-offset 2)              ; CSS
-(setq js-indent-level 2)                ; JavaScript
+;; Use spaces not tabs
+(setq-default indent-tabs-mode nil)   ;; Don't use tabs to indent
+(setq-default tab-width 4)            ;; Ensure tabs are aligned well
+
+;; Whitespace
+(setq require-final-newline t)          ; Add a newline at end of file
 
 
 ;;----------------------------------------------------------------------
@@ -106,15 +109,9 @@
 ;; Delete line: s-k   (default: C-k)
 (global-set-key (kbd "s-k") 'kill-whole-line)
 
-;; Add a newline at end of file
-(setq require-final-newline t)
-
 ;; Replace selection with a single keystroke
 (delete-selection-mode t)
 
-;; Use spaces not tabs
-(setq-default indent-tabs-mode nil)   ;; Don't use tabs to indent
-(setq-default tab-width 4)            ;; Ensure tabs are aligned well
 
 ;;----------------------------------------------------------------------
 ;; Mouse shortcuts
@@ -198,6 +195,7 @@
 ;; Aggressive indent
 (use-package aggressive-indent
   :ensure t
+  :diminish aggressive-indent-mode
   :config
   (global-aggressive-indent-mode 1)
   (add-to-list 'aggressive-indent-excluded-modes 'haml-mode))
@@ -221,6 +219,17 @@
          ("C-j" . crux-top-join-line)
          ("s-<backspace>" . crux-kill-line-backwards)
          ("C-<backspace>" . crux-kill-line-backwards)))
+
+(use-package css-mode
+  :diminish aggressive-indent-mode
+  :diminish helm-mode
+  :init
+  (setq css-indent-offset 2)
+  :config
+  (defun my-css-mode-hook ()
+    (set-fill-column 72)
+    (subword-mode))
+  (add-hook 'css-mode-hook 'my-css-mode-hook))
 
 ;; CTags
 (use-package etags-select
@@ -282,6 +291,16 @@
 (use-package ido-mode
   :bind ("C-x C-f" . ido-find-file))
 
+(use-package javascript-mode
+  :diminish aggressive-indent-mode
+  :init
+  (setq js-indent-level 2)
+  :config
+  (defun my-javascript-mode-hook ()
+    (set-fill-column 72)
+    (subword-mode))
+  (add-hook 'javascript-mode-hook 'my-javascript-mode-hook))
+
 ;; Markdown Mode
 (use-package markdown-mode
   :ensure t)
@@ -320,7 +339,7 @@
   )
 (add-hook 'markdown-mode-hook 'markdown-mode-keyboard-shortcuts)
 
-;; NeoTree file tree viewer
+;; NeoTree file tree browser
 (use-package neotree
   :ensure t
   :bind ("<f8>" . neotree-toggle))
@@ -391,5 +410,6 @@
   :ensure t)
 
 (if (display-graphic-p)
-    (load-theme 'apus t)
+    ;; (load-theme 'apus t)
+    (load-theme 'gruvbox t)
   (load-theme 'stygian t))

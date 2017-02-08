@@ -165,6 +165,13 @@
 ;; Balance windows
 (global-set-key (kbd "s-:") 'balance-windows)
 
+;; Increase window size: s-]
+(global-set-key (kbd "s-]") (lambda () (interactive) (enlarge-window-horizontally 20)))
+
+;; Decrease window size: s-[
+(global-set-key (kbd "s-[") (lambda () (interactive) (shrink-window-horizontally 20)))
+
+
 ;;----------------------------------------------------------------------
 ;; Fonts
 ;;----------------------------------------------------------------------

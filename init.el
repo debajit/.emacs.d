@@ -319,6 +319,11 @@
   )
 (add-hook 'markdown-mode-hook 'markdown-mode-keyboard-shortcuts)
 
+;; NeoTree file tree viewer
+(use-package neotree
+  :ensure t
+  :bind ("<f8>" . neotree-toggle))
+
 ;; Rainbow mode
 (use-package rainbow-mode
   :ensure t)

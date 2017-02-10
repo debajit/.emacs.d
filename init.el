@@ -396,6 +396,17 @@
   :ensure t
   :bind ("<f8>" . neotree-toggle))
 
+;; Unicode Org-mode bullets for improved typography
+(use-package org-bullets
+  :ensure t
+  :diminish org-bullets-mode
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+(use-package org-mode
+  :init
+  (setq org-hide-leading-stars t))
+
 ;; Predictive text completion (Predictive Abbreviation mode)
 (use-package pabbrev
   :ensure t

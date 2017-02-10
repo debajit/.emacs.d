@@ -30,7 +30,8 @@
 (show-paren-mode 1)
 
 ;; Smart tab behavior - indent or complete
-(setq tab-always-indent 'complete)
+;; Commented out in favor of pabbrev mode.
+;; (setq tab-always-indent 'complete)
 
 ;; Revert buffers automatically when underlying files are changed externally
 (global-auto-revert-mode t)
@@ -57,6 +58,20 @@
 ;; Whitespace
 (setq require-final-newline t)          ; Add a newline at end of file
 
+;; Autocomplete
+(setq hippie-expand-try-functions-list '(try-expand-dabbrev
+                                         try-expand-dabbrev-all-buffers
+                                         try-expand-dabbrev-from-kill
+                                         try-complete-file-name-partially
+                                         try-complete-file-name
+                                         try-expand-all-abbrevs
+                                         try-expand-list
+                                         try-expand-line
+                                         try-complete-lisp-symbol-partially
+                                         try-complete-lisp-symbol))
+
+(global-set-key (kbd "s-/") 'hippie-expand)
+(global-set-key (kbd "M-/") 'hippie-expand)
 
 ;;----------------------------------------------------------------------
 ;; General keyboard shortcuts
@@ -65,9 +80,6 @@
 ;; Save file: s-s
 (global-set-key (kbd "s-s") 'save-buffer)
 
-;; Autocomplete: s-/   (default: M-/)
-(global-set-key (kbd "s-/") 'hippie-expand)
-(global-set-key (kbd "M-/") 'hippie-expand)
 
 ;; Cut: s-x   (default: C-w)
 (global-set-key (kbd "s-x") 'kill-region)
@@ -344,6 +356,12 @@
 (use-package neotree
   :ensure t
   :bind ("<f8>" . neotree-toggle))
+
+;; Predictive text completion (Predictive Abbreviation mode)
+(use-package pabbrev
+  :ensure t
+  :config
+  (global-pabbrev-mode))
 
 ;; Rainbow mode
 (use-package rainbow-mode

@@ -69,9 +69,6 @@
 (global-set-key (kbd "s-/") 'hippie-expand)
 (global-set-key (kbd "M-/") 'hippie-expand)
 
-;; Undo: s-z   (default: C-/)
-(global-set-key (kbd "s-z") 'undo)
-
 ;; Cut: s-x   (default: C-w)
 (global-set-key (kbd "s-x") 'kill-region)
 
@@ -372,6 +369,14 @@
 ;; Subword mode
 (use-package subword-mode
   :diminish subword-mode)
+
+(use-package undo-tree
+  :ensure t
+  :bind (("s-z" . undo-tree-undo)
+         ("s-Z" . undo-tree-redo))
+  :config
+  (setq undo-tree-auto-save-history t)
+  (global-undo-tree-mode))
 
 ;; VLF (Very large files) support
 (use-package vlf

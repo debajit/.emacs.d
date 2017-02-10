@@ -185,16 +185,37 @@
 
 
 ;;----------------------------------------------------------------------
-;; Fonts
+;; Typography
 ;;----------------------------------------------------------------------
+
+;; Typefaces
 
 (when (display-graphic-p)
   (when (member "Consolas" (font-family-list))
     (set-face-attribute 'default nil :font "Consolas-16")))
-    ;; (set-face-attribute 'default nil :font "M+ 1m-18")))
-    ;; (set-face-attribute 'default nil :font "Monaco-16")))
-    ;; (set-face-attribute 'default nil :font "Menlo-16")))
-    ;; (set-face-attribute 'default nil :font "Operator Mono-18")))
+;; (set-face-attribute 'default nil :font "M+ 1m-18")))
+;; (set-face-attribute 'default nil :font "Monaco-16")))
+;; (set-face-attribute 'default nil :font "Menlo-16")))
+;; (set-face-attribute 'default nil :font "Operator Mono-18")))
+
+
+;; Variable-width font settings
+
+(defun set-buffer-variable-pitch ()
+  (interactive)
+  (variable-pitch-mode t)
+  (setq line-spacing 3)
+  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-block-background nil :inherit 'fixed-pitch)
+  )
+
+(add-hook 'org-mode-hook 'set-buffer-variable-pitch)
+(add-hook 'eww-mode-hook 'set-buffer-variable-pitch)
+(add-hook 'markdown-mode-hook 'set-buffer-variable-pitch)
+(add-hook 'Info-mode-hook 'set-buffer-variable-pitch)
+
 
 ;;----------------------------------------------------------------------
 ;; External Packages

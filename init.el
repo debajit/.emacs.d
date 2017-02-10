@@ -70,6 +70,7 @@
                                          try-complete-lisp-symbol-partially
                                          try-complete-lisp-symbol))
 
+(global-set-key (kbd "s-j") 'hippie-expand) ; Use an easy keystroke for this :)
 (global-set-key (kbd "s-/") 'hippie-expand)
 (global-set-key (kbd "M-/") 'hippie-expand)
 

@@ -112,6 +112,10 @@
 ;; Replace selection with a single keystroke
 (delete-selection-mode t)
 
+;; Indent rigidly to tab stop (a la TextMate or Sublime Text)
+(global-set-key (kbd "s-]") 'indent-rigidly-right-to-tab-stop)
+(global-set-key (kbd "s-[") 'indent-rigidly-left-to-tab-stop)
+
 
 ;;----------------------------------------------------------------------
 ;; Mouse shortcuts
@@ -164,10 +168,10 @@
 (global-set-key (kbd "s-:") 'balance-windows)
 
 ;; Increase window size: s-]
-(global-set-key (kbd "s-]") (lambda () (interactive) (enlarge-window-horizontally 20)))
+(global-set-key (kbd "M-]") (lambda () (interactive) (enlarge-window-horizontally 20)))
 
 ;; Decrease window size: s-[
-(global-set-key (kbd "s-[") (lambda () (interactive) (shrink-window-horizontally 20)))
+(global-set-key (kbd "M-[") (lambda () (interactive) (shrink-window-horizontally 20)))
 
 
 ;;----------------------------------------------------------------------

@@ -188,15 +188,17 @@
 ;; Typography
 ;;----------------------------------------------------------------------
 
+;;
 ;; Typefaces
-
+;;
+;; Currently using Consolas for code, and Ideal Sans for longform text.
+;;
 (when (display-graphic-p)
   (when (member "Consolas" (font-family-list))
-    (set-face-attribute 'default nil :font "Consolas-16")))
-;; (set-face-attribute 'default nil :font "M+ 1m-18")))
-;; (set-face-attribute 'default nil :font "Monaco-16")))
-;; (set-face-attribute 'default nil :font "Menlo-16")))
-;; (set-face-attribute 'default nil :font "Operator Mono-18")))
+    (set-face-font 'default "Consolas-16")
+    (copy-face 'default 'fixed-pitch))
+  (when (member "Ideal Sans" (font-family-list))
+    (set-face-font 'variable-pitch "Ideal Sans-18")))
 
 ;;
 ;; Variable-width font settings.

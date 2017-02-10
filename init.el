@@ -372,6 +372,7 @@
 
 (use-package undo-tree
   :ensure t
+  :diminish undo-tree-mode
   :bind (("s-z" . undo-tree-undo)
          ("s-Z" . undo-tree-redo))
   :config

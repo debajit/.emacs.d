@@ -257,6 +257,23 @@
   :ensure t
   :bind ("s-e" . dash-at-point))
 
+;; Deft -- A note-taking system like Notational Velocity. The following
+;; configuration is largely adapted from
+;; http://pragmaticemacs.com/emacs/make-quick-notes-with-deft/
+(use-package deft
+  :ensure t
+  :diminish deft-mode
+  :bind ("<f6>" . deft)
+  :init
+  (setq deft-directory "/Users/debajita/Documents/Deft")
+  (setq deft-extensions '("org"))
+  (setq deft-default-extension "org")
+  (setq deft-recursive t)
+  (setq deft-text-mode 'org-mode)
+  (setq deft-use-filename-as-title t)
+  (setq deft-use-filter-string-for-filename t)
+  (setq deft-auto-save-interval 0))
+
 ;; Elixir mode
 (use-package elixir-mode
     :ensure t)

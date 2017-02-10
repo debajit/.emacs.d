@@ -410,8 +410,15 @@
 ;; Predictive text completion (Predictive Abbreviation mode)
 (use-package pabbrev
   :ensure t
+  :init
+  (setq pabbrev-idle-timer-verbose nil
+        pabbrev-read-only-error nil)
   :config
-  (global-pabbrev-mode))
+  (global-pabbrev-mode)
+  ;; Fix for pabbrev not working in org mode
+  ;; http://lists.gnu.org/archive/html/emacs-orgmode/2016-02/msg00311.html
+  (define-key pabbrev-mode-map [tab] 'pabbrev-expand-maybe)
+  (add-hook 'text-mode-hook (lambda () (pabbrev-mode))))
 
 ;; Rainbow mode
 (use-package rainbow-mode

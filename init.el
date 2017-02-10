@@ -229,7 +229,7 @@
   :bind (("s-d" . crux-duplicate-current-line-or-region)
          ("M-o" . crux-smart-open-line)
          ("s-o" . crux-smart-open-line-above)
-         ("s-j" . crux-top-join-line)
+         ;; ("s-j" . crux-top-join-line)
          ("C-j" . crux-top-join-line)
          ("s-<backspace>" . crux-kill-line-backwards)
          ("C-<backspace>" . crux-kill-line-backwards)))

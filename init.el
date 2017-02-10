@@ -198,9 +198,12 @@
 ;; (set-face-attribute 'default nil :font "Menlo-16")))
 ;; (set-face-attribute 'default nil :font "Operator Mono-18")))
 
-
-;; Variable-width font settings
-
+;;
+;; Variable-width font settings.
+;;
+;; Largely adapted from
+;; http://www.xiangji.me/2015/07/13/a-few-of-my-org-mode-customizations/
+;;
 (defun set-buffer-variable-pitch ()
   (interactive)
   (variable-pitch-mode t)
@@ -208,8 +211,7 @@
   (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-block-background nil :inherit 'fixed-pitch)
-  )
+  (set-face-attribute 'org-block-background nil :inherit 'fixed-pitch))
 
 (add-hook 'org-mode-hook 'set-buffer-variable-pitch)
 (add-hook 'eww-mode-hook 'set-buffer-variable-pitch)

@@ -291,7 +291,7 @@
   :bind ("<f6>" . deft)
   :init
   (setq deft-directory "/Users/debajita/Documents/Deft")
-  (setq deft-extensions '("org"))
+  (setq deft-extensions '("org" "txt" "md"))
   (setq deft-default-extension "org")
   (setq deft-recursive t)
   (setq deft-text-mode 'org-mode)

@@ -407,9 +407,15 @@
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
-(use-package org-mode
+(use-package org
   :init
-  (setq org-hide-leading-stars t))
+  (setq org-startup-indented t          ; Turn on org-indent-mode
+        org-startup-folded nil)          ; Start expanded
+  :config
+  (add-hook 'org-mode-hook
+            '(lambda ()
+               (auto-fill-mode)                      ; Hard wrap automatically
+               (setq org-hide-emphasis-markers t)))) ; Hide markup for bold, italic etc.
 
 ;; Predictive text completion (Predictive Abbreviation mode)
 (use-package pabbrev

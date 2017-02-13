@@ -1,6 +1,6 @@
 ;; Save customizations in a separate file (custom.el)
 (setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
+(load custom-file 'noerror) ; Prevent errors if custom.el does not exist
 
 ;; Package setup
 (require 'package)

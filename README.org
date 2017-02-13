@@ -1,0 +1,21 @@
+* Installation
+** Install Emacs Configuration
+
+#+BEGIN_SRC  shell
+
+cd
+git clone https://github.com/debajit/.emacs.d.git
+
+#+END_SRC
+
+** Install Emacs
+
+These are directions for macOS. (Directions for other OSes will be
+added soon)
+
+#+BEGIN_SRC  shell
+
+brew tap railwaycat/emacsmacport
+brew cask install emacs-mac
+
+#+END_SRC

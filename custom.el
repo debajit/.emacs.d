@@ -20,7 +20,7 @@
  '(org-hide-emphasis-markers nil)
  '(package-selected-packages
    (quote
-    (org-bullets helm-org-rifle deft pabbrev undo-tree typescript-mode gotham-theme neotree expand-region crux aggressive-indent helm-google easy-kill)))
+    (swiper org-bullets helm-org-rifle deft pabbrev undo-tree typescript-mode gotham-theme neotree expand-region crux aggressive-indent helm-google easy-kill)))
  '(vlf-application (quote dont-ask)))
 
 (custom-set-faces

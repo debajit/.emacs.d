@@ -330,7 +330,6 @@
   :diminish helm-mode
   :bind (("M-x" . helm-M-x)
          ("s-SPC" . helm-mini)          ; List buffers, like C-x b
-         ("s-f" . helm-occur)           ; Find, like C-s
          ("s-i" . helm-semantic-or-imenu) ; Jump to method
          ("s-b" . helm-bookmarks))
   :config
@@ -455,6 +454,12 @@
 ;; Subword mode
 (use-package subword-mode
   :diminish subword-mode)
+
+;; Swiper - A better helm-swoop (for incremental search)
+;; http://oremacs.com/2015/03/10/no-swiping/
+(use-package swiper
+  :ensure t
+  :bind ("s-f" . swiper))
 
 (use-package undo-tree
   :ensure t

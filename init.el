@@ -487,6 +487,9 @@
   (setq whitespace-line-column 72) ;; limit line length
   (setq whitespace-style '(face tabs empty trailing lines-tail)))
 
+(use-package yaml-mode
+  :ensure t)
+
 ;; Yard mode
 (use-package yard-mode
   :ensure t

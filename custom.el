@@ -18,7 +18,6 @@
  '(mac-option-modifier (quote meta))
  '(mac-right-option-modifier nil)
  '(markdown-command "/Users/debajita/.rbenv/shims/octodown --raw")
- '(org-hide-emphasis-markers nil)
  '(package-selected-packages
    (quote
     (yaml-mode counsel swiper org-bullets helm-org-rifle deft pabbrev undo-tree typescript-mode gotham-theme neotree expand-region crux aggressive-indent helm-google easy-kill)))

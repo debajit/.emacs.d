@@ -423,8 +423,9 @@
 (use-package org
   :init
   (setq org-startup-indented t          ; Turn on org-indent-mode
-        org-startup-folded nil)          ; Start expanded
+        org-startup-folded nil)         ; Start expanded
   :config
+  (custom-set-variables '(org-hide-emphasis-markers t)) ; Hide bold, italic markers
   (add-hook 'org-mode-hook
             '(lambda ()
                (auto-fill-mode)                     ; Hard wrap automatically

@@ -270,6 +270,12 @@
     (subword-mode))
   (add-hook 'css-mode-hook 'my-css-mode-hook))
 
+;; Easy kill -- Better copy and paste
+(use-package easy-kill
+  :ensure t
+  :config
+  (global-set-key [remap kill-ring-save] 'easy-kill))
+
 ;; CTags
 (use-package etags-select
   :ensure t
@@ -301,7 +307,7 @@
 
 ;; Elixir mode
 (use-package elixir-mode
-    :ensure t)
+  :ensure t)
 
 ;; Elixir snippets
 (use-package elixir-yasnippets

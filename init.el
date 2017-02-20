@@ -351,11 +351,16 @@
 
 (use-package helm-ls-git
   :ensure t
-  :bind ("s-t" . helm-ls-git-ls))       ; Open file, like TextMate
+  :bind ("s-T" . helm-ls-git-ls))
 
 (use-package ido-mode
   :bind ("C-x C-f" . ido-find-file))
 
+(use-package helm-projectile
+  :ensure t
+  :bind ("s-t" . helm-projectile-find-file)) ; Open file, a la TextMate
+
+;; TODO: Add typesript mode
 (use-package javascript-mode
   :diminish aggressive-indent-mode
   :init
@@ -444,6 +449,14 @@
   ;; http://lists.gnu.org/archive/html/emacs-orgmode/2016-02/msg00311.html
   (define-key pabbrev-mode-map [tab] 'pabbrev-expand-maybe)
   (add-hook 'text-mode-hook (lambda () (pabbrev-mode))))
+
+;; Projectile -- Project management
+(use-package projectile
+  :ensure t
+  :diminish projectile-mode
+  :bind ("s-P" . projectile-switch-project)
+  :config
+  (projectile-global-mode +1))
 
 ;; Rainbow mode
 (use-package rainbow-mode

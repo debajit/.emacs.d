@@ -290,7 +290,7 @@
   :diminish deft-mode
   :bind ("<f6>" . deft)
   :init
-  (setq deft-directory "/Users/debajita/Documents/Deft")
+  (setq deft-directory "/Users/debajita/Documents/org")
   (setq deft-extensions '("org" "txt" "md"))
   (setq deft-default-extension "org")
   (setq deft-recursive t)

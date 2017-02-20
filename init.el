@@ -404,6 +404,10 @@
   )
 (add-hook 'markdown-mode-hook 'markdown-mode-keyboard-shortcuts)
 
+(use-package multiple-cursors
+  :ensure t
+  :bind ("s-D" . mc/mark-next-word-like-this))
+
 ;; NeoTree file tree browser
 (use-package neotree
   :ensure t

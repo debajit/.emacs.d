@@ -441,8 +441,8 @@
   (add-hook 'org-mode-hook
             '(lambda ()
                (auto-fill-mode)                     ; Hard wrap automatically
-               (setq org-hide-emphasis-markers t    ; Hide markup for bold, italic etc.
-                     org-src-fontify-natively t)))) ; Syntax-highlight code snippets
+               (whitespace-mode 0)                  ; Do not show trailing whitespace
+               (setq org-src-fontify-natively t)))) ; Syntax-highlight code snippets
 
 ;; Predictive text completion (Predictive Abbreviation mode)
 (use-package pabbrev

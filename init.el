@@ -319,7 +319,8 @@
 
 (use-package expand-region
   :ensure t
-  :bind ("C-=" . er/expand-region))
+  :bind (("C-=" . er/expand-region)
+         ("M-h" . er/mark-paragraph)))
 
 ;; Fill column indicator (Print margin — Enable for all files)
 (use-package fill-column-indicator

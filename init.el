@@ -443,7 +443,11 @@
             '(lambda ()
                (auto-fill-mode)                     ; Hard wrap automatically
                (whitespace-mode 0)                  ; Do not show trailing whitespace
-               (setq org-src-fontify-natively t)))) ; Syntax-highlight code snippets
+               (setq org-src-fontify-natively t)))  ; Syntax-highlight code snippets
+  ;; Diminish org-indent-mode
+  ;; see http://emacs.stackexchange.com/questions/22531/diminish-org-indent-mode
+  (eval-after-load 'org-indent '(diminish 'org-indent-mode)))
+
 
 ;; Predictive text completion (Predictive Abbreviation mode)
 (use-package pabbrev
@@ -473,8 +477,6 @@
 
 ;; Ruby mode
 (use-package ruby-mode
-  ;; :diminish helm-mode
-  ;; :diminish subword-mode
   :config
   (defun my-ruby-mode-hook ()
     (set-fill-column 72)

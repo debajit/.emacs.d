@@ -377,6 +377,10 @@
     (set-fill-column 72))
   (add-hook 'javascript-mode-hook 'my-javascript-mode-hook))
 
+;; Line numbers of left of buffer
+(use-package linum-mode
+  :bind ("<f9>" . linum-mode))
+
 ;; Markdown Mode
 (use-package markdown-mode
   :ensure t)

@@ -266,8 +266,7 @@
   (setq css-indent-offset 2)
   :config
   (defun my-css-mode-hook ()
-    (set-fill-column 72)
-    (subword-mode))
+    (set-fill-column 72))
   (add-hook 'css-mode-hook 'my-css-mode-hook))
 
 ;; Easy kill -- Better copy and paste
@@ -375,8 +374,7 @@
   (setq js-indent-level 2)
   :config
   (defun my-javascript-mode-hook ()
-    (set-fill-column 72)
-    (subword-mode))
+    (set-fill-column 72))
   (add-hook 'javascript-mode-hook 'my-javascript-mode-hook))
 
 ;; Markdown Mode
@@ -479,8 +477,7 @@
 (use-package ruby-mode
   :config
   (defun my-ruby-mode-hook ()
-    (set-fill-column 72)
-    (subword-mode))
+    (set-fill-column 72))
   (add-hook 'ruby-mode-hook 'my-ruby-mode-hook))
 
 ;; Smartparens
@@ -490,8 +487,14 @@
   :config
   (smartparens-global-mode 1))
 
-;; Subword mode
-(use-package subword-mode
+;; Subword mode. This package is configured somewhat differently from
+;; others. Enabling subword-mode in :config does not work with diminish.
+;; The following, however appears to work. See also
+;; https://github.com/fbergroth/.emacs.d/blob/master/init.el
+;;
+;; TODO: See if this is slowing down Emacs startup somewhat.
+(use-package subword
+  :init (global-subword-mode)
   :diminish subword-mode)
 
 ;; Swiper - A better helm-swoop (for incremental search)

@@ -22,6 +22,7 @@
    (quote
     (multiple-cursors helm-projectile projectile yaml-mode counsel swiper org-bullets helm-org-rifle deft pabbrev undo-tree typescript-mode gotham-theme neotree expand-region crux aggressive-indent helm-google easy-kill)))
  '(sentence-end-double-space nil)
+ '(show-trailing-whitespace t)
  '(vlf-application (quote dont-ask)))
 
 (custom-set-faces

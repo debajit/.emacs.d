@@ -345,13 +345,13 @@
 
 (use-package helm
   :ensure t
-  :diminish helm-mode
   :bind (("M-x" . helm-M-x)
          ("s-SPC" . helm-mini)          ; List buffers, like C-x b
          ("s-i" . helm-semantic-or-imenu) ; Jump to method
          ("s-b" . helm-bookmarks))
   :config
-  (helm-mode 1))
+  (helm-mode 1)
+  (eval-after-load 'helm-mode '(diminish 'helm-mode)))
 
 (use-package helm-git-grep
   :ensure t

@@ -330,6 +330,7 @@
 
 ;; Spellcheck with flyspell
 (use-package flyspell
+  :diminish flyspell-mode
   :config
   (when (eq system-type 'windows-nt)
     (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/"))

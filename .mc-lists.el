@@ -4,6 +4,8 @@
 (setq mc/cmds-to-run-for-all
       '(
         crux-smart-open-line
+        crux-top-join-line
+        delete-horizontal-space
         fill-paragraph
         helm-M-x
         org-end-of-line
@@ -12,4 +14,5 @@
 
 (setq mc/cmds-to-run-once
       '(
+        mark-whole-buffer
         ))

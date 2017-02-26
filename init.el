@@ -373,18 +373,16 @@
 
 (use-package helm-ls-git
   :ensure t
-  :bind ("s-T" . helm-ls-git-ls))
+  :bind ("s-t" . helm-ls-git-ls))
 
 (use-package ido-mode
   :bind ("C-x C-f" . ido-find-file))
 
 (use-package helm-projectile
-  :ensure t
-  :bind ("s-t" . helm-projectile-find-file)) ; Open file, a la TextMate
+  :ensure t)
 
 ;; TODO: Add typesript mode
 (use-package javascript-mode
-  :diminish aggressive-indent-mode
   :init
   (setq js-indent-level 2)
   :config

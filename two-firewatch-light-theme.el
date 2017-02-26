@@ -29,6 +29,11 @@
 
 (deftheme two-firewatch-light)
 (let ((class '((class color) (min-colors 89)))
+      (violet-bright "#721cd4")
+      (red-bright "#fb4933")
+      (green-peacock "#43d08a")
+      (yellow-pastel "#fdf4c1")
+
       (black-10 "#2d1f06")
       (brown-10 "#89662c")
       (brown-15 "#92723d")
@@ -39,19 +44,16 @@
       (brown-35 "#c0a386")
       (brown-40 "#b6ac9b")
       (brown-50 "#d1cec7")
-      (violet-dark "#721cd4")
       (blue-01 "#005486")
       (blue-03 "#566e97")
       (blue-10 "#4280b8")
       (blue-15 "#7090ca")
       (blue-20 "#8FC3F5")
       (green-20 "#009c30")
-      (green-40 "#43d08a")
       (green-50 "#97c378")
       (green-80 "#dce3d1")
       (red-30 "#cc4232")
       (red-40 "#e26776")
-      (red-60 "#fe8c52")
       (red-80 "#ffc9c9")
       (white-80 "#eae6e1")
       (white-99 "#faf8f5")
@@ -96,7 +98,7 @@
    `(font-lock-warning-face ((,class (:foreground ,warning :background ,bg2))))
 
    ;; Selection
-   `(region ((,class (:background ,violet-dark :foreground ,white-00))))
+   `(region ((,class (:background ,violet-bright :foreground ,white-00))))
 
    `(highlight ((,class (:foreground ,fg3 :background ,bg3))))
 
@@ -112,7 +114,17 @@
    ;; Parentheses match
    `(show-paren-match-face ((,class (:background ,blue-10))))
 
-   `(isearch ((,class (:bold t :foreground ,warning :background ,bg3))))
+   ;; Isearch (TODO: Reuse swiper faces)
+   `(isearch ((,class (:bold nil :foreground ,white-00 :background ,red-30))))
+   ;; (isearch                                   (:foreground gruvbox-black :background gruvbox-neutral_orange))
+   ;; (lazy-highlight                            (:foreground gruvbox-black :background gruvbox-neutral_yellow))
+   ;; (isearch-fail                              (:foreground gruvbox-light0 :background gruvbox-bright_red))
+
+   ;; Swiper
+   `(swiper-match-face-2 ((,class (:bold nil :foreground ,yellow-pastel :background ,red-bright))))
+   `(swiper-match-face-1 ((,class (:bold nil :foreground ,black-10 :background ,green-peacock))))
+   `(swiper-match-face-3 ((,class (:bold nil :foreground ,yellow-pastel :background ,blue-01))))
+   `(swiper-match-face-4 ((,class (:bold nil :foreground ,yellow-pastel :background ,red-30))))
 
    ;; Fill Column Indicator mode
    `(fci-rule-color ,bg2)
@@ -129,7 +141,7 @@
    `(mode-line-emphasis ((,class (:foreground ,fg1))))
 
    `(vertical-border ((,class (:foreground ,fg3))))
-   `(minibuffer-prompt ((,class (:bold t :foreground ,white-00 :background ,violet-dark))))
+   `(minibuffer-prompt ((,class (:bold t :foreground ,white-00 :background ,violet-bright))))
    `(default-italic ((,class (:italic t))))
    `(link ((,class (:foreground ,const :underline t))))
 

@@ -35,15 +35,21 @@
       (brown-20 "#9c7e4e")
       (brown-25 "#a58b5f")
       (brown-30 "#b29566")
+      (brown-35 "#c0a386")
       (brown-40 "#b6ac9b")
       (blue-01 "#005486")
       (blue-03 "#566e97")
       (blue-10 "#4280b8")
       (blue-15 "#7090ca")
       (blue-20 "#8FC3F5")
+      (green-20 "#009c30")
+      (green-40 "#43d08a")
+      (green-50 "#97c378")
+      (green-80 "#dce3d1")
       (red-30 "#cc4232")
       (red-40 "#e26776")
       (white-99 "#faf8f5")
+      (white-00 "#ffffff")
 
       (fg1 "#89662C")
       (fg2 "#92723d")
@@ -60,7 +66,7 @@
       (builtin "#B19465")
       (keyword "#2d1f06")
       (const   "#005486")
-      (comment "#B6AC9B")
+      (comment "#c0a386")
       (func    "#E26776")
       (str     "#005486")
       (type    "#E26776")
@@ -82,7 +88,9 @@
    `(font-lock-type-face ((,class (:foreground ,type ))))
    `(font-lock-variable-name-face ((,class (:foreground ,var))))
    `(font-lock-warning-face ((,class (:foreground ,warning :background ,bg2))))
-   `(region ((,class (:background ,fg1 :foreground ,bg1))))
+
+   ;; Selection
+   `(region ((,class (:background ,blue-01 :foreground ,white-00))))
 
    `(highlight ((,class (:foreground ,fg3 :background ,bg3))))
 
@@ -234,7 +242,7 @@
 
    ;; Helm
    `(helm-header ((,class (:foreground ,fg2 :background ,bg1 :underline nil :box nil))))
-   `(helm-source-header ((,class (:foreground ,keyword :background ,bg1 :underline nil :weight bold))))
+   `(helm-source-header ((,class (:foreground ,keyword :background ,fg6 :underline nil :weight bold :height 1.5))))
    `(helm-selection ((,class (:background ,bg2 :underline nil))))
    `(helm-selection-line ((,class (:background ,bg2))))
    `(helm-visible-mark ((,class (:foreground ,bg1 :background ,bg3))))

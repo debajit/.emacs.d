@@ -247,6 +247,13 @@
   (global-aggressive-indent-mode 1)
   (add-to-list 'aggressive-indent-excluded-modes 'haml-mode))
 
+;; Beacon --- Show little "animation" around cursor when switching
+;; windows etc. to quickly indicate where the cursor is.
+(use-package beacon
+  :ensure t
+  :config
+  (beacon-mode 1))
+
 ;; Comments
 (use-package comment-dwim-2
   :ensure t

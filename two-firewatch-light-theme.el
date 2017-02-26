@@ -39,6 +39,7 @@
       (brown-35 "#c0a386")
       (brown-40 "#b6ac9b")
       (brown-50 "#d1cec7")
+      (violet-dark "#721cd4")
       (blue-01 "#005486")
       (blue-03 "#566e97")
       (blue-10 "#4280b8")
@@ -95,7 +96,7 @@
    `(font-lock-warning-face ((,class (:foreground ,warning :background ,bg2))))
 
    ;; Selection
-   `(region ((,class (:background ,blue-01 :foreground ,white-00))))
+   `(region ((,class (:background ,violet-dark :foreground ,white-00))))
 
    `(highlight ((,class (:foreground ,fg3 :background ,bg3))))
 
@@ -128,7 +129,7 @@
    `(mode-line-emphasis ((,class (:foreground ,fg1))))
 
    `(vertical-border ((,class (:foreground ,fg3))))
-   `(minibuffer-prompt ((,class (:bold t :foreground ,keyword))))
+   `(minibuffer-prompt ((,class (:bold t :foreground ,white-00 :background ,violet-dark))))
    `(default-italic ((,class (:italic t))))
    `(link ((,class (:foreground ,const :underline t))))
 

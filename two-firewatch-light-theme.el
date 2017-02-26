@@ -51,6 +51,7 @@
       (red-30 "#cc4232")
       (red-40 "#e26776")
       (red-60 "#fe8c52")
+      (red-80 "#ffc9c9")
       (white-80 "#eae6e1")
       (white-99 "#faf8f5")
       (white-00 "#ffffff")
@@ -246,6 +247,7 @@
    `(rainbow-delimiters-unmatched-face ((,class :foreground ,warning)))
 
    ;; Helm
+   `(helm-match ((,class (:foreground ,black-10 :background ,red-80))))
    `(helm-header ((,class (:foreground ,fg2 :background ,bg1 :underline nil :box nil))))
    `(helm-source-header ((,class (:foreground ,blue-01 :underline nil :weight bold :height 1.5))))
    `(helm-selection ((,class (:background ,blue-10 :underline nil))))

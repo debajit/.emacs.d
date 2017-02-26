@@ -10,6 +10,7 @@
         helm-M-x
         org-end-of-line
         org-self-insert-command
+        pabbrev-expand-maybe
         ))
 
 (setq mc/cmds-to-run-once

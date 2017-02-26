@@ -35,8 +35,10 @@
       (brown-20 "#9c7e4e")
       (brown-25 "#a58b5f")
       (brown-30 "#b29566")
+      (brown-33 "#c49331")
       (brown-35 "#c0a386")
       (brown-40 "#b6ac9b")
+      (brown-50 "#d1cec7")
       (blue-01 "#005486")
       (blue-03 "#566e97")
       (blue-10 "#4280b8")
@@ -48,6 +50,8 @@
       (green-80 "#dce3d1")
       (red-30 "#cc4232")
       (red-40 "#e26776")
+      (red-60 "#fe8c52")
+      (white-80 "#eae6e1")
       (white-99 "#faf8f5")
       (white-00 "#ffffff")
 
@@ -71,7 +75,7 @@
       (str     "#005486")
       (type    "#E26776")
       (var     "#7090CA")
-      (warning "#ff0000")
+      (warning "#009c30")
       (warning2 "#ff8800"))
   (custom-theme-set-faces
    'two-firewatch-light
@@ -109,18 +113,19 @@
    `(isearch ((,class (:bold t :foreground ,warning :background ,bg3))))
 
    ;; Fill Column Indicator mode
-   `(fci-rule-color ,fg6)
-   `(fci-rule-character-color ,fg6)
+   `(fci-rule-color ,bg2)
+   ;; `(fci-rule-character-color ,fg6)
 
    ;; Linum mode
    `(linum ((t (:background ,bg5 :foreground ,fg6))))
 
    ;; Mode line
-   `(mode-line ((,class (:box (:line-width 1 :color nil) :bold t :foreground ,fg4 :background ,bg2))))
-   `(mode-line-inactive ((,class (:box (:line-width 1 :color nil :style pressed-button) :foreground ,var :background ,bg1 :weight normal))))
-   `(mode-line-buffer-id ((,class (:bold t :foreground ,func :background nil))))
+   `(mode-line ((,class (:box (:line-width 1 :color nil) :bold t :foreground ,keyword :background ,brown-40))))
+   `(mode-line-inactive ((,class (:box (:line-width 1 :color nil :style pressed-button) :foreground ,keyword :background ,brown-50 :weight normal))))
+   `(mode-line-buffer-id ((,class (:bold t :foreground ,keyword :background nil))))
    `(mode-line-highlight ((,class (:foreground ,keyword :box nil :weight bold))))
    `(mode-line-emphasis ((,class (:foreground ,fg1))))
+
    `(vertical-border ((,class (:foreground ,fg3))))
    `(minibuffer-prompt ((,class (:bold t :foreground ,keyword))))
    `(default-italic ((,class (:italic t))))
@@ -158,12 +163,12 @@
    ;; `(whitespace-empty ((t (:background ,yellow-2))))
    ;; `(whitespace-hspace ((t (:foreground ,brown-4))))
    ;; `(whitespace-indentation ((t (:foreground ,brown-4))))
-   `(whitespace-line ((t (:background ,white-99 :foreground ,red-30))))
+   `(whitespace-line ((t (:background ,white-99 :foreground ,brown-33))))
    ;; `(whitespace-newline ((t (:foreground ,brown-4))))
    ;; `(whitespace-space ((t (:foreground ,brown-4))))
    ;; `(whitespace-space-after-tab ((t (:foreground ,brown-4))))
    ;; `(whitespace-tab ((t (:foreground ,brown-4))))
-   `(whitespace-trailing ((t (:background ,red-30))))
+   `(whitespace-trailing ((t (:background ,brown-33))))
 
    `(font-latex-bold-face ((,class (:foreground ,type))))
    `(font-latex-italic-face ((,class (:foreground ,var :italic t))))
@@ -242,8 +247,8 @@
 
    ;; Helm
    `(helm-header ((,class (:foreground ,fg2 :background ,bg1 :underline nil :box nil))))
-   `(helm-source-header ((,class (:foreground ,keyword :background ,fg6 :underline nil :weight bold :height 1.5))))
-   `(helm-selection ((,class (:background ,bg2 :underline nil))))
+   `(helm-source-header ((,class (:foreground ,blue-01 :underline nil :weight bold :height 1.5))))
+   `(helm-selection ((,class (:background ,blue-10 :underline nil))))
    `(helm-selection-line ((,class (:background ,bg2))))
    `(helm-visible-mark ((,class (:foreground ,bg1 :background ,bg3))))
    `(helm-candidate-number ((,class (:foreground ,bg1 :background ,fg1))))

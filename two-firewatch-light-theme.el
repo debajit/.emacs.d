@@ -36,20 +36,21 @@
       (pastel-yellow "#fdf4c1")
 
       (black-10 "#2d1f06")
-      (brown-10 "#89662c")
+      (brown-10 "#89662c")              ; Duotone brown 1
       (brown-15 "#92723d")
       (brown-20 "#9c7e4e")
       (brown-25 "#a58b5f")
-      (brown-30 "#b29566")
+      (brown-30 "#b29566")              ; Duotone brown 2
       (brown-33 "#c49331")
       (brown-35 "#c0a386")
       (brown-40 "#b6ac9b")
       (brown-50 "#d1cec7")
-      (blue-01 "#005486")
+      (blue-01 "#005486")               ; Duotone blue 1
       (blue-03 "#566e97")
       (blue-10 "#4280b8")
-      (blue-15 "#7090ca")
+      (blue-15 "#7090ca")               ; Duotone blue 2
       (blue-20 "#8FC3F5")
+      (blue-25 "#9bc4ed")
       (green-20 "#009c30")
       (green-50 "#97c378")
       (green-80 "#dce3d1")
@@ -113,7 +114,7 @@
    `(cursor ((,class (:background ,blue-10))))
 
    ;; Parentheses match
-   `(show-paren-match-face ((,class (:background ,blue-10))))
+   `(show-paren-match-face ((,class (:background ,blue-25))))
 
    ;; Isearch (TODO: Reuse swiper faces)
    `(isearch ((,class (:bold nil :foreground ,white-00 :background ,red-30))))
@@ -152,8 +153,8 @@
    `(org-code ((,class (:foreground ,fg2))))
    `(org-hide ((,class (:foreground ,fg4))))
    `(org-level-1 ((,class (:bold t :foreground ,blue-01 :height 2.4))))
-   `(org-level-2 ((,class (:bold t :foreground ,brown-20 :height 1.8))))
-   `(org-level-3 ((,class (:bold t :foreground ,red-40 :height 1.5))))
+   `(org-level-2 ((,class (:bold t :foreground ,blue-15 :height 1.8))))
+   `(org-level-3 ((,class (:bold t :foreground ,brown-10 :height 1.5))))
    `(org-level-4 ((,class (:bold nil :foreground ,bg4))))
    `(org-date ((,class (:underline t :foreground ,var) )))
    `(org-footnote  ((,class (:underline t :foreground ,fg4))))

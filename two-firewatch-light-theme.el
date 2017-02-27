@@ -31,8 +31,9 @@
 (let ((class '((class color) (min-colors 89)))
       (violet-bright "#721cd4")
       (red-bright "#fb4933")
-      (green-peacock "#43d08a")
-      (yellow-pastel "#fdf4c1")
+      (peacock-green "#43d08a")
+      (seafoam-green "#c8ffd3")
+      (pastel-yellow "#fdf4c1")
 
       (black-10 "#2d1f06")
       (brown-10 "#89662c")
@@ -121,10 +122,11 @@
    ;; (isearch-fail                              (:foreground gruvbox-light0 :background gruvbox-bright_red))
 
    ;; Swiper
-   `(swiper-match-face-2 ((,class (:bold nil :foreground ,yellow-pastel :background ,red-bright))))
-   `(swiper-match-face-1 ((,class (:bold nil :foreground ,black-10 :background ,green-peacock))))
-   `(swiper-match-face-3 ((,class (:bold nil :foreground ,yellow-pastel :background ,blue-01))))
-   `(swiper-match-face-4 ((,class (:bold nil :foreground ,yellow-pastel :background ,red-30))))
+   `(swiper-match-face-2 ((,class (:foreground ,pastel-yellow :background ,red-bright))))
+   `(swiper-match-face-1 ((,class (:foreground ,black-10 :background ,peacock-green))))
+   `(swiper-match-face-3 ((,class (:foreground ,pastel-yellow :background ,blue-01))))
+   `(swiper-match-face-4 ((,class (:foreground ,pastel-yellow :background ,red-30))))
+   `(swiper-line-face ((,class (:background ,green-80))))
 
    ;; Fill Column Indicator mode
    `(fci-rule-color ,bg2)
@@ -141,7 +143,8 @@
    `(mode-line-emphasis ((,class (:foreground ,fg1))))
 
    `(vertical-border ((,class (:foreground ,fg3))))
-   `(minibuffer-prompt ((,class (:bold t :foreground ,white-00 :background ,violet-bright))))
+   ;; `(minibuffer-prompt ((,class (:bold t :foreground ,white-00 :background ,violet-bright))))
+   `(minibuffer-prompt ((,class (:bold t :foreground ,"#00601d" :background ,seafoam-green))))
    `(default-italic ((,class (:italic t))))
    `(link ((,class (:foreground ,const :underline t))))
 

@@ -363,6 +363,8 @@
          ("s-SPC" . helm-mini)          ; List buffers, like C-x b
          ("s-i" . helm-semantic-or-imenu) ; Jump to method
          ("s-b" . helm-bookmarks))
+  :init
+  (setq helm-truncate-lines t)
   :config
   (helm-mode 1)
   (eval-after-load 'helm-mode '(diminish 'helm-mode)))

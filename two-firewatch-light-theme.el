@@ -94,7 +94,10 @@
    `(font-lock-doc-face ((,class (:foreground ,comment))))
    `(font-lock-function-name-face ((,class (:foreground ,func ))))
    `(font-lock-keyword-face ((,class (:bold ,class :foreground ,keyword))))
-   `(font-lock-string-face ((,class (:foreground ,str))))
+
+   ;; Strings
+   `(font-lock-string-face ((,class (:foreground ,str :italic t))))
+
    `(font-lock-type-face ((,class (:foreground ,type ))))
    `(font-lock-variable-name-face ((,class (:foreground ,var))))
    `(font-lock-warning-face ((,class (:foreground ,warning :background ,bg2))))
@@ -152,7 +155,8 @@
 
    `(vertical-border ((,class (:foreground ,fg3))))
    ;; `(minibuffer-prompt ((,class (:bold t :foreground ,white-00 :background ,violet-bright))))
-   `(minibuffer-prompt ((,class (:bold t :foreground ,"#00601d" :background ,seafoam-green))))
+   `(minibuffer-prompt ((,class (:bold t :foreground ,white-00 :background ,blue-01))))
+   ;; `(minibuffer-prompt ((,class (:bold t :foreground ,"#00601d" :background ,seafoam-green))))
    `(default-italic ((,class (:italic t))))
    `(link ((,class (:foreground ,const :underline t))))
 
@@ -184,6 +188,13 @@
    `(org-verbatim ((,class (:foreground ,fg4))))
    `(org-document-info-keyword ((,class (:foreground ,func))))
 
+   ;; Smartparens
+   `(sp-pair-overlay-face ((,class (:background ,green-80))))
+   ;; (sp-show-pair-match-face                   (:background gruvbox-dark2)) ;; Pair tags highlight
+   ;; (sp-show-pair-mismatch-face                (:background gruvbox-neutral_red)) ;; Highlight for bracket without pair
+   ;;(sp-wrap-overlay-face                     (:inherit 'sp-wrap-overlay-face))
+   ;;(sp-wrap-tag-overlay-face                 (:inherit 'sp-wrap-overlay-face))
+
    ;; whitespace-mode
    ;; `(whitespace-empty ((t (:background ,yellow-2))))
    ;; `(whitespace-hspace ((t (:foreground ,brown-4))))
@@ -202,6 +213,10 @@
    `(yard-option-face ((,class (:foreground ,"#44687d" :italic t))))
    `(yard-tag-face ((,class (:foreground ,"#789ec1" :italic t))))
    `(yard-types-face ((,class (:foreground ,"#c25344" :italic t))))
+
+   ;; Deft
+   `(deft-header-face ((,class (:foreground ,blue-15 :bold t :height 2.4))))
+   `(deft-title-face ((,class (:foreground ,blue-01))))
 
    `(font-latex-bold-face ((,class (:foreground ,type))))
    `(font-latex-italic-face ((,class (:foreground ,var :italic t))))

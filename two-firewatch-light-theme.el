@@ -195,6 +195,14 @@
    ;; `(whitespace-tab ((t (:foreground ,brown-4))))
    `(whitespace-trailing ((t (:background ,brown-33))))
 
+   ;; Yard
+   ;; TODO: extract constants
+   `(yard-directive-face ((,class (:foreground ,"#789ec1" :italic t))))
+   `(yard-name-face ((,class (:foreground ,"#44687d" :italic t :bold t))))
+   `(yard-option-face ((,class (:foreground ,"#44687d" :italic t))))
+   `(yard-tag-face ((,class (:foreground ,"#789ec1" :italic t))))
+   `(yard-types-face ((,class (:foreground ,"#c25344" :italic t))))
+
    `(font-latex-bold-face ((,class (:foreground ,type))))
    `(font-latex-italic-face ((,class (:foreground ,var :italic t))))
    `(font-latex-string-face ((,class (:foreground ,str))))

@@ -133,6 +133,13 @@
    `(fci-rule-color ,bg2)
    ;; `(fci-rule-character-color ,fg6)
 
+   ;; Ivy
+   `(ivy-current-match ((,class (:background ,blue-10 :foreground ,white-00 :underline nil))))
+   `(ivy-minibuffer-match-face-2 ((,class (:foreground ,red-bright :bold t))))
+   `(ivy-minibuffer-match-face-1 ((,class (:foreground ,red-30 :bold t))))
+   `(ivy-minibuffer-match-face-3 ((,class (:foreground ,blue-01 :bold t))))
+   `(ivy-minibuffer-match-face-4 ((,class (:foreground ,green-20 :bold t))))
+
    ;; Linum mode
    `(linum ((t (:background ,bg5 :foreground ,fg6))))
 

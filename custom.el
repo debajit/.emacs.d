@@ -26,9 +26,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(deft-header-face ((t (:family "Verlag"))))
  '(fixed-pitch ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 161 :width normal :foundry "nil" :family "Consolas"))))
- '(org-level-1 ((t (:weight bold :height 2.4 :family "Verlag"))))
+ '(helm-source-header ((t (:family "Verlag"))))
+ '(org-level-1 ((t (:foreground "#005486" :weight bold :height 2.4 :family "Verlag"))))
  '(org-level-2 ((t (:weight bold :height 1.8 :family "Verlag"))))
  '(org-level-3 ((t (:weight bold :height 1.5 :family "Verlag"))))
- '(org-link ((t (:inherit fixed-pitch))))
- )
+ '(org-link ((t (:inherit fixed-pitch)))))

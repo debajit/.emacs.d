@@ -160,6 +160,13 @@
    `(default-italic ((,class (:italic t))))
    `(link ((,class (:foreground ,const :underline t))))
 
+   ;; Markdown mode
+   `(markdown-header-face-1 ((,class (:bold t :foreground ,blue-01 :height 2.4))))
+   `(markdown-header-face-2 ((,class (:bold t :foreground ,blue-15 :height 1.8))))
+   `(markdown-header-face-3 ((,class (:bold t :foreground ,brown-10 :height 1.5))))
+   `(markdown-header-face-4 ((,class (:bold nil :foreground ,blue-01 :height 1.3))))
+   `(markdown-header-delimiter-face ((,class (:foreground ,brown-50))))
+
    ;; Org mode
    `(org-code ((,class (:foreground ,fg2))))
    `(org-hide ((,class (:foreground ,fg4))))

@@ -166,6 +166,7 @@
    `(markdown-header-face-3 ((,class (:bold t :foreground ,brown-10 :height 1.5))))
    `(markdown-header-face-4 ((,class (:bold nil :foreground ,blue-01 :height 1.3))))
    `(markdown-header-delimiter-face ((,class (:foreground ,brown-50))))
+   `(markdown-link-face ((,class (:foreground ,blue-15))))
 
    ;; Org mode
    `(org-code ((,class (:foreground ,fg2))))

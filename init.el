@@ -499,6 +499,11 @@
     (set-fill-column 72))
   (add-hook 'ruby-mode-hook 'my-ruby-mode-hook))
 
+;; Ruby tools
+;; Autocompletes string interpolations
+(use-package ruby-tools
+  :ensure t)
+
 ;; Smartparens
 (use-package smartparens
   :ensure t

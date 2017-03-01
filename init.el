@@ -381,6 +381,9 @@
 (use-package ido-mode
   :bind ("C-x C-f" . ido-find-file))
 
+(use-package ivy
+  :diminish ivy-mode)
+
 (use-package helm-projectile
   :ensure t)
 

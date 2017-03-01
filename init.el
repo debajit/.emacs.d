@@ -251,6 +251,7 @@
 ;; windows etc. to quickly indicate where the cursor is.
 (use-package beacon
   :ensure t
+  :diminish beacon-mode
   :config
   (beacon-mode 1))
 

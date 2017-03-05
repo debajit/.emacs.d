@@ -504,7 +504,8 @@
 (use-package neotree
   :ensure t
   :init
-  (setq-default neo-smart-open t)
+  (setq-default neo-smart-open t             ; Open file browser in current directory.
+                neo-window-fixed-size nil)   ; Make file browser resizeable
   ;; (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
   :bind ("<f7>" . neotree-toggle))
 

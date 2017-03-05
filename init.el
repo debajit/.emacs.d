@@ -277,6 +277,11 @@
          ("s-<backspace>" . crux-kill-line-backwards)
          ("C-<backspace>" . crux-kill-line-backwards)))
 
+;; Wrap text easily with delimiters (quotes etc.)
+(use-package corral
+  :ensure t
+  :bind ("M-\"" . corral-double-quotes-forward))
+
 (use-package css-mode
   :diminish aggressive-indent-mode
   :diminish helm-mode

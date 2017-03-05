@@ -47,9 +47,9 @@
 (global-set-key (kbd "s-y") 'winner-undo)
 (global-set-key (kbd "s-Y") 'winner-redo)
 
-;; Line number mode. Not enabled currently. To make this look good, set
-;; the fringe color to the window background color.
-(setq linum-format " %d  ")
+;; Line number mode. Not enabled currently. To make this look good,
+;; set the fringe color to the window background color.
+(setq linum-format " %4d ")
 
 ;; Use spaces not tabs
 (setq-default indent-tabs-mode nil)   ;; Don't use tabs to indent

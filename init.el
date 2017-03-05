@@ -51,10 +51,6 @@
 ;; set the fringe color to the window background color.
 (setq linum-format " %4d ")
 
-;; Use spaces not tabs
-(setq-default indent-tabs-mode nil)   ;; Don't use tabs to indent
-(setq-default tab-width 4)            ;; Ensure tabs are aligned well
-
 ;; Whitespace
 (setq require-final-newline t)          ; Add a newline at end of file
 
@@ -63,6 +59,20 @@
 
 ;; Show images by default
 (setq auto-image-file-mode t)
+
+
+;;----------------------------------------------------------------------
+;; Indentation
+;;----------------------------------------------------------------------
+
+;; Use spaces not tabs
+(setq-default indent-tabs-mode nil)   ;; Don't use tabs to indent
+(setq-default tab-width 4)            ;; Ensure tabs are aligned well
+
+;; C++, C indentation
+(setq c-default-style "linux" ; Microsoft-style --- with { on new line
+      c-basic-offset 4)       ; Indent 4 spaces
+
 
 ;;----------------------------------------------------------------------
 ;; Autocomplete

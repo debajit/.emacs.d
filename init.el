@@ -566,6 +566,10 @@
   :ensure t
   :bind ("s-f" . swiper))
 
+;; TypeScript
+(use-package typescript-mode
+  :ensure t)
+
 (use-package undo-tree
   :ensure t
   :diminish undo-tree-mode

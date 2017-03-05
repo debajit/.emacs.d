@@ -455,9 +455,11 @@
   )
 (add-hook 'markdown-mode-hook 'markdown-mode-keyboard-shortcuts)
 
+;; Multiple cursors. Prefer to use iedit (even with M-{ or M-}) for
+;; simple variable renames
 (use-package multiple-cursors
   :ensure t
-  :bind ("s-D" . mc/mark-next-word-like-this))
+  :bind ("s-E" . mc/mark-next-word-like-this))
 
 ;; NeoTree file tree browser
 (use-package neotree

@@ -498,7 +498,6 @@
 ;; Predictive text completion (Predictive Abbreviation mode)
 (use-package pabbrev
   :ensure t
-  :diminish pabbrev-mode
   :init
   (setq pabbrev-idle-timer-verbose nil
         pabbrev-read-only-error nil)

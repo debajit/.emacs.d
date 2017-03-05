@@ -685,5 +685,6 @@
 
 (if (display-graphic-p)
     ;; (load-theme 'apus t)
-    (load-theme 'gruvbox t)
+    ;; (load-theme 'gruvbox t)
+    (load-theme 'two-firewatch-light t)
   (load-theme 'stygian t))

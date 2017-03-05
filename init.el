@@ -331,6 +331,16 @@
     (set-fill-column 72))
   (add-hook 'css-mode-hook 'my-css-mode-hook))
 
+(use-package c++-mode
+  :config
+  (add-hook 'c++-mode-hook
+            '(lambda ()
+               (set-fill-column 72)
+               (setq c-default-style "linux" ; Microsoft-style --- with { on new line
+                     c-basic-offset 4)       ; Indent 4 spaces
+               (c-subword-mode +1)
+               )))
+
 ;; Easy kill -- Better copy and paste
 (use-package easy-kill
   :ensure t

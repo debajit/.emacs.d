@@ -415,7 +415,7 @@
 
 ;; Line numbers of left of buffer
 (use-package linum-mode
-  :bind ("<f9>" . linum-mode))
+  :bind ("<f8>" . linum-mode))
 
 ;; Markdown Mode
 (use-package markdown-mode

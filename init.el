@@ -585,6 +585,12 @@
   :config
   (custom-set-variables '(vlf-application 'dont-ask)))
 
+;; Web mode
+(use-package web-mode
+  :ensure t
+  :bind (:map web-mode-map
+              ("s-r" . browse-url-of-buffer)))
+
 ;; Whitespace mode
 (use-package whitespace
   :diminish whitespace-mode

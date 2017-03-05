@@ -269,6 +269,7 @@
 (use-package crux
   :ensure t
   :bind (("s-d" . crux-duplicate-current-line-or-region)
+         ("s-D" . crux-duplicate-and-comment-current-line-or-region)
          ("M-o" . crux-smart-open-line)
          ("s-o" . crux-smart-open-line-above)
          ;; ("s-j" . crux-top-join-line)

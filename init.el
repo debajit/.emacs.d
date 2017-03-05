@@ -61,6 +61,9 @@
 ;; Narrowing and widening
 (put 'narrow-to-region 'disabled nil)   ; Enable narrowing (disabled by default)
 
+;; Show images by default
+(setq auto-image-file-mode t)
+
 ;;----------------------------------------------------------------------
 ;; Autocomplete
 ;;----------------------------------------------------------------------

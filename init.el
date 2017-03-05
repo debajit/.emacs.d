@@ -501,6 +501,7 @@
         pabbrev-read-only-error nil)
   :config
   (global-pabbrev-mode)
+  (put 'yas-expand 'pabbrev-expand-after-command t)
   ;; Fix for pabbrev not working in org mode
   ;; http://lists.gnu.org/archive/html/emacs-orgmode/2016-02/msg00311.html
   (define-key pabbrev-mode-map [tab] 'pabbrev-expand-maybe)

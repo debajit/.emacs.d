@@ -505,14 +505,9 @@
   ;; (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
   :bind ("<f7>" . neotree-toggle))
 
-;; Unicode Org-mode bullets for improved typography
-(use-package org-bullets
-  :ensure t
-  :diminish org-bullets-mode
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-
+;; Org mode
 (use-package org
+  :ensure t
   :init
   (setq org-startup-indented t          ; Turn on org-indent-mode
         org-startup-folded nil)         ; Start expanded
@@ -527,6 +522,12 @@
   ;; see http://emacs.stackexchange.com/questions/22531/diminish-org-indent-mode
   (eval-after-load 'org-indent '(diminish 'org-indent-mode)))
 
+;; Unicode Org-mode bullets for improved typography
+(use-package org-bullets
+  :ensure t
+  :diminish org-bullets-mode
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 ;; Predictive text completion (Predictive Abbreviation mode)
 (use-package pabbrev

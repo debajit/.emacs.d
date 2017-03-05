@@ -538,6 +538,18 @@
   :config
   (smartparens-global-mode 1))
 
+;; Smart tab. Auto-complete text + expand snippets with Tab. Outside
+;; of pabbrev with Yasnippet completion, this is probably the second
+;; best option for auto-complete.
+;;
+;; (use-package smart-tab
+;;   :ensure t
+;;   :init
+;;   (cons 'yas/hippie-try-expand 'hippie-expand-try-functions-list)
+;;   (setq smart-tab-using-hippie-expand t)
+;;   :config
+;;   (global-smart-tab-mode +1))
+
 ;; Subword mode. This package is configured somewhat differently from
 ;; others. Enabling subword-mode in :config does not work with diminish.
 ;; The following, however appears to work. See also

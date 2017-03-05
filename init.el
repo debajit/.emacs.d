@@ -74,6 +74,9 @@
 (global-set-key (kbd "s-/") 'hippie-expand)
 (global-set-key (kbd "M-/") 'hippie-expand)
 
+;; Narrowing and widening
+(put 'narrow-to-region 'disabled nil)   ; Enable narrowing (disabled by default)
+
 ;;----------------------------------------------------------------------
 ;; General keyboard shortcuts
 ;;----------------------------------------------------------------------

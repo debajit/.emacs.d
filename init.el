@@ -582,6 +582,9 @@
   (setq undo-tree-auto-save-history t)
   (global-undo-tree-mode))
 
+(use-package visual-line
+  :bind ("<f5>" . visual-line-mode))
+
 ;; VLF (Very large files) support
 (use-package vlf
   :ensure t

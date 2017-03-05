@@ -361,6 +361,11 @@
   (add-hook 'text-mode-hook #'flyspell-mode)
   (add-hook 'prog-mode-hook #'flyspell-prog-mode))
 
+;; Customize fringes
+(use-package fringe-mode
+  :config
+  (fringe-mode 32 32))                  ; Make fringes wider for more comfortable reading
+
 ;; HAML mode
 (use-package haml-mode
   :ensure t)

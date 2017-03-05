@@ -393,6 +393,11 @@
 (use-package ido-mode
   :bind ("C-x C-f" . ido-find-file))
 
+;; Iedit --- easily rename variables + rectangle mode
+(use-package iedit
+  :ensure t
+  :bind* ("C-;" . iedit-mode))
+
 (use-package ivy
   :diminish ivy-mode)
 

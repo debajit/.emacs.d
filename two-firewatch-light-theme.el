@@ -30,6 +30,7 @@
 (deftheme two-firewatch-light)
 (let ((class '((class color) (min-colors 89)))
       (violet-bright "#721cd4")
+      (eggplant "#744c80")
       (red-bright "#fb4933")
       (peacock-green "#43d08a")
       (seafoam-green "#c8ffd3")
@@ -103,7 +104,7 @@
    `(font-lock-warning-face ((,class (:foreground ,warning :background ,bg2))))
 
    ;; Selection
-   `(region ((,class (:background ,violet-bright :foreground ,white-00))))
+   `(region ((,class (:background ,eggplant :foreground ,white-00))))
 
    `(highlight ((,class (:foreground ,fg3 :background ,bg3))))
 
@@ -111,7 +112,7 @@
    `(hl-line ((,class (:background  ,bg5))))
 
    ;; Fringe (vertical line on left and right side of window)
-   `(fringe ((,class (:background ,bg5 :foreground ,fg4))))
+   `(fringe ((,class (:background ,bg1 :foreground ,fg4))))
 
    ;; Cursor
    `(cursor ((,class (:background ,blue-10))))
@@ -135,6 +136,9 @@
    ;; Fill Column Indicator mode
    `(fci-rule-color ,bg2)
    ;; `(fci-rule-character-color ,fg6)
+
+   ;; Iedit --- Edit multiple tokens
+   `(iedit-occurrence ((,class (:foreground ,white-00 :background ,violet-bright))))
 
    ;; Ivy
    `(ivy-current-match ((,class (:background ,blue-10 :foreground ,white-00 :underline nil))))
@@ -168,13 +172,19 @@
    `(markdown-header-delimiter-face ((,class (:foreground ,brown-50))))
    `(markdown-link-face ((,class (:foreground ,blue-15))))
 
+   ;; Neotree
+   `(neo-dir-link-face ((,class (:foreground ,black-10))))
+   `(neo-file-link-face ((,class (:foreground ,blue-01))))
+   `(neo-root-dir-face ((,class (:foreground ,brown-10))))
+   `(neo-header-face ((,class (:foreground ,comment))))
+
    ;; Org mode
    `(org-code ((,class (:foreground ,fg2))))
    `(org-hide ((,class (:foreground ,fg4))))
    `(org-level-1 ((,class (:bold t :foreground ,blue-01 :height 2.4))))
    `(org-level-2 ((,class (:bold t :foreground ,blue-15 :height 1.8))))
    `(org-level-3 ((,class (:bold t :foreground ,brown-10 :height 1.5))))
-   `(org-level-4 ((,class (:bold nil :foreground ,bg4))))
+   `(org-level-4 ((,class (:bold nil :foreground ,blue-01 :height 1.3))))
    `(org-date ((,class (:underline t :foreground ,var) )))
    `(org-footnote  ((,class (:underline t :foreground ,fg4))))
    `(org-link ((,class (:underline t :foreground ,type ))))
@@ -225,6 +235,20 @@
    ;; Deft
    `(deft-header-face ((,class (:foreground ,blue-15 :bold t :height 2.4))))
    `(deft-title-face ((,class (:foreground ,blue-01))))
+
+   ;; elfeed
+   ;; TODO: complete this.
+   `(elfeed-search-unread-title-face ((,class (:foreground ,blue-01 :bold t))))
+   `(elfeed-search-title-face ((,class (:foreground ,brown-10))))
+   `(elfeed-search-date-face ((,class (:foreground ,comment :underline nil))))
+   ;; (elfeed-search-title-face                  (:foreground   ))
+   ;; (elfeed-search-unread-title-face           (:foreground gruvbox-light0))
+   ;; (elfeed-search-date-face                   (:inherit 'font-lock-builtin-face :underline t))
+   ;; (elfeed-search-feed-face                   (:inherit 'font-lock-variable-name-face))
+   ;; (elfeed-search-tag-face                    (:inherit 'font-lock-keyword-face))
+   ;; (elfeed-search-last-update-face            (:inherit 'font-lock-comment-face))
+   ;; (elfeed-search-unread-count-face           (:inherit 'font-lock-comment-face))
+   ;; (elfeed-search-filter-face                 (:inherit 'font-lock-string-face))
 
    `(font-latex-bold-face ((,class (:foreground ,type))))
    `(font-latex-italic-face ((,class (:foreground ,var :italic t))))

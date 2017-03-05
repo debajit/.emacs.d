@@ -464,7 +464,10 @@
 ;; NeoTree file tree browser
 (use-package neotree
   :ensure t
-  :bind ("<f8>" . neotree-toggle))
+  :init
+  (setq-default neo-smart-open t)
+  ;; (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  :bind ("<f7>" . neotree-toggle))
 
 ;; Unicode Org-mode bullets for improved typography
 (use-package org-bullets

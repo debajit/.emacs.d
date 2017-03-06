@@ -587,7 +587,8 @@
 ;; Ruby tools
 ;; Autocompletes string interpolations
 (use-package ruby-tools
-  :ensure t)
+  :ensure t
+  :diminish ruby-tools-mode)
 
 ;; Smartparens
 (use-package smartparens

@@ -595,7 +595,8 @@
   :ensure t
   :diminish smartparens-mode
   :config
-  (smartparens-global-mode 1))
+  (require 'smartparens-config)
+  (smartparens-global-strict-mode 1))
 
 ;; Smart tab. Auto-complete text + expand snippets with Tab. Outside of
 ;; (pabbrev + yasnippet completion) and (dabbrev + yasnippet using

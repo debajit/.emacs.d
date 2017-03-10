@@ -370,6 +370,10 @@
    `(company-tooltip-mouse ((,class (:inherit highlight))))
    `(company-tooltip-selection ((,class (:background ,bg3 :foreground ,fg3))))
    `(company-template-field ((,class (:inherit region))))
+
+   ;; Web mode
+   `(web-mode-html-tag-bracket-face ((t (:foreground ,brown-40))))
+   `(web-mode-html-tag-face ((,class (:foreground ,"MediumPurple4"))))
    `(web-mode-builtin-face ((,class (:inherit ,font-lock-builtin-face))))
    `(web-mode-comment-face ((,class (:inherit ,font-lock-comment-face))))
    `(web-mode-constant-face ((,class (:inherit ,font-lock-constant-face))))
@@ -378,10 +382,11 @@
    `(web-mode-function-name-face ((,class (:inherit ,font-lock-function-name-face))))
    `(web-mode-string-face ((,class (:foreground ,str))))
    `(web-mode-type-face ((,class (:inherit ,font-lock-type-face))))
-   `(web-mode-html-attr-name-face ((,class (:foreground ,func))))
-   `(web-mode-html-attr-value-face ((,class (:foreground ,keyword))))
+   `(web-mode-html-attr-name-face ((,class (:foreground ,blue-10))))
+   `(web-mode-html-attr-value-face ((,class (:foreground ,red-40))))
+   `(web-mode-html-attr-equal-face ((,class (:foreground ,brown-40))))
    `(web-mode-warning-face ((,class (:inherit ,font-lock-warning-face))))
-   `(web-mode-html-tag-face ((,class (:foreground ,builtin))))
+
    `(jde-java-font-lock-package-face ((t (:foreground ,var))))
    `(jde-java-font-lock-public-face ((t (:foreground ,keyword))))
    `(jde-java-font-lock-private-face ((t (:foreground ,keyword))))

@@ -7,10 +7,13 @@
         crux-top-join-line
         delete-horizontal-space
         fill-paragraph
+        haml-electric-backspace
         helm-M-x
         org-end-of-line
         org-self-insert-command
         pabbrev-expand-maybe
+        sp-backward-delete-char
+        sp-delete-char
         ))
 
 (setq mc/cmds-to-run-once

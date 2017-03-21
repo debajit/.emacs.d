@@ -33,6 +33,7 @@
       (eggplant "#744c80")
       (red-bright "#fb4933")
       (peacock-green "#43d08a")
+      (seafoam-green2 "#b4ffc3")
       (seafoam-green "#c8ffd3")
       (pastel-yellow "#fdf4c1")
 
@@ -58,6 +59,7 @@
       (red-30 "#cc4232")
       (red-40 "#e26776")
       (red-80 "#ffc9c9")
+      (pale-orange-red "#fad3ca")
       (white-80 "#eae6e1")
       (white-99 "#faf8f5")
       (white-00 "#ffffff")
@@ -165,6 +167,9 @@
    `(default-italic ((,class (:italic t))))
    `(link ((,class (:foreground ,const :underline t))))
 
+   ;; CSS mode
+   `(css-selector ((t (:foreground ,red-40))))
+
    ;; Markdown mode
    `(markdown-header-face-1 ((,class (:bold t :foreground ,blue-01 :height 2.4))))
    `(markdown-header-face-2 ((,class (:bold t :foreground ,blue-15 :height 1.8))))
@@ -180,10 +185,11 @@
    `(neo-header-face ((,class (:foreground ,comment))))
 
    ;; Org mode
+   `(org-document-title ((,class (:foreground ,blue-01 :bold t :height 2.4))))
    `(org-code ((,class (:foreground ,fg2))))
    `(org-hide ((,class (:foreground ,fg4))))
-   `(org-level-1 ((,class (:bold t :foreground ,blue-01 :height 2.4))))
-   `(org-level-2 ((,class (:bold t :foreground ,blue-15 :height 1.8))))
+   `(org-level-1 ((,class (:bold t :foreground ,blue-01 :height 1.5))))
+   `(org-level-2 ((,class (:bold t :foreground ,blue-15 :height 1.5))))
    `(org-level-3 ((,class (:bold t :foreground ,brown-10 :height 1.5))))
    `(org-level-4 ((,class (:bold nil :foreground ,blue-01 :height 1.3))))
    `(org-date ((,class (:underline t :foreground ,var) )))
@@ -236,6 +242,10 @@
    ;; Deft
    `(deft-header-face ((,class (:foreground ,blue-15 :bold t :height 2.4))))
    `(deft-title-face ((,class (:foreground ,blue-01))))
+
+   ;; Diff
+   `(diff-added ((t (:foreground "forest green" :background ,seafoam-green))))
+   `(diff-removed ((t (:foreground "OrangeRed3" :background ,pale-orange-red))))
 
    ;; elfeed
    ;; TODO: complete this.
@@ -292,6 +302,7 @@
    `(undo-tree-visualizer-register-face ((,class :foreground ,type)))
    `(slime-repl-inputed-output-face ((,class (:foreground ,type))))
    `(trailing-whitespace ((,class :foreground nil :background ,warning)))
+
    `(rainbow-delimiters-depth-1-face ((,class :foreground ,fg1)))
    `(rainbow-delimiters-depth-2-face ((,class :foreground ,type)))
    `(rainbow-delimiters-depth-3-face ((,class :foreground ,var)))
@@ -300,6 +311,7 @@
    `(rainbow-delimiters-depth-6-face ((,class :foreground ,fg1)))
    `(rainbow-delimiters-depth-7-face ((,class :foreground ,type)))
    `(rainbow-delimiters-depth-8-face ((,class :foreground ,var)))
+
    `(magit-item-highlight ((,class :background ,bg3)))
    `(magit-section-heading        ((,class (:foreground ,keyword :weight bold))))
    `(magit-hunk-heading           ((,class (:background ,bg3))))
@@ -314,7 +326,9 @@
    `(magit-log-author ((,class (:foreground ,fg3))))
    `(magit-hash ((,class (:foreground ,fg2))))
    `(magit-diff-file-header ((,class (:foreground ,fg2 :background ,bg3))))
+
    `(lazy-highlight ((,class (:foreground ,fg2 :background ,bg3))))
+
    `(term ((,class (:foreground ,fg1 :background ,bg1))))
    `(term-color-black ((,class (:foreground ,bg3 :background ,bg3))))
    `(term-color-blue ((,class (:foreground ,func :background ,func))))
@@ -324,6 +338,7 @@
    `(term-color-magenta ((,class (:foreground ,builtin :background ,builtin))))
    `(term-color-cyan ((,class (:foreground ,str :background ,str))))
    `(term-color-white ((,class (:foreground ,fg2 :background ,fg2))))
+
    `(rainbow-delimiters-unmatched-face ((,class :foreground ,warning)))
 
    ;; Helm
@@ -356,6 +371,8 @@
    `(helm-moccur-buffer ((,class (:foreground ,func :background ,bg1))))
    `(helm-source-go-package-godoc-description ((,class (:foreground ,str))))
    `(helm-bookmark-w3m ((,class (:foreground ,type))))
+   `(helm-action ((t (:foreground ,brown-10))))
+   `(helm-ls-git-modified-not-staged-face ((t (:foreground ,red-bright))))
 
    `(company-echo-common ((,class (:foreground ,bg1 :background ,fg1))))
    `(company-preview ((,class (:background ,bg1 :foreground ,var))))
@@ -383,7 +400,7 @@
    `(web-mode-string-face ((,class (:foreground ,str))))
    `(web-mode-type-face ((,class (:inherit ,font-lock-type-face))))
    `(web-mode-html-attr-name-face ((,class (:foreground ,blue-10))))
-   `(web-mode-html-attr-value-face ((,class (:foreground ,red-40))))
+   `(web-mode-html-attr-value-face ((,class (:foreground ,red-40 :italic t))))
    `(web-mode-html-attr-equal-face ((,class (:foreground ,brown-40))))
    `(web-mode-warning-face ((,class (:inherit ,font-lock-warning-face))))
 

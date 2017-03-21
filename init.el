@@ -102,25 +102,25 @@
 ;;
 ;; Auto complete settings / tab settings
 ;; http://emacsblog.org/2007/03/12/tab-completion-everywhere/ <-- in the comments
-;;
-;; (global-set-key [(tab)] 'smart-tab)
-;; (defun smart-tab ()
-;;   "This smart tab is minibuffer compliant: it acts as usual in
-;;     the minibuffer. Else, if mark is active, indents region. Else if
-;;     point is at the end of a symbol, expands it. Else indents the
-;;     current line."
-;;   (interactive)
-;;   (if (minibufferp)
-;;       (unless (minibuffer-complete)
-;;         (dabbrev-expand nil))
-;;     (if mark-active
-;;         (indent-region (region-beginning)
-;;                        (region-end))
-;;       (if (looking-at "\\_>")
-;;           (let ((yas/fallback-behavior nil))
-;;             (unless (yas/expand)
-;;               (dabbrev-expand nil)))
-;;         (indent-for-tab-command)))))
+
+(global-set-key [(tab)] 'smart-tab)
+(defun smart-tab ()
+  "This smart tab is minibuffer compliant: it acts as usual in
+    the minibuffer. Else, if mark is active, indents region. Else if
+    point is at the end of a symbol, expands it. Else indents the
+    current line."
+  (interactive)
+  (if (minibufferp)
+      (unless (minibuffer-complete)
+        (dabbrev-expand nil))
+    (if mark-active
+        (indent-region (region-beginning)
+                       (region-end))
+      (if (looking-at "\\_>")
+          (let ((yas/fallback-behavior nil))
+            (unless (yas/expand)
+              (dabbrev-expand nil)))
+        (indent-for-tab-command)))))
 
 
 ;;----------------------------------------------------------------------
@@ -190,6 +190,13 @@
 
 ;; Open link at mouse pointer: s-click
 (global-set-key [s-mouse-1] 'browse-url-at-mouse)
+
+
+;;----------------------------------------------------------------------
+;; Version control
+;;----------------------------------------------------------------------
+
+(global-set-key [f12] 'vc-annotate)
 
 
 ;;----------------------------------------------------------------------
@@ -376,7 +383,7 @@
   :bind ("<f6>" . deft)
   :init
   (setq deft-directory "/Users/debajita/Documents/org")
-  (setq deft-extensions '("org" "txt" "md"))
+  (setq deft-extensions '("org" "txt" "md" "markdown"))
   (setq deft-default-extension "org")
   (setq deft-recursive t)
   (setq deft-text-mode 'org-mode)
@@ -447,6 +454,9 @@
   :ensure t
   :bind ("s-t" . helm-ls-git-ls))
 
+(use-package htmlize
+  :ensure t)
+
 (use-package ido-mode
   :bind ("C-x C-f" . ido-find-file))
 
@@ -476,7 +486,13 @@
 
 ;; Markdown Mode
 (use-package markdown-mode
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'markdown-mode              ; TODO: WIP
+            '(lambda ()
+               (whitespace-mode nil)
+               (visual-line-mode +1)
+               )))
 
 ;; Markdown mode
 ;; Use Octodown as Markdown parser
@@ -532,14 +548,25 @@
   :ensure t
   :init
   (setq org-startup-indented t          ; Turn on org-indent-mode
-        org-startup-folded nil)         ; Start expanded
+        org-startup-folded nil          ; Start expanded
+        org-cycle-separator-lines 0     ; Add newline between collapsed headers
+        org-ellipsis "   ↩"             ; Collapsed heading suffix
+        org-export-with-section-numbers nil ; TODO: Not working
+        htmlize-output-type 'css
+        org-html-htmlize-output-type 'css)
   :config
   (custom-set-variables '(org-hide-emphasis-markers t)) ; Hide bold, italic markers
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((C . t)
+     (R . t)
+     (ruby . t)))
   (add-hook 'org-mode-hook
             '(lambda ()
                (auto-fill-mode)                     ; Hard wrap automatically
                (whitespace-mode 0)                  ; Do not show trailing whitespace
-               (setq org-src-fontify-natively t)))  ; Syntax-highlight code snippets
+               (setq org-src-fontify-natively t
+                     org-export-with-section-numbers nil)))  ; Syntax-highlight code snippets
   ;; Diminish org-indent-mode
   ;; see http://emacs.stackexchange.com/questions/22531/diminish-org-indent-mode
   (eval-after-load 'org-indent '(diminish 'org-indent-mode)))
@@ -551,19 +578,22 @@
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
+(use-package ox-twbs
+  :ensure t)
+
 ;; Predictive text completion (Predictive Abbreviation mode)
-(use-package pabbrev
-  :ensure t
-  :init
-  (setq pabbrev-idle-timer-verbose nil
-        pabbrev-read-only-error nil)
-  :config
-  (global-pabbrev-mode)
-  (put 'yas-expand 'pabbrev-expand-after-command t)
-  ;; Fix for pabbrev not working in org mode
-  ;; http://lists.gnu.org/archive/html/emacs-orgmode/2016-02/msg00311.html
-  (define-key pabbrev-mode-map [tab] 'pabbrev-expand-maybe)
-  (add-hook 'text-mode-hook (lambda () (pabbrev-mode))))
+;; (use-package pabbrev
+;;   :ensure t
+;;   :init
+;;   (setq pabbrev-idle-timer-verbose nil
+;;         pabbrev-read-only-error nil)
+;;   :config
+;;   ;; (global-pabbrev-mode)
+;;   (put 'yas-expand 'pabbrev-expand-after-command t)
+;;   ;; Fix for pabbrev not working in org mode
+;;   ;; http://lists.gnu.org/archive/html/emacs-orgmode/2016-02/msg00311.html
+;;   (define-key pabbrev-mode-map [tab] 'pabbrev-expand-maybe)
+;;   (add-hook 'text-mode-hook (lambda () (pabbrev-mode))))
 
 ;; Projectile -- Project management
 (use-package projectile
@@ -588,7 +618,8 @@
 ;; Autocompletes string interpolations
 (use-package ruby-tools
   :ensure t
-  :diminish ruby-tools-mode)
+  :diminish ruby-tools-mode
+  :bind* ("s-u" . ruby-tools-clear-string))
 
 ;; Smartparens
 (use-package smartparens
@@ -596,7 +627,7 @@
   :diminish smartparens-mode
   :config
   (require 'smartparens-config)
-  (smartparens-global-strict-mode 1))
+  (smartparens-global-mode 1))
 
 ;; Smart tab. Auto-complete text + expand snippets with Tab. Outside of
 ;; (pabbrev + yasnippet completion) and (dabbrev + yasnippet using
@@ -653,7 +684,16 @@
 (use-package web-mode
   :ensure t
   :bind (:map web-mode-map
-              ("s-r" . browse-url-of-buffer)))
+              ("s-r" . browse-url-of-buffer))
+  :config
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode)))
 
 ;; Whitespace mode
 (use-package whitespace

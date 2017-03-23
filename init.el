@@ -642,6 +642,10 @@
 ;;   :config
 ;;   (global-smart-tab-mode +1))
 
+;; Sort words in a line
+(use-package sort-words
+  :ensure t)
+
 ;; Subword mode. This package is configured somewhat differently from
 ;; others. Enabling subword-mode in :config does not work with diminish.
 ;; The following, however appears to work. See also

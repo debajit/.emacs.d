@@ -170,13 +170,18 @@
    ;; CSS mode
    `(css-selector ((t (:foreground ,red-40))))
 
+
    ;; Markdown mode
+   `(markdown-bold-face ((t (:foreground ,red-40 :bold t :italic nil))))
+   `(markdown-header-delimiter-face ((,class (:foreground ,brown-50))))
    `(markdown-header-face-1 ((,class (:bold t :foreground ,blue-01 :height 2.4))))
    `(markdown-header-face-2 ((,class (:bold t :foreground ,blue-15 :height 1.8))))
    `(markdown-header-face-3 ((,class (:bold t :foreground ,brown-10 :height 1.5))))
    `(markdown-header-face-4 ((,class (:bold nil :foreground ,blue-01 :height 1.3))))
-   `(markdown-header-delimiter-face ((,class (:foreground ,brown-50))))
-   `(markdown-link-face ((,class (:foreground ,blue-15))))
+   `(markdown-italic-face ((t (:foreground ,red-bright :italic t))))
+   `(markdown-link-face ((,class (:foreground ,blue-01 :italic nil))))
+   `(markdown-markup-face ((,class (:foreground ,brown-50))))
+   `(markdown-url-face ((,class (:foreground ,blue-15 :italic t))))
 
    ;; Neotree
    `(neo-dir-link-face ((,class (:foreground ,black-10))))

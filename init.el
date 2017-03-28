@@ -91,11 +91,12 @@
                                          try-complete-lisp-symbol-partially
                                          try-complete-lisp-symbol))
 
-(global-set-key (kbd "s-j") 'hippie-expand) ; Use an easy keystroke for this :)
 (global-set-key (kbd "s-/") 'hippie-expand)
 (global-set-key (kbd "M-/") 'hippie-expand)
 
 
+;; Autocomplete with Tab (Yas + dabbrev)
+;;
 ;; Configure the Tab key to autocomplete / indent / expand-snippet
 ;; depending on the position of the cursor. See
 ;; http://stackoverflow.com/questions/13576156/emacs-smart-tab-with-yasnippets
@@ -158,12 +159,15 @@
 (global-set-key (kbd "s-0") (lambda () (interactive) (text-scale-increase 0)))
 
 ;; Toggle truncate lines: s-p
-(global-set-key (kbd "s-p") 'toggle-truncate-lines)
+(global-set-key (kbd "s-p") 'visual-line-mode)
 
 
 ;;----------------------------------------------------------------------
 ;; Text editing
 ;;----------------------------------------------------------------------
+
+;; Toggle read-only mode: s-j
+(global-set-key (kbd "s-j") 'view-mode)
 
 ;; Delete line: s-k   (default: C-k)
 (global-set-key (kbd "s-k") 'kill-whole-line)
@@ -193,10 +197,11 @@
 
 
 ;;----------------------------------------------------------------------
-;; Version control
+;; Version control / Source control
 ;;----------------------------------------------------------------------
 
 (global-set-key [f12] 'vc-annotate)
+(global-set-key (kbd "s-,") 'vc-diff)
 
 
 ;;----------------------------------------------------------------------
@@ -365,9 +370,9 @@
 ;; CTags
 (use-package etags-select
   :ensure t
-  :bind (("s-." . etags-select-find-tag-at-point)
-         ("s->" . etags-select-find-tag)
-         ("M-." . pop-tag-mark)))       ; Jump back from tag found
+  :bind (("M-." . etags-select-find-tag-at-point)
+         ("s-." . etags-select-find-tag)
+         ("M-," . pop-tag-mark)))       ; Jump back from tag found
 
 ;; Dash-at-point (Lookup in Dash.app)
 (use-package dash-at-point
@@ -484,15 +489,19 @@
 (use-package linum-mode
   :bind ("<f8>" . linum-mode))
 
+
+;; Magit
+(use-package magit
+  :ensure t
+  :bind ("s-g" . magit-status))
+
+
 ;; Markdown Mode
 (use-package markdown-mode
   :ensure t
-  :config
-  (add-hook 'markdown-mode              ; TODO: WIP
-            '(lambda ()
-               (whitespace-mode nil)
-               (visual-line-mode +1)
-               )))
+  :init
+  (setq markdown-asymmetric-header t))
+
 
 ;; Markdown mode
 ;; Use Octodown as Markdown parser
@@ -586,9 +595,10 @@
 ;;   :ensure t
 ;;   :init
 ;;   (setq pabbrev-idle-timer-verbose nil
-;;         pabbrev-read-only-error nil)
+;;         pabbrev-read-only-error nil
+;;         pabbrev-scavenge-on-large-move nil)
 ;;   :config
-;;   ;; (global-pabbrev-mode)
+;;   (global-pabbrev-mode)
 ;;   (put 'yas-expand 'pabbrev-expand-after-command t)
 ;;   ;; Fix for pabbrev not working in org mode
 ;;   ;; http://lists.gnu.org/archive/html/emacs-orgmode/2016-02/msg00311.html
@@ -703,7 +713,8 @@
 (use-package whitespace
   :diminish whitespace-mode
   :init
-  (dolist (hook '(prog-mode-hook text-mode-hook))
+  ;; (dolist (hook '(prog-mode-hook text-mode-hook))
+  (dolist (hook '(prog-mode-hook))
     (add-hook hook #'whitespace-mode))
   (add-hook 'before-save-hook #'whitespace-cleanup)
   :config

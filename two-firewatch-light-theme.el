@@ -38,6 +38,7 @@
       (pastel-yellow "#fdf4c1")
 
       (black-10 "#2d1f06")
+      (brown-01 "#634105")
       (brown-10 "#89662c")              ; Duotone brown 1
       (brown-15 "#92723d")
       (brown-20 "#9c7e4e")
@@ -378,6 +379,9 @@
    `(helm-bookmark-w3m ((,class (:foreground ,type))))
    `(helm-action ((t (:foreground ,brown-10))))
    `(helm-ls-git-modified-not-staged-face ((t (:foreground ,red-bright))))
+
+   ;; hl-todo mode
+   `(hl-todo ((t (:background ,red-40 :foreground "white" :bold nil))))
 
    `(company-echo-common ((,class (:foreground ,bg1 :background ,fg1))))
    `(company-preview ((,class (:background ,bg1 :foreground ,var))))

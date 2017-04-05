@@ -19,4 +19,5 @@
 (setq mc/cmds-to-run-once
       '(
         mark-whole-buffer
+        markdown-exdent-or-delete
         ))

@@ -163,14 +163,16 @@
 
 
 ;;----------------------------------------------------------------------
-;; Text editing
+;; Text editing keys
 ;;----------------------------------------------------------------------
 
 ;; Toggle read-only mode: s-j
-(global-set-key (kbd "s-j") 'view-mode)
+;; (global-set-key (kbd "s-j") 'view-mode)
 
 ;; Delete line: s-k   (default: C-k)
 (global-set-key (kbd "s-k") 'kill-whole-line)
+
+;; TODO: Add M-( with -1 arg
 
 ;; Replace selection with a single keystroke
 (delete-selection-mode t)
@@ -202,6 +204,13 @@
 
 (global-set-key [f12] 'vc-annotate)
 (global-set-key (kbd "s-,") 'vc-diff)
+
+
+;;----------------------------------------------------------------------
+;; Focus
+;;----------------------------------------------------------------------
+
+(global-set-key (kbd "s-j") 'narrow-to-defun)
 
 
 ;;----------------------------------------------------------------------
@@ -476,6 +485,11 @@
 (use-package helm-projectile
   :ensure t)
 
+(use-package hl-todo
+  :ensure t
+  :config
+  (global-hl-todo-mode))
+
 ;; TODO: Add typesript mode
 (use-package javascript-mode
   :init
@@ -563,6 +577,7 @@
         org-export-with-section-numbers nil ; TODO: Not working
         htmlize-output-type 'css
         org-html-htmlize-output-type 'css)
+  :bind ("s-1" . org-table-sort-lines)
   :config
   (custom-set-variables '(org-hide-emphasis-markers t)) ; Hide bold, italic markers
   (org-babel-do-load-languages

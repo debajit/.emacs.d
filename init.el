@@ -172,7 +172,8 @@
 ;; Delete line: s-k   (default: C-k)
 (global-set-key (kbd "s-k") 'kill-whole-line)
 
-;; TODO: Add M-( with -1 arg
+;; Wrap with parentheses: C-(
+(global-set-key (kbd "C-(") (lambda () (interactive) (sp-wrap-with-pair "(")))
 
 ;; Replace selection with a single keystroke
 (delete-selection-mode t)

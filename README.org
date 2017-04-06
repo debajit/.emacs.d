@@ -11,8 +11,9 @@ git clone https://github.com/debajit/.emacs.d.git
 
 ** Install Emacs
 
-These are directions for macOS. (Directions for other OSes will be
-added later)
+*** On macOS
+
+(I'll add directions for other OSes later)
 
 #+BEGIN_SRC  shell
 
@@ -29,3 +30,29 @@ brew cask install emacs-mac
   #+END_SRC
 
 - and then restart Emacs.
+
+
+* Keyboard Shortcuts
+
+- s represents the Super key (Command / Windows key)
+- M represents the Meta key (Option / Alt)
+- C represents the Control key
+
+
+** File Operations
+
+| Operation | Key |
+|-----------+-----|
+| Save      | s-s |
+
+
+** Text Editing
+
+| Edit Operation | Key |
+|----------------+-----|
+| Undo           | s-z |
+|----------------+-----|
+| Cut            | s-x |
+| Copy           | s-c |
+| Paste          | s-v |
+|----------------+-----|

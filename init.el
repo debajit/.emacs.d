@@ -204,6 +204,7 @@
 ;;----------------------------------------------------------------------
 
 (global-set-key [f12] 'vc-annotate)
+(global-set-key (kbd "s-h") 'vc-region-history) ; Command + Shift + H on a Mac
 (global-set-key (kbd "s-,") 'vc-diff)
 
 
@@ -381,7 +382,7 @@
 (use-package etags-select
   :ensure t
   :bind (("M-." . etags-select-find-tag-at-point)
-         ("s-." . etags-select-find-tag)
+         ;; ("s-." . etags-select-find-tag)
          ("M-," . pop-tag-mark)))       ; Jump back from tag found
 
 ;; Dash-at-point (Lookup in Dash.app)
@@ -432,6 +433,7 @@
 ;; Spellcheck with flyspell
 (use-package flyspell
   :diminish flyspell-mode
+  :bind ("s-." . flyspell-auto-correct-previous-word)
   :config
   (when (eq system-type 'windows-nt)
     (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/"))

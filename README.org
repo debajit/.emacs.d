@@ -41,18 +41,83 @@ brew cask install emacs-mac
 
 ** File Operations
 
-| Operation | Key |
-|-----------+-----|
-| Save      | s-s |
+| Operation             | Key   | Notes                                                                       |
+|-----------------------+-------+-----------------------------------------------------------------------------|
+| New                   | s-n   |                                                                             |
+| Save                  | s-s   |                                                                             |
+| Open quickly from git | s-t   | Like TextMate                                                               |
+| Open recent file      | s-SPC | You may need to press Command+Shift+Space as Command+Space is usually bound |
 
 
 ** Text Editing
 
-| Edit Operation | Key |
-|----------------+-----|
-| Undo           | s-z |
-|----------------+-----|
-| Cut            | s-x |
-| Copy           | s-c |
-| Paste          | s-v |
-|----------------+-----|
+| Edit Operation        | Key | Notes                                                                                                                    |
+|-----------------------+-----+--------------------------------------------------------------------------------------------------------------------------|
+| Undo                  | s-z |                                                                                                                          |
+|-----------------------+-----+--------------------------------------------------------------------------------------------------------------------------|
+| Cut                   | s-x |                                                                                                                          |
+| Copy                  | s-c | Copies the current line if nothing is selected                                                                           |
+| Paste                 | s-v |                                                                                                                          |
+|-----------------------+-----+--------------------------------------------------------------------------------------------------------------------------|
+| Comment               | s-; | The default M-; also works. Press repeatedly to toggle commenting the line vs adding the comment at the end of the line. |
+|-----------------------+-----+--------------------------------------------------------------------------------------------------------------------------|
+| Delete a line         | s-k |                                                                                                                          |
+| Insert line at cursor | s-o |                                                                                                                          |
+| Insert line below     | M-o |                                                                                                                          |
+|-----------------------+-----+--------------------------------------------------------------------------------------------------------------------------|
+
+
+*** Nifty Text Editing Shortcuts
+
+| Edit Operation | Key | Notes                                                 |
+|----------------+-----+-------------------------------------------------------|
+| Wrap in parens | C-( | Works without or with a selection                     |
+| Fill paragraph | M-q | How did we live without this? See also auto-fill-mode |
+| Clear string   | s-u | In Ruby mode (for now)                                 |
+
+
+** Navigation
+
+| Operation      | Key     | Notes                                        |
+|----------------+---------+----------------------------------------------|
+| Jump to method | s-i     |                                              |
+| Jump to line   | s-l     | Tip: Try also enabling line numbers with F8  |
+| Open hyperlink | s-click | Click on the link while holding down Command |
+
+
+** Window Management
+
+| Operation           | Key |
+|---------------------+-----|
+| Close a buffer      | s-w |
+| Close a pane        | s-W |
+| Close a window      | s-q |
+|---------------------+-----|
+| Split side-by-side  | s-J |
+| Split top-to-bottom | s-K |
+| Balance windows     | s-: |
+
+
+** Integration with Other Applications
+
+| Operation                  | Action               | Notes                              |
+|----------------------------+----------------------+------------------------------------|
+| Look up word in Dictionary | s-C-D or Force Touch | Just like any other native Mac app |
+| Search selection in Google | s-L                  |                                    |
+
+
+* Status
+
+The out of the box configuration should be really stable — I can get
+uptimes (M-x emacs-uptime) of greater than a week easily with this
+config, with dozens of buffers (code, text, org-mode, Deft) open.
+
+
+** Predictive Text Completion (a la Xcode) with pabbrev-mode may be crashy if lots of buffers are open
+
+One issue (this does not affect the out-of-the-box config) is
+Predictive Autocompletion with pabbrev (pabbrev-mode, a la Xcode, but more
+generic): I've found that after leaving pabbrev-mode open for a day or
+more with lots of buffers can crash Emacs.
+
+Tweaking the pabbrev-mode configuration should fix it I believe.

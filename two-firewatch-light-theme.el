@@ -154,6 +154,12 @@
    ;; Linum mode
    `(linum ((t (:background ,bg5 :foreground ,fg6))))
 
+   ;; Nxml mode
+   `(nxml-element-local-name ((t (:foreground ,blue-10))))
+   `(nxml-processing-instruction-target ((t (:foreground ,brown-35 :italic t))))
+   `(nxml-processing-instruction-delimiter ((t (:foreground ,brown-35 :italic t))))
+   `(nxml-tag-delimiter ((t (:foreground ,blue-25))))
+
    ;; Mode line
    `(mode-line ((,class (:box (:line-width 1 :color nil) :bold t :foreground ,keyword :background ,brown-40))))
    `(mode-line-inactive ((,class (:box (:line-width 1 :color nil :style pressed-button) :foreground ,keyword :background ,brown-50 :weight normal))))

@@ -215,6 +215,9 @@
 (global-set-key (kbd "s-j") 'narrow-to-defun)
 
 
+(global-set-key (kbd "s-3") 'highlight-symbol-at-point)
+(global-set-key (kbd "s-4") 'unhighlight-regexp)
+
 ;;----------------------------------------------------------------------
 ;; Window management keys.
 ;; Windows => Emacs' frames
@@ -235,6 +238,10 @@
 
 ;; Maximize window: s-m   (default: C-x 1)
 (global-set-key (kbd "s-m") 'delete-other-windows)
+
+;; Minimize window: s-M   (default: C-z)
+(global-set-key (kbd "s-M") 'suspend-frame)
+
 
 ;; Split horizontally: s-J   (default: C-x 3)
 (global-set-key (kbd "s-J") (lambda () (interactive) (split-window-right) (windmove-right)))

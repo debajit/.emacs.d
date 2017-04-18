@@ -141,6 +141,12 @@
    `(fci-rule-color ,bg2)
    ;; `(fci-rule-character-color ,fg6)
 
+   ;; Highlights
+   ;; `(hi-yellow ((t (:background ,"#dbff00"))))
+   `(hi-yellow ((t (:background ,"#ebff00"))))
+   ;; `(hi-pink ((t (:background ,"#62ffff"))))
+   `(hi-pink ((t (:background ,"#98ffff"))))
+
    ;; Iedit --- Edit multiple tokens
    `(iedit-occurrence ((,class (:foreground ,white-00 :background ,violet-bright))))
 

@@ -144,8 +144,8 @@
    ;; Highlights
    ;; `(hi-yellow ((t (:background ,"#dbff00"))))
    `(hi-yellow ((t (:background ,"#ebff00"))))
-   ;; `(hi-pink ((t (:background ,"#62ffff"))))
-   `(hi-pink ((t (:background ,"#98ffff"))))
+   `(hi-pink ((t (:background ,"#ffcfa3"))))
+   ;; `(hi-pink ((t (:background ,"#cbdcff"))))
 
    ;; Iedit --- Edit multiple tokens
    `(iedit-occurrence ((,class (:foreground ,white-00 :background ,violet-bright))))
@@ -261,8 +261,11 @@
    `(deft-header-face ((,class (:foreground ,blue-15 :bold t :height 2.4))))
    `(deft-title-face ((,class (:foreground ,blue-01))))
 
-   ;; Diff
-   `(diff-added ((t (:foreground "forest green" :background ,seafoam-green))))
+   ;; Diff.
+   ;;
+   ;; These foreground colors were generated using the Lab color space
+   ;; to ensure the same level of lightness. (http://colorizer.org/)
+   `(diff-added ((t (:foreground "#007e33" :background ,seafoam-green))))
    `(diff-removed ((t (:foreground "OrangeRed3" :background ,pale-orange-red))))
 
    ;; elfeed

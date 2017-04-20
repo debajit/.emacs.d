@@ -48,6 +48,7 @@
       (brown-35 "#c0a386")
       (brown-40 "#b6ac9b")
       (brown-50 "#d1cec7")
+      (pale-brown "#ece1cf")
       (blue-01 "#005486")               ; Duotone blue 1
       (blue-03 "#566e97")
       (blue-10 "#4280b8")
@@ -88,6 +89,7 @@
       (var     "#7090CA")
       (warning "#009c30")
       (warning2 "#ff8800"))
+
   (custom-theme-set-faces
    'two-firewatch-light
    `(default ((,class (:background ,bg1 :foreground ,fg1))))
@@ -109,6 +111,7 @@
 
    ;; Selection
    `(region ((,class (:background ,eggplant :foreground ,white-00))))
+   `(secondary-selection ((t (:background ,pale-brown))))
 
    `(highlight ((,class (:foreground ,fg3 :background ,bg3))))
 

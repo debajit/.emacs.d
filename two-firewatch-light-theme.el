@@ -188,6 +188,7 @@
 
 
    ;; Markdown mode
+   `(markdown-blockquote-face ((t (:foreground ,brown-10))))
    `(markdown-bold-face ((t (:foreground ,red-40 :bold t :italic nil))))
    `(markdown-header-delimiter-face ((,class (:foreground ,brown-50))))
    `(markdown-header-face-1 ((,class (:bold t :foreground ,blue-01 :height 2.4))))

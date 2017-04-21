@@ -541,10 +541,10 @@
   (local-set-key (kbd "s-b") 'markdown-insert-bold)
 
   ;; Super + 1  =>  Insert heading 1
-  (local-set-key (kbd "s-1") 'markdown-insert-header-setext-1)
+  (local-set-key (kbd "s-1") 'markdown-insert-header-atx-1)
 
   ;; Super + 2  =>  Insert heading 2
-  (local-set-key (kbd "s-2") 'markdown-insert-header-setext-2)
+  (local-set-key (kbd "s-2") 'markdown-insert-header-atx-2)
 
   ;; Super + 3  =>  Insert heading 3
   (local-set-key (kbd "s-3") (lambda () (interactive) (markdown-insert-header-setext-dwim 3)))

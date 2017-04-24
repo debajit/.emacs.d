@@ -78,6 +78,7 @@
 ;; Autocomplete
 ;;----------------------------------------------------------------------
 
+;; Basic autocomplete
 ;; Configure hippie-expand
 
 (setq hippie-expand-try-functions-list '(try-expand-dabbrev
@@ -93,6 +94,15 @@
 
 (global-set-key (kbd "s-/") 'hippie-expand)
 (global-set-key (kbd "M-/") 'hippie-expand)
+
+
+;; ido mode
+;; https://www.masteringemacs.org/article/introduction-to-ido-mode
+
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+(setq ido-use-filename-at-point 'guess)
 
 
 ;; Autocomplete with Tab (Yas + dabbrev)
@@ -122,6 +132,9 @@
             (unless (yas/expand)
               (dabbrev-expand nil)))
         (indent-for-tab-command)))))
+
+
+;; For Pabbrev mode see below, in the third-party packages section
 
 
 ;;----------------------------------------------------------------------

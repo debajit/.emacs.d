@@ -761,7 +761,11 @@
   :ensure t
   :diminish yas-minor-mode
   :config
-  (yas-global-mode 1))
+  (yas-global-mode 1)
+  (add-hook 'yas-minor-mode-hook
+            (lambda ()
+              (yas-activate-extra-mode 'fundamental-mode))))
+
 
 ;;----------------------------------------------------------------------
 ;; Theme

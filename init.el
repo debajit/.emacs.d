@@ -673,8 +673,7 @@
 ;; Autocompletes string interpolations
 (use-package ruby-tools
   :ensure t
-  :diminish ruby-tools-mode
-  :bind* ("s-u" . ruby-tools-clear-string))
+  :diminish ruby-tools-mode)
 
 ;; Smartparens
 (use-package smartparens
@@ -682,7 +681,17 @@
   :diminish smartparens-mode
   :config
   (require 'smartparens-config)
-  (smartparens-global-mode 1))
+  (smartparens-global-mode 1)
+  (defun clear-text-inside-pairs ()
+    "Clears all text inside a string or inside parentheses, or
+other matching pairs"
+    (interactive)
+    (sp-backward-up-sexp)
+    (sp-mark-sexp)
+    (sp-kill-region (+ (region-beginning) 1) (- (region-end) 1))
+    (forward-char))
+  (global-set-key (kbd "s-u") 'clear-text-inside-pairs))
+
 
 ;; Smart tab. Auto-complete text + expand snippets with Tab. Outside of
 ;; (pabbrev + yasnippet completion) and (dabbrev + yasnippet using

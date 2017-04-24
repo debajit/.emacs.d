@@ -232,7 +232,7 @@
 ;; Focus
 ;;----------------------------------------------------------------------
 
-(global-set-key (kbd "s-j") 'narrow-to-defun)
+(global-set-key (kbd "s-u") 'narrow-to-defun)
 
 
 (global-set-key (kbd "s-3") 'highlight-symbol-at-point)
@@ -690,7 +690,7 @@ other matching pairs"
     (sp-mark-sexp)
     (sp-kill-region (+ (region-beginning) 1) (- (region-end) 1))
     (forward-char))
-  (global-set-key (kbd "s-u") 'clear-text-inside-pairs))
+  (global-set-key (kbd "s-j") 'clear-text-inside-pairs))
 
 
 ;; Smart tab. Auto-complete text + expand snippets with Tab. Outside of

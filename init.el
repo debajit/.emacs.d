@@ -474,6 +474,15 @@
   :config
   (fringe-mode 32 32))                  ; Make fringes wider for more comfortable reading
 
+(use-package gitattributes-mode
+  :ensure t)
+
+(use-package gitconfig-mode
+  :ensure t)
+
+(use-package gitignore-mode
+  :ensure t)
+
 ;; HAML mode
 (use-package haml-mode
   :ensure t)

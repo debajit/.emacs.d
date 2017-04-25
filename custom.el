@@ -45,7 +45,7 @@
  '(org-hide-emphasis-markers t)
  '(package-selected-packages
    (quote
-    (sort-words git-timemachine htmlize ox-twbs magit use-package multiple-cursors helm-projectile projectile yaml-mode counsel swiper org-bullets helm-org-rifle deft pabbrev undo-tree typescript-mode gotham-theme neotree expand-region crux aggressive-indent helm-google easy-kill)))
+    (gitignore-mode gitattributes-mode gitconfig-mode sort-words git-timemachine htmlize ox-twbs magit use-package multiple-cursors helm-projectile projectile yaml-mode counsel swiper org-bullets helm-org-rifle deft pabbrev undo-tree typescript-mode gotham-theme neotree expand-region crux aggressive-indent helm-google easy-kill)))
  '(sentence-end-double-space nil)
  '(show-trailing-whitespace t)
  '(smartparens-global-mode t)

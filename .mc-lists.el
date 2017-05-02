@@ -14,6 +14,7 @@
         pabbrev-expand-maybe
         sp-backward-delete-char
         sp-delete-char
+        text-scale-increase
         ))
 
 (setq mc/cmds-to-run-once

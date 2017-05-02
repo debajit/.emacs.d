@@ -200,6 +200,11 @@
    `(markdown-markup-face ((,class (:foreground ,brown-50))))
    `(markdown-url-face ((,class (:foreground ,blue-15 :italic t))))
 
+   ;; Multiple cursors
+   `(mc/cursor-face ((t (:foreground ,pastel-yellow :background ,red-bright))))
+   `(mc/region-face ((t (:foreground ,"white" :background ,"black"))))
+   `(mc/cursor-bar-face ((t (:foreground ,pastel-yellow :background ,"black"))))
+
    ;; Neotree
    `(neo-dir-link-face ((,class (:foreground ,black-10))))
    `(neo-file-link-face ((,class (:foreground ,blue-01))))
@@ -417,19 +422,20 @@
    `(company-template-field ((,class (:inherit region))))
 
    ;; Web mode
-   `(web-mode-html-tag-bracket-face ((t (:foreground ,brown-40))))
-   `(web-mode-html-tag-face ((,class (:foreground ,"MediumPurple4"))))
    `(web-mode-builtin-face ((,class (:inherit ,font-lock-builtin-face))))
    `(web-mode-comment-face ((,class (:inherit ,font-lock-comment-face))))
    `(web-mode-constant-face ((,class (:inherit ,font-lock-constant-face))))
-   `(web-mode-keyword-face ((,class (:foreground ,keyword))))
+   `(web-mode-current-element-highlight-face ((,t (:background ,blue-20 :foreground ,black-10 :bold t))))
    `(web-mode-doctype-face ((,class (:inherit ,font-lock-comment-face))))
    `(web-mode-function-name-face ((,class (:inherit ,font-lock-function-name-face))))
+   `(web-mode-html-attr-equal-face ((,class (:foreground ,brown-40))))
+   `(web-mode-html-attr-name-face ((,class (:foreground ,brown-15))))
+   `(web-mode-html-attr-value-face ((,class (:foreground ,eggplant :italic t))))
+   `(web-mode-html-tag-bracket-face ((t (:foreground ,blue-25))))
+   `(web-mode-html-tag-face ((,class (:foreground ,blue-10))))
+   `(web-mode-keyword-face ((,class (:foreground ,keyword))))
    `(web-mode-string-face ((,class (:foreground ,str))))
    `(web-mode-type-face ((,class (:inherit ,font-lock-type-face))))
-   `(web-mode-html-attr-name-face ((,class (:foreground ,blue-10))))
-   `(web-mode-html-attr-value-face ((,class (:foreground ,red-40 :italic t))))
-   `(web-mode-html-attr-equal-face ((,class (:foreground ,brown-40))))
    `(web-mode-warning-face ((,class (:inherit ,font-lock-warning-face))))
 
    `(jde-java-font-lock-package-face ((t (:foreground ,var))))

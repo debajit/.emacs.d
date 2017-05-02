@@ -114,24 +114,24 @@
 ;; Auto complete settings / tab settings
 ;; http://emacsblog.org/2007/03/12/tab-completion-everywhere/ <-- in the comments
 
-(global-set-key [(tab)] 'smart-tab)
-(defun smart-tab ()
-  "This smart tab is minibuffer compliant: it acts as usual in
-    the minibuffer. Else, if mark is active, indents region. Else if
-    point is at the end of a symbol, expands it. Else indents the
-    current line."
-  (interactive)
-  (if (minibufferp)
-      (unless (minibuffer-complete)
-        (dabbrev-expand nil))
-    (if mark-active
-        (indent-region (region-beginning)
-                       (region-end))
-      (if (looking-at "\\_>")
-          (let ((yas/fallback-behavior nil))
-            (unless (yas/expand)
-              (dabbrev-expand nil)))
-        (indent-for-tab-command)))))
+;; (global-set-key [(tab)] 'smart-tab)
+;; (defun smart-tab ()
+;;   "This smart tab is minibuffer compliant: it acts as usual in
+;;     the minibuffer. Else, if mark is active, indents region. Else if
+;;     point is at the end of a symbol, expands it. Else indents the
+;;     current line."
+;;   (interactive)
+;;   (if (minibufferp)
+;;       (unless (minibuffer-complete)
+;;         (dabbrev-expand nil))
+;;     (if mark-active
+;;         (indent-region (region-beginning)
+;;                        (region-end))
+;;       (if (looking-at "\\_>")
+;;           (let ((yas/fallback-behavior nil))
+;;             (unless (yas/expand)
+;;               (dabbrev-expand nil)))
+;;         (indent-for-tab-command)))))
 
 
 ;; For Pabbrev mode see below, in the third-party packages section
@@ -622,6 +622,7 @@
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((C . t)
+     ;; (elixir . t)
      (R . t)
      (ruby . t)))
   (add-hook 'org-mode-hook
@@ -645,19 +646,19 @@
   :ensure t)
 
 ;; Predictive text completion (Predictive Abbreviation mode)
-;; (use-package pabbrev
-;;   :ensure t
-;;   :init
-;;   (setq pabbrev-idle-timer-verbose nil
-;;         pabbrev-read-only-error nil
-;;         pabbrev-scavenge-on-large-move nil)
-;;   :config
-;;   (global-pabbrev-mode)
-;;   (put 'yas-expand 'pabbrev-expand-after-command t)
-;;   ;; Fix for pabbrev not working in org mode
-;;   ;; http://lists.gnu.org/archive/html/emacs-orgmode/2016-02/msg00311.html
-;;   (define-key pabbrev-mode-map [tab] 'pabbrev-expand-maybe)
-;;   (add-hook 'text-mode-hook (lambda () (pabbrev-mode))))
+(use-package pabbrev
+  :ensure t
+  :init
+  (setq pabbrev-idle-timer-verbose nil
+        pabbrev-read-only-error nil
+        pabbrev-scavenge-on-large-move nil)
+  :config
+  (put 'yas-expand 'pabbrev-expand-after-command t)
+  (global-pabbrev-mode)
+  ;; Fix for pabbrev not working in org mode
+  ;; http://lists.gnu.org/archive/html/emacs-orgmode/2016-02/msg00311.html
+  (define-key pabbrev-mode-map [tab] 'pabbrev-expand-maybe)
+  (add-hook 'text-mode-hook (lambda () (pabbrev-mode))))
 
 ;; Projectile -- Project management
 (use-package projectile

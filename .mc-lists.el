@@ -9,6 +9,8 @@
         fill-paragraph
         haml-electric-backspace
         helm-M-x
+        ignore
+        kill-region
         org-end-of-line
         org-self-insert-command
         pabbrev-expand-maybe

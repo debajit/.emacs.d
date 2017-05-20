@@ -13,8 +13,6 @@ git clone https://github.com/debajit/.emacs.d.git
 
 *** On macOS
 
-(I'll add directions for other OSes later)
-
 #+BEGIN_SRC  shell
 
 brew tap railwaycat/emacsmacport
@@ -69,11 +67,12 @@ brew cask install emacs-mac
 
 *** Nifty Text Editing Shortcuts
 
-| Edit Operation | Key | Notes                                                 |
-|----------------+-----+-------------------------------------------------------|
-| Wrap in parens | C-( | Works without or with a selection                     |
-| Fill paragraph | M-q | How did we live without this? See also auto-fill-mode |
-| Clear string   | s-u | In Ruby mode (for now)                                 |
+| Edit Operation     | Key | Notes                                                                               |
+|--------------------+-----+-------------------------------------------------------------------------------------|
+| Wrap in parens     | M-( | Works without or with a selection                                                   |
+| Fill paragraph     | M-q | How did we live without this? See also auto-fill-mode                               |
+| Unfill paragraph   | M-Q | "Unfill" a filled paragraph                                                         |
+| Clear inside pairs | s-j | Clear a string's contents, or clear any text inside the innermost paired characters |
 
 
 ** Navigation

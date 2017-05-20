@@ -363,9 +363,42 @@
   :ensure t
   :bind ("s-;" . comment-dwim-2))
 
-;; Company
-(use-package company
-  :ensure t)
+;; ;; Company
+;; (use-package company
+;;   :ensure t
+;;   :init
+;;   (setq company-minimum-prefix-length 1
+;;         company-selection-wrap-around t
+;;         company-require-match nil
+;;         company-dabbrev-downcase nil
+;;         company-dabbrev-ignore-case nil
+;;         company-idle-delay 0)
+;;   :config
+;;   (setq company-transformers '(company-sort-by-occurrence))
+;;   (defun check-expansion ()
+;;     (save-excursion
+;;       (if (looking-at "\\_>") t
+;;         (backward-char 1)
+;;         (if (looking-at "\\.") t
+;;           (backward-char 1)
+;;           (if (looking-at "->") t nil)))))
+;;   (defun do-yas-expand ()
+;;     (let ((yas/fallback-behavior 'return-nil))
+;;       (yas/expand)))
+;;   (defun tab-indent-or-complete ()
+;;     (interactive)
+;;     (if (minibufferp)
+;;         (minibuffer-complete)
+;;       (if (or (not yas/minor-mode)
+;;               (null (do-yas-expand)))
+;;           (if (check-expansion)
+;;               (company-complete-common-or-cycle)
+;;             (indent-for-tab-command)))))
+;;   ;; (global-set-key "\t" 'company-complete)
+;;   ;; (global-set-key "\t" 'company-manual-begin)
+;;   ;; (global-set-key "\t" 'company-select-next)
+;;   (global-set-key "\t" 'tab-indent-or-complete)
+;;   (global-company-mode))
 
 ;; Crux
 (use-package crux

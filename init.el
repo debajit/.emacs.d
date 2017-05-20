@@ -25,6 +25,9 @@
 (line-number-mode t)                    ; Show line number
 (column-number-mode t)                  ; Show column number
 
+;; Always ask for y/n keypress instead of typing out 'yes' or 'no'
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; Highlight matching parentheses
 (setq show-paren-delay 0)               ; Highlight instantly, no delay
 (show-paren-mode 1)

@@ -265,7 +265,6 @@
 ;; Minimize window: s-M   (default: C-z)
 (global-set-key (kbd "s-M") 'suspend-frame)
 
-
 ;; Split horizontally: s-J   (default: C-x 3)
 (global-set-key (kbd "s-J") (lambda () (interactive) (split-window-right) (windmove-right)))
 
@@ -794,6 +793,10 @@ other matching pairs"
   :config
   (setq undo-tree-auto-save-history t)
   (global-undo-tree-mode))
+
+(use-package unfill
+  :ensure t
+  :bind ("M-Q" . unfill-paragraph))
 
 (use-package visual-line
   :bind ("<f5>" . visual-line-mode))

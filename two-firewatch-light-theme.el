@@ -133,6 +133,10 @@
    ;; (lazy-highlight                            (:foreground gruvbox-black :background gruvbox-neutral_yellow))
    ;; (isearch-fail                              (:foreground gruvbox-light0 :background gruvbox-bright_red))
 
+   ;; Company Mode
+   `(company-tooltip ((t (:background ,pale-brown))))
+   `(company-tooltip-common ((t (:background ,pale-brown))))
+
    ;; Swiper
    `(swiper-match-face-2 ((,class (:foreground ,pastel-yellow :background ,red-bright))))
    `(swiper-match-face-1 ((,class (:foreground ,black-10 :background ,peacock-green))))

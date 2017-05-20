@@ -588,8 +588,12 @@
 ;; Markdown Mode
 (use-package markdown-mode
   :ensure t
+  :mode (("\\.markdown$" . markdown-mode)
+         ("\\.md$" . markdown-mode))
   :init
-  (setq markdown-asymmetric-header t))
+  (setq markdown-asymmetric-header t)
+  :config
+  (add-hook 'markdown-mode-hook 'visual-line-mode))
 
 
 ;; Markdown mode
@@ -816,6 +820,8 @@ other matching pairs"
          ("\\.erb\\'" . web-mode)
          ("\\.mustache\\'" . web-mode)
          ("\\.djhtml\\'" . web-mode))
+  :bind (:map web-mode-map
+              ("s-r" . browse-url-of-buffer))
   :config
   ;; Highlight the element under the cursor.
   (setq-default web-mode-enable-current-element-highlight t)

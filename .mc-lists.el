@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        crux-duplicate-current-line-or-region
         crux-smart-open-line
         crux-top-join-line
         delete-horizontal-space
@@ -11,6 +12,7 @@
         helm-M-x
         ignore
         kill-region
+        org-delete-char
         org-end-of-line
         org-self-insert-command
         pabbrev-expand-maybe
@@ -23,4 +25,5 @@
       '(
         mark-whole-buffer
         markdown-exdent-or-delete
+        yaml-electric-backspace
         ))

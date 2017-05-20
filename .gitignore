@@ -8,6 +8,7 @@ saveplace
 eshell
 elpa
 el-get
+/games/
 semanticdb
 url
 ede-projects.el
@@ -25,3 +26,9 @@ tramp
 # Desktop mode
 .emacs.desktop
 .emacs.desktop.lock
+
+# Ido mode
+ido.last
+
+# Smex
+smex-items

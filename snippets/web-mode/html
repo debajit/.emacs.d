@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: html
+# key: html
+# --
+<html>
+<head>
+  <title>${1:Page Title}</title>
+</head>
+<body>
+$0
+</body>
+</html>

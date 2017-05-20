@@ -103,20 +103,3 @@ brew cask install emacs-mac
 |----------------------------+----------------------+------------------------------------|
 | Look up word in Dictionary | s-C-D or Force Touch | Just like any other native Mac app |
 | Search selection in Google | s-L                  |                                    |
-
-
-* Status
-
-The out of the box configuration should be really stable — I can get
-uptimes (M-x emacs-uptime) of greater than a week easily with this
-config, with dozens of buffers (code, text, org-mode, Deft) open.
-
-
-** Predictive Text Completion (a la Xcode) with pabbrev-mode may be crashy if lots of buffers are open
-
-One issue (this does not affect the out-of-the-box config) is
-Predictive Autocompletion with pabbrev (pabbrev-mode, a la Xcode, but more
-generic): I've found that after leaving pabbrev-mode open for a day or
-more with lots of buffers can crash Emacs.
-
-Tweaking the pabbrev-mode configuration should fix it I believe.

@@ -14,6 +14,7 @@
  '(fci-rule-color "#e5e0dc")
  '(fringe-mode 20 nil (fringe))
  '(global-hl-line-mode t)
+ '(global-hl-todo-mode t)
  '(global-pabbrev-mode t)
  '(hl-todo-keyword-faces
    (quote

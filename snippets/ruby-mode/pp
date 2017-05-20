@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: pp
+# key: pp
+# --
+puts ${1:"$2"}

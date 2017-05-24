@@ -648,13 +648,16 @@
 (use-package org
   :ensure t
   :init
-  (setq org-startup-indented t          ; Turn on org-indent-mode
-        org-startup-folded nil          ; Start expanded
-        org-cycle-separator-lines 0     ; Add newline between collapsed headers
-        org-ellipsis "   ↩"             ; Collapsed heading suffix
-        org-export-with-section-numbers nil ; TODO: Not working
+  (setq org-startup-indented t               ; Turn on org-indent-mode
+        org-startup-folded nil               ; Start expanded
+        org-cycle-separator-lines 0          ; Add newline between collapsed headers
+        org-ellipsis "   ↩"                  ; Collapsed heading suffix
+        org-startup-with-inline-images t     ; Show images inline
+        org-export-with-section-numbers nil  ; TODO: Not working
         htmlize-output-type 'css
         org-html-htmlize-output-type 'css)
+  (setq org-todo-keywords
+        '((sequence "TODO" "IN PROGRESS" "|" "DONE" "DELEGATED" "CANCELED")))
   :bind ("s-1" . org-table-sort-lines)
   :config
   (custom-set-variables '(org-hide-emphasis-markers t)) ; Hide bold, italic markers

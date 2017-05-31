@@ -251,7 +251,7 @@
 (global-set-key (kbd "s-n") (lambda () (interactive) (find-file-other-frame "/tmp/scratch")))
 
 ;; Close buffer: s-w
-(global-set-key (kbd "s-w") 'kill-this-buffer)
+(global-set-key (kbd "s-w") (lambda () (interactive) (kill-buffer (current-buffer))))
 
 ;; Close pane: s-W   (default: C-x 0)
 (global-set-key (kbd "s-W") (lambda () (interactive) (delete-window) (balance-windows)))

@@ -663,7 +663,7 @@
         htmlize-output-type 'css
         org-html-htmlize-output-type 'css)
   (setq org-todo-keywords
-        '((sequence "TODO" "IN PROGRESS" "|" "DONE" "DELEGATED" "CANCELED")))
+        '((sequence "TODO" "IN PROGRESS" "WAITING_FOR_CUSTOMER" "WAITING_FOR_DEPLOYMENT" "WAITING_FOR_SCHEDULE" "|" "DONE" "DELEGATED" "CANCELED")))
   :bind ("s-1" . org-table-sort-lines)
   :config
   (custom-set-variables '(org-hide-emphasis-markers t)) ; Hide bold, italic markers

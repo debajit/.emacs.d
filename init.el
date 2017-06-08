@@ -349,6 +349,12 @@
   (global-aggressive-indent-mode 1)
   (add-to-list 'aggressive-indent-excluded-modes 'haml-mode))
 
+;; Alchemist mode for Elixir
+(use-package alchemist
+  :ensure t
+  :bind (("C-T" . alchemist-mix-test)
+         ("s-T" . alchemist-project-toggle-file-and-tests-other-window)))
+
 ;; Beacon --- Show little "animation" around cursor when switching
 ;; windows etc. to quickly indicate where the cursor is.
 (use-package beacon

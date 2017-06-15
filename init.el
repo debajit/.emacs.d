@@ -565,8 +565,12 @@
 (use-package helm-projectile
   :ensure t)
 
+;; Highlight TODO, FIXME etc
 (use-package hl-todo
   :ensure t
+  :init
+  (setq hl-todo-activate-in-modes
+        '(prog-mode javascript-mode ruby-mode typesript-mode yaml-mode))
   :config
   (global-hl-todo-mode))
 

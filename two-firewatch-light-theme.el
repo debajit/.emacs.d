@@ -224,6 +224,7 @@
    `(org-level-2 ((,class (:bold t :foreground ,blue-15 :height 1.5))))
    `(org-level-3 ((,class (:bold t :foreground ,brown-10 :height 1.5))))
    `(org-level-4 ((,class (:bold nil :foreground ,blue-01 :height 1.3))))
+   `(org-level-5 ((,class (:bold nil :foreground ,black-10 :height 1.02))))
    `(org-date ((,class (:underline t :foreground ,var) )))
    `(org-footnote  ((,class (:underline t :foreground ,fg4))))
    `(org-link ((,class (:underline t :foreground ,type ))))

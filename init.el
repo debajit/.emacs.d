@@ -213,6 +213,14 @@
 ;; Go to line
 (global-set-key (kbd "s-l") 'goto-line)
 
+;; Registers - Lightweight bookmarks by character
+
+;; Save cursor position to register
+(global-set-key (kbd "s-,") 'point-to-register)
+
+;; Jump to saved resigter
+(global-set-key (kbd "s-.") 'jump-to-register)
+
 
 ;;----------------------------------------------------------------------
 ;; Mouse shortcuts
@@ -227,8 +235,8 @@
 ;;----------------------------------------------------------------------
 
 (global-set-key [f12] 'vc-annotate)
-(global-set-key (kbd "s-h") 'vc-region-history) ; Command + Shift + H on a Mac
-(global-set-key (kbd "s-,") 'vc-diff)
+(global-set-key (kbd "s-H") 'vc-region-history)
+(global-set-key (kbd "s-C") 'vc-diff)
 
 
 ;;----------------------------------------------------------------------
@@ -492,6 +500,12 @@
   :bind (("C-=" . er/expand-region)
          ("M-h" . er/mark-paragraph)))
 
+(use-package fastnav
+  :ensure t
+  :bind (("s-<" . fastnav-jump-to-char-backward)
+         ("s->" . fastnav-jump-to-char-forward))
+  :bind* ("M-z" . fastnav-zap-up-to-char-forward))
+
 ;; Fill column indicator (Print margin — Enable for all files)
 (use-package fill-column-indicator
   :ensure t
@@ -501,7 +515,7 @@
 ;; Spellcheck with flyspell
 (use-package flyspell
   :diminish flyspell-mode
-  :bind ("s-." . flyspell-auto-correct-previous-word)
+  :bind ("<s-return>" . flyspell-auto-correct-previous-word)
   :config
   (when (eq system-type 'windows-nt)
     (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/"))
@@ -570,7 +584,12 @@
   :ensure t
   :init
   (setq hl-todo-activate-in-modes
-        '(prog-mode javascript-mode ruby-mode typesript-mode yaml-mode))
+        '(prog-mode
+          haml-mode
+          javascript-mode
+          ruby-mode
+          typesript-mode
+          yaml-mode))
   :config
   (global-hl-todo-mode))
 
@@ -668,7 +687,9 @@
         org-html-htmlize-output-type 'css)
   (setq org-todo-keywords
         '((sequence "TODO" "IN PROGRESS" "WAITING_FOR_CUSTOMER" "CODE-REVIEW" "DEPLOYING" "WAITING_FOR_SCHEDULE" "|" "DONE" "DELEGATED" "CANCELED")))
-  :bind ("s-1" . org-table-sort-lines)
+  :bind (:map org-mode-map
+              ("s-1" . org-table-sort-lines)
+              ("s-D" . org-archive-subtree))
   :config
   (custom-set-variables '(org-hide-emphasis-markers t)) ; Hide bold, italic markers
   (org-babel-do-load-languages
@@ -777,6 +798,9 @@ other matching pairs"
 ;; Sort words in a line
 (use-package sort-words
   :ensure t)
+
+(use-package sql-mode
+  :bind ("<s-return>" . sql-send-paragraph))
 
 ;; Subword mode. This package is configured somewhat differently from
 ;; others. Enabling subword-mode in :config does not work with diminish.

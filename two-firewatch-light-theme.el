@@ -411,7 +411,7 @@
    `(helm-ls-git-modified-not-staged-face ((t (:foreground ,red-bright))))
 
    ;; hl-todo mode
-   `(hl-todo ((t (:background ,red-40 :foreground "white" :bold nil))))
+   `(hl-todo ((t (:background ,red-bright :foreground ,pastel-yellow :bold nil))))
 
    `(company-echo-common ((,class (:foreground ,bg1 :background ,fg1))))
    `(company-preview ((,class (:background ,bg1 :foreground ,var))))

@@ -37,6 +37,19 @@ brew cask install emacs-mac
 - C represents the Control key
 
 
+** Nifty Shortcuts
+
+| Edit Operation        | Key | Notes                                                                                         |
+|-----------------------+-----+-----------------------------------------------------------------------------------------------|
+| Wrap in parens        | M-( | Works without or with a selection                                                             |
+| Fill paragraph        | M-q | How did we live without this? See also auto-fill-mode                                         |
+| Unfill paragraph      | M-Q | "Unfill" a filled paragraph                                                                   |
+| Clear inside pairs    | ⌘J  | Clear a string's contents, or clear any text inside the innermost paired characters. Nifty 😀 |
+| Align regexp          | ⇧⌘A | Align multiple lines on a character (e.g. the equals signs in assignments). Wicked 😈         |
+| Git region history    | ⇧⌘H | See the history of just the selected region. /Very/ useful 🙂                                   |
+| Git diff current file | ⇧⌘C | See what new changes you have made to the current files.                                      |
+
+
 ** File Operations
 
 | Operation             | Key   | Notes                                                                       |
@@ -49,30 +62,20 @@ brew cask install emacs-mac
 
 ** Text Editing
 
-| Edit Operation        | Key | Notes                                                                                                                    |
-|-----------------------+-----+--------------------------------------------------------------------------------------------------------------------------|
-| Undo                  | s-z |                                                                                                                          |
-|-----------------------+-----+--------------------------------------------------------------------------------------------------------------------------|
-| Cut                   | s-x |                                                                                                                          |
-| Copy                  | s-c | Copies the current line if nothing is selected                                                                           |
-| Paste                 | s-v |                                                                                                                          |
-|-----------------------+-----+--------------------------------------------------------------------------------------------------------------------------|
-| Comment               | s-; | The default M-; also works. Press repeatedly to toggle commenting the line vs adding the comment at the end of the line. |
-|-----------------------+-----+--------------------------------------------------------------------------------------------------------------------------|
-| Delete a line         | s-k |                                                                                                                          |
-| Insert line at cursor | s-o |                                                                                                                          |
-| Insert line below     | M-o |                                                                                                                          |
-|-----------------------+-----+--------------------------------------------------------------------------------------------------------------------------|
-
-
-*** Nifty Text Editing Shortcuts
-
-| Edit Operation     | Key | Notes                                                                               |
-|--------------------+-----+-------------------------------------------------------------------------------------|
-| Wrap in parens     | M-( | Works without or with a selection                                                   |
-| Fill paragraph     | M-q | How did we live without this? See also auto-fill-mode                               |
-| Unfill paragraph   | M-Q | "Unfill" a filled paragraph                                                         |
-| Clear inside pairs | s-j | Clear a string's contents, or clear any text inside the innermost paired characters |
+| Edit Operation        | Key        | Notes                                                                                                                    |
+|-----------------------+------------+--------------------------------------------------------------------------------------------------------------------------|
+| Undo                  | ⌘Z         |                                                                                                                          |
+|-----------------------+------------+--------------------------------------------------------------------------------------------------------------------------|
+| Cut                   | ⌘X         |                                                                                                                          |
+| Copy                  | ⌘C         | Copies the current line if nothing is selected                                                                           |
+| Paste                 | ⌘V         |                                                                                                                          |
+|-----------------------+------------+--------------------------------------------------------------------------------------------------------------------------|
+| Comment               | ⌘;         | The default M-; also works. Press repeatedly to toggle commenting the line vs adding the comment at the end of the line. |
+|-----------------------+------------+--------------------------------------------------------------------------------------------------------------------------|
+| Delete a line         | ⌘K         |                                                                                                                          |
+| Insert line at cursor | ⌘O         |                                                                                                                          |
+| Insert line below     | Option + O |                                                                                                                          |
+|-----------------------+------------+--------------------------------------------------------------------------------------------------------------------------|
 
 
 ** Navigation

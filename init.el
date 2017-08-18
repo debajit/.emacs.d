@@ -698,7 +698,7 @@
         htmlize-output-type 'css
         org-html-htmlize-output-type 'css)
   (setq org-todo-keywords
-        '((sequence "TODO" "IN PROGRESS" "WAITING_FOR_CUSTOMER" "CODE-REVIEW" "DEPLOYING" "WAITING_FOR_SCHEDULE" "|" "DONE" "DELEGATED" "CANCELED")))
+        '((sequence "TODO" "IN PROGRESS" "WAITING_FOR_CUSTOMER" "CODE-REVIEW" "DEPLOYING" "WAITING_FOR_SCHEDULE" "BLOCKED" "|" "DONE" "DELEGATED" "CANCELED")))
   :bind (:map org-mode-map
               ("s-1" . org-table-sort-lines)
               ("s-D" . org-archive-subtree))

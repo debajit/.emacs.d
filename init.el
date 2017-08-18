@@ -356,6 +356,11 @@
 (require 'use-package)
 (setq use-package-verbose t)
 
+;; Ace window --- switch windows
+(use-package ace-window
+  :ensure t
+  :bind ("M-p" . ace-window))
+
 ;; Aggressive indent
 (use-package aggressive-indent
   :ensure t

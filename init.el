@@ -194,6 +194,13 @@
 ;; Replace selection with a single keystroke
 (delete-selection-mode t)
 
+;; Text editing --- Text alignment
+
+;; Align all regexp in selection. Allows lining up all the '=' signs
+;; in a group of variable assignments, or lining up all the '->' in
+;; Elixir.
+(global-set-key (kbd "s-A") 'align-regexp)
+
 ;; Indent rigidly to tab stop (a la TextMate or Sublime Text)
 (global-set-key (kbd "s-]") 'indent-rigidly-right-to-tab-stop)
 (global-set-key (kbd "s-[") 'indent-rigidly-left-to-tab-stop)

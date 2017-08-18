@@ -2,5 +2,4 @@
 # name: @param
 # key: @
 # --
-@param [${1:Type}] ${2:Name}
-  ${3:Description}
+@param [${1:Type}] ${2:Name} ${3:Description}

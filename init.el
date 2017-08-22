@@ -745,6 +745,9 @@
   (define-key pabbrev-mode-map [tab] 'pabbrev-expand-maybe)
   (add-hook 'text-mode-hook (lambda () (pabbrev-mode))))
 
+(use-package plantuml-mode
+  :ensure t)
+
 ;; Projectile -- Project management
 (use-package projectile
   :ensure t

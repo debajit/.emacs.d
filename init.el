@@ -885,6 +885,7 @@ other matching pairs"
              ("C-c C-r" . 'mc/mark-sgml-tag-pair)))
 
 ;; Whitespace mode
+;; https://www.emacswiki.org/emacs/WhiteSpace
 (use-package whitespace
   :diminish whitespace-mode
   :init

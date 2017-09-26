@@ -746,7 +746,9 @@
   (add-hook 'text-mode-hook (lambda () (pabbrev-mode))))
 
 (use-package plantuml-mode
-  :ensure t)
+  :ensure t
+  :mode (("\\.puml\\'" . plantuml-mode)
+         ("\\.plantuml\\'" . plantuml-mode)))
 
 ;; Projectile -- Project management
 (use-package projectile

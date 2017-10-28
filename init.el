@@ -503,7 +503,10 @@
 
 ;; Elixir snippets
 (use-package elixir-yasnippets
-    :ensure t)
+  :ensure t)
+
+(use-package elm-mode
+  :ensure t)
 
 ;; Emacs Lisp mode
 (use-package emacs-lisp-mode

@@ -32,6 +32,7 @@
       (violet-bright "#721cd4")
       (eggplant "#744c80")
       (red-bright "#fb4933")
+      (dark-green "#007e33")
       (peacock-green "#43d08a")
       (seafoam-green2 "#b4ffc3")
       (seafoam-green "#c8ffd3")
@@ -216,6 +217,11 @@
    `(neo-root-dir-face ((,class (:foreground ,brown-10))))
    `(neo-header-face ((,class (:foreground ,comment))))
 
+   ;; Treemacs
+   `(treemacs-file-face ((,class (:foreground ,blue-01))))
+   `(treemacs-directory-face ((,class (:foreground ,black-10))))
+   `(treemacs-header-face ((,class (:foreground ,blue-01))))
+
    ;; Org mode
    `(org-document-title ((,class (:foreground ,blue-01 :bold t :height 2.4))))
    `(org-code ((,class (:foreground ,fg2))))
@@ -234,17 +240,21 @@
    `(org-verse ((,class (:inherit org-block :slant italic))))
    `(org-todo ((,class (:box (:line-width 1 :color ,brown-35) :foreground ,red-10 :bold t :background ,pale-brown))))
    `(org-done ((,class (:box (:line-width 1 :color ,peacock-green) :bold t :foreground ,green-20 :background ,seafoam-green))))
-   `(org-warning ((,class (:underline t :foreground ,warning))))
+   `(org-warning ((,class (:foreground ,red-10))))
    `(org-agenda-structure ((,class (:weight bold :foreground ,fg3 :box (:color ,fg4) :background ,bg3))))
    `(org-agenda-date ((,class (:foreground ,var :height 1.1 ))))
    `(org-agenda-date-weekend ((,class (:weight normal :foreground ,fg4))))
-   `(org-agenda-date-today ((,class (:weight bold :foreground ,keyword :height 1.4))))
+   `(org-agenda-date-today ((,class (:weight normal :foreground ,blue-01 :height 1.4 :italic nil))))
    `(org-agenda-done ((,class (:foreground ,bg4))))
    `(org-scheduled ((,class (:foreground ,type))))
    `(org-scheduled-today ((,class (:foreground ,func :weight bold :height 1.2))))
    `(org-ellipsis ((,class (:foreground ,builtin))))
    `(org-verbatim ((,class (:foreground ,fg4))))
    `(org-document-info-keyword ((,class (:foreground ,func))))
+
+   ;; RTF mode
+   ;; `(rtf-loud-cword-face ((,class (:foreground ,blue-01 :bold t :background "#E5DCEB"))))
+   `(rtf-loud-cword-face ((,class (:foreground ,black-10 :bold t :background ,blue-25))))
 
    ;; Smartparens
    `(sp-pair-overlay-face ((,class (:background ,green-80))))
@@ -348,20 +358,23 @@
    `(rainbow-delimiters-depth-7-face ((,class :foreground ,type)))
    `(rainbow-delimiters-depth-8-face ((,class :foreground ,var)))
 
-   `(magit-item-highlight ((,class :background ,bg3)))
-   `(magit-section-heading        ((,class (:foreground ,keyword :weight bold))))
-   `(magit-hunk-heading           ((,class (:background ,bg3))))
-   `(magit-section-highlight      ((,class (:background ,bg2))))
-   `(magit-hunk-heading-highlight ((,class (:background ,bg3))))
+   `(magit-branch ((,class (:foreground ,const :weight bold))))
+   `(magit-diff-added ((,class (:foreground ,dark-green :background ,seafoam-green))))
+   `(magit-diff-added-highlight ((,class (:background ,seafoam-green :foreground ,dark-green))))
    `(magit-diff-context-highlight ((,class (:background ,bg3 :foreground ,fg3))))
+   `(magit-diff-file-header ((,class (:foreground ,fg2 :background ,bg3))))
+   `(magit-diff-removed ((,class (:background ,pale-orange-red :foreground ,"OrangeRed3"))))
    `(magit-diffstat-added   ((,class (:foreground ,type))))
    `(magit-diffstat-removed ((,class (:foreground ,var))))
-   `(magit-process-ok ((,class (:foreground ,func :weight bold))))
-   `(magit-process-ng ((,class (:foreground ,warning :weight bold))))
-   `(magit-branch ((,class (:foreground ,const :weight bold))))
-   `(magit-log-author ((,class (:foreground ,fg3))))
    `(magit-hash ((,class (:foreground ,fg2))))
-   `(magit-diff-file-header ((,class (:foreground ,fg2 :background ,bg3))))
+   `(magit-hunk-heading           ((,class (:background ,bg3))))
+   `(magit-hunk-heading-highlight ((,class (:background ,bg3))))
+   `(magit-item-highlight ((,class :background ,bg3)))
+   `(magit-log-author ((,class (:foreground ,fg3))))
+   `(magit-process-ng ((,class (:foreground ,warning :weight bold))))
+   `(magit-process-ok ((,class (:foreground ,func :weight bold))))
+   `(magit-section-heading        ((,class (:foreground ,keyword :weight bold))))
+   `(magit-section-highlight      ((,class (:background ,bg2))))
 
    `(lazy-highlight ((,class (:foreground ,fg2 :background ,bg3))))
 
@@ -408,7 +421,10 @@
    `(helm-source-go-package-godoc-description ((,class (:foreground ,str))))
    `(helm-bookmark-w3m ((,class (:foreground ,type))))
    `(helm-action ((t (:foreground ,brown-10))))
-   `(helm-ls-git-modified-not-staged-face ((t (:foreground ,red-bright))))
+
+   ;; Helm Git
+   `(helm-ls-git-modified-not-staged-face ((t (:foreground ,warning2))))
+   `(helm-ls-git-added-copied-face ((t (:foreground ,dark-green))))
 
    ;; hl-todo mode
    `(hl-todo ((t (:background ,red-bright :foreground ,pastel-yellow :bold nil))))
@@ -426,6 +442,9 @@
    `(company-tooltip-mouse ((,class (:inherit highlight))))
    `(company-tooltip-selection ((,class (:background ,bg3 :foreground ,fg3))))
    `(company-template-field ((,class (:inherit region))))
+
+   ;; Shell script mode
+   `(sh-quoted-exec ((t (:foreground ,eggplant :background "#E5DCEB" :bold nil))))
 
    ;; Web mode
    `(web-mode-builtin-face ((,class (:inherit ,font-lock-builtin-face))))

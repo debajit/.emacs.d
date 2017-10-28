@@ -341,6 +341,7 @@
   (set-face-attribute 'org-block-background nil :inherit 'fixed-pitch))
 
 (add-hook 'org-mode-hook 'set-buffer-variable-pitch)
+;; (add-hook 'org-agenda-mode-hook 'set-buffer-variable-pitch)
 (add-hook 'eww-mode-hook 'set-buffer-variable-pitch)
 (add-hook 'markdown-mode-hook 'set-buffer-variable-pitch)
 (add-hook 'Info-mode-hook 'set-buffer-variable-pitch)
@@ -630,7 +631,6 @@
   :ensure t
   :bind ("s-g" . magit-status))
 
-
 ;; Markdown Mode
 (use-package markdown-mode
   :ensure t
@@ -707,7 +707,9 @@
         '((sequence "TODO" "IN PROGRESS" "WAITING_FOR_CUSTOMER" "CODE-REVIEW" "DEPLOYING" "WAITING_FOR_SCHEDULE" "BLOCKED" "|" "DONE" "DELEGATED" "CANCELED")))
   :bind (:map org-mode-map
               ("s-1" . org-table-sort-lines)
-              ("s-D" . org-archive-subtree))
+              ("s-D" . org-archive-subtree)
+              ("M-S-SPC" . org-capture)
+              ("C-S-SPC" . org-agenda))
   :config
   (custom-set-variables '(org-hide-emphasis-markers t)) ; Hide bold, italic markers
   (org-babel-do-load-languages
@@ -946,6 +948,26 @@ other matching pairs"
             (lambda ()
               (yas-activate-extra-mode 'fundamental-mode))))
 
+
+;;--------------------------------------------------------------------
+;; Org mode setup
+;;--------------------------------------------------------------------
+
+;; Adapted from https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
+(setq org-agenda-files '("/Users/debajita/Documents/gtd/inbox.org"
+                         "/Users/debajita/Documents/gtd/gtd.org"
+                         "/Users/debajita/Documents/gtd/tickler.org"))
+
+(setq org-capture-templates '(("t" "Todo [inbox]" entry
+                               (file+headline "/Users/debajita/Documents/gtd/inbox.org" "Tasks")
+                               "* TODO %i%?")
+                              ("T" "Tickler" entry
+                               (file+headline "/Users/debajita/Documents/gtd/tickler.org" "Tickler")
+                               "* %i%? \n %U")))
+
+(setq org-refile-targets '(("/Users/debajita/Documents/gtd/gtd.org" :maxlevel . 3)
+                           ("/Users/debajita/Documents/gtd/someday.org" :level . 1)
+                           ("/Users/debajita/Documents/gtd/tickler.org" :maxlevel . 2)))
 
 ;;----------------------------------------------------------------------
 ;; Theme

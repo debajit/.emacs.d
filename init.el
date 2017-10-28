@@ -350,6 +350,8 @@
 ;; External Packages
 ;;----------------------------------------------------------------------
 
+(add-to-list 'load-path "~/.emacs.d/custom-packages/")
+
 ;; Setup use-package first. We will use this for everything else.
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
@@ -767,6 +769,11 @@
     (add-hook (intern (concat (symbol-name mode) "-hook"))
               (lambda () (rainbow-mode))))
   :diminish rainbow-mode)
+
+;; RTF mode
+(autoload 'rtf-mode "rtf-mode" "RTF mode" t)
+(add-to-list 'auto-mode-alist
+             '("\\.rtf$" . rtf-mode))
 
 ;; Ruby mode
 (use-package ruby-mode

@@ -923,7 +923,7 @@ other matching pairs"
   (add-hook 'before-save-hook #'whitespace-cleanup)
   :config
   (setq whitespace-line-column 72) ;; limit line length
-  (setq whitespace-style '(face tabs empty trailing lines-tail)))
+  (setq whitespace-style '(face tabs empty trailing)))
 
 (use-package yaml-mode
   :ensure t)

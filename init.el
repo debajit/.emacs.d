@@ -763,7 +763,7 @@
 (use-package rainbow-mode
   :ensure t
   :config
-  (dolist (mode '(css-mode less-css-mode html-mode web-mode))
+  (dolist (mode '(css-mode less-css-mode html-mode plantuml-mode web-mode))
     (add-hook (intern (concat (symbol-name mode) "-hook"))
               (lambda () (rainbow-mode))))
   :diminish rainbow-mode)

@@ -781,6 +781,11 @@
   :ensure t
   :diminish ruby-tools-mode)
 
+(use-package scss-mode
+  :ensure t
+  :mode (("\\.scss$" . scss-mode)
+         ("\\.scss.erb$" . scss-mode)))
+
 ;; Smartparens
 (use-package smartparens
   :ensure t

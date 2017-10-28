@@ -519,9 +519,10 @@
 
 (use-package fastnav
   :ensure t
-  :bind (("s-<" . fastnav-jump-to-char-backward)
-         ("s->" . fastnav-jump-to-char-forward))
-  :bind* ("M-z" . fastnav-zap-up-to-char-forward))
+  :bind (("M-j" . avy-goto-char-in-line)
+         ("M-J" . avy-goto-char))
+  :bind* (("M-z" . fastnav-zap-up-to-char-forward)
+          ("M-Z" . fastnav-zap-up-to-char-backward)))
 
 ;; Fill column indicator (Print margin — Enable for all files)
 (use-package fill-column-indicator

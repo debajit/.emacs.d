@@ -7,6 +7,7 @@
         crux-smart-open-line
         crux-top-join-line
         delete-horizontal-space
+        fastnav-zap-up-to-char-forward
         fill-paragraph
         haml-electric-backspace
         helm-M-x

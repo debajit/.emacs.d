@@ -707,7 +707,7 @@
         '((sequence "TODO" "IN PROGRESS" "WAITING_FOR_CUSTOMER" "CODE-REVIEW" "DEPLOYING" "WAITING_FOR_SCHEDULE" "BLOCKED" "|" "DONE" "DELEGATED" "CANCELED")))
   :bind (:map org-mode-map
               ("s-1" . org-table-sort-lines)
-              ("s-D" . org-archive-subtree)
+              ("s-A" . org-archive-subtree)
               ("M-S-SPC" . org-capture)
               ("C-S-SPC" . org-agenda))
   :config

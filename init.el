@@ -866,7 +866,9 @@ other matching pairs"
 
 ;; TypeScript
 (use-package typescript-mode
-  :ensure t)
+  :ensure t
+  :init
+  (setq typescript-indent-level 2))
 
 (use-package undo-tree
   :ensure t

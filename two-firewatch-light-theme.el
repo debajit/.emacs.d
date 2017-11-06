@@ -382,7 +382,7 @@
    `(magit-log-author ((,class (:foreground ,fg3))))
    `(magit-process-ng ((,class (:foreground ,warning :weight bold))))
    `(magit-process-ok ((,class (:foreground ,func :weight bold))))
-   `(magit-section-heading        ((,class (:foreground ,keyword :weight bold))))
+   `(magit-section-heading ((,class (:foreground ,keyword :background ,bg1 :weight bold :family "Verlag" :height 1.5 :inherit nil))))
    `(magit-section-highlight      ((,class (:background ,white-80))))
    `(magit-section-secondary-heading ((,class (:foreground ,red-10 :weight bold))))
 

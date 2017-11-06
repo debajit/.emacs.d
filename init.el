@@ -243,7 +243,9 @@
 
 (global-set-key [f12] 'vc-annotate)
 (global-set-key (kbd "s-H") 'vc-region-history)
-(global-set-key (kbd "s-C") 'vc-diff)
+(global-set-key (kbd "s-C") 'magit-diff-buffer-file)
+(global-set-key (kbd "s-S") 'vc-diff)
+;; (global-set-key (kbd "s-C") 'magit-diff-visit-file)
 
 
 ;;----------------------------------------------------------------------

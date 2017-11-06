@@ -76,4 +76,7 @@
  '(org-level-3 ((t (:weight bold :height 1.5 :family "Verlag"))))
  '(org-level-4 ((t (:weight bold :height 1.3 :family "Verlag"))))
  '(org-link ((t (:foreground "#4280b8" :underline t))))
+ '(treemacs-directory-face ((t (:foreground "#2d1f06" :family "Ideal Sans"))))
+ '(treemacs-file-face ((t (:foreground "#005486" :family "Ideal Sans"))))
+ '(treemacs-header-face ((t (:foreground "#005486" :weight bold :height 1.3 :family "Verlag"))))
  '(variable-pitch ((t (:foreground "#674c20" :slant normal :weight normal :height 181 :width normal :foundry "nil" :family "Ideal Sans")))))

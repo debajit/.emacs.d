@@ -384,7 +384,7 @@
    `(magit-process-ok ((,class (:foreground ,func :weight bold))))
    `(magit-section-heading        ((,class (:foreground ,keyword :weight bold))))
    `(magit-section-highlight      ((,class (:background ,white-80))))
-   `(magit-section-secondary-heading ((,class (:foreground ,red-10 :weight bold :underline t))))
+   `(magit-section-secondary-heading ((,class (:foreground ,red-10 :weight bold))))
 
    `(lazy-highlight ((,class (:foreground ,fg2 :background ,bg3))))
 

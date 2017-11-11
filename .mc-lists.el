@@ -20,10 +20,12 @@
         sp-backward-delete-char
         sp-delete-char
         text-scale-increase
+        typescript-insert-and-indent
         ))
 
 (setq mc/cmds-to-run-once
       '(
+        iedit-switch-to-mc-mode
         mark-whole-buffer
         markdown-exdent-or-delete
         yaml-electric-backspace

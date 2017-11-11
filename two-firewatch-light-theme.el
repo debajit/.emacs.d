@@ -360,7 +360,7 @@
 
    `(magit-branch ((,class (:foreground ,const :weight bold))))
    `(magit-commit ((,class (:foreground ,white-00 :background ,black-10 :weight bold))))
-   `(magit-branch-current ((,class (:foreground ,green-20 :background ,seafoam-green2 :weight bold))))
+   `(magit-branch-current ((,class (:foreground ,dark-green :background ,seafoam-green2 :weight bold))))
    `(magit-branch-local ((,class (:foreground ,green-20 :background ,seafoam-green :weight bold))))
    `(magit-branch-remote ((,class (:foreground ,red-40 :background ,pale-orange-red :weight bold))))
    `(magit-diff-added ((,class (:foreground ,dark-green :background ,seafoam-green))))
@@ -382,9 +382,10 @@
    `(magit-log-author ((,class (:foreground ,fg3))))
    `(magit-process-ng ((,class (:foreground ,warning :weight bold))))
    `(magit-process-ok ((,class (:foreground ,func :weight bold))))
-   `(magit-section-heading ((,class (:foreground ,keyword :background ,bg1 :weight bold :family "Verlag" :height 1.5 :inherit nil))))
+   `(magit-section-heading ((,class (:foreground ,blue-01 :background ,bg1 :weight bold :family "Verlag" :height 1.5 :inherit nil))))
    `(magit-section-highlight      ((,class (:background ,white-80))))
    `(magit-section-secondary-heading ((,class (:foreground ,red-10 :weight bold))))
+   `(magit-header-line ((,class (:foreground ,pastel-yellow :background ,"#49330c" :weight bold :family "Verlag" :height 1.5))))
 
    `(lazy-highlight ((,class (:foreground ,fg2 :background ,bg3))))
 

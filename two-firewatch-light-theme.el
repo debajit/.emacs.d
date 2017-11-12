@@ -377,6 +377,7 @@
    `(magit-diff-hunk-heading ((,class (:foreground ,blue-01 :background ,white-99 :weight bold))))
    `(magit-diff-hunk-heading-highlight ((,class (:foreground ,blue-01 :background ,white-99 :weight bold))))
    `(magit-diff-removed ((,class (:background ,pale-orange-red :foreground ,"OrangeRed3"))))
+   `(magit-diff-removed-highlight ((,class (:background ,pale-orange-red :foreground ,"OrangeRed3"))))
    `(magit-diffstat-added   ((,class (:foreground ,type))))
    `(magit-diffstat-removed ((,class (:foreground ,var))))
    `(magit-hash ((,class (:foreground ,brown-40))))

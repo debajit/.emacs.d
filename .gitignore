@@ -32,3 +32,6 @@ ido.last
 
 # Smex
 smex-items
+
+/.edbi-ds-history
+/.cache/treemacs-persist

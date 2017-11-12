@@ -39,6 +39,7 @@
       (pastel-yellow "#fdf4c1")
 
       (black-10 "#2d1f06")
+      (brown-00 "#49330c")
       (brown-01 "#634105")
       (brown-10 "#89662c")              ; Duotone brown 1
       (brown-15 "#92723d")
@@ -134,6 +135,9 @@
    ;; (isearch                                   (:foreground gruvbox-black :background gruvbox-neutral_orange))
    ;; (lazy-highlight                            (:foreground gruvbox-black :background gruvbox-neutral_yellow))
    ;; (isearch-fail                              (:foreground gruvbox-light0 :background gruvbox-bright_red))
+
+   ;; Headers
+   `(header-line ((,class (:foreground ,pastel-yellow :background ,brown-00 :weight bold :box (:line-width 8 :color ,brown-00) :inherit nil))))
 
    ;; Company Mode
    `(company-tooltip ((t (:background ,pale-brown))))
@@ -385,7 +389,7 @@
    `(magit-section-heading ((,class (:foreground ,blue-01 :background ,bg1 :weight bold :family "Verlag" :height 1.5 :inherit nil))))
    `(magit-section-highlight      ((,class (:background ,white-80))))
    `(magit-section-secondary-heading ((,class (:foreground ,red-10 :weight bold))))
-   `(magit-header-line ((,class (:foreground ,pastel-yellow :background ,"#49330c" :weight bold :family "Verlag" :height 1.5))))
+   `(magit-header-line ((,class (:family "Verlag" :height 1.5))))
 
    `(lazy-highlight ((,class (:foreground ,fg2 :background ,bg3))))
 

@@ -11,6 +11,7 @@
         fill-paragraph
         haml-electric-backspace
         helm-M-x
+        iedit-mode
         ignore
         kill-region
         org-delete-char

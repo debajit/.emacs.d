@@ -205,6 +205,9 @@
 (global-set-key (kbd "s-]") 'indent-rigidly-right-to-tab-stop)
 (global-set-key (kbd "s-[") 'indent-rigidly-left-to-tab-stop)
 
+;; Sort lines
+(global-set-key (kbd "s-O") 'sort-lines)
+
 
 ;;----------------------------------------------------------------------
 ;; Vertical text editing
@@ -293,9 +296,6 @@
 
 ;; Move to window on right
 (global-set-key (kbd "s-I") 'windmove-right)
-
-;; Move to window above
-(global-set-key (kbd "s-O") 'windmove-up)
 
 ;; Move to window below
 (global-set-key (kbd "s-P") 'windmove-down)

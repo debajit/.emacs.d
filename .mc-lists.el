@@ -3,13 +3,16 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        comment-dwim-2
         crux-duplicate-current-line-or-region
         crux-smart-open-line
         crux-top-join-line
         delete-horizontal-space
+        easy-kill
         fastnav-zap-up-to-char-forward
         fill-paragraph
         haml-electric-backspace
+        handle-switch-frame
         helm-M-x
         iedit-mode
         ignore

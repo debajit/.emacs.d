@@ -182,6 +182,9 @@
 ;; Text editing keys
 ;;----------------------------------------------------------------------
 
+;; Copy-paste
+(global-set-key (kbd "s-V") 'helm-show-kill-ring)
+
 ;; Toggle read-only mode: s-j
 ;; (global-set-key (kbd "s-j") 'view-mode)
 

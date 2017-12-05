@@ -182,6 +182,9 @@
 ;; Text editing keys
 ;;----------------------------------------------------------------------
 
+;; Enable downcase-region
+(put 'downcase-region 'disabled nil)
+
 ;; Copy-paste
 (global-set-key (kbd "s-V") 'helm-show-kill-ring)
 

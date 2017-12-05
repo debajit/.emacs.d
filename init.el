@@ -631,7 +631,8 @@
 ;; Magit
 (use-package magit
   :ensure t
-  :bind ("s-g" . magit-status))
+  :bind (("s-g" . magit-status)
+         ("s-L" . magit-log-buffer-file)))
 
 ;; Markdown Mode
 (use-package markdown-mode

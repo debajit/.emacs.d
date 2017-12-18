@@ -229,6 +229,9 @@
 ;; Go to line
 (global-set-key (kbd "s-l") 'goto-line)
 
+;; Find tag
+(global-set-key (kbd "M-<") 'find-tag)
+
 ;; Registers - Lightweight bookmarks by character
 
 ;; Save cursor position to register

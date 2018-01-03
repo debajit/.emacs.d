@@ -230,7 +230,7 @@
 (global-set-key (kbd "s-l") 'goto-line)
 
 ;; Find tag
-(global-set-key (kbd "M-<") 'find-tag)
+(global-set-key (kbd "C-M-.") 'find-tag)
 
 ;; Registers - Lightweight bookmarks by character
 

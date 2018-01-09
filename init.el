@@ -98,16 +98,6 @@
 (global-set-key (kbd "s-/") 'hippie-expand)
 (global-set-key (kbd "M-/") 'hippie-expand)
 
-
-;; ido mode
-;; https://www.masteringemacs.org/article/introduction-to-ido-mode
-
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
-(setq ido-use-filename-at-point 'guess)
-
-
 ;; Autocomplete with Tab (Yas + dabbrev)
 ;;
 ;; Configure the Tab key to autocomplete / indent / expand-snippet
@@ -597,16 +587,20 @@
 (use-package htmlize
   :ensure t)
 
-(use-package ido-mode
-  :bind ("C-x C-f" . ido-find-file))
-
 ;; Iedit --- easily rename variables + rectangle mode
 (use-package iedit
   :ensure t
   :bind* ("C-;" . iedit-mode))
 
 (use-package ivy
-  :diminish ivy-mode)
+  :diminish ivy-mode
+  :config
+  (progn
+    ;; Disable ido
+    (with-eval-after-load 'ido
+      (ido-mode -1)
+      ;; Enable ivy
+      (ivy-mode 1))))
 
 (use-package helm-projectile
   :ensure t)

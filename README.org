@@ -20,15 +20,7 @@ brew cask install emacs-mac
 
 #+END_SRC
 
-- Start Emacs. If you see an error related to /use-package/ run the
-  following from inside Emacs:
-
-  #+BEGIN_SRC emacs-lisp
-  M-x package-refresh-contents
-  #+END_SRC
-
-- and then restart Emacs.
-
+Then start Emacs.
 
 * Keyboard Shortcuts
 

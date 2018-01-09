@@ -2,13 +2,6 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror) ; Prevent errors if custom.el does not exist
 
-;; ;; Package setup
-;; (require 'package)
-;; (add-to-list 'package-archives
-;;              '("melpa" . "https://melpa.org/packages/")
-;;              t)
-;; (package-initialize)
-
 ;;----------------------------------------------------------------------
 ;; General Emacs Settings
 ;;----------------------------------------------------------------------
@@ -383,11 +376,6 @@
 
 (add-to-list 'load-path "~/.emacs.d/custom-packages/")
 
-;; ;; Setup use-package first. We will use this for everything else.
-;; (unless (package-installed-p 'use-package)
-;;   (package-install 'use-package))
-;; (require 'use-package)
-;; (setq use-package-verbose t)
 
 ;;----------------------------------------------------------------------
 ;; End setup for use-package

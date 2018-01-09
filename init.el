@@ -374,6 +374,10 @@
 (setq use-package-verbose t)
 (eval-when-compile
   (require 'use-package))
+
+(use-package diminish
+  :ensure t)
+
 (require 'diminish)                ;; Since we use :diminish
 (require 'bind-key)                ;; Since we use :bind and its variants
 
@@ -385,12 +389,10 @@
 ;; (require 'use-package)
 ;; (setq use-package-verbose t)
 
-;; (use-package diminish
-;;   :ensure t)
-
 ;;----------------------------------------------------------------------
 ;; End setup for use-package
 ;;----------------------------------------------------------------------
+
 
 ;; Ace window --- switch windows
 (use-package ace-window

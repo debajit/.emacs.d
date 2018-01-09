@@ -846,6 +846,18 @@ other matching pairs"
 (use-package sort-words
   :ensure t)
 
+;; Spaceline
+
+;; (use-package spaceline :ensure t
+;;   :config
+;;   (setq-default mode-line-format '("%e" (:eval (spaceline-ml-main)))))
+
+;; (use-package spaceline-config :ensure spaceline
+;;   :config
+;;   (spaceline-helm-mode 1)
+;;   (spaceline-emacs-theme))
+
+
 (use-package sql-mode
   :bind ("<s-return>" . sql-send-paragraph))
 

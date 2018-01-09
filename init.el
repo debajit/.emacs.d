@@ -780,6 +780,9 @@
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
+(use-package org-journal
+  :ensure t)
+
 (use-package ox-twbs
   :ensure t)
 

@@ -647,9 +647,12 @@
          ("\\.md$" . markdown-mode))
   :init
   (setq markdown-asymmetric-header t)
+  (setq-default markdown-hide-markup t)
   :config
-  (add-hook 'markdown-mode-hook 'visual-line-mode))
-
+  (add-hook 'markdown-mode-hook
+            '(lambda ()
+               (visual-line-mode)
+               )))
 
 ;; Markdown mode
 ;; Use Octodown as Markdown parser

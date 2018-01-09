@@ -31,15 +31,16 @@ Then start Emacs.
 
 ** Nifty Shortcuts
 
-| Edit Operation        | Key | Notes                                                                                         |
-|-----------------------+-----+-----------------------------------------------------------------------------------------------|
-| Wrap in parens        | M-( | Works without or with a selection                                                             |
-| Fill paragraph        | M-q | How did we live without this? See also auto-fill-mode                                         |
-| Unfill paragraph      | M-Q | "Unfill" a filled paragraph                                                                   |
-| Clear inside pairs    | ⌘J  | Clear a string's contents, or clear any text inside the innermost paired characters. Nifty 😀 |
-| Align regexp          | ⇧⌘A | Align multiple lines on a character (e.g. the equals signs in assignments). Wicked 😈         |
-| Git region history    | ⇧⌘H | See the history of just the selected region. /Very/ useful 🙂                                   |
-| Git diff current file | ⇧⌘C | See what new changes you have made to the current files.                                      |
+| Edit Operation             | Key             | Notes                                                                                         |
+|----------------------------+-----------------+-----------------------------------------------------------------------------------------------|
+| Wrap in parens             | M-(             | Works without or with a selection                                                             |
+| Fill paragraph             | M-q             | How did we live without this? See also auto-fill-mode                                         |
+| Unfill paragraph           | M-Q             | "Unfill" a filled paragraph                                                                   |
+| Clear inside pairs         | ⌘J              | Clear a string's contents, or clear any text inside the innermost paired characters. Nifty 😀 |
+| Align regexp               | ⇧⌘A             | Align multiple lines on a character (e.g. the equals signs in assignments). Wicked 😈         |
+| Correct last misspelt word | Command + Enter |                                                                                               |
+| Git region history         | ⇧⌘H             | See the history of just the selected region. /Very/ useful 🙂                                   |
+| Git diff current file      | ⇧⌘C             | See what new changes you have made to the current files.                                      |
 
 
 ** File Operations
@@ -94,7 +95,8 @@ Then start Emacs.
 
 ** Integration with Other Applications
 
-| Operation                  | Action               | Notes                              |
-|----------------------------+----------------------+------------------------------------|
-| Look up word in Dictionary | s-C-D or Force Touch | Just like any other native Mac app |
-| Search selection in Google | s-L                  |                                    |
+| Operation                    | Action                               | Notes                              |
+|------------------------------+--------------------------------------+------------------------------------|
+| Look up word in Dictionary   | Command + Control + D or Force Touch | Just like any other native Mac app |
+| Search selection in Google   | Command + Shift + G                  |                                    |
+| Open web bookmark in browser | Command + Shift + Enter              | See webjump settings               |

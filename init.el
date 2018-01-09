@@ -341,6 +341,19 @@
 (add-hook 'Info-mode-hook 'set-buffer-variable-pitch)
 
 
+;;
+;; Webjump settings.
+;; Quickly jump to websites from Emacs.
+;;
+
+;; (Command + Shift + Enter) - Webjump (Show list of websites that one can quickly jump to)
+(global-set-key (kbd "<S-s-return>") 'webjump)
+
+(setq webjump-sites
+      (append '(("stackoverflow" . "www.stackoverflow.com")
+                ("GitHub — Debajit — .emacs.d" . "https://github.com/debajit/.emacs.d"))
+              webjump-sample-sites))
+
 ;;----------------------------------------------------------------------
 ;; External Packages
 ;;----------------------------------------------------------------------
@@ -583,6 +596,10 @@
 
 (use-package gitignore-mode
   :ensure t)
+
+(use-package google-this
+  :ensure t
+  :bind ("s-G" . google-this-noconfirm))
 
 ;; HAML mode
 (use-package haml-mode
@@ -885,7 +902,8 @@ other matching pairs"
 
 
 (use-package sql-mode
-  :bind ("<s-return>" . sql-send-paragraph))
+  :bind (:map sql-mode-map
+              ("<s-return>" . sql-send-paragraph)))
 
 ;; Subword mode. This package is configured somewhat differently from
 ;; others. Enabling subword-mode in :config does not work with diminish.

@@ -517,6 +517,7 @@
 
 (use-package emmet-mode
   :ensure t)
+
 (use-package expand-region
   :ensure t
   :bind (("C-=" . er/expand-region)
@@ -719,9 +720,9 @@
         '((sequence "TODO" "IN PROGRESS" "WAITING_FOR_CUSTOMER" "CODE-REVIEW" "DEPLOYING" "WAITING_FOR_SCHEDULE" "BLOCKED" "|" "DONE" "DELEGATED" "CANCELED")))
   :bind (:map org-mode-map
               ("s-1" . org-table-sort-lines)
-              ("s-A" . org-archive-subtree)
-              ("M-S-SPC" . org-capture)
-              ("C-S-SPC" . org-agenda))
+              ("s-A" . org-archive-subtree))
+  :bind (("M-S-SPC" . org-capture)
+         ("C-S-SPC" . org-agenda))
   :config
   (custom-set-variables '(org-hide-emphasis-markers t)) ; Hide bold, italic markers
   (org-babel-do-load-languages

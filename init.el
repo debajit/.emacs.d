@@ -2,12 +2,12 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror) ; Prevent errors if custom.el does not exist
 
-;; Package setup
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/")
-             t)
-(package-initialize)
+;; ;; Package setup
+;; (require 'package)
+;; (add-to-list 'package-archives
+;;              '("melpa" . "https://melpa.org/packages/")
+;;              t)
+;; (package-initialize)
 
 ;;----------------------------------------------------------------------
 ;; General Emacs Settings
@@ -352,13 +352,45 @@
 ;; External Packages
 ;;----------------------------------------------------------------------
 
+;;----------------------------------------------------------------------
+;; Setup use-package
+;; Adapted from https://github.com/CachesToCaches/getting_started_with_use_package/blob/master/init-use-package.el
+;;----------------------------------------------------------------------
+
+;; Update package-archive lists
+(require 'package)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;; (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+(package-initialize)
+
+;; Install 'use-package' if necessary
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+;; Enable use-package
+(setq use-package-verbose t)
+(eval-when-compile
+  (require 'use-package))
+(require 'diminish)                ;; Since we use :diminish
+(require 'bind-key)                ;; Since we use :bind and its variants
+
 (add-to-list 'load-path "~/.emacs.d/custom-packages/")
 
-;; Setup use-package first. We will use this for everything else.
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-(require 'use-package)
-(setq use-package-verbose t)
+;; ;; Setup use-package first. We will use this for everything else.
+;; (unless (package-installed-p 'use-package)
+;;   (package-install 'use-package))
+;; (require 'use-package)
+;; (setq use-package-verbose t)
+
+;; (use-package diminish
+;;   :ensure t)
+
+;;----------------------------------------------------------------------
+;; End setup for use-package
+;;----------------------------------------------------------------------
 
 ;; Ace window --- switch windows
 (use-package ace-window

@@ -916,10 +916,12 @@ other matching pairs"
   :config
   (custom-set-variables '(vlf-application 'dont-ask)))
 
+;;
 ;; Web mode. web-mode is a special mode for HTML which copes with
-;; embedded JS/CSS, JSX, various templating systems, etc. Learn about
-;; web-mode: http://web-mode.org/ (Taken from
-;; https://github.com/bodil/ohai-emacs/blob/master/modules/ohai-html.el)
+;; embedded JS/CSS, JSX, various templating systems, etc.
+;;
+;; see http://web-mode.org/
+;;
 (use-package web-mode
   :ensure t
   :mode (;; We'd like to use web-mode for HTML, instead of the default html-mode.
@@ -933,13 +935,27 @@ other matching pairs"
          ("\\.mustache\\'" . web-mode)
          ("\\.djhtml\\'" . web-mode))
   :bind (:map web-mode-map
-              ("s-r" . browse-url-of-buffer))
+              ("s-r" . browse-url-of-buffer)
+              ("C-P" . web-mode-element-previous)
+              ("C-N" . web-mode-element-next)
+              ("C-R" . web-mode-element-rename)
+              ("C-U" . web-mode-element-parent)
+              ("C-L" . web-mode-element-end)
+              ("C-D" . web-mode-element-clone)
+              ("C-S-SPC" . web-mode-element-content-select)
+              ("C-W" . web-mode-element-wrap))
   :config
-  ;; Highlight the element under the cursor.
-  (setq-default web-mode-enable-current-element-highlight t)
-  ;; Key for renaming tags
-  (bind-keys :map web-mode-map
-             ("C-c C-r" . 'mc/mark-sgml-tag-pair)))
+  (defun my-web-mode-hook ()
+    "Hooks for Web mode."
+
+    (setq web-mode-markup-indent-offset 2               ; Indent with two spaces
+          web-mode-css-indent-offset 2
+          web-mode-code-indent-offset 2
+          web-mode-style-padding 2                      ; Padding on the left of inline style blocks
+          web-mode-script-padding 2                     ; Padding on the left of inline script blocks
+          web-mode-enable-current-element-highlight t)) ; Highlight the element under the cursor.
+
+  (add-hook 'web-mode-hook 'my-web-mode-hook))
 
 ;; Whitespace mode
 ;; https://www.emacswiki.org/emacs/WhiteSpace

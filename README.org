@@ -43,6 +43,16 @@ Then start Emacs.
 | Git diff current file      | ⇧⌘C             | See what new changes you have made to the current files.                                      |
 
 
+** Integration with Other Applications
+
+| Operation                    | Action                               | Notes                              |
+|------------------------------+--------------------------------------+------------------------------------|
+| Open URL                     | Command + click                      |                                    |
+| Look up word in Dictionary   | Command + Control + D or Force Touch | Just like any other native Mac app |
+| Search selection in Google   | Command + Shift + G                  |                                    |
+| Open web bookmark in browser | Command + Shift + Enter              | See webjump settings               |
+
+
 ** File Operations
 
 | Operation             | Key   | Notes                                                                       |
@@ -91,12 +101,3 @@ Then start Emacs.
 | Split side-by-side  | s-J |
 | Split top-to-bottom | s-K |
 | Balance windows     | s-: |
-
-
-** Integration with Other Applications
-
-| Operation                    | Action                               | Notes                              |
-|------------------------------+--------------------------------------+------------------------------------|
-| Look up word in Dictionary   | Command + Control + D or Force Touch | Just like any other native Mac app |
-| Search selection in Google   | Command + Shift + G                  |                                    |
-| Open web bookmark in browser | Command + Shift + Enter              | See webjump settings               |

@@ -349,10 +349,12 @@
 ;; (Command + Shift + Enter) - Webjump (Show list of websites that one can quickly jump to)
 (global-set-key (kbd "<S-s-return>") 'webjump)
 
-(setq webjump-sites
-      (append '(("stackoverflow" . "www.stackoverflow.com")
-                ("GitHub — Debajit — .emacs.d" . "https://github.com/debajit/.emacs.d"))
-              webjump-sample-sites))
+(eval-after-load "webjump"
+  '(setq webjump-sites
+         (append '(("Elixir Formatter" . "https://elixirformatter.com/")
+                   ("GitHub — Debajit — .emacs.d" . "https://github.com/debajit/.emacs.d")
+                   ("Urban Dictionary" . [simple-query "www.urbandictionary.com" "http://www.urbandictionary.com/define.php?term=" ""]))
+                 webjump-sample-sites)))
 
 ;;----------------------------------------------------------------------
 ;; External Packages

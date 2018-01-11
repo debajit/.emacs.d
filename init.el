@@ -408,7 +408,9 @@
   :diminish aggressive-indent-mode
   :config
   (global-aggressive-indent-mode 1)
-  (add-to-list 'aggressive-indent-excluded-modes 'haml-mode))
+  (add-to-list 'aggressive-indent-excluded-modes 'elixir-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'haml-mode)
+  )
 
 ;; Alchemist mode for Elixir
 (use-package alchemist

@@ -347,7 +347,7 @@
 ;;
 
 ;; (Command + Shift + Enter) - Webjump (Show list of websites that one can quickly jump to)
-(global-set-key (kbd "<S-s-return>") 'webjump)
+(global-set-key (kbd "s-g") 'webjump)
 
 (eval-after-load "webjump"
   '(setq webjump-sites
@@ -681,7 +681,7 @@
 ;; Magit
 (use-package magit
   :ensure t
-  :bind (("s-g" . magit-status)
+  :bind (("<S-s-return>" . magit-status)
          ("s-L" . magit-log-buffer-file)))
 
 ;; Markdown Mode

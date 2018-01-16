@@ -632,6 +632,9 @@
 (use-package htmlize
   :ensure t)
 
+(use-package inf-ruby
+  :ensure t)
+
 ;; Iedit --- easily rename variables + rectangle mode
 (use-package iedit
   :ensure t

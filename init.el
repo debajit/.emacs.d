@@ -587,6 +587,13 @@
   (add-hook 'text-mode-hook #'flyspell-mode)
   (add-hook 'prog-mode-hook #'flyspell-prog-mode))
 
+;; Flyspell with Credo
+(use-package 'flycheck-credo
+  :config
+  (eval-after-load 'flycheck
+    '(flycheck-credo-setup))
+  (add-hook 'elixir-mode-hook 'flycheck-mode))
+
 ;; Customize fringes
 (use-package fringe-mode
   :config
@@ -734,6 +741,15 @@
 
   )
 (add-hook 'markdown-mode-hook 'markdown-mode-keyboard-shortcuts)
+
+
+;;
+;; Mix format.
+;; Code formatting for Elixir.
+;;
+
+(require 'mix-format)
+
 
 ;; Multiple cursors. Prefer to use iedit (even with M-{ or M-}) for
 ;; simple variable renames

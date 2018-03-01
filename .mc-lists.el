@@ -32,5 +32,6 @@
         iedit-switch-to-mc-mode
         mark-whole-buffer
         markdown-exdent-or-delete
+        markdown-outdent-or-delete
         yaml-electric-backspace
         ))

@@ -302,6 +302,51 @@
 (global-set-key (kbd "M-[") (lambda () (interactive) (shrink-window-horizontally 20)))
 
 
+;;--------------------------------------------------------------------
+;; Getting Things Done.
+;;
+;; See also
+;; - http://members.optusnet.com.au/~charles57/GTD/datetree.html
+;;--------------------------------------------------------------------
+
+;; Adapted from https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
+(setq org-agenda-files '("~/Documents/gtd/inbox.org"
+                         "~/Documents/gtd/projects.org"
+                         "~/Documents/gtd/journal.org"
+                         "~/Documents/gtd/tickler.org"))
+
+(setq org-refile-targets '(("~/Documents/gtd/projects.org" :maxlevel . 3)
+                           ("~/Documents/gtd/someday.org" :level . 1)
+                           ("~/Documents/gtd/tickler.org" :maxlevel . 2)))
+
+(setq org-capture-templates '(
+
+                              ;; Capture task to Inbox.
+                              ;;
+                              ;; You can refile directly from this
+                              ;; screen using C-c C-w and assign the
+                              ;; task to a project.
+                              ;;
+                              ("t" "Todo [inbox]" entry
+                               (file+headline "/Users/debajita/Documents/gtd/inbox.org" "Tasks")
+                               "* TODO %i%?")
+
+                              ("T" "Tickler" entry
+                               (file+headline "/Users/debajita/Documents/gtd/tickler.org" "Tickler")
+                               "* %i%? \n %U")
+
+                              ;; Add Journal entry.
+                              ;;
+                              ;; Taken from
+                              ;; http://www.howardism.org/Technical/Emacs/journaling-org.html
+                              ;;
+                              ("j" "Journal Entry"
+                               entry (file+datetree "~/Documents/gtd/journal.org")
+                               "* %?")
+
+                              ))
+
+
 ;;----------------------------------------------------------------------
 ;; Typography
 ;;----------------------------------------------------------------------
@@ -1067,39 +1112,6 @@ other matching pairs"
   (add-hook 'yas-minor-mode-hook
             (lambda ()
               (yas-activate-extra-mode 'fundamental-mode))))
-
-
-;;--------------------------------------------------------------------
-;; Org mode setup.
-;;
-;; See also
-;; - http://members.optusnet.com.au/~charles57/GTD/datetree.html
-;;--------------------------------------------------------------------
-
-;; Adapted from https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
-(setq org-agenda-files '("~/Documents/gtd/inbox.org"
-                         "~/Documents/gtd/projects.org"
-                         "~/Documents/gtd/journal.org"
-                         "~/Documents/gtd/tickler.org"))
-
-(setq org-refile-targets '(("~/Documents/gtd/projects.org" :maxlevel . 3)
-                           ("~/Documents/gtd/someday.org" :level . 1)
-                           ("~/Documents/gtd/tickler.org" :maxlevel . 2)))
-
-(setq org-capture-templates '(("t" "Todo [inbox]" entry
-                               (file+headline "/Users/debajita/Documents/gtd/inbox.org" "Tasks")
-                               "* TODO %i%?")
-                              ("T" "Tickler" entry
-                               (file+headline "/Users/debajita/Documents/gtd/tickler.org" "Tickler")
-                               "* %i%? \n %U")
-
-                              ;; Journal
-                              ;; Taken from http://www.howardism.org/Technical/Emacs/journaling-org.html
-                              ("j" "Journal Entry"
-                               entry (file+datetree "~/Documents/gtd/journal.org")
-                               "* %?")
-
-                              ))
 
 
 ;;----------------------------------------------------------------------

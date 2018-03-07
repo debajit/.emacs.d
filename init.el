@@ -778,13 +778,19 @@
         org-export-with-section-numbers nil  ; TODO: Not working
         htmlize-output-type 'css
         org-html-htmlize-output-type 'css)
+
   (setq org-todo-keywords
-        '((sequence "TODO" "IN PROGRESS" "WAITING_FOR_CUSTOMER" "CODE-REVIEW" "DEPLOYING" "WAITING_FOR_SCHEDULE" "BLOCKED" "|" "DONE" "DELEGATED" "CANCELED")))
+        '((sequence "TODO" "IN PROGRESS" "WAITING_FOR_CUSTOMER" "CODE-REVIEW" "DEPLOYING" "WAITING_FOR_SCHEDULE" "BLOCKED" "|" "✔ DONE" "DELEGATED" "CANCELED")))
+
+  ;; Org mode keyboard shortcuts
   :bind (:map org-mode-map
               ("s-1" . org-table-sort-lines)
               ("s-A" . org-archive-subtree))
+
+  ;; Global keyboard shortcuts
   :bind (("M-S-SPC" . org-capture)
          ("C-S-SPC" . org-agenda))
+
   :config
   (custom-set-variables '(org-hide-emphasis-markers t)) ; Hide bold, italic markers
   (org-babel-do-load-languages
@@ -807,6 +813,9 @@
 (use-package org-bullets
   :ensure t
   :diminish org-bullets-mode
+  :init
+  (setq org-bullets-bullet-list
+        '("◉" "○" "✸" "○" "☯" "⚫" "►" "◇"))
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
@@ -1072,7 +1081,15 @@ other matching pairs"
                                "* TODO %i%?")
                               ("T" "Tickler" entry
                                (file+headline "/Users/debajita/Documents/gtd/tickler.org" "Tickler")
-                               "* %i%? \n %U")))
+                               "* %i%? \n %U")
+
+                              ;; Journal
+                              ;; Taken from http://www.howardism.org/Technical/Emacs/journaling-org.html
+                              ("j" "Journal Entry"
+                               entry (file+datetree "~/Documents/gtd/journal.org")
+                               "* %?")
+
+                              ))
 
 (setq org-refile-targets '(("/Users/debajita/Documents/gtd/gtd.org" :maxlevel . 3)
                            ("/Users/debajita/Documents/gtd/someday.org" :level . 1)

@@ -188,7 +188,9 @@
 
    `(vertical-border ((,class (:foreground ,fg3))))
    ;; `(minibuffer-prompt ((,class (:bold t :foreground ,white-00 :background ,violet-bright))))
-   `(minibuffer-prompt ((,class (:bold t :foreground ,white-00 :background ,blue-01))))
+   ;; `(minibuffer-prompt ((,class (:bold t :foreground ,white-00 :background ,blue-01))))
+   ;; `(minibuffer-prompt ((,class (:bold t :foreground ,red-40 :background ,white-99))))
+   `(minibuffer-prompt ((,class (:bold t :foreground ,blue-01 :background ,white-99))))
    ;; `(minibuffer-prompt ((,class (:bold t :foreground ,"#00601d" :background ,seafoam-green))))
    `(default-italic ((,class (:italic t))))
    `(link ((,class (:foreground ,const :underline t))))

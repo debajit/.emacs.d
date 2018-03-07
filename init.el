@@ -1068,13 +1068,16 @@ other matching pairs"
 
 
 ;;--------------------------------------------------------------------
-;; Org mode setup
+;; Org mode setup.
+;;
+;; See also
+;; - http://members.optusnet.com.au/~charles57/GTD/datetree.html
 ;;--------------------------------------------------------------------
 
 ;; Adapted from https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
-(setq org-agenda-files '("/Users/debajita/Documents/gtd/inbox.org"
-                         "/Users/debajita/Documents/gtd/gtd.org"
-                         "/Users/debajita/Documents/gtd/tickler.org"))
+(setq org-agenda-files '("~/Documents/gtd/inbox.org"
+                         "~/Documents/gtd/journal.org"
+                         "~/Documents/gtd/tickler.org"))
 
 (setq org-capture-templates '(("t" "Todo [inbox]" entry
                                (file+headline "/Users/debajita/Documents/gtd/inbox.org" "Tasks")

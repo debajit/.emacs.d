@@ -799,12 +799,14 @@
      ;; (elixir . t)
      (R . t)
      (ruby . t)))
+
   (add-hook 'org-mode-hook
             '(lambda ()
                (auto-fill-mode)                     ; Hard wrap automatically
                (whitespace-mode 0)                  ; Do not show trailing whitespace
                (setq org-src-fontify-natively t
                      org-export-with-section-numbers nil)))  ; Syntax-highlight code snippets
+
   ;; Diminish org-indent-mode
   ;; see http://emacs.stackexchange.com/questions/22531/diminish-org-indent-mode
   (eval-after-load 'org-indent '(diminish 'org-indent-mode)))
@@ -1076,8 +1078,13 @@ other matching pairs"
 
 ;; Adapted from https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
 (setq org-agenda-files '("~/Documents/gtd/inbox.org"
+                         "~/Documents/gtd/projects.org"
                          "~/Documents/gtd/journal.org"
                          "~/Documents/gtd/tickler.org"))
+
+(setq org-refile-targets '(("~/Documents/gtd/projects.org" :maxlevel . 3)
+                           ("~/Documents/gtd/someday.org" :level . 1)
+                           ("~/Documents/gtd/tickler.org" :maxlevel . 2)))
 
 (setq org-capture-templates '(("t" "Todo [inbox]" entry
                                (file+headline "/Users/debajita/Documents/gtd/inbox.org" "Tasks")
@@ -1094,9 +1101,6 @@ other matching pairs"
 
                               ))
 
-(setq org-refile-targets '(("/Users/debajita/Documents/gtd/gtd.org" :maxlevel . 3)
-                           ("/Users/debajita/Documents/gtd/someday.org" :level . 1)
-                           ("/Users/debajita/Documents/gtd/tickler.org" :maxlevel . 2)))
 
 ;;----------------------------------------------------------------------
 ;; Theme

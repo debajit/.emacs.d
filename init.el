@@ -346,6 +346,15 @@
 
                               ))
 
+;;----------------------------------------------------------------------
+;; File shortcuts
+;;----------------------------------------------------------------------
+
+;; Jump to the Emacs configuration file, init.el:
+;; Command + Control + e
+(global-set-key (kbd "C-s-e")
+                (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+
 ;; Jump to the Inbox:
 ;; Command + Control + i
 (global-set-key (kbd "C-s-i")

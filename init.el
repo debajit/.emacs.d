@@ -327,7 +327,7 @@
                               ;; screen using C-c C-w and assign the
                               ;; task to a project.
                               ;;
-                              ("t" "Todo [inbox]" entry
+                              ("i" "Todo [inbox]" entry
                                (file+headline "/Users/debajita/Documents/gtd/inbox.org" "Tasks")
                                "* TODO %i%?")
 

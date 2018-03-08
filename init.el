@@ -346,6 +346,16 @@
 
                               ))
 
+;; Jump to the Inbox:
+;; Command + Control + i
+(global-set-key (kbd "C-s-i")
+                (lambda () (interactive) (find-file "~/Documents/gtd/inbox.org")))
+
+;; Jump to the Journal:
+;; Command + Control + j
+(global-set-key (kbd "C-s-j")
+                (lambda () (interactive) (find-file "~/Documents/gtd/journal.org")))
+
 
 ;;----------------------------------------------------------------------
 ;; Typography

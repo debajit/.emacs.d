@@ -360,6 +360,11 @@
 (global-set-key (kbd "C-s-i")
                 (lambda () (interactive) (find-file "~/Documents/gtd/inbox.org")))
 
+;; Jump to Projects.org:
+;; Command + Control + p
+(global-set-key (kbd "C-s-p")
+                (lambda () (interactive) (find-file "~/Documents/gtd/projects.org")))
+
 ;; Jump to the Journal:
 ;; Command + Control + j
 (global-set-key (kbd "C-s-j")

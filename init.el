@@ -920,7 +920,7 @@
 (use-package projectile
   :ensure t
   :diminish projectile-mode
-  :bind ("s-P" . projectile-switch-project)
+  :bind ("s-P" . helm-projectile-switch-project)
   :config
   (projectile-global-mode +1))
 

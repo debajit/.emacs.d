@@ -17,6 +17,7 @@
         iedit-mode
         ignore
         kill-region
+        mac-mwheel-scroll
         org-delete-char
         org-end-of-line
         org-self-insert-command

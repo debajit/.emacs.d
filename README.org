@@ -101,3 +101,62 @@ Then start Emacs.
 | Split side-by-side  | s-J |
 | Split top-to-bottom | s-K |
 | Balance windows     | s-: |
+
+
+** Org-Agenda (“OmniFocus” mode)
+
+Start Org-Agenda with Control+Shift+Space. Then press
+
+| Key | Operation         |
+|-----+-------------------|
+| a   | Agenda            |
+| n   | Agenda with TODOs |
+
+On the Agenda screen, the following keys will work:
+
+*** Special Useful Commands
+
+| Key | Operation                    |
+|-----+------------------------------|
+| k   | Enter new task (org-capture) |
+| A   | Agenda command               |
+
+*** Customize View
+
+| Key | Operation           |
+|-----+---------------------|
+| E   | Show notes on tasks |
+| D   | Show diary entries like holidays |
+
+*** Close
+
+| Key | Operation                                    |
+|-----+----------------------------------------------|
+| q   | Close the agenda view                        |
+| x   | Close the agenda view and org buffers opened |
+| s   | Save all org buffers opened                  |
+
+*** Filtering
+
+| Key    | Operation     |
+|--------+---------------|
+| ~/~, tab | Filter by tag |
+| / /    | Reset filters |
+
+*** Clocking
+
+| Key | Operation                            |
+|-----+--------------------------------------|
+| I   | Clock in to a task                   |
+| O   | Clock out of a task                  |
+| J   | Jump to a task that is being clocked |
+
+*** Navigation
+
+| Key | Operation                   |
+|-----+-----------------------------|
+| .   | Jump to today               |
+| p   | Move to line below          |
+| n   | Move to line above          |
+| f   | Show timeline in the future |
+| b   | Show timeline in the past   |

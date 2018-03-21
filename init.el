@@ -820,6 +820,13 @@
 (require 'mix-format)
 
 
+;; Move text. Move a line of text up or down. Selection not required.
+(use-package move-text
+  :ensure t
+  :config
+  (move-text-default-bindings))
+
+
 ;; Multiple cursors. Prefer to use iedit (even with M-{ or M-}) for
 ;; simple variable renames
 (use-package multiple-cursors

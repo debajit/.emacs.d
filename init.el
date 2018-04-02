@@ -309,15 +309,47 @@
 ;; - http://members.optusnet.com.au/~charles57/GTD/datetree.html
 ;;--------------------------------------------------------------------
 
-;; Adapted from https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
-(setq org-agenda-files '("~/Documents/gtd/inbox.org"
-                         "~/Documents/gtd/projects.org"
-                         "~/Documents/gtd/journal.org"
-                         "~/Documents/gtd/tickler.org"))
+;;
+;; The Tasks directory is ~/Documents/Tasks.
+;; The Todo directory is ~/Documents/Tasks/Todo.
+;;
 
-(setq org-refile-targets '(("~/Documents/gtd/projects.org" :maxlevel . 3)
-                           ("~/Documents/gtd/someday.org" :level . 1)
-                           ("~/Documents/gtd/tickler.org" :maxlevel . 2)))
+(setq tasks-directory "~/Documents/Tasks"
+      todo-directory (concat (file-name-as-directory tasks-directory) "Todo"))
+
+(let ((default-directory tasks-directory))
+  (setq my-diary-file (expand-file-name "diary")))
+
+(let ((default-directory todo-directory))
+  (setq inbox-tasks-file (expand-file-name "inbox.org")
+        home-tasks-file (expand-file-name "home.org")
+        work-tasks-file (expand-file-name "work.org")
+        finances-tasks-file (expand-file-name "finances.org")
+        projects-tasks-file (expand-file-name "projects.org")
+        home-journal-file (expand-file-name "home-log.org")
+        work-journal-file (expand-file-name "work-log.org")))
+
+;;
+;; Adapted from
+;; https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
+;;
+;; See also https://emacs.stackexchange.com/a/7487/12922 for how to
+;; evaluate variables in a list in ELisp
+;;
+(setq org-agenda-files `(,inbox-tasks-file
+                         ,home-tasks-file
+                         ,work-tasks-file
+                         ,finances-tasks-file
+                         ,projects-tasks-file
+                         ,home-journal-file
+                         ,work-journal-file))
+
+(setq diary-file my-diary-file)
+
+(setq org-refile-targets `((,projects-tasks-file :maxlevel . 3)
+                           (,home-tasks-file :level . 1)
+                           (,work-tasks-file :maxlevel . 2)
+                           (,finances-tasks-file :maxlevel . 2)))
 
 (setq org-capture-templates '(
 
@@ -328,23 +360,25 @@
                               ;; task to a project.
                               ;;
                               ("i" "Todo [inbox]" entry
-                               (file+headline "/Users/debajita/Documents/gtd/inbox.org" "Tasks")
+                               (file+headline inbox-tasks-file "Tasks")
                                "* TODO %i%?")
 
-                              ("T" "Tickler" entry
-                               (file+headline "/Users/debajita/Documents/gtd/tickler.org" "Tickler")
-                               "* %i%? \n %U")
+                              ;; ("T" "Tickler" entry
+                              ;;  (file+headline "/Users/debajita/Documents/Tasks/Todo/tickler.org" "Tickler")
+                              ;;  "* %i%? \n %U")
 
                               ;; Add Journal entry.
                               ;;
                               ;; Taken from
                               ;; http://www.howardism.org/Technical/Emacs/journaling-org.html
                               ;;
-                              ("j" "Journal Entry"
-                               entry (file+datetree "~/Documents/gtd/journal.org")
+                              ("j" "Journal Entry — Work"
+                               entry (file+datetree work-journal-file)
                                "* %?")
 
                               ))
+
+(setq org-archive-location (concat "~/Documents/Tasks/Archive/archive-" (format-time-string "%Y%m" (current-time)) ".org_archive::"))
 
 ;;----------------------------------------------------------------------
 ;; File shortcuts
@@ -358,17 +392,26 @@
 ;; Jump to the Inbox:
 ;; Command + Control + i
 (global-set-key (kbd "C-s-i")
-                (lambda () (interactive) (find-file "~/Documents/gtd/inbox.org")))
+                (lambda () (interactive) (find-file inbox-tasks-file)))
 
 ;; Jump to Projects.org:
 ;; Command + Control + p
 (global-set-key (kbd "C-s-p")
-                (lambda () (interactive) (find-file "~/Documents/gtd/projects.org")))
+                (lambda () (interactive) (find-file "~/Documents/Tasks/Todo/projects.org")))
+
+;; Jump to Projects.org:
+;; Command + Control + p
+
+(defun jump-to-project ()
+  (interactive)
+  (org-refile 1))
+
+(global-set-key (kbd "<C-s-return>") 'jump-to-project)
 
 ;; Jump to the Journal:
 ;; Command + Control + j
 (global-set-key (kbd "C-s-j")
-                (lambda () (interactive) (find-file "~/Documents/gtd/journal.org")))
+                (lambda () (interactive) (find-file work-journal-file)))
 
 
 ;;----------------------------------------------------------------------

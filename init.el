@@ -380,6 +380,23 @@
 
 (setq org-archive-location (concat "~/Documents/Tasks/Archive/archive-" (format-time-string "%Y%m" (current-time)) ".org_archive::"))
 
+;; ;;----------------------------------------------------------------------
+;; ;; MobileOrg setup
+;; ;;----------------------------------------------------------------------
+
+;; ;; Local Org files
+;; (setq org-directory "~/Documents/Tasks/Todo")
+
+;; ;; Inbox for items added from the phone
+;; (setq org-mobile-inbox-for-pull "~/Documents/Tasks/Todo/from-mobile.org")
+
+;; ;; WebDAV directory mountpoint
+;; (setq org-mobile-directory "/Volumes/DriveHQ Documents/Tasks/Todo")
+
+;; ;; Files to sync
+;; ;; (setq org-mobile-files `,org-agenda-files)
+
+
 ;;----------------------------------------------------------------------
 ;; File shortcuts
 ;;----------------------------------------------------------------------

@@ -876,7 +876,6 @@
 ;; Mix format.
 ;; Code formatting for Elixir.
 ;;
-
 (require 'mix-format)
 
 

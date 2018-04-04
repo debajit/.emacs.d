@@ -940,6 +940,17 @@
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
+;; ;; Render org agenda priorities as bullets instead of [#A], [#B]
+;; (use-package org-fancy-priorities
+;;   :ensure t
+;;   :hook
+;;   (org-mode . org-fancy-priorities-mode)
+;;   :config
+;;   (setq org-fancy-priorities-list '("⬆" "➽" "⬇")
+;;         org-priority-faces '((?A :foreground "red")
+;;                              (?B :foreground "orange")
+;;                              (?C . "blue"))))
+
 (use-package org-journal
   :ensure t)
 

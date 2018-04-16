@@ -401,6 +401,11 @@
 ;; File shortcuts
 ;;----------------------------------------------------------------------
 
+;; Jump to Milestones
+;; Command + Control + k
+(global-set-key (kbd "C-s-k")
+                (lambda () (interactive) (find-file "~/WorkDocs/Documents/Milestones.org")))
+
 ;; Jump to the Emacs configuration file, init.el:
 ;; Command + Control + e
 (global-set-key (kbd "C-s-e")
@@ -411,19 +416,10 @@
 (global-set-key (kbd "C-s-i")
                 (lambda () (interactive) (find-file inbox-tasks-file)))
 
-;; Jump to Projects.org:
-;; Command + Control + p
-(global-set-key (kbd "C-s-p")
-                (lambda () (interactive) (find-file "~/Documents/Tasks/Todo/projects.org")))
-
-;; Jump to Projects.org:
-;; Command + Control + p
-
-(defun jump-to-project ()
-  (interactive)
-  (org-refile 1))
-
-(global-set-key (kbd "<C-s-return>") 'jump-to-project)
+;; Jump to scratch file
+;; Command + Control + Return
+(global-set-key (kbd "<C-s-return>")
+                (lambda () (interactive) (find-file "/tmp/scratch")))
 
 ;; Jump to the Journal:
 ;; Command + Control + j

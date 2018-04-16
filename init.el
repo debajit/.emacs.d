@@ -653,7 +653,7 @@
 (use-package deft
   :ensure t
   :diminish deft-mode
-  :bind ("<f6>" . deft)
+  :bind ("C-s-n" . deft)
   :init
   (setq deft-directory "/Users/debajita/Documents/org")
   (setq deft-extensions '("org" "txt" "md" "markdown"))

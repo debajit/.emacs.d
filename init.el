@@ -168,6 +168,8 @@
 ;; Enable downcase-region
 (put 'downcase-region 'disabled nil)
 
+(global-set-key (kbd "<f5>") 'apply-macro-to-region-lines)
+
 ;; Copy-paste
 (global-set-key (kbd "s-V") 'helm-show-kill-ring)
 
@@ -1126,9 +1128,6 @@ other matching pairs"
 (use-package unfill
   :ensure t
   :bind ("M-Q" . unfill-paragraph))
-
-(use-package visual-line
-  :bind ("<f5>" . visual-line-mode))
 
 ;; VLF (Very large files) support
 (use-package vlf

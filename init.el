@@ -475,6 +475,12 @@
 (add-hook 'markdown-mode-hook 'set-buffer-variable-pitch)
 (add-hook 'Info-mode-hook 'set-buffer-variable-pitch)
 
+;;----------------------------------------------------------------------
+;; Dired
+;;----------------------------------------------------------------------
+
+;; a => Open in same buffer
+(put 'dired-find-alternate-file 'disabled nil)
 
 ;;
 ;; Webjump settings.

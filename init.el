@@ -691,8 +691,6 @@
 
 (use-package fastnav
   :ensure t
-  :bind (("M-j" . avy-goto-char-in-line)
-         ("M-J" . avy-goto-char))
   :bind* (("M-z" . fastnav-zap-up-to-char-forward)
           ("M-Z" . fastnav-zap-up-to-char-backward)))
 
@@ -810,10 +808,14 @@
     (set-fill-column 72))
   (add-hook 'javascript-mode-hook 'my-javascript-mode-hook))
 
+(use-package jump-char
+  :ensure t
+  :bind (("M-j" . jump-char-forward)
+         ("M-J" . jump-char-backward)))
+
 ;; Line numbers of left of buffer
 (use-package linum-mode
   :bind ("<f8>" . linum-mode))
-
 
 ;; Magit
 (use-package magit

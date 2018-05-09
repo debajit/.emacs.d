@@ -43,6 +43,19 @@
  '(markdown-command "/Users/debajita/.rbenv/shims/octodown --raw")
  '(markdown-gfm-downcase-languages t)
  '(mixfmt-mix "/usr/local/bin/mix")
+ '(org-agenda-custom-commands
+   (quote
+    (("n" "Agenda and all TODOs"
+      ((agenda "" nil)
+       (alltodo "" nil))
+      nil)
+     ("x" "Dashboard"
+      ((agenda "" nil)
+       (search "WAITING-FOR" nil)
+       (search "[#A]" nil)
+       (search "[#B]" nil)
+       (alltodo "" nil))
+      nil nil))))
  '(org-blank-before-new-entry (quote ((heading . t) (plain-list-item . t))))
  '(org-hidden-keywords (quote (author date title)))
  '(org-hide-emphasis-markers t)
@@ -71,6 +84,9 @@
  '(neo-dir-link-face ((t (height: 0.95 :family "Ideal Sans"))))
  '(neo-file-link-face ((t (:height 0.95 :family "Ideal Sans"))))
  '(neo-root-dir-face ((t (height: 0.95 :family "Ideal Sans"))))
+ '(org-agenda-date ((t (:foreground "#7090CA" :height 1.1))) t)
+ '(org-agenda-date-today ((t (:foreground "#005486" :weight bold :height 1.4))) t)
+ '(org-agenda-structure ((t (:inherit font-lock-comment-face :foreground "#9c7e4e" :weight bold))))
  '(org-document-title ((t (:weight bold :height 2.4 :family "Verlag"))))
  '(org-level-1 ((t (:weight bold :height 1.8 :family "Verlag"))))
  '(org-level-2 ((t (:weight bold :height 1.6 :family "Verlag"))))

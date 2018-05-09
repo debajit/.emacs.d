@@ -430,6 +430,12 @@
 (global-set-key (kbd "C-s-j")
                 (lambda () (interactive) (find-file work-journal-file)))
 
+(defun org-agenda-show-custom-perspective (&optional arg)
+  (interactive "P")
+  (org-agenda arg "x"))
+
+(global-set-key (kbd "<C-s-return>") 'org-agenda-show-custom-perspective)
+
 
 ;;----------------------------------------------------------------------
 ;; Typography

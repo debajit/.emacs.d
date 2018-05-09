@@ -65,6 +65,7 @@
  '(sentence-end-double-space nil)
  '(show-trailing-whitespace t)
  '(smartparens-global-mode t)
+ '(treemacs-follow-mode t)
  '(vlf-application (quote dont-ask)))
 
 (custom-set-faces

@@ -262,7 +262,7 @@
 ;;----------------------------------------------------------------------
 
 ;; New window: s-n   (default: C-x 5 2)
-(global-set-key (kbd "s-n") (lambda () (interactive) (find-file-other-frame "/tmp/scratch")))
+(global-set-key (kbd "s-n") (lambda () (interactive) (find-file-other-frame "/tmp/scratch.org")))
 
 ;; Close buffer: s-w
 (global-set-key (kbd "s-w") (lambda () (interactive) (kill-buffer (current-buffer))))
@@ -407,6 +407,8 @@
 ;; Command + Control + k
 (global-set-key (kbd "C-s-k")
                 (lambda () (interactive) (find-file "~/WorkDocs/Documents/Milestones.org")))
+(global-set-key (kbd "C-s-l")
+                (lambda () (interactive) (find-file "~/WorkDocs/Documents/DEVELOPMENT.org")))
 
 ;; Jump to the Emacs configuration file, init.el:
 ;; Command + Control + e
@@ -420,8 +422,8 @@
 
 ;; Jump to scratch file
 ;; Command + Control + Return
-(global-set-key (kbd "<C-s-return>")
-                (lambda () (interactive) (find-file "/tmp/scratch")))
+(global-set-key (kbd "C-s-;")
+                (lambda () (interactive) (find-file "/tmp/draft.org")))
 
 ;; Jump to the Journal:
 ;; Command + Control + j

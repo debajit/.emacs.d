@@ -38,14 +38,13 @@
 ;; Highlight the current line
 (global-hl-line-mode +1)
 
+;; Line numbers
+(global-set-key (kbd "<f8>") 'display-line-numbers-mode)
+
 ;; Winner mode (undo and redo window layouts)
 (winner-mode 1)
 (global-set-key (kbd "s-y") 'winner-undo)
 (global-set-key (kbd "s-Y") 'winner-redo)
-
-;; Line number mode. Not enabled currently. To make this look good,
-;; set the fringe color to the window background color.
-(setq linum-format " %4d ")
 
 ;; Whitespace
 (setq require-final-newline t)          ; Add a newline at end of file
@@ -826,10 +825,6 @@
   :ensure t
   :bind (("M-j" . jump-char-forward)
          ("M-J" . jump-char-backward)))
-
-;; Line numbers of left of buffer
-(use-package linum-mode
-  :bind ("<f8>" . linum-mode))
 
 ;; Magit
 (use-package magit

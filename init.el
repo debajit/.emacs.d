@@ -47,7 +47,7 @@
 
 ;; Winner mode (undo and redo window layouts)
 (winner-mode 1)
-(global-set-key (kbd "s-y") 'winner-undo)
+(global-set-key (kbd "s-j") 'winner-undo)
 (global-set-key (kbd "s-Y") 'winner-redo)
 
 ;; Whitespace

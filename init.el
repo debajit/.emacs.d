@@ -920,7 +920,7 @@
         org-html-htmlize-output-type 'css)
 
   (setq org-todo-keywords
-        '((sequence "TODO" "IN PROGRESS" "WAITING-FOR" "WAITING_FOR_CUSTOMER" "CODE-REVIEW" "DEPLOYING" "WAITING_FOR_SCHEDULE" "BLOCKED" "|" "DONE" "DELEGATED" "CANCELED")))
+        '((sequence "TODO" "IN PROGRESS" "WAITING-FOR" "WAITING_FOR_CUSTOMER" "CODE-REVIEW" "DEPLOYING" "WAITING_FOR_SCHEDULE" "BLOCKED" "|" "DONE" "HANDED OFF" "DELEGATED" "CANCELED")))
 
   ;; Org mode keyboard shortcuts
   :bind (:map org-mode-map

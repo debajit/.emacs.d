@@ -905,14 +905,6 @@
   :ensure t
   :bind ("s-E" . mc/mark-next-word-like-this))
 
-;; ;; NeoTree file tree browser
-;; (use-package neotree
-;;   :ensure t
-;;   :init
-;;   (setq-default neo-smart-open t             ; Open file browser in current directory.
-;;                 neo-window-fixed-size nil)   ; Make file browser resizeable
-;;   ;; (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-;;   :bind ("<f7>" . neotree-toggle))
 
 ;; Org mode
 (use-package org
@@ -1064,18 +1056,6 @@
 (use-package sort-words
   :ensure t)
 
-;; Spaceline
-
-;; (use-package spaceline :ensure t
-;;   :config
-;;   (setq-default mode-line-format '("%e" (:eval (spaceline-ml-main)))))
-
-;; (use-package spaceline-config :ensure spaceline
-;;   :config
-;;   (spaceline-helm-mode 1)
-;;   (spaceline-emacs-theme))
-
-
 (use-package sql-mode
   :bind (:map sql-mode-map
               ("<s-return>" . sql-send-paragraph)))
@@ -1095,17 +1075,6 @@
 (use-package swiper
   :ensure t
   :bind ("s-f" . swiper))
-
-;; Treemacs --- A file tree visualizer like NeoTree but much better.
-;; https://github.com/Alexander-Miller/treemacs
-(use-package treemacs
-  :ensure t
-  :bind ("<f7>" . treemacs-toggle)
-  :config
-  (treemacs-follow-mode t)
-  (defun treemacs-header-with-brackets (current-root)
-    (format "%s" (file-name-nondirectory current-root)))
-  (setq treemacs-header-function #'treemacs-header-with-brackets))
 
 ;; TypeScript
 (use-package typescript-mode

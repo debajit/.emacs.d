@@ -21,6 +21,10 @@
 ;; Always ask for y/n keypress instead of typing out 'yes' or 'no'
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+;; Pairs and Quotes
+(electric-pair-mode 1)                  ; Enable paired characters
+(electric-quote-mode 1)                 ; Use typographic curly quotes
+
 ;; Highlight matching parentheses
 (setq show-paren-delay 0)               ; Highlight instantly, no delay
 (show-paren-mode 1)
@@ -1042,24 +1046,6 @@
   :ensure t
   :mode (("\\.scss$" . scss-mode)
          ("\\.scss.erb$" . scss-mode)))
-
-;; Smartparens
-(use-package smartparens
-  :ensure t
-  :diminish smartparens-mode
-  :config
-  (require 'smartparens-config)
-  (smartparens-global-mode 1)
-  (defun clear-text-inside-pairs ()
-    "Clears all text inside a string or inside parentheses, or
-other matching pairs"
-    (interactive)
-    (sp-backward-up-sexp)
-    (sp-mark-sexp)
-    (sp-kill-region (+ (region-beginning) 1) (- (region-end) 1))
-    (forward-char))
-  (global-set-key (kbd "s-j") 'clear-text-inside-pairs))
-
 
 ;; Smart tab. Auto-complete text + expand snippets with Tab. Outside of
 ;; (pabbrev + yasnippet completion) and (dabbrev + yasnippet using

@@ -497,7 +497,8 @@
   '(setq webjump-sites
          (append '(("Gmail" . "https://gmail.com/")
                    ("GitHub — Debajit — .emacs.d" . "https://github.com/debajit/.emacs.d")
-                   ("Urban Dictionary" . [simple-query "www.urbandictionary.com" "http://www.urbandictionary.com/define.php?term=" ""]))
+                   ("Urban Dictionary" . [simple-query "www.urbandictionary.com" "http://www.urbandictionary.com/define.php?term=" ""])
+                   ("AWS WorkDocs" . "https://amazon.awsapps.com/workdocs/index.html#/mydocs"))
                  webjump-sample-sites)))
 
 ;;----------------------------------------------------------------------

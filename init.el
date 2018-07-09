@@ -47,7 +47,7 @@
 
 ;; Winner mode (undo and redo window layouts)
 (winner-mode 1)
-(global-set-key (kbd "s-j") 'winner-undo)
+(global-set-key (kbd "s-y") 'winner-undo)
 (global-set-key (kbd "s-Y") 'winner-redo)
 
 ;; Whitespace
@@ -263,6 +263,8 @@
 ;; Windows => Emacs' frames
 ;; Panes   => Emacs' windows
 ;;----------------------------------------------------------------------
+
+(global-set-key (kbd "s-j") 'other-window)
 
 ;; New window: s-n   (default: C-x 5 2)
 (global-set-key (kbd "s-n") (lambda () (interactive) (find-file-other-frame "/tmp/scratch.org")))
@@ -555,6 +557,7 @@
   (global-aggressive-indent-mode 1)
   (add-to-list 'aggressive-indent-excluded-modes 'elixir-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'haml-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'ruby-mode)
   )
 
 ;; Alchemist mode for Elixir
@@ -763,7 +766,7 @@
   :ensure t
   :bind (("M-x" . helm-M-x)
          ("s-SPC" . helm-mini)          ; List buffers, like C-x b
-         ("s-i" . helm-imenu)           ; Jump to method
+         ("s-i" . imenu)                ; Jump to method
          ("s-b" . helm-bookmarks))
   :init
   (setq helm-truncate-lines t)

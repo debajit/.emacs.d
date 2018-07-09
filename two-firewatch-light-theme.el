@@ -118,6 +118,10 @@
 
    `(highlight ((,class (:foreground ,fg3 :background ,bg3))))
 
+   ;; Line numbers
+   `(line-number ((,class (:background "#faf8f5" :foreground "#d1cec7"))))
+   `(line-number-current-line ((,class (:background "#d1e1f9" :foreground "#7b8faf" :weight bold))))
+
    ;; Highlight current line
    `(hl-line ((,class (:background  ,bg5))))
 

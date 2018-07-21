@@ -7,15 +7,15 @@
 
 (defun load-user-file (file)
   (interactive "f")
-  "Load a file in current user's configuration directory"
+  "Load a file in the current user’s Emacs configuration directory"
   (load-file (expand-file-name file user-init-dir)))
 
 (load-user-file "typography.el")
 (load-user-file "whitespace.el")
-(load-user-file "bookmarks-work.el")
-(load-user-file "bookmarks-web.el")
 (load-user-file "keys-file-shortcuts.el")
 (load-user-file "emacs-for-macosx.el")
+(load-user-file "bookmarks-web.el")
+(load-file "~/WorkDocs/Application Settings/Emacs/bookmarks-work.el")
 
 ;; Save customizations in a separate file (custom.el)
 (setq custom-file "~/.emacs.d/custom.el")

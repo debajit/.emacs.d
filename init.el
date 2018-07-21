@@ -12,10 +12,11 @@
 
 (load-user-file "typography.el")
 (load-user-file "whitespace.el")
+(load-user-file "buffers.el")
 (load-user-file "keys-file-shortcuts.el")
-(load-user-file "emacs-for-macosx.el")
 (load-user-file "bookmarks-web.el")
 (load-file "~/WorkDocs/Application Settings/Emacs/bookmarks-work.el")
+(load-user-file "emacs-for-macosx.el")
 
 ;; Save customizations in a separate file (custom.el)
 (setq custom-file "~/.emacs.d/custom.el")
@@ -47,9 +48,6 @@
 ;; Smart tab behavior - indent or complete
 ;; Commented out in favor of pabbrev mode.
 ;; (setq tab-always-indent 'complete)
-
-;; Revert buffers automatically when underlying files are changed externally
-(global-auto-revert-mode t)
 
 ;; Desktop mode (Always save and restore the open buffers)
 (desktop-save-mode 1)
@@ -709,7 +707,7 @@
 (use-package helm
   :ensure t
   :bind (("M-x" . helm-M-x)
-         ("s-SPC" . helm-mini)          ; List buffers, like C-x b
+         ("C-S-SPC" . helm-mini)          ; List buffers, like C-x b
          ("s-i" . imenu)                ; Jump to method
          ("s-b" . helm-bookmarks))
   :init
@@ -877,7 +875,7 @@
 
   ;; Global keyboard shortcuts
   :bind (("M-S-SPC" . org-capture)
-         ("C-S-SPC" . org-agenda))
+         ("s-S-SPC" . org-agenda))
 
   :config
   (custom-set-variables '(org-hide-emphasis-markers t)) ; Hide bold, italic markers

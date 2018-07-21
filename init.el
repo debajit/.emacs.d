@@ -13,6 +13,7 @@
 (load-user-file "typography.el")
 (load-user-file "whitespace.el")
 (load-user-file "buffers.el")
+(load-user-file "window-management.el")
 (load-user-file "keys-file-shortcuts.el")
 (load-user-file "bookmarks-web.el")
 (load-file "~/WorkDocs/Application Settings/Emacs/bookmarks-work.el")
@@ -57,11 +58,6 @@
 
 ;; Line numbers
 (global-set-key (kbd "<f8>") 'display-line-numbers-mode)
-
-;; Winner mode (undo and redo window layouts)
-(winner-mode 1)
-(global-set-key (kbd "s-y") 'winner-undo)
-(global-set-key (kbd "s-Y") 'winner-redo)
 
 ;; Narrowing and widening
 (put 'narrow-to-region 'disabled nil)   ; Enable narrowing (disabled by default)
@@ -245,59 +241,11 @@
 ;; Focus
 ;;----------------------------------------------------------------------
 
-(global-set-key (kbd "s-u") 'narrow-to-defun)
+;; (global-set-key (kbd "s-u") 'narrow-to-defun)
 
 
 (global-set-key (kbd "s-3") 'highlight-symbol-at-point)
 (global-set-key (kbd "s-4") 'unhighlight-regexp)
-
-;;----------------------------------------------------------------------
-;; Window management keys.
-;; Windows => Emacs' frames
-;; Panes   => Emacs' windows
-;;----------------------------------------------------------------------
-
-(global-set-key (kbd "s-j") 'other-window)
-
-;; New window: s-n   (default: C-x 5 2)
-(global-set-key (kbd "s-n") (lambda () (interactive) (find-file-other-frame "/tmp/scratch.org")))
-
-;; Close pane: s-W   (default: C-x 0)
-(global-set-key (kbd "s-W") (lambda () (interactive) (delete-window) (balance-windows)))
-
-;; Close window (Emacs' frame): s-q
-(global-set-key (kbd "s-q") 'delete-frame)
-
-;; Maximize window: s-m   (default: C-x 1)
-(global-set-key (kbd "s-m") 'delete-other-windows)
-
-;; Minimize window: s-M   (default: C-z)
-(global-set-key (kbd "s-M") 'suspend-frame)
-
-;; Split horizontally: s-J   (default: C-x 3)
-(global-set-key (kbd "s-J") (lambda () (interactive) (split-window-right) (windmove-right)))
-
-;; Split horizontally: s-K   (default: C-x 2)
-(global-set-key (kbd "s-K") (lambda () (interactive) (split-window-below) (windmove-down)))
-
-;; Move to window on left
-(global-set-key (kbd "s-U") 'windmove-left)
-
-;; Move to window on right
-(global-set-key (kbd "s-I") 'windmove-right)
-
-;; Move to window below
-(global-set-key (kbd "s-P") 'windmove-down)
-
-;; Balance windows
-(global-set-key (kbd "s-:") 'balance-windows)
-
-;; Increase window size: s-]
-(global-set-key (kbd "M-]") (lambda () (interactive) (enlarge-window-horizontally 20)))
-
-;; Decrease window size: s-[
-(global-set-key (kbd "M-[") (lambda () (interactive) (shrink-window-horizontally 20)))
-
 
 ;;----------------------------------------------------------------------
 ;; Date shortcuts

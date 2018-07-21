@@ -127,10 +127,6 @@
 ;; General keyboard shortcuts
 ;;----------------------------------------------------------------------
 
-;; Save file: s-s
-(global-set-key (kbd "s-s") 'save-buffer)
-
-
 ;; Cut: s-x   (default: C-w)
 (global-set-key (kbd "s-x") 'kill-region)
 
@@ -265,9 +261,6 @@
 
 ;; New window: s-n   (default: C-x 5 2)
 (global-set-key (kbd "s-n") (lambda () (interactive) (find-file-other-frame "/tmp/scratch.org")))
-
-;; Close buffer: s-w
-(global-set-key (kbd "s-w") (lambda () (interactive) (kill-buffer (current-buffer))))
 
 ;; Close pane: s-W   (default: C-x 0)
 (global-set-key (kbd "s-W") (lambda () (interactive) (delete-window) (balance-windows)))

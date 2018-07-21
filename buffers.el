@@ -8,6 +8,12 @@
 ;; Keybindings
 ;;----------------------------------------------------------------------
 
+;; Save buffer: Command + s
+(global-set-key (kbd "s-s") 'save-buffer)
+
+;; Close buffer: Command + w
+(global-set-key (kbd "s-w") (lambda () (interactive) (kill-buffer (current-buffer))))
+
 ;; Switch to buffer --- Control + Shift + Space.
 ;;
 ;; We will override this keybinding later to use helm for more
@@ -17,10 +23,10 @@
 ;;
 (global-set-key (kbd "C-S-SPC") 'switch-to-buffer)
 
-;; Previous buffer --- Control + Shift + j
+;; Previous buffer: Control + Shift + j
 (global-set-key (kbd "C-S-j") 'previous-buffer)
 
-;; Next buffer --- Control + Shift + k
+;; Next buffer: Control + Shift + k
 (global-set-key (kbd "C-S-k") 'next-buffer)
 
 

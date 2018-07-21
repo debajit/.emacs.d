@@ -1,3 +1,22 @@
+(defconst user-init-dir
+  (cond ((boundp 'user-emacs-directory)
+         user-emacs-directory)
+        ((boundp 'user-init-directory)
+         user-init-directory)
+        (t "~/.emacs.d/")))
+
+(defun load-user-file (file)
+  (interactive "f")
+  "Load a file in current user's configuration directory"
+  (load-file (expand-file-name file user-init-dir)))
+
+(load-user-file "typography.el")
+(load-user-file "whitespace.el")
+(load-user-file "bookmarks-work.el")
+(load-user-file "bookmarks-web.el")
+(load-user-file "keys-file-shortcuts.el")
+(load-user-file "emacs-for-macosx.el")
+
 ;; Save customizations in a separate file (custom.el)
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror) ; Prevent errors if custom.el does not exist
@@ -20,10 +39,6 @@
 
 ;; Always ask for y/n keypress instead of typing out 'yes' or 'no'
 (defalias 'yes-or-no-p 'y-or-n-p)
-
-;; Pairs and Quotes
-(electric-pair-mode 1)                  ; Enable paired characters
-(electric-quote-mode 1)                 ; Use typographic curly quotes
 
 ;; Highlight matching parentheses
 (setq show-paren-delay 0)               ; Highlight instantly, no delay
@@ -50,27 +65,11 @@
 (global-set-key (kbd "s-y") 'winner-undo)
 (global-set-key (kbd "s-Y") 'winner-redo)
 
-;; Whitespace
-(setq require-final-newline t)          ; Add a newline at end of file
-
 ;; Narrowing and widening
 (put 'narrow-to-region 'disabled nil)   ; Enable narrowing (disabled by default)
 
 ;; Show images by default
 (setq auto-image-file-mode t)
-
-
-;;----------------------------------------------------------------------
-;; Indentation
-;;----------------------------------------------------------------------
-
-;; Use spaces not tabs
-(setq-default indent-tabs-mode nil)   ;; Don't use tabs to indent
-(setq-default tab-width 4)            ;; Ensure tabs are aligned well
-
-;; C++, C indentation
-(setq c-default-style "linux" ; Microsoft-style --- with { on new line
-      c-basic-offset 4)       ; Indent 4 spaces
 
 
 ;;----------------------------------------------------------------------
@@ -424,81 +423,12 @@
 ;; ;; (setq org-mobile-files `,org-agenda-files)
 
 
-;;----------------------------------------------------------------------
-;; File shortcuts
-;;----------------------------------------------------------------------
-
-;; Jump to Milestones
-;; Command + Control + k
-(global-set-key (kbd "C-s-k")
-                (lambda () (interactive) (find-file "~/WorkDocs/Documents/Milestones.org")))
-(global-set-key (kbd "C-s-l")
-                (lambda () (interactive) (find-file "~/WorkDocs/Documents/DEVELOPMENT.org")))
-
-;; Jump to the Emacs configuration file, init.el:
-;; Command + Control + e
-(global-set-key (kbd "C-s-e")
-                (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
-
-;; Jump to the Inbox:
-;; Command + Control + i
-(global-set-key (kbd "C-s-i")
-                (lambda () (interactive) (find-file inbox-tasks-file)))
-
-;; Jump to scratch file
-;; Command + Control + Return
-(global-set-key (kbd "C-s-;")
-                (lambda () (interactive) (find-file "/tmp/draft.org")))
-
-;; Jump to the Journal:
-;; Command + Control + j
-(global-set-key (kbd "C-s-j")
-                (lambda () (interactive) (find-file work-journal-file)))
-
 (defun org-agenda-show-custom-perspective (&optional arg)
   (interactive "P")
   (org-agenda arg "x"))
 
 (global-set-key (kbd "<C-s-return>") 'org-agenda-show-custom-perspective)
 
-
-;;----------------------------------------------------------------------
-;; Typography
-;;----------------------------------------------------------------------
-
-;;
-;; Typefaces
-;;
-;; Currently using Consolas for code, and Ideal Sans for longform text.
-;;
-(when (display-graphic-p)
-  (when (member "Consolas" (font-family-list))
-    (set-face-font 'default "Consolas-16")
-    (copy-face 'default 'fixed-pitch))
-  (when (member "Ideal Sans" (font-family-list))
-    (set-face-font 'variable-pitch "Ideal Sans-18")))
-
-;;
-;; Variable-width font settings.
-;;
-;; Largely adapted from
-;; http://www.xiangji.me/2015/07/13/a-few-of-my-org-mode-customizations/
-;;
-(defun set-buffer-variable-pitch ()
-  (interactive)
-  (variable-pitch-mode t)
-  (setq line-spacing 3)
-  (set-face-attribute 'markdown-pre-face nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-block-background nil :inherit 'fixed-pitch))
-
-(add-hook 'org-mode-hook 'set-buffer-variable-pitch)
-;; (add-hook 'org-agenda-mode-hook 'set-buffer-variable-pitch)
-(add-hook 'eww-mode-hook 'set-buffer-variable-pitch)
-(add-hook 'markdown-mode-hook 'set-buffer-variable-pitch)
-(add-hook 'Info-mode-hook 'set-buffer-variable-pitch)
 
 ;;----------------------------------------------------------------------
 ;; Dired
@@ -515,13 +445,7 @@
 ;; (Command + Shift + Enter) - Webjump (Show list of websites that one can quickly jump to)
 (global-set-key (kbd "s-g") 'webjump)
 
-(eval-after-load "webjump"
-  '(setq webjump-sites
-         (append '(("Gmail" . "https://gmail.com/")
-                   ("GitHub — Debajit — .emacs.d" . "https://github.com/debajit/.emacs.d")
-                   ("Urban Dictionary" . [simple-query "www.urbandictionary.com" "http://www.urbandictionary.com/define.php?term=" ""])
-                   ("AWS WorkDocs" . "https://amazon.awsapps.com/workdocs/index.html#/mydocs"))
-                 webjump-sample-sites)))
+
 
 ;;----------------------------------------------------------------------
 ;; External Packages

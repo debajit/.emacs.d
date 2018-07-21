@@ -26,3 +26,7 @@
 ;; C++, C indentation
 (setq c-default-style "linux" ; Microsoft-style --- with { on new line
       c-basic-offset 4)       ; Indent 4 spaces
+
+;; Indent rigidly to tab stop (a la TextMate or Sublime Text)
+(global-set-key (kbd "s-]") 'indent-rigidly-right-to-tab-stop)
+(global-set-key (kbd "s-[") 'indent-rigidly-left-to-tab-stop)

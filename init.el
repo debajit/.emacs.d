@@ -61,9 +61,6 @@
 ;; Line numbers
 (global-set-key (kbd "<f8>") 'display-line-numbers-mode)
 
-;; Narrowing and widening
-(put 'narrow-to-region 'disabled nil)   ; Enable narrowing (disabled by default)
-
 ;; Show images by default
 (setq auto-image-file-mode t)
 
@@ -115,10 +112,6 @@
 ;; in a group of variable assignments, or lining up all the '->' in
 ;; Elixir.
 (global-set-key (kbd "s-A") 'align-regexp)
-
-;; Indent rigidly to tab stop (a la TextMate or Sublime Text)
-(global-set-key (kbd "s-]") 'indent-rigidly-right-to-tab-stop)
-(global-set-key (kbd "s-[") 'indent-rigidly-left-to-tab-stop)
 
 ;; Sort lines
 (global-set-key (kbd "s-O") 'sort-lines)

@@ -12,6 +12,7 @@
 
 (load-user-file "typography.el")
 (load-user-file "whitespace.el")
+(load-user-file "selection.el")
 (load-user-file "buffers.el")
 (load-user-file "window-management.el")
 (load-user-file "keys-file-shortcuts.el")
@@ -118,22 +119,6 @@
 
 ;; For Pabbrev mode see below, in the third-party packages section
 
-
-;;----------------------------------------------------------------------
-;; General keyboard shortcuts
-;;----------------------------------------------------------------------
-
-;; Cut: s-x   (default: C-w)
-(global-set-key (kbd "s-x") 'kill-region)
-
-;; Copy: s-c   (default: M-w)
-(global-set-key (kbd "s-c") 'kill-ring-save)
-
-;; Paste: s-v   (default: C-y)
-(global-set-key (kbd "s-v") 'yank)
-
-;; Select all: s-a   (default: C-x h)
-(global-set-key (kbd "s-a") 'mark-whole-buffer)
 
 
 ;;----------------------------------------------------------------------

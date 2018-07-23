@@ -58,10 +58,10 @@
 ;;----------------------------------------------------------------------
 
 ;; Split horizontally: s-J   (default: C-x 3)
-(global-set-key (kbd "s-J") (lambda () (interactive) (split-window-right) (windmove-right)))
+(global-set-key (kbd "C-S-J") (lambda () (interactive) (split-window-right) (windmove-right)))
 
 ;; Split horizontally: s-K   (default: C-x 2)
-(global-set-key (kbd "s-K") (lambda () (interactive) (split-window-below) (windmove-down)))
+(global-set-key (kbd "C-S-K") (lambda () (interactive) (split-window-below) (windmove-down)))
 
 
 ;;----------------------------------------------------------------------

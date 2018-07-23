@@ -21,13 +21,13 @@
 ;; helm) fails for any reason, this keybinding will still work with
 ;; vanilla Emacs)
 ;;
-(global-set-key (kbd "C-S-SPC") 'switch-to-buffer)
+(global-set-key (kbd "s-SPC") 'switch-to-buffer)
 
 ;; Previous buffer: Control + Shift + j
-(global-set-key (kbd "C-S-j") 'previous-buffer)
+(global-set-key (kbd "s-J") 'previous-buffer)
 
 ;; Next buffer: Control + Shift + k
-(global-set-key (kbd "C-S-k") 'next-buffer)
+(global-set-key (kbd "s-K") 'next-buffer)
 
 
 ;;----------------------------------------------------------------------

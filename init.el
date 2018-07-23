@@ -573,7 +573,7 @@
 (use-package helm
   :ensure t
   :bind (("M-x" . helm-M-x)
-         ("C-S-SPC" . helm-mini)          ; List buffers, like C-x b
+         ("s-SPC" . helm-mini)        ; List buffers, like C-x b
          ("s-i" . imenu)                ; Jump to method
          ("s-b" . helm-bookmarks))
   :init
@@ -741,7 +741,7 @@
 
   ;; Global keyboard shortcuts
   :bind (("M-S-SPC" . org-capture)
-         ("s-S-SPC" . org-agenda))
+         ("C-S-SPC" . org-agenda))
 
   :config
   (custom-set-variables '(org-hide-emphasis-markers t)) ; Hide bold, italic markers

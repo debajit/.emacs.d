@@ -81,6 +81,7 @@
  '(markdown-header-face-2 ((t (:family "Verlag"))))
  '(markdown-header-face-3 ((t (:family "Verlag"))))
  '(markdown-header-face-4 ((t (:family "Verlag"))))
+ '(markdown-italic-face ((t (:foreground "#744c80" :slant italic))))
  '(markdown-link-face ((t (:weight normal))))
  '(neo-dir-link-face ((t (height: 0.95 :family "Ideal Sans"))))
  '(neo-file-link-face ((t (:height 0.95 :family "Ideal Sans"))))

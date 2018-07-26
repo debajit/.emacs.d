@@ -26,6 +26,8 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror) ; Prevent errors if custom.el does not exist
 
+(defvaralias 'lazy-highlight-face 'isearch-lazy-highlight)
+
 ;;----------------------------------------------------------------------
 ;; General Emacs Settings
 ;;----------------------------------------------------------------------

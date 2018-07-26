@@ -11,8 +11,11 @@
 ;; Save buffer: Command + s
 (global-set-key (kbd "s-s") 'save-buffer)
 
-;; Close buffer: Command + w
-(global-set-key (kbd "s-w") (lambda () (interactive) (kill-buffer (current-buffer))))
+;; Soft "Close" the current buffer:  Command + w
+(global-set-key (kbd "s-w") 'previous-buffer) ; Move to previous buffer instead
+
+;; Hard close the current buffer:  Command + q
+(global-set-key (kbd "s-q") (lambda () (interactive) (kill-buffer (current-buffer)))) ; Actually kill the buffer
 
 ;; Switch to buffer --- Control + Shift + Space.
 ;;
@@ -23,11 +26,10 @@
 ;;
 (global-set-key (kbd "s-SPC") 'switch-to-buffer)
 
-;; Previous buffer: Control + Shift + j
-(global-set-key (kbd "s-J") 'previous-buffer)
+;; Previous buffer: Command + w (“Close” the buffer)
 
-;; Next buffer: Control + Shift + k
-(global-set-key (kbd "s-K") 'next-buffer)
+;; Next buffer: Command + e
+(global-set-key (kbd "s-e") 'next-buffer)
 
 
 ;;----------------------------------------------------------------------

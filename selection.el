@@ -27,3 +27,6 @@
 
 ; Enable narrowing (disabled by default)
 (put 'narrow-to-region 'disabled nil)
+
+;; TODO: If something is selected it should narrow to selection instead
+(global-set-key (kbd "s-n") 'narrow-to-defun)

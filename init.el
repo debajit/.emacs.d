@@ -13,9 +13,10 @@
 (load-user-file "typography.el")
 (load-user-file "autocomplete.el")
 (load-user-file "whitespace.el")
-(load-user-file "selection.el")
 (load-user-file "buffers.el")
 (load-user-file "window-management.el")
+(load-user-file "navigation.el")
+(load-user-file "selection.el")
 (load-user-file "keys-file-shortcuts.el")
 (load-user-file "bookmarks-web.el")
 (load-file "~/WorkDocs/Application Settings/Emacs/bookmarks-work.el")
@@ -476,7 +477,7 @@
 ;; Dash-at-point (Lookup in Dash.app)
 (use-package dash-at-point
   :ensure t
-  :bind ("s-e" . dash-at-point))
+  :bind ("s-u" . dash-at-point))
 
 ;; Deft -- A note-taking system like Notational Velocity. The following
 ;; configuration is largely adapted from
@@ -484,7 +485,7 @@
 (use-package deft
   :ensure t
   :diminish deft-mode
-  :bind ("C-s-n" . deft)
+  :bind ("M-N" . deft)
   :init
   (setq deft-directory "/Users/debajita/Documents/org")
   (setq deft-extensions '("org" "txt" "md" "markdown"))
@@ -508,7 +509,8 @@
 
 ;; Emacs Lisp mode
 (use-package emacs-lisp-mode
-  :bind ("s-r" . eval-buffer))
+  :bind (("s-r" . eval-buffer)
+         ("s-R" . eval-region)))
 
 (use-package emmet-mode
   :ensure t)
@@ -574,7 +576,7 @@
   :ensure t
   :bind (("M-x" . helm-M-x)
          ("s-SPC" . helm-mini)        ; List buffers, like C-x b
-         ("s-i" . imenu)                ; Jump to method
+         ("s-i" . helm-semantic-or-imenu)                ; Jump to method
          ("s-b" . helm-bookmarks))
   :init
   (setq helm-truncate-lines t)
@@ -814,7 +816,8 @@
 (use-package projectile
   :ensure t
   :diminish projectile-mode
-  :bind ("s-P" . helm-projectile-switch-project)
+  :bind (("s-P" . helm-projectile-switch-project)
+         ("C-o" . projectile-find-file-dwim))
   :config
   (projectile-global-mode +1))
 

@@ -19,7 +19,7 @@
 (global-set-key (kbd "s-j") 'other-window)
 
 ;; Move pane to next position:  Command + u
-(global-set-key (kbd "s-u") 'window-swap-states)
+(global-set-key (kbd "s-U") 'window-swap-states)
 
 ;; Jump to window on left
 (global-set-key (kbd "<s-left>") 'windmove-left)
@@ -39,7 +39,11 @@
 ;;----------------------------------------------------------------------
 
 ;; New window: s-n   (default: C-x 5 2)
-(global-set-key (kbd "s-n") (lambda () (interactive) (find-file-other-frame "/tmp/scratch.org")))
+;;
+;; We are using this key for narrowing at the moment, which is much
+;; more useful. New window was rarely used.
+;;
+;; (global-set-key (kbd "s-n") (lambda () (interactive) (find-file-other-frame "/tmp/scratch.org")))
 
 
 ;;----------------------------------------------------------------------
@@ -58,10 +62,10 @@
 ;;----------------------------------------------------------------------
 
 ;; Split horizontally: s-J   (default: C-x 3)
-(global-set-key (kbd "C-S-J") (lambda () (interactive) (split-window-right) (windmove-right)))
+(global-set-key (kbd "s-J") (lambda () (interactive) (split-window-right) (windmove-right)))
 
 ;; Split horizontally: s-K   (default: C-x 2)
-(global-set-key (kbd "C-S-K") (lambda () (interactive) (split-window-below) (windmove-down)))
+(global-set-key (kbd "s-K") (lambda () (interactive) (split-window-below) (windmove-down)))
 
 
 ;;----------------------------------------------------------------------

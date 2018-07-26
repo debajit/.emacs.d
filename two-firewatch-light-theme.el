@@ -38,6 +38,7 @@
       (seafoam-green "#c8ffe3")
       (pastel-yellow "#fdf4c1")
 
+      (black-00 "#000000")
       (black-10 "#2d1f06")
       (brown-00 "#49330c")
       (brown-01 "#634105")
@@ -55,7 +56,7 @@
       (blue-03 "#566e97")
       (blue-10 "#4280b8")
       (blue-15 "#7090ca")               ; Duotone blue 2
-      (blue-20 "#8FC3F5")
+      (blue-20 "#8fc3f5")
       (blue-25 "#9bc4ed")
       (green-20 "#009c30")
       (green-50 "#97c378")
@@ -132,7 +133,9 @@
    `(cursor ((,class (:background ,blue-10))))
 
    ;; Parentheses match
-   `(show-paren-match-face ((,class (:background ,blue-25))))
+   ;; `(show-paren-match-face ((,class (:background ,blue-25))))
+   ;; TODO: Add show-paren-mismatch etc.
+   `(show-paren-match ((t (:background ,blue-20 :foreground ,black-00 :weight bold))))
 
    ;; Isearch (TODO: Reuse swiper faces)
    `(isearch ((,class (:bold nil :foreground ,white-00 :background ,red-30))))

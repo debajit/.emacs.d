@@ -54,7 +54,7 @@
 (global-set-key (kbd "s-W") (lambda () (interactive) (delete-window) (balance-windows)))
 
 ;; Close window (Emacs' frame): s-q
-(global-set-key (kbd "s-q") 'delete-frame)
+(global-set-key (kbd "s-Q") 'delete-frame)
 
 
 ;;----------------------------------------------------------------------

@@ -498,6 +498,9 @@
   (setq deft-use-filter-string-for-filename t)
   (setq deft-auto-save-interval 0))
 
+(use-package dumb-jump
+  :ensure t)
+
 ;; Elixir mode
 (use-package elixir-mode
   :ensure t)

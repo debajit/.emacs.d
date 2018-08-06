@@ -520,6 +520,13 @@
 (use-package emmet-mode
   :ensure t)
 
+;; Pick up executables from system PATH
+(use-package exec-path-from-shell
+  :ensure t
+  :init
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
+
 (use-package expand-region
   :ensure t
   :bind (("C-=" . er/expand-region)

@@ -461,13 +461,13 @@
     (set-fill-column 72))
   (add-hook 'css-mode-hook 'my-css-mode-hook))
 
-(use-package c++-mode
-  :config
-  (add-hook 'c++-mode-hook
-            '(lambda ()
-               (set-fill-column 72)
-               (c-subword-mode +1)
-               )))
+;; (use-package c++-mode
+;;   :config
+;;   (add-hook 'c++-mode-hook
+;;             '(lambda ()
+;;                (set-fill-column 72)
+;;                (c-subword-mode +1)
+;;                )))
 
 ;; Easy kill -- Better copy and paste
 (use-package easy-kill
@@ -475,12 +475,12 @@
   :config
   (global-set-key [remap kill-ring-save] 'easy-kill))
 
-;; CTags
-(use-package etags-select
-  :ensure t
-  :bind (("M-." . etags-select-find-tag-at-point)
-         ;; ("s-." . etags-select-find-tag)
-         ("M-," . pop-tag-mark)))       ; Jump back from tag found
+;; ;; CTags
+;; (use-package etags-select
+;;   :ensure t
+;;   :bind (("M-." . etags-select-find-tag-at-point)
+;;          ;; ("s-." . etags-select-find-tag)
+;;          ("M-," . pop-tag-mark)))       ; Jump back from tag found
 
 ;; Dash-at-point (Lookup in Dash.app)
 (use-package dash-at-point
@@ -556,17 +556,18 @@
   (add-hook 'text-mode-hook #'flyspell-mode)
   (add-hook 'prog-mode-hook #'flyspell-prog-mode))
 
-;; Flyspell with Credo
-(use-package 'flycheck-credo
-  :config
-  (eval-after-load 'flycheck
-    '(flycheck-credo-setup))
-  (add-hook 'elixir-mode-hook 'flycheck-mode))
+;; FIXME:
+;; ;; Flyspell with Credo
+;; (use-package 'flycheck-credo
+;;   :config
+;;   (eval-after-load 'flycheck
+;;     '(flycheck-credo-setup))
+;;   (add-hook 'elixir-mode-hook 'flycheck-mode))
 
-;; Customize fringes
-(use-package fringe-mode
-  :config
-  (fringe-mode 32 32))                  ; Make fringes wider for more comfortable reading
+;; ;; Customize fringes
+;; (use-package fringe-mode
+;;   :config
+;;   (fringe-mode 32 32))                  ; Make fringes wider for more comfortable reading
 
 (use-package gitattributes-mode
   :ensure t)
@@ -643,14 +644,15 @@
   :config
   (global-hl-todo-mode))
 
-;; TODO: Add typesript mode
-(use-package javascript-mode
-  :init
-  (setq js-indent-level 2)
-  :config
-  (defun my-javascript-mode-hook ()
-    (set-fill-column 72))
-  (add-hook 'javascript-mode-hook 'my-javascript-mode-hook))
+;; FIXME: javascript-mode
+;; ;; TODO: Add typesript mode
+;; (use-package javascript-mode
+;;   :init
+;;   (setq js-indent-level 2)
+;;   :config
+;;   (defun my-javascript-mode-hook ()
+;;     (set-fill-column 72))
+;;   (add-hook 'javascript-mode-hook 'my-javascript-mode-hook))
 
 (use-package jump-char
   :ensure t
@@ -978,18 +980,18 @@
 
   (add-hook 'web-mode-hook 'my-web-mode-hook))
 
-;; Whitespace mode
-;; https://www.emacswiki.org/emacs/WhiteSpace
-(use-package whitespace
-  :diminish whitespace-mode
-  :init
-  ;; (dolist (hook '(prog-mode-hook text-mode-hook))
-  (dolist (hook '(prog-mode-hook))
-    (add-hook hook #'whitespace-mode))
-  (add-hook 'before-save-hook #'whitespace-cleanup)
-  :config
-  (setq whitespace-line-column 72) ;; limit line length
-  (setq whitespace-style '(face tabs empty trailing)))
+;; ;; Whitespace mode
+;; ;; https://www.emacswiki.org/emacs/WhiteSpace
+;; (use-package whitespace
+;;   :diminish whitespace-mode
+;;   :init
+;;   ;; (dolist (hook '(prog-mode-hook text-mode-hook))
+;;   (dolist (hook '(prog-mode-hook))
+;;     (add-hook hook #'whitespace-mode))
+;;   (add-hook 'before-save-hook #'whitespace-cleanup)
+;;   :config
+;;   (setq whitespace-line-column 72) ;; limit line length
+;;   (setq whitespace-style '(face tabs empty trailing)))
 
 (use-package yaml-mode
   :ensure t)

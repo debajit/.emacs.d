@@ -241,7 +241,6 @@
    `(org-agenda-date-weekend ((,class (:weight normal :foreground ,fg4))))
    `(org-agenda-done ((,class (:foreground ,bg4))))
    `(org-agenda-structure ((,class (:weight bold :foreground ,fg3 :box (:color ,fg4) :background ,bg3))))
-   `(org-block ((,class (:foreground ,fg3))))
    `(org-code ((,class (:foreground ,fg2))))
    `(org-date ((,class (:underline t :foreground ,var) )))
    `(org-document-info-keyword ((,class (:foreground ,func))))

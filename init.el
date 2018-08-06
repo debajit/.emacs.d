@@ -514,8 +514,10 @@
 
 ;; Emacs Lisp mode
 (use-package emacs-lisp-mode
-  :bind (("s-r" . eval-buffer)
-         ("s-R" . eval-region)))
+  :bind (:map emacs-lisp-mode-map
+              ("s-r" . eval-buffer)
+              ("s-R" . eval-region))
+  )
 
 (use-package emmet-mode
   :ensure t)
@@ -832,6 +834,14 @@
          ("C-o" . projectile-find-file-dwim))
   :config
   (projectile-global-mode +1))
+
+(use-package quickrun
+  :ensure t
+  :bind (
+         ("s-r" . quickrun)
+         ("s-R" . quickrun-region)
+         )
+)
 
 ;; Rainbow mode. Colorise colour names in certain modes. (Taken from
 ;; https://github.com/bodil/ohai-emacs/blob/master/modules/ohai-html.el)

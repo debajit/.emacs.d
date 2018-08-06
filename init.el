@@ -354,6 +354,12 @@
 ;; End setup for use-package
 ;;----------------------------------------------------------------------
 
+;; Pick up executables from system PATH
+(use-package exec-path-from-shell
+  :ensure t
+  :init
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
 
 ;; Ace window --- switch windows
 (use-package ace-window
@@ -521,13 +527,6 @@
 
 (use-package emmet-mode
   :ensure t)
-
-;; Pick up executables from system PATH
-(use-package exec-path-from-shell
-  :ensure t
-  :init
-  (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize)))
 
 (use-package expand-region
   :ensure t

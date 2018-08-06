@@ -20,6 +20,7 @@
         mac-mwheel-scroll
         org-delete-char
         org-end-of-line
+        org-return-indent
         org-self-insert-command
         pabbrev-expand-maybe
         sp-backward-delete-char

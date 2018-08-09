@@ -140,10 +140,10 @@
 ;; Registers - Lightweight bookmarks by character
 
 ;; Save cursor position to register
-(global-set-key (kbd "s-,") 'point-to-register)
+;; (global-set-key (kbd "s-,") 'point-to-register)
 
 ;; Jump to saved resigter
-(global-set-key (kbd "s-.") 'jump-to-register)
+;; (global-set-key (kbd "s-.") 'jump-to-register)
 
 
 ;;----------------------------------------------------------------------
@@ -505,7 +505,14 @@
   (setq deft-auto-save-interval 0))
 
 (use-package dumb-jump
-  :ensure t)
+  :ensure t
+  :bind (
+         ("s-." . dumb-jump-go)
+         ("s-," . dumb-jump-back)
+         )
+  :init
+  (dumb-jump-mode)
+  )
 
 ;; Elixir mode
 (use-package elixir-mode

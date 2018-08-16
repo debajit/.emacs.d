@@ -30,3 +30,4 @@
 
 ;; TODO: If something is selected it should narrow to selection instead
 (global-set-key (kbd "s-n") 'narrow-to-defun)
+(global-set-key (kbd "s-N") 'widen)

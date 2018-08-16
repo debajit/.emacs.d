@@ -861,8 +861,8 @@
               (lambda () (rainbow-mode))))
   :diminish rainbow-mode)
 
-;; Narrow-dwim. Works for narrowing onto a selection, function, an Org
-;; subtree etc. and the same key narrows and widens.
+;; Narrow and widen intelligently, depending on the context (into a
+;; selection, function, Org subtree etc.), with the same key.
 (use-package recursive-narrow
   :ensure t
   :bind (

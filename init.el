@@ -861,6 +861,15 @@
               (lambda () (rainbow-mode))))
   :diminish rainbow-mode)
 
+;; Narrow-dwim. Works for narrowing onto a selection, function, an Org
+;; subtree etc. and the same key narrows and widens.
+(use-package recursive-narrow
+  :ensure t
+  :bind (
+         ("s-n" . recursive-narrow-or-widen-dwim)
+         ("C-x n w" . recursive-widen-dwim)
+         ))
+
 ;; RTF mode
 (autoload 'rtf-mode "rtf-mode" "RTF mode" t)
 (add-to-list 'auto-mode-alist

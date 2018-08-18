@@ -10,17 +10,24 @@
   "Load a file in the current user’s Emacs configuration directory"
   (load-file (expand-file-name file user-init-dir)))
 
+;; TODO: Use constant for .emacs.d directory
+(add-to-list 'load-path "~/.emacs.d/custom-packages/")
+
 (load-user-file "typography.el")
 (load-user-file "autocomplete.el")
 (load-user-file "whitespace.el")
 (load-user-file "buffers.el")
 (load-user-file "window-management.el")
+(load-user-file "navigation-functions.el")
 (load-user-file "navigation.el")
 (load-user-file "selection.el")
-(load-user-file "keys-file-shortcuts.el")
+(load-user-file "folding.el")
+(load-user-file "file-definitions.el")
+(load-user-file "file-jump-keys.el")
 (load-user-file "bookmarks-web.el")
 (load-file "~/WorkDocs/Application Settings/Emacs/bookmarks-work.el")
 (load-user-file "emacs-for-macosx.el")
+(load-user-file "ruby.el")
 
 ;; Save customizations in a separate file (custom.el)
 (setq custom-file "~/.emacs.d/custom.el")
@@ -203,26 +210,6 @@
 ;;--------------------------------------------------------------------
 
 ;;
-;; The Tasks directory is ~/Documents/Tasks.
-;; The Todo directory is ~/Documents/Tasks/Todo.
-;;
-
-(setq tasks-directory "~/Documents/Tasks"
-      todo-directory (concat (file-name-as-directory tasks-directory) "Todo"))
-
-(let ((default-directory tasks-directory))
-  (setq my-diary-file (expand-file-name "diary")))
-
-(let ((default-directory todo-directory))
-  (setq inbox-tasks-file (expand-file-name "inbox.org")
-        home-tasks-file (expand-file-name "home.org")
-        work-tasks-file (expand-file-name "work.org")
-        finances-tasks-file (expand-file-name "finances.org")
-        projects-tasks-file (expand-file-name "projects.org")
-        home-journal-file (expand-file-name "home-log.org")
-        work-journal-file (expand-file-name "work-log.org")))
-
-;;
 ;; Adapted from
 ;; https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
 ;;
@@ -347,8 +334,6 @@
 (require 'diminish)                ;; Since we use :diminish
 (require 'bind-key)                ;; Since we use :bind and its variants
 
-(add-to-list 'load-path "~/.emacs.d/custom-packages/")
-
 
 ;;----------------------------------------------------------------------
 ;; End setup for use-package
@@ -371,10 +356,10 @@
   :ensure t
   :diminish aggressive-indent-mode
   :config
-  (global-aggressive-indent-mode 1)
+  (global-aggressive-indent-mode 0)
   (add-to-list 'aggressive-indent-excluded-modes 'elixir-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'haml-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'ruby-mode)
+  ;; (add-to-list 'aggressive-indent-excluded-modes 'ruby-mode)
   )
 
 ;; Alchemist mode for Elixir
@@ -744,7 +729,7 @@
 
 ;; Org mode
 (use-package org
-  :ensure t
+  ;; :ensure t
   :init
   (setq org-startup-indented t               ; Turn on org-indent-mode
         org-startup-folded nil               ; Start expanded
@@ -760,8 +745,11 @@
 
   ;; Org mode keyboard shortcuts
   :bind (:map org-mode-map
+              ("s-." . org-open-at-point)
+              ("s-," . org-mark-ring-goto)
               ("s-1" . org-table-sort-lines)
-              ("s-A" . org-archive-subtree))
+              ("s-A" . org-archive-subtree)
+              )
 
   ;; Global keyboard shortcuts
   :bind (("M-S-SPC" . org-capture)
@@ -774,7 +762,9 @@
    '((C . t)
      ;; (elixir . t)
      (R . t)
-     (ruby . t)))
+     (ruby . t)
+     (shell . t)
+     ))
 
   (add-hook 'org-mode-hook
             '(lambda ()
@@ -834,12 +824,29 @@
   :mode (("\\.puml\\'" . plantuml-mode)
          ("\\.plantuml\\'" . plantuml-mode)))
 
+(defun inside-string-q ()
+  "Returns non-nil if inside string, else nil.
+Result depends on syntax table's string quote character.
+http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
+  (interactive)
+  (let ((result (nth 3 (syntax-ppss))))
+    (message "%s" result)
+    result))
+
+(defun open-file-or-jump-dwim ()
+  "TODO"
+  (interactive)
+  (if (inside-string-q)
+      (xah-open-file-at-cursor)
+    (dumb-jump-go))
+  )
+
 ;; Projectile -- Project management
 (use-package projectile
   :ensure t
   :diminish projectile-mode
   :bind (("s-P" . helm-projectile-switch-project)
-         ("C-o" . projectile-find-file-dwim))
+         ("s-." . open-file-or-jump-dwim))
   :config
   (projectile-global-mode +1))
 
@@ -936,14 +943,14 @@
   :init
   (setq typescript-indent-level 2))
 
-(use-package undo-tree
-  :ensure t
-  :diminish undo-tree-mode
-  :bind (("s-z" . undo-tree-undo)
-         ("s-Z" . undo-tree-redo))
-  :config
-  (setq undo-tree-auto-save-history t)
-  (global-undo-tree-mode))
+;; (use-package undo-tree
+;;   :ensure t
+;;   :diminish undo-tree-mode
+;;   :bind (("s-z" . undo-tree-undo)
+;;          ("s-Z" . undo-tree-redo))
+;;   :config
+;;   (setq undo-tree-auto-save-history t)
+;;   (global-undo-tree-mode))
 
 (use-package unfill
   :ensure t
@@ -1029,6 +1036,8 @@
             (lambda ()
               (yas-activate-extra-mode 'fundamental-mode))))
 
+
+(load-user-file "playground.el")
 
 ;;----------------------------------------------------------------------
 ;; Theme

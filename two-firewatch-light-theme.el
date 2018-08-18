@@ -283,6 +283,8 @@
    `(whitespace-line ((t (:background ,white-99 :foreground ,brown-33))))
    ;; `(whitespace-newline ((t (:foreground ,brown-4))))
    ;; `(whitespace-space ((t (:foreground ,brown-4))))
+   `(whitespace-space ((t (:foreground ,pale-brown :background ,white-99))))
+
    ;; `(whitespace-space-after-tab ((t (:foreground ,brown-4))))
    ;; `(whitespace-tab ((t (:foreground ,brown-4))))
    `(whitespace-trailing ((t (:background ,brown-33))))
@@ -402,6 +404,7 @@
    `(magit-header-line ((,class (:family "Verlag" :height 1.5))))
 
    `(lazy-highlight ((,class (:foreground ,fg2 :background ,bg3))))
+   `(lazy-highlight-face ((,class (:foreground ,fg2 :background ,bg3))))
 
    `(term ((,class (:foreground ,fg1 :background ,bg1))))
    `(term-color-black ((,class (:foreground ,bg3 :background ,bg3))))

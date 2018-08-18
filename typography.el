@@ -47,7 +47,7 @@
   (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-block-background nil :inherit 'fixed-pitch))
+  )
 
 (add-hook 'org-mode-hook 'set-buffer-variable-pitch)
 ;; (add-hook 'org-agenda-mode-hook 'set-buffer-variable-pitch)

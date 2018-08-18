@@ -99,7 +99,7 @@
 ;; Enable downcase-region
 (put 'downcase-region 'disabled nil)
 
-(global-set-key (kbd "<f5>") 'apply-macro-to-region-lines)
+;; (global-set-key (kbd "<f5>") 'apply-macro-to-region-lines)
 
 ;; Copy-paste
 (global-set-key (kbd "s-V") 'helm-show-kill-ring)

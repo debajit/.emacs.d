@@ -21,6 +21,7 @@
 (load-user-file "navigation-functions.el")
 (load-user-file "navigation.el")
 (load-user-file "selection.el")
+(load-user-file "folding-functions.el")
 (load-user-file "folding.el")
 (load-user-file "file-definitions.el")
 (load-user-file "file-jump-keys.el")

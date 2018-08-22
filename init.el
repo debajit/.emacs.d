@@ -774,11 +774,13 @@
               ("s-," . org-mark-ring-goto)
               ("s-1" . org-table-sort-lines)
               ("s-A" . org-archive-subtree)
+              ("C-S-SPC" . org-toggle-checkbox)
               )
 
   ;; Global keyboard shortcuts
   :bind (("M-S-SPC" . org-capture)
-         ("C-S-SPC" . org-agenda))
+         ;; ("C-S-SPC" . org-agenda)
+         )
 
   :config
   (custom-set-variables '(org-hide-emphasis-markers t)) ; Hide bold, italic markers

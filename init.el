@@ -957,7 +957,11 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 ;; http://oremacs.com/2015/03/10/no-swiping/
 (use-package swiper
   :ensure t
-  :bind ("s-f" . swiper))
+  :bind (
+         ("s-f" . swiper)
+         ("M-F" . swiper-all)
+         )
+  )
 
 ;; TypeScript
 (use-package typescript-mode

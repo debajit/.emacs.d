@@ -583,21 +583,42 @@
   :ensure t
   :bind (("M-x" . helm-M-x)
          ("s-SPC" . helm-mini)        ; List buffers, like C-x b
-         ("s-i" . helm-semantic-or-imenu)                ; Jump to method
-         ("s-b" . helm-bookmarks))
+         ("s-i" . helm-semantic-or-imenu) ; Jump to method
+         ("s-I" . helm-imenu-in-all-buffers) ; Jump to any open method anywhere
+         ("M-L" . helm-locate)
+         ("s-b" . helm-bookmarks)
+         )
   :init
   (setq helm-truncate-lines t)
+  (setq helm-locate-fuzzy-match nil)    ; Required for mdfind
+  (setq helm-locate-command
+        (case system-type
+          ('darwin "mdfind -name %s %s")
+          ('gnu/linux "locate -i -r %s")
+          ('windows-nt "es %s")
+          ('berkeley-unix "locate -i %s")
+          (t "locate %s")))
   :config
   (helm-mode 1)
   (eval-after-load 'helm-mode '(diminish 'helm-mode)))
 
-(use-package helm-git-grep
-  :ensure t
-  :bind ("s-F" . helm-git-grep-at-point))
+;; (use-package helm-git-grep
+;;   :ensure t
+;;   :bind ("s-F" . helm-git-grep-at-point))
 
 (use-package helm-ls-git
   :ensure t
   :bind ("s-t" . helm-ls-git-ls))
+
+(use-package counsel
+  :ensure t
+  :init
+  (setq locate-command "mdfind")
+  (setq counsel-locate-cmd 'counsel-locate-cmd-mdfind)
+  :bind (
+         ("s-i" . counsel-imenu)
+         ("s-t" . counsel-git)
+         ))
 
 (use-package htmlize
   :ensure t)

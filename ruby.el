@@ -9,3 +9,6 @@
       ,(rx (or "}" "]" "end"))                       ; Block end
       ,(rx (or "#" "=begin"))                        ; Comment start
       ruby-forward-sexp nil)))
+
+;; Mark ruby block
+(global-set-key (kbd "M-H") 'er/mark-ruby-block-up)

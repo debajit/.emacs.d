@@ -479,9 +479,12 @@
 (use-package deft
   :ensure t
   :diminish deft-mode
-  :bind ("M-N" . deft)
+  :bind (
+         ("M-N" . deft)
+         ("<C-s-268632078>" . deft)
+         )
   :init
-  (setq deft-directory "/Users/debajita/Documents/org")
+  (setq deft-directory "~/Documents/org")
   (setq deft-extensions '("org" "txt" "md" "markdown"))
   (setq deft-default-extension "org")
   (setq deft-recursive t)

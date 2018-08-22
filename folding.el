@@ -1,5 +1,5 @@
 ;;
-;; ~/.emacs/folding.el
+;; ~/.emacs.d/folding.el
 ;;
 ;; Keybindings defined:
 ;;
@@ -17,3 +17,4 @@
 (global-set-key (kbd "<f5>") 'hide/show-comments-toggle)
 (global-set-key (kbd "<f6>") 'hs-deeper)
 (global-set-key (kbd "<f7>") 'hs-shallower)
+(global-set-key (kbd "C-S-SPC") 'hs-toggle-hiding)

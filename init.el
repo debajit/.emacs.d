@@ -1069,6 +1069,10 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
             (lambda ()
               (yas-activate-extra-mode 'fundamental-mode))))
 
+(use-package atomic-chrome
+  :ensure t
+  :config
+  (atomic-chrome-start-server))
 
 (load-user-file "playground.el")
 

@@ -218,6 +218,7 @@
 ;; evaluate variables in a list in ELisp
 ;;
 (setq org-agenda-files `(,inbox-tasks-file
+                         ,events-file
                          ,home-tasks-file
                          ,work-tasks-file
                          ,finances-tasks-file
@@ -228,6 +229,7 @@
 (setq diary-file my-diary-file)
 
 (setq org-refile-targets `((,projects-tasks-file :maxlevel . 3)
+                           (,events-file :level . 1)
                            (,home-tasks-file :level . 1)
                            (,work-tasks-file :maxlevel . 2)
                            (,finances-tasks-file :maxlevel . 2)))

@@ -11,6 +11,7 @@
 
 (let ((default-directory todo-directory))
   (setq inbox-tasks-file (expand-file-name "inbox.org")
+        events-file (expand-file-name "events.org")
         home-tasks-file (expand-file-name "home.org")
         work-tasks-file (expand-file-name "work.org")
         finances-tasks-file (expand-file-name "finances.org")

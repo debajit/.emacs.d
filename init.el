@@ -692,6 +692,9 @@
   :init
   (setq markdown-asymmetric-header t)
   (setq-default markdown-hide-markup t)
+  :bind (
+         ("M-M" . markdown-mode)
+         )
   :config
   (add-hook 'markdown-mode-hook
             '(lambda ()

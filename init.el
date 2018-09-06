@@ -29,6 +29,7 @@
 (load-file "~/WorkDocs/Application Settings/Emacs/bookmarks-work.el")
 (load-user-file "emacs-for-macosx.el")
 (load-user-file "ruby.el")
+(load-user-file "emacs-lisp.el")
 
 ;; Save customizations in a separate file (custom.el)
 (setq custom-file "~/.emacs.d/custom.el")
@@ -425,14 +426,17 @@
 ;; Crux
 (use-package crux
   :ensure t
-  :bind (("s-d" . crux-duplicate-current-line-or-region)
+  :bind (
+         ("s-d" . crux-duplicate-current-line-or-region)
          ("s-D" . crux-duplicate-and-comment-current-line-or-region)
          ("M-o" . crux-smart-open-line)
          ("s-o" . crux-smart-open-line-above)
          ;; ("s-j" . crux-top-join-line)
          ("C-j" . crux-top-join-line)
          ("s-<backspace>" . crux-kill-line-backwards)
-         ("C-<backspace>" . crux-kill-line-backwards)))
+         ("C-<backspace>" . crux-kill-line-backwards)
+         ("s-R" . crux-rename-buffer-and-file)
+         ))
 
 ;; Wrap text easily with delimiters (quotes etc.)
 (use-package corral

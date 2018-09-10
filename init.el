@@ -580,7 +580,8 @@
          ("s-i" . helm-semantic-or-imenu) ; Jump to method
          ("s-I" . helm-imenu-in-all-buffers) ; Jump to any open method anywhere
          ("M-L" . helm-locate)
-         ("s-b" . helm-bookmarks)
+         ("s-B" . helm-bookmarks)
+         ("C-h I" . helm-info)
          )
   :init
   (setq helm-truncate-lines t)
@@ -596,9 +597,19 @@
   (helm-mode 1)
   (eval-after-load 'helm-mode '(diminish 'helm-mode)))
 
-;; (use-package helm-git-grep
-;;   :ensure t
-;;   :bind ("s-F" . helm-git-grep-at-point))
+(use-package helm-git-grep
+  :ensure t
+  :bind ("s-F" . helm-git-grep-at-point))
+
+(use-package helm-org-rifle
+  :ensure t
+  :config
+  (global-set-key (kbd "M-W")
+                  (lambda () (interactive) (helm-org-rifle-directories "~/WorkDocs/Documents")))
+  )
+
+(use-package wgrep-helm
+  :ensure t)
 
 (use-package helm-ls-git
   :ensure t
@@ -609,9 +620,14 @@
   :init
   (setq locate-command "mdfind")
   (setq counsel-locate-cmd 'counsel-locate-cmd-mdfind)
+  (setq counsel-find-file-at-point t)
   :bind (
-         ("s-i" . counsel-imenu)
-         ("s-t" . counsel-git)
+         ;; ("s-i" . counsel-imenu)
+         ("M-t" . counsel-git)
+         ("M-O" . counsel-org-goto-all)
+         ("C-h F" . counsel-faces)
+         ("C-h S" . counsel-info-lookup-symbol)
+         ([remap find-file]  . counsel-find-file)
          ))
 
 (use-package htmlize

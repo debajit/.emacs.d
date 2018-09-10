@@ -529,7 +529,7 @@
 (use-package fill-column-indicator
   :ensure t
   :config
-  (add-hook 'after-change-major-mode-hook 'fci-mode))
+  (add-hook 'prog-mode-hook 'fci-mode))
 
 ;; Spellcheck with flyspell
 (use-package flyspell

@@ -23,6 +23,7 @@
 (load-user-file "selection.el")
 (load-user-file "folding-functions.el")
 (load-user-file "folding.el")
+(load-user-file "date-time.el")
 (load-user-file "file-definitions.el")
 (load-user-file "file-jump-keys.el")
 (load-user-file "bookmarks-web.el")

@@ -11,6 +11,8 @@
 ;; Jump to Milestones --- Command + Control + k
 (global-set-key (kbd "C-s-k")
                 (lambda () (interactive) (find-file "~/WorkDocs/Documents/Milestones.org")))
+(global-set-key (kbd "<C-s-268632076>")
+                (lambda () (interactive) (find-file "~/WorkDocs/Documents/Milestones.org")))
 
 (global-set-key (kbd "M-K")
                 (lambda () (interactive) (find-file "~/WorkDocs/Documents/DEVELOPMENT.org")))

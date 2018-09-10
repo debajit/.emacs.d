@@ -3,9 +3,7 @@
 # key: mm
 # --
 defmodule ${1:ModuleName} do
-  @moduledoc """
-  $2
-  """
-
-  $0
+  ${2:@moduledoc """
+  $3
+  """}$0
 end

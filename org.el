@@ -1,13 +1,88 @@
-;; Allow bold, italic, code etc. markup to be inserted easily via
-;; electric pairs.
-;;
-;; Taken from https://emacs.stackexchange.com/a/10034/12922
+;; Org mode
+(use-package org
+  ;; :ensure t
+  :init
+  (setq org-startup-indented t               ; Turn on org-indent-mode
+        org-startup-folded nil               ; Start expanded
+        org-cycle-separator-lines 0          ; Add newline between collapsed headers
+        org-ellipsis "   ↩"                  ; Collapsed heading suffix
+        org-startup-with-inline-images t     ; Show images inline
+        org-export-with-section-numbers nil  ; TODO: Not working
+        htmlize-output-type 'css
+        org-html-htmlize-output-type 'css)
 
-(defvar org-electric-pairs '((?\* . ?\*) (?/ . ?/) (?= . ?=)
-                             (?\_ . ?\_) (?~ . ?~) (?+ . ?+)) "Electric pairs for org-mode.")
+  (setq org-todo-keywords
+        '((sequence "TODO" "IN PROGRESS" "WAITING-FOR" "WAITING_FOR_CUSTOMER" "CODE-REVIEW" "DEPLOYING" "WAITING_FOR_SCHEDULE" "BLOCKED" "|" "DONE" "HANDED OFF" "DELEGATED" "CANCELED")))
 
-(defun org-add-electric-pairs ()
-  (setq-local electric-pair-pairs (append electric-pair-pairs org-electric-pairs))
-  (setq-local electric-pair-text-pairs electric-pair-pairs))
+  ;; Org mode keyboard shortcuts
+  :bind (:map org-mode-map
+              ("s-." . org-open-at-point)
+              ("s-," . org-mark-ring-goto)
+              ("s-1" . org-table-sort-lines)
+              ("s-A" . org-archive-subtree)
+              ("C-S-SPC" . org-toggle-checkbox)
+              )
 
-(add-hook 'org-mode-hook 'org-add-electric-pairs)
+  ;; Global keyboard shortcuts
+  :bind (("M-S-SPC" . org-capture)
+         ;; ("C-S-SPC" . org-agenda)
+         )
+
+  :config
+  (custom-set-variables '(org-hide-emphasis-markers t)) ; Hide bold, italic markers
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((C . t)
+     ;; (elixir . t)
+     (R . t)
+     (ruby . t)
+     (shell . t)
+     ))
+
+  (add-hook 'org-mode-hook
+            '(lambda ()
+               (auto-fill-mode)                     ; Hard wrap automatically
+               (whitespace-mode 0)                  ; Do not show trailing whitespace
+               (setq org-src-fontify-natively t
+                     org-export-with-section-numbers nil)))  ; Syntax-highlight code snippets
+
+  ;; Diminish org-indent-mode
+  ;; see http://emacs.stackexchange.com/questions/22531/diminish-org-indent-mode
+  (eval-after-load 'org-indent '(diminish 'org-indent-mode)))
+
+;; Unicode Org-mode bullets for improved typography
+(use-package org-bullets
+  :ensure t
+  :diminish org-bullets-mode
+  :init
+  (setq org-bullets-bullet-list
+        '("◉" "○" "✸" "○" "☯" "⚫" "►" "◇"))
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+;; ;; Render org agenda priorities as bullets instead of [#A], [#B]
+;; (use-package org-fancy-priorities
+;;   :ensure t
+;;   :hook
+;;   (org-mode . org-fancy-priorities-mode)
+;;   :config
+;;   (setq org-fancy-priorities-list '("⬆" "➽" "⬇")
+;;         org-priority-faces '((?A :foreground "red")
+;;                              (?B :foreground "orange")
+;;                              (?C . "blue"))))
+
+(use-package org-journal
+  :ensure t)
+
+(use-package ox-twbs
+  :ensure t)
+
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "s-b") (lambda () (interactive) (org-emphasize ?\*)))
+  (define-key org-mode-map (kbd "s-i") (lambda () (interactive) (org-emphasize ?\/)))
+
+  (define-key org-mode-map (kbd "s-l") 'listify)
+  (define-key org-mode-map (kbd "s-I") 'italicize-line)
+  (define-key org-mode-map (kbd "s-H") 'list-item-with-heading)
+  (define-key org-mode-map (kbd "S-<f9>") 'standup)
+  )

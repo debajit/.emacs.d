@@ -22,11 +22,40 @@ brew cask install emacs-mac
 
 Then start Emacs.
 
-* Keyboard Shortcuts
+* Keyboard Shortcuts — Work in Progress
 
 - s represents the Super key (Command / Windows key)
 - M represents the Meta key (Option / Alt)
 - C represents the Control key
+
+** Smart Shortcuts
+
+*** s-. — Open the item at Point
+
+In programming modes, this will open the definition/declaration of the
+item (the function, for instance) — and ~s-.~ will take you back to
+where you came from.
+
+If you’re on a filename or a hyperlink (e.g. in a comment or in a
+string), it will open that.
+
+If you’re in an Org mode link to a URL or local file, it will open
+that instead.
+
+*** s-r — Run the Code
+
+If some code is selected, that will be run. Otherwise the entire
+buffer will be run by calling the appropriate interpreter/tool.
+
+*** s-n — Narrow or Widen Intelligently
+
+If you’re in a programming mode, it will narrow to the function.
+
+In Org mode, narrows to the current sub-tree if any.
+
+If invoked from a selection, it will narrow to that selection.
+
+If you’re already narrowed, it will widen automatically.
 
 
 ** Nifty Shortcuts

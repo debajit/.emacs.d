@@ -18,6 +18,7 @@
   :bind (:map org-mode-map
               ("s-." . org-open-at-point)
               ("s-," . org-mark-ring-goto)
+              ("s-u" . org-up-element)
               ("s-1" . org-table-sort-lines)
               ("s-A" . org-archive-subtree)
               ("C-S-SPC" . org-toggle-checkbox)
@@ -77,8 +78,23 @@
 (use-package ox-twbs
   :ensure t)
 
+
 (with-eval-after-load 'org
-  (define-key org-mode-map (kbd "s-b") (lambda () (interactive) (org-emphasize ?\*)))
+
+  ;;
+  ;; Command + b
+  ;; - Make text bold if there is a selection
+  ;; - Otherwise fall back to bookmarks
+  ;;
+  (define-key org-mode-map (kbd "s-b")
+    (lambda ()
+      (interactive)
+      (if (use-region-p)
+          (org-emphasize ?\*)
+        (helm-bookmarks))))
+
+  (define-key org-mode-map (kbd "s-B") 'embolden-line)
+
   (define-key org-mode-map (kbd "s-i") (lambda () (interactive) (org-emphasize ?\/)))
 
   (define-key org-mode-map (kbd "s-l") 'listify)

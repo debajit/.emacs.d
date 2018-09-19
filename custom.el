@@ -63,7 +63,7 @@
  '(org-hide-emphasis-markers t)
  '(package-selected-packages
    (quote
-    (outline-magic recursive-narrow exec-path-from-shell quickrun dumb-jump edit-indirect etags-select inf-ruby flycheck-credo google-this alchemist fastnav emmet-mode unfill gitignore-mode gitattributes-mode gitconfig-mode sort-words git-timemachine htmlize ox-twbs magit use-package multiple-cursors helm-projectile projectile yaml-mode counsel swiper org-bullets helm-org-rifle deft pabbrev undo-tree typescript-mode gotham-theme neotree expand-region crux aggressive-indent helm-google easy-kill)))
+    (js2-mode tide graphql-mode smartparens treemacs-projectile flycheck atomic-chrome xkcd ack imenu-list outline-magic recursive-narrow exec-path-from-shell quickrun dumb-jump edit-indirect etags-select inf-ruby flycheck-credo google-this alchemist fastnav emmet-mode unfill gitignore-mode gitattributes-mode gitconfig-mode sort-words git-timemachine htmlize ox-twbs magit use-package multiple-cursors helm-projectile projectile yaml-mode counsel swiper org-bullets helm-org-rifle deft pabbrev undo-tree typescript-mode gotham-theme neotree expand-region crux aggressive-indent helm-google easy-kill)))
  '(ruby-insert-encoding-magic-comment nil)
  '(sentence-end-double-space nil)
  '(show-trailing-whitespace t)

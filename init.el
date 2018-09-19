@@ -910,14 +910,15 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
   :init
   (setq typescript-indent-level 2))
 
-;; (use-package undo-tree
-;;   :ensure t
-;;   :diminish undo-tree-mode
-;;   :bind (("s-z" . undo-tree-undo)
-;;          ("s-Z" . undo-tree-redo))
-;;   :config
-;;   (setq undo-tree-auto-save-history t)
-;;   (global-undo-tree-mode))
+(use-package undo-tree
+  :disabled
+  :commands undo-tree-mode
+  :diminish undo-tree-mode
+  :bind (("s-z" . undo-tree-undo)
+         ("s-Z" . undo-tree-redo))
+  :config
+  (setq undo-tree-auto-save-history t)
+  (global-undo-tree-mode))
 
 (use-package unfill
   :ensure t

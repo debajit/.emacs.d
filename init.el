@@ -474,6 +474,7 @@
   :bind (
          ("M-N" . deft)
          ("<C-s-268632078>" . deft)
+         ("C-s-n" . deft)
          )
   :init
   (setq deft-directory "~/Documents/org")
@@ -505,13 +506,6 @@
 
 (use-package elm-mode
   :ensure t)
-
-;; Emacs Lisp mode
-(use-package emacs-lisp-mode
-  :bind (:map emacs-lisp-mode-map
-              ("s-r" . eval-buffer)
-              ("s-R" . eval-region))
-  )
 
 (use-package emmet-mode
   :ensure t)
@@ -581,7 +575,7 @@
          ("s-i" . helm-semantic-or-imenu) ; Jump to method
          ("s-I" . helm-imenu-in-all-buffers) ; Jump to any open method anywhere
          ("M-L" . helm-locate)
-         ("s-B" . helm-bookmarks)
+         ("s-b" . helm-bookmarks)
          ("C-h I" . helm-info)
          )
   :init
@@ -679,6 +673,13 @@
 ;;     (set-fill-column 72))
 ;;   (add-hook 'javascript-mode-hook 'my-javascript-mode-hook))
 
+(use-package imenu-list
+  :commands (imenu-list imenu-list-smart-toggle)
+  :bind ("M-H" . imenu-list-smart-toggle)
+  ;; :config
+  ;; (setq org-imenu-depth 2)
+  )
+
 (use-package jump-char
   :ensure t
   :bind (("M-j" . jump-char-forward)
@@ -762,6 +763,9 @@
   :ensure t
   :bind ("s-E" . mc/mark-next-word-like-this))
 
+(require 'org-mac-link)
+(add-hook 'org-mode-hook (lambda ()
+  (define-key org-mode-map (kbd "s-L") 'org-mac-grab-link)))
 
 ;; Predictive text completion (Predictive Abbreviation mode)
 (use-package pabbrev
@@ -813,7 +817,7 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
   :ensure t
   :bind (
          ("s-r" . quickrun)
-         ("s-R" . quickrun-region)
+         ("M-R" . quickrun-region)
          )
 )
 

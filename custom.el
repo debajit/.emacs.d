@@ -103,5 +103,7 @@
  '(treemacs-file-face ((t (:foreground "#005486" :family "Ideal Sans"))))
  '(treemacs-header-face ((t (:foreground "#005486" :weight bold :height 1.3 :family "Verlag"))))
  '(variable-pitch ((t (:foreground "#674c20" :slant normal :weight normal :height 181 :width normal :foundry "nil" :family "Ideal Sans"))))
+ '(web-mode-function-call-face ((t (:inherit font-lock-function-name-face :foreground "#005486" :weight bold))))
+ '(web-mode-keyword-face ((t (:foreground "#2d1f06" :weight bold))))
  '(whitespace-line ((((class color) (min-colors 16777215)) (:background "#3c3836" :foreground "#fb4933")) (((class color) (min-colors 255)) (:background "#3a3a3a" :foreground "#d75f5f"))))
  '(whitespace-newline ((((class color) (min-colors 16777215)) (:background "#282828" :foreground "#7c6f64")) (((class color) (min-colors 255)) (:background "#262626" :foreground "#767676")))))

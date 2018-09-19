@@ -29,6 +29,7 @@
 (load-user-file "bookmarks-web.el")
 (load-file "~/WorkDocs/Application Settings/Emacs/bookmarks-work.el")
 (load-user-file "emacs-for-macosx.el")
+(load-user-file "emacs-mac-port.el")
 (load-user-file "macros.el")
 (load-user-file "ruby.el")
 (load-user-file "emacs-lisp.el")

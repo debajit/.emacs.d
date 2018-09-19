@@ -14,13 +14,16 @@
 (global-set-key (kbd "<C-s-268632076>")
                 (lambda () (interactive) (find-file "~/WorkDocs/Documents/Milestones.org")))
 
-(global-set-key (kbd "M-K")
+(global-set-key (kbd "C-s-l")
                 (lambda () (interactive) (find-file "~/WorkDocs/Documents/DEVELOPMENT.org")))
 
 (global-set-key (kbd "<C-s-268632075>")
                 (lambda () (interactive) (find-file "~/WorkDocs/Documents/DEVELOPMENT.org")))
 
 ;; Jump to the Emacs configuration file, init.el --- Command + Control + u
+(global-set-key (kbd "C-s-u")
+                (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+
 (global-set-key (kbd "<C-s-268632085>")
                 (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
 
@@ -30,6 +33,8 @@
 
 ;; Jump to the Inbox --- Command + Control + i
 (global-set-key (kbd "C-s-i")
+                (lambda () (interactive) (find-file inbox-tasks-file)))
+(global-set-key (kbd "<C-s-268632073>")
                 (lambda () (interactive) (find-file inbox-tasks-file)))
 
 

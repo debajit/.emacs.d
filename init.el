@@ -535,8 +535,10 @@
 ;; Fill column indicator (Print margin — Enable for all files)
 (use-package fill-column-indicator
   :ensure t
-  :config
-  (add-hook 'prog-mode-hook 'fci-mode))
+  :bind ("<f12>" . fci-mode)
+  ;; :config
+  ;; (add-hook 'prog-mode-hook 'fci-mode)
+  )
 
 ;; Spellcheck with flyspell
 (use-package flyspell

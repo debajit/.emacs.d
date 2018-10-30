@@ -1,5 +1,11 @@
-(fset 'listify
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 45 32 134217827 down 1] 0 "%d")) arg)))
+;; (fset 'listify-old
+;;    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 45 32 134217827 down 1] 0 "%d")) arg)))
+
+;; (fset 'list-itemify-old
+;;    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 45 134217760 134217848 117 112 99 97 115 101 down down down return 14 134217837] 0 "%d")) arg)))
+
+(fset 'list-itemify
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 45 134217760 134217848 117 112 99 97 115 101 45 99 104 97 114 return 14 134217837] 0 "%d")) arg)))
 
 (fset 'italicize-line
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([134217837 47 5 47 down 134217837] 0 "%d")) arg)))

@@ -54,6 +54,7 @@
 (add-hook 'eww-mode-hook 'set-buffer-variable-pitch)
 (add-hook 'markdown-mode-hook 'set-buffer-variable-pitch)
 (add-hook 'Info-mode-hook 'set-buffer-variable-pitch)
+(add-hook 'imenu-list-major-mode-hook 'set-buffer-variable-pitch)
 
 
 ;;----------------------------------------------------------------------

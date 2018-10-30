@@ -473,7 +473,7 @@
   :diminish deft-mode
   :bind (
          ("M-N" . deft)
-         ("<C-s-268632078>" . deft)
+         ;; ("<C-s-268632076>" . deft)
          ("C-s-n" . deft)
          )
   :init
@@ -835,7 +835,7 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 ;; selection, function, Org subtree etc.), with the same key.
 (use-package recursive-narrow
   :ensure t
-  :bind (
+  :bind (:map org-mode-map
          ("s-n" . recursive-narrow-or-widen-dwim)
          ("C-x n w" . recursive-widen-dwim)
          ))

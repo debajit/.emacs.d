@@ -15,6 +15,7 @@
 
 (load-user-file "typography.el")
 (load-user-file "autocomplete.el")
+(load-user-file "text-editing.el")
 (load-user-file "whitespace.el")
 (load-user-file "buffers.el")
 (load-user-file "window-management.el")
@@ -23,6 +24,7 @@
 (load-user-file "selection.el")
 (load-user-file "folding-functions.el")
 (load-user-file "folding.el")
+(load-user-file "wrapping.el")
 (load-user-file "date-time.el")
 (load-user-file "file-definitions.el")
 (load-user-file "file-jump-keys.el")
@@ -93,9 +95,6 @@
 
 ;; Reset zoom level: s-0
 (global-set-key (kbd "s-0") (lambda () (interactive) (text-scale-increase 0)))
-
-;; Toggle truncate lines: s-p
-(global-set-key (kbd "s-p") 'visual-line-mode)
 
 
 ;;----------------------------------------------------------------------
@@ -340,6 +339,19 @@
 (use-package ace-window
   :ensure t
   :bind ("M-p" . ace-window))
+
+(use-package adaptive-wrap
+  :ensure t
+  :config
+  (add-hook 'visual-line-mode-hook 'adaptive-wrap-prefix-mode)
+
+  (defun toggle-wrap-dwim ()
+    (interactive)
+    (if (bound-and-true-p visual-line-mode)
+        (toggle-truncate-lines)
+      (visual-line-mode)))
+  (global-set-key (kbd "s-p") 'toggle-wrap-dwim)
+  )
 
 ;; Aggressive indent
 (use-package aggressive-indent

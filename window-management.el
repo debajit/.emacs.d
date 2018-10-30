@@ -19,7 +19,7 @@
 (global-set-key (kbd "s-j") 'other-window)
 
 ;; Move pane to next position:  Command + u
-(global-set-key (kbd "s-U") 'window-swap-states)
+(global-set-key (kbd "s-M") 'window-swap-states)
 
 ;; Jump to window on left
 (global-set-key (kbd "<s-left>") 'windmove-left)
@@ -85,9 +85,6 @@
 
 ;; Maximize window: s-m   (default: C-x 1)
 (global-set-key (kbd "s-m") 'delete-other-windows)
-
-;; Minimize window: s-M   (default: C-z)
-(global-set-key (kbd "s-M") 'suspend-frame)
 
 
 ;;----------------------------------------------------------------------

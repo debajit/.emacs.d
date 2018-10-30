@@ -9,6 +9,7 @@
         crux-top-join-line
         delete-horizontal-space
         easy-kill
+        end-of-visual-line
         fastnav-zap-up-to-char-forward
         fill-paragraph
         haml-electric-backspace

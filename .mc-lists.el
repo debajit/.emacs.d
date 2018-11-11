@@ -24,10 +24,12 @@
         org-return-indent
         org-self-insert-command
         pabbrev-expand-maybe
+        sh-assignment
         sp-backward-delete-char
         sp-delete-char
         text-scale-increase
         typescript-insert-and-indent
+        web-mode-element-clone
         ))
 
 (setq mc/cmds-to-run-once

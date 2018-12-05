@@ -16,6 +16,12 @@
   "The default proportional typeface to use for longform text,
   notes etc.")
 
+;; (defconst heading-font-family "Verlag"
+;;   "The default (proportional) typeface to use for headings.")
+
+;; The default (proportional) typeface to use for headings
+(setq heading-font-family "Verlag")
+
 (defconst monospaced-font-size "16"
   "The default monospaced font size")
 

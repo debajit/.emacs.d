@@ -34,7 +34,7 @@
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((C . t)
-     ;; (elixir . t)
+     (elixir . t)
      (R . t)
      (ruby . t)
      (shell . t)
@@ -81,6 +81,8 @@
 
 (with-eval-after-load 'org
 
+  ;; Markup
+
   ;;
   ;; Command + b
   ;; - Make text bold if there is a selection
@@ -92,13 +94,17 @@
       (if (use-region-p)
           (org-emphasize ?\*)
         (helm-bookmarks))))
-
-  (define-key org-mode-map (kbd "s-B") 'embolden-line)
-
   (define-key org-mode-map (kbd "s-i") (lambda () (interactive) (org-emphasize ?\/)))
 
+  ;; Navigation
+  (define-key org-mode-map (kbd "M-p") 'org-previous-visible-heading)
+  (define-key org-mode-map (kbd "M-n") 'org-next-visible-heading)
+
+  ;; Macros
+  (define-key org-mode-map (kbd "s-B") 'embolden-line)
   (define-key org-mode-map (kbd "s-l") 'list-itemify)
   (define-key org-mode-map (kbd "s-I") 'italicize-line)
   (define-key org-mode-map (kbd "s-H") 'list-item-with-heading)
+  (define-key org-mode-map (kbd "s-U") 'codify-line)
   (define-key org-mode-map (kbd "S-<f9>") 'standup)
   )

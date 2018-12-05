@@ -36,11 +36,12 @@
 (deftheme apus
   "Port of the brown-based warm light-on-dark theme by Joe Bergantine.")
 
-(let ((brown-1 "#452E2E") (brown-2 "#865C38") (brown-3 "#4B3330")
-                          (brown-4 "#523D2B") (brown-5 "#7D504A")
-                          (brown-6 "#392626") (brown-7 "#3E2929")
-      (white-1 "#E6E1C4") (white-2 "#E6E1DC") (white-3 "#654D4D")
-      (black-1 "#1F1611") (black-2 "#16120E") (black-3 "#000000")
+(let ((brown-1 "#452E2E") (brown-2 "#865c38") (brown-3 "#4b3330")
+                          (brown-4 "#523D2B") (brown-5 "#7d504a")
+                          (brown-6 "#392626") (brown-7 "#3e2929")
+                          (white-1 "#e6e1c4") (white-2 "#e6e1dc") (white-3 "#654d4d")
+                          (white-4 "#755a5a") (white-5 "#8a6f58") (white-6 "#7f6651") (white-7 "#d8cb9e")
+                          (black-1 "#1f1611") (black-2 "#16120e") (black-3 "#000000")
       (gray-1 "#4e4e4e")
       (yellow-1 "#D9D762") (yellow-2 "#EFAC32") (yellow-3 "#EFCB43")
                            (yellow-4 "#EFC232") (yellow-5 "#FFC05C")
@@ -48,8 +49,8 @@
       (red-1 "#990000") (red-2 "#660000") (red-3 "#CC4232")
                         (red-4 "#BE3250") (red-5 "#D23850")
                         (red-6 "firebrick4") (red-7 "#FF7575")
-      (blue-1 "#7DAF9C") (blue-2 "#6C99BB") (blue-3 "#5798AE")
-                         (blue-4 "#93C1BC") (blue-5 "#2F33AB")
+      (blue-1 "#7daf9c") (blue-2 "#6c99bb") (blue-3 "#5798ae")
+                         (blue-4 "#93c1bc") (blue-5 "#2f33ab")
       (purple-1 "#BB99BB") (purple-2 "#8856D2") (purple-3 "#BE73FD")
       (green-1 "#144212") (green-2 "#8CFF8C") (dark-pink "#A81242"))
   (custom-theme-set-faces
@@ -118,14 +119,40 @@
    `(whitespace-tab ((t (:foreground ,brown-4))))
    `(whitespace-trailing ((t (:background ,red-3))))
 
+   ;; Deft
+   `(deft-header-face ((t (:foreground ,yellow-5 :bold t :height 2.4))))
+   `(deft-title-face ((t (:foreground ,white-1))))
+
+   ;; Elixir
+   `(elixir-atom-face ((t (:foreground ,blue-4 :inherit font-lock-constant-face))))
+
    ;; flyspell-mode
    `(flyspell-incorrect ((t (:underline ,red-6))))
    `(flyspell-duplicate ((t (:underline ,red-6))))
+
+   ;; Line numbers
+   `(line-number ((t (:background ,brown-1 :foreground "#6b4d33"))))
+   `(line-number-current-line ((t (:background ,brown-1 :foreground "#ca905f" :weight bold))))
 
    ;; magit
    `(magit-diff-add ((t (:foreground ,green-2))))
    `(magit-diff-del ((t (:foreground ,red-7))))
    `(magit-item-highlight ((t (:background ,brown-6))))
+   `(magit-section-heading ((t (:foreground ,yellow-5 :background ,brown-1 :weight bold :family "Verlag" :height 1.5 :inherit nil))))
+   `(magit-header-line ((t (:family "Verlag" :height 1.5))))
+
+   ;; Multiple cursors
+   `(mc/cursor-face ((t (:foreground ,white-1 :background ,orange-1))))
+   `(mc/region-face ((t (:foreground ,"white" :background ,"black"))))
+   `(mc/cursor-bar-face ((t (:foreground ,yellow-1 :background ,"black"))))
+
+   ;; Org mode
+   `(org-document-title ((t (:foreground ,yellow-5 :bold t :height 2.4))))
+   `(org-level-1 ((t (:bold t :foreground ,yellow-5 :height 1.5))))
+   ;; `(org-level-2 ((t (:bold t :foreground ,blue-15 :height 1.5))))
+   ;; `(org-level-3 ((t (:bold t :foreground ,brown-10 :height 1.5))))
+   ;; `(org-level-4 ((t (:bold nil :foreground ,blue-01 :height 1.3))))
+   ;; `(org-level-5 ((t (:bold nil :foreground ,black-10 :height 1.02))))
 
    ;; ECB
    `(ecb-default-highlight-face ((t (:background ,red-1))))
@@ -187,7 +214,7 @@
    'apus
 
    ;; Fill Column Indicator mode
-   `(fci-rule-color ,brown-4)
+   `(fci-rule-color ,brown-5)
    `(fci-rule-character-color ,brown-1)
 
    ;; Misc.

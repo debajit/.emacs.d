@@ -33,7 +33,6 @@
 (load-user-file "emacs-for-macosx.el")
 (load-user-file "emacs-mac-port.el")
 (load-user-file "macros.el")
-(load-user-file "javascript.el")
 (load-user-file "ruby.el")
 (load-user-file "emacs-lisp.el")
 
@@ -327,8 +326,6 @@
 ;; End setup for use-package
 ;;----------------------------------------------------------------------
 
-(load-user-file "org.el")
-
 ;; Pick up executables from system PATH
 (use-package exec-path-from-shell
   :ensure t
@@ -364,13 +361,6 @@
   (add-to-list 'aggressive-indent-excluded-modes 'haml-mode)
   ;; (add-to-list 'aggressive-indent-excluded-modes 'ruby-mode)
   )
-
-;; Alchemist mode for Elixir
-(use-package alchemist
-  :ensure t
-  :bind (:map alchemist-mode-map
-              ("C-T" . alchemist-mix-test-stale)
-              ("s-T" . alchemist-project-toggle-file-and-tests-other-window)))
 
 ;; Beacon --- Show little "animation" around cursor when switching
 ;; windows etc. to quickly indicate where the cursor is.
@@ -509,19 +499,14 @@
   (dumb-jump-mode)
   )
 
-;; Elixir mode
-(use-package elixir-mode
-  :ensure t)
-
-;; Elixir snippets
-(use-package elixir-yasnippets
-  :ensure t)
 
 (use-package elm-mode
   :ensure t)
 
 (use-package emmet-mode
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'web-mode-hook 'emmet-mode))
 
 (use-package expand-region
   :ensure t
@@ -836,16 +821,6 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
          )
 )
 
-;; Rainbow mode. Colorise colour names in certain modes. (Taken from
-;; https://github.com/bodil/ohai-emacs/blob/master/modules/ohai-html.el)
-(use-package rainbow-mode
-  :ensure t
-  :config
-  (dolist (mode '(css-mode less-css-mode html-mode plantuml-mode web-mode))
-    (add-hook (intern (concat (symbol-name mode) "-hook"))
-              (lambda () (rainbow-mode))))
-  :diminish rainbow-mode)
-
 ;; Narrow and widen intelligently, depending on the context (into a
 ;; selection, function, Org subtree etc.), with the same key.
 (use-package recursive-narrow
@@ -1024,8 +999,12 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
   :config
   (atomic-chrome-start-server))
 
-
+(load-user-file "elixir.el")
+(load-user-file "javascript.el")
+(load-user-file "org.el")
+(load-user-file "code-visualization.el")
 (load-user-file "playground.el")
+
 
 ;;----------------------------------------------------------------------
 ;; Theme

@@ -16,6 +16,9 @@
 (fset 'embolden-line
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([134217837 67108896 5 8388706 14 134217837] 0 "%d")) arg)))
 
+(fset 'codify-line
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("\355~~\355" 1 "%d")) arg)))
+
 ;; (fset 'standup
 ;;    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 134217848 121 97 115 32 105 110 down return down down down down down return f9 tab f10 tab] 0 "%d")) arg)))
 

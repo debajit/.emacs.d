@@ -164,7 +164,8 @@
    ;; Highlights
    ;; `(hi-yellow ((t (:background ,"#dbff00"))))
    `(hi-yellow ((t (:background ,"#ebff00"))))
-   `(hi-pink ((t (:background ,"#ffcfa3"))))
+   ;; `(hi-pink ((t (:background ,"#ffcfa3"))))
+   `(hi-pink ((t (:background ,"#ffc3b1"))))
    ;; `(hi-pink ((t (:background ,"#cbdcff"))))
 
    ;; Iedit --- Edit multiple tokens
@@ -339,6 +340,7 @@
    `(mu4e-cited-7-face ((,class (:foreground ,fg3))))
    `(mu4e-header-marks-face ((,class (:foreground ,type))))
    `(ffap ((,class (:foreground ,fg4))))
+
    `(js2-private-function-call ((,class (:foreground ,const))))
    `(js2-jsdoc-html-tag-delimiter ((,class (:foreground ,str))))
    `(js2-jsdoc-html-tag-name ((,class (:foreground ,var))))
@@ -346,12 +348,15 @@
    `(js2-function-param ((,class (:foreground ,const))))
    `(js2-jsdoc-value ((,class (:foreground ,str))))
    `(js2-private-member ((,class (:foreground ,fg3))))
+   `(js2-function-call ((,class (:foreground ,eggplant :bold t))))
+
    `(js3-warning-face ((,class (:underline ,keyword))))
    `(js3-error-face ((,class (:underline ,warning))))
    `(js3-external-variable-face ((,class (:foreground ,var))))
    `(js3-function-param-face ((,class (:foreground ,fg2))))
    `(js3-jsdoc-tag-face ((,class (:foreground ,keyword))))
    `(js3-instance-member-face ((,class (:foreground ,const))))
+
    `(warning ((,class (:foreground ,warning))))
    `(ac-completion-face ((,class (:underline t :foreground ,keyword))))
    `(info-quoted-name ((,class (:foreground ,builtin))))
@@ -399,9 +404,11 @@
    `(magit-process-ng ((,class (:foreground ,warning :weight bold))))
    `(magit-process-ok ((,class (:foreground ,func :weight bold))))
    `(magit-section-heading ((,class (:foreground ,blue-01 :background ,bg1 :weight bold :family "Verlag" :height 1.5 :inherit nil))))
+   ;; `(magit-section-heading ((,class (:foreground ,blue-01 :background ,bg1 :weight bold :family heading-font-family :height 1.5 :inherit nil))))
    `(magit-section-highlight      ((,class (:background ,white-80))))
    `(magit-section-secondary-heading ((,class (:foreground ,red-10 :weight bold))))
    `(magit-header-line ((,class (:family "Verlag" :height 1.5))))
+   ;; `(magit-header-line ((t (:family heading-font-family :height 1.5))))
 
    `(lazy-highlight ((,class (:foreground ,fg2 :background ,bg3))))
    `(lazy-highlight-face ((,class (:foreground ,fg2 :background ,bg3))))

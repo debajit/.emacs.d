@@ -106,5 +106,4 @@
   (define-key org-mode-map (kbd "s-I") 'italicize-line)
   (define-key org-mode-map (kbd "s-H") 'list-item-with-heading)
   (define-key org-mode-map (kbd "s-U") 'codify-line)
-  (define-key org-mode-map (kbd "S-<f9>") 'standup)
   )

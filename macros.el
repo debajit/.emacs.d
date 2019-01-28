@@ -24,3 +24,5 @@
 
 (fset 'standup
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 89 69 83 84 69 82 68 65 89 32 40 f9 134217839 return 84 79 68 65 89 32 40 f10 up] 0 "%d")) arg)))
+(fset 'standup2
+   [?\M-m ?/ ?m ?d ?  S-f9 return ?- ?  return return S-f10 return ?- ?  up up up ?\C-e])

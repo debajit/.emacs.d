@@ -18,7 +18,7 @@
 ;; Jump to the next pane (in cyclical order):  Command + j
 (global-set-key (kbd "s-j") 'other-window)
 
-;; Move pane to next position:  Command + u
+;; Move pane to next position:  Command + Shift + M
 (global-set-key (kbd "s-M") 'window-swap-states)
 
 ;; Jump to window on left
@@ -44,6 +44,9 @@
 ;; more useful. New window was rarely used.
 ;;
 ;; (global-set-key (kbd "s-n") (lambda () (interactive) (find-file-other-frame "/tmp/scratch.org")))
+
+;; New window: s-N
+(global-set-key (kbd "s-N") 'make-frame-command)
 
 
 ;;----------------------------------------------------------------------

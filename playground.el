@@ -51,3 +51,37 @@ that was stored with ska-point-to-register."
     (insert val)))
 
 (global-set-key (kbd "M-+") 'calc-eval-region)
+
+(defhydra hydra-switch-mode (:color blue
+                                    :hint nil
+                                    )
+  "
+ ^Writing^          ^Programming^         ^Plain^                 ^Other
+-------------    ---------------    -----------------     -------------
+ _o_: Org           _e_: Elixir           _f_: Fundamental        _R_: re-isearch
+ _m_: Markdown      _r_: Ruby             _b_: bury               _I_: isearch
+ ^ ^                _j_: JavaScript
+ ^ ^                _g_: GraphQL
+ ^ ^                _l_: Emacs-Lisp
+ ^ ^                _s_: Shell-Script
+"
+  ("m" gfm-mode)
+  ("o" org-mode)
+  ("e" elixir-mode)
+  ("r" ruby-mode)
+  ("j" js2-mode)
+  ("g" graphql-mode)
+  ("l" emacs-lisp-mode)
+  ("s" shell-script-mode)
+  ("f" fundamental-mode)
+  ("b" Buffer-menu-bury)
+  ("T" Buffer-menu-toggle-files-only)
+  ("O" Buffer-menu-multi-occur :color blue)
+  ("I" Buffer-menu-isearch-buffers :color blue)
+  ("R" Buffer-menu-isearch-buffers-regexp :color blue)
+  ("q" nil "Quit")
+  ;; ("q" quit-window "quit" :color blue)
+  )
+
+;; (Key chord) - What the key does
+(global-set-key (kbd "M-M") 'hydra-switch-mode/body)

@@ -644,7 +644,10 @@
     (with-eval-after-load 'ido
       (ido-mode -1)
       ;; Enable ivy
-      (ivy-mode 1))))
+      (ivy-mode 1)))
+  :init
+  (setq ivy-use-virtual-buffers t)
+  )
 
 (use-package helm-projectile
   :ensure t)

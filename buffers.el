@@ -3,6 +3,13 @@
 ;;
 ;; Buffer-related customizations.
 ;;
+;; Keys:
+;;
+;;       s-s     Save buffer
+;;       s-w     Previous buffer (soft close)
+;;       s-e     Next buffer
+;;       s-q     Close buffer (i.e. kill current buffer)
+;;   s-S-SPC Show buffers
 
 ;;----------------------------------------------------------------------
 ;; Keybindings

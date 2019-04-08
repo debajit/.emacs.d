@@ -21,7 +21,6 @@
 (load-user-file "window-management.el")
 (load-user-file "navigation-functions.el")
 (load-user-file "navigation.el")
-(load-user-file "selection.el")
 (load-user-file "folding-functions.el")
 (load-user-file "folding.el")
 (load-user-file "wrapping.el")
@@ -33,9 +32,11 @@
 (load-user-file "emacs-for-macosx.el")
 (load-user-file "emacs-mac-port.el")
 (load-user-file "macros.el")
+(load-user-file "selection.el")
+(load-user-file "calculator.el")
 (load-user-file "ruby.el")
 (load-user-file "emacs-lisp.el")
-
+(load-user-file "dired.el")
 
 ;; Save customizations in a separate file (custom.el)
 (setq custom-file "~/.emacs.d/custom.el")
@@ -336,7 +337,7 @@
 ;; Ace window --- switch windows
 (use-package ace-window
   :ensure t
-  :bind ("M-p" . ace-window))
+  :bind ("C-J" . ace-window))
 
 (use-package adaptive-wrap
   :ensure t
@@ -425,7 +426,11 @@
          ("s-<backspace>" . crux-kill-line-backwards)
          ("C-<backspace>" . crux-kill-line-backwards)
          ("s-R" . crux-rename-buffer-and-file)
-         ))
+         )
+  :bind (:map lisp-mode-map
+                ("C-j" . eval-print-last-sexp))
+  )
+
 
 ;; Wrap text easily with delimiters (quotes etc.)
 (use-package corral
@@ -562,7 +567,8 @@
 
 (use-package google-this
   :ensure t
-  :bind ("s-G" . google-this-noconfirm))
+  ;; :bind ("s-G" . google-this-noconfirm)
+  )
 
 ;; HAML mode
 (use-package haml-mode
@@ -571,8 +577,9 @@
 (use-package helm
   :ensure t
   :bind (("M-x" . helm-M-x)
-         ("s-SPC" . helm-mini)        ; List buffers, like C-x b
-         ("s-i" . helm-semantic-or-imenu) ; Jump to method
+         ;; ("s-SPC" . helm-mini)        ; List buffers, like C-x b
+         ("s-SPC" . switch-to-buffer)     ; We should be able to remove this line
+         ;; ("s-i" . helm-semantic-or-imenu) ; Jump to method
          ("s-I" . helm-imenu-in-all-buffers) ; Jump to any open method anywhere
          ("M-L" . helm-locate)
          ("s-b" . helm-bookmarks)
@@ -608,7 +615,9 @@
 
 (use-package helm-ls-git
   :ensure t
-  :bind ("s-t" . helm-ls-git-ls))
+  ;; :bind ("M-t" . helm-ls-git-ls)
+  :bind ("s-t" . helm-ls-git-ls)
+  )
 
 (use-package counsel
   :ensure t
@@ -617,8 +626,8 @@
   (setq counsel-locate-cmd 'counsel-locate-cmd-mdfind)
   (setq counsel-find-file-at-point t)
   :bind (
-         ;; ("s-i" . counsel-imenu)
-         ("M-t" . counsel-git)
+         ;; ("s-t" . counsel-git)
+         ("s-i" . counsel-imenu)
          ("M-O" . counsel-org-goto-all)
          ("C-h F" . counsel-faces)
          ("C-h S" . counsel-info-lookup-symbol)
@@ -810,6 +819,8 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
     (dumb-jump-go))
   )
 
+(global-set-key (kbd "s->") 'helm-projectile-find-file-dwim)
+
 ;; Projectile -- Project management
 (use-package projectile
   :ensure t
@@ -831,10 +842,12 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 ;; selection, function, Org subtree etc.), with the same key.
 (use-package recursive-narrow
   :ensure t
-  :bind (:map org-mode-map
-         ("s-n" . recursive-narrow-or-widen-dwim)
-         ("C-x n w" . recursive-widen-dwim)
-         ))
+  :bind ("s-n" . recursive-narrow-or-widen-dwim)
+  ;; :bind (:map org-mode-map
+  ;;        ("s-n" . recursive-narrow-or-widen-dwim)
+  ;;        ("C-x n w" . recursive-widen-dwim)
+  ;;        )
+  )
 
 ;; RTF mode
 (autoload 'rtf-mode "rtf-mode" "RTF mode" t)
@@ -1005,9 +1018,14 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
   :config
   (atomic-chrome-start-server))
 
+(use-package lua-mode
+  :ensure t)
+
+(load-user-file "programming.el")
 (load-user-file "elixir.el")
 (load-user-file "javascript.el")
 (load-user-file "org.el")
+(load-user-file "markdown.el")
 (load-user-file "code-visualization.el")
 (load-user-file "playground.el")
 

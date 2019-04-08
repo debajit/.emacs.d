@@ -56,8 +56,8 @@
 ;; Close pane: s-W   (default: C-x 0)
 (global-set-key (kbd "s-W") (lambda () (interactive) (delete-window) (balance-windows)))
 
-;; Close window (Emacs' frame): s-q
-(global-set-key (kbd "s-Q") 'delete-frame)
+;; Close window: s-K
+(global-set-key (kbd "s-X") 'delete-frame)
 
 
 ;;----------------------------------------------------------------------

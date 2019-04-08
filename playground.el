@@ -56,10 +56,10 @@ that was stored with ska-point-to-register."
                                     :hint nil
                                     )
   "
- ^Writing^          ^Programming^         ^Plain^                 ^Other
+ ^Writing^          ^Programming^         ^Plain^                 ^Formatting
 -------------    ---------------    -----------------     -------------
- _o_: Org           _e_: Elixir           _f_: Fundamental        _R_: re-isearch
- _m_: Markdown      _r_: Ruby             _b_: bury               _I_: isearch
+ _o_: Org           _e_: Elixir           _f_: Fundamental        _Q_: Electric Quotes
+ _m_: Markdown      _r_: Ruby             ^ ^                     _a_: Auto-fill Mode
  ^ ^                _j_: JavaScript
  ^ ^                _g_: GraphQL
  ^ ^                _l_: Emacs-Lisp
@@ -74,9 +74,8 @@ that was stored with ska-point-to-register."
   ("l" emacs-lisp-mode)
   ("s" shell-script-mode)
   ("f" fundamental-mode)
-  ("b" Buffer-menu-bury)
-  ("T" Buffer-menu-toggle-files-only)
-  ("O" Buffer-menu-multi-occur :color blue)
+  ("Q" electric-quote-mode)
+  ("a" auto-fill-mode)
   ("I" Buffer-menu-isearch-buffers :color blue)
   ("R" Buffer-menu-isearch-buffers-regexp :color blue)
   ("q" nil "Quit")

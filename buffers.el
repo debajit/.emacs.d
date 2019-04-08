@@ -43,5 +43,8 @@
 ;; Customizations
 ;;----------------------------------------------------------------------
 
+;; Save recently closed buffers list, so that they can be opened quickly
+(recentf-mode 1)
+
 ;; Revert buffers automatically when underlying files are changed externally
 (global-auto-revert-mode t)

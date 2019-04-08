@@ -683,16 +683,19 @@
   ;; (setq org-imenu-depth 2)
   )
 
-(use-package jump-char
-  :ensure t
-  :bind (("M-j" . jump-char-forward)
-         ("M-J" . jump-char-backward)))
+;; (use-package jump-char
+;;   :ensure t
+;;   :bind (("M-j" . jump-char-forward)
+;;          ("M-J" . jump-char-backward)))
 
 ;; Magit
 (use-package magit
   :ensure t
-  :bind (("<S-s-return>" . magit-status)
-         ("s-L" . magit-log-buffer-file)))
+  :bind (
+         ("<S-s-return>" . magit-status)
+         ("s-L" . magit-log-buffer-file)
+         ("s-G" . magit-file-popup)
+         ))
 
 ;; Markdown Mode
 (use-package markdown-mode

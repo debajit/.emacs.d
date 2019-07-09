@@ -218,7 +218,9 @@
                            (,events-file :level . 1)
                            (,home-tasks-file :level . 1)
                            (,work-tasks-file :maxlevel . 2)
-                           (,finances-tasks-file :maxlevel . 2)))
+                           (,finances-tasks-file :maxlevel . 2)
+                           (,work-retrospective-file :maxlevel . 1)
+                           ))
 
 (setq org-capture-templates '(
 
@@ -244,6 +246,11 @@
                               ("j" "Journal Entry — Work"
                                entry (file+datetree work-journal-file)
                                "* %?")
+
+                              ;; Add Retrospective entry
+                              ("r" "Work Retrospective Item" entry
+                               (file+headline work-retrospective-file "Items")
+                               "* TODO %i%?")
 
                               ))
 

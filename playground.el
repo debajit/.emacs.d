@@ -85,3 +85,6 @@ that was stored with ska-point-to-register."
 
 ;; (Key chord) - What the key does
 (global-set-key (kbd "M-M") 'hydra-switch-mode/body)
+
+(setq ispell-program-name (executable-find "hunspell")
+      ispell-dictionary "en_US")

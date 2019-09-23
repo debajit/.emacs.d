@@ -9,7 +9,9 @@
         org-startup-with-inline-images t     ; Show images inline
         org-export-with-section-numbers nil  ; TODO: Not working
         htmlize-output-type 'css
-        org-html-htmlize-output-type 'css)
+        org-html-htmlize-output-type 'css
+        org-use-speed-commands t
+        )
 
   (setq org-todo-keywords
         '((sequence "TODO" "IN PROGRESS" "WAITING-FOR" "WAITING_FOR_CUSTOMER" "CODE-REVIEW" "DEPLOYING" "WAITING_FOR_SCHEDULE" "BLOCKED" "|" "DONE" "HANDED OFF" "DELEGATED" "CANCELED")))

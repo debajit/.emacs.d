@@ -27,6 +27,14 @@
 (setq c-default-style "linux" ; Microsoft-style --- with { on new line
       c-basic-offset 4)       ; Indent 4 spaces
 
+;; Perl
+(setq cperl-indent-level 2)
+(setq perl-indent-level 2)
+
+;; Shell Script Mode
+(setq sh-basic-offset 2)
+(setq sh-indentation 2)
+
 ;; Indent rigidly to tab stop (a la TextMate or Sublime Text)
 (global-set-key (kbd "s-]") 'indent-rigidly-right-to-tab-stop)
 (global-set-key (kbd "s-[") 'indent-rigidly-left-to-tab-stop)

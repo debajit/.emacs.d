@@ -52,6 +52,7 @@
       (brown-40 "#b6ac9b")
       (brown-50 "#d1cec7")
       (pale-brown "#ece1cf")
+      (pale-brown-10 "#f5f1eb")
       (blue-01 "#005486")               ; Duotone blue 1
       (blue-03 "#566e97")
       (blue-10 "#4280b8")
@@ -237,6 +238,11 @@
    `(treemacs-header-face ((,class (:foreground ,blue-01))))
 
    ;; Org mode
+
+   `(org-block ((,class (:background ,pale-brown-10))))
+   `(org-block-begin-line ((,class (:foreground ,pale-brown :background nil :italic t))))
+   `(org-block-end-line ((,class (:foreground ,pale-brown :background nil :italic t))))
+
    `(org-agenda-date ((,class (:foreground ,var :height 1.1 ))))
    `(org-agenda-date-today ((,class (:weight normal :foreground ,blue-01 :height 1.4 :italic nil))))
    `(org-agenda-date-weekend ((,class (:weight normal :foreground ,fg4))))

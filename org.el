@@ -44,7 +44,7 @@
 
   (add-hook 'org-mode-hook
             '(lambda ()
-               (auto-fill-mode)                     ; Hard wrap automatically
+               ;; (auto-fill-mode)                     ; Hard wrap automatically
                (whitespace-mode 0)                  ; Do not show trailing whitespace
                (setq org-src-fontify-natively t
                      org-export-with-section-numbers nil)))  ; Syntax-highlight code snippets

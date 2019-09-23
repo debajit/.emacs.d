@@ -1034,6 +1034,7 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 (load-user-file "org.el")
 (load-user-file "markdown.el")
 (load-user-file "code-visualization.el")
+(load-file "~/WorkDocs/Application Settings/Emacs/local-workspaces.el")
 (load-user-file "mail.el")
 (load-user-file "playground.el")
 

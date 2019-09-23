@@ -60,7 +60,7 @@ that was stored with ska-point-to-register."
 -------------    ---------------    -----------------     -------------
  _o_: Org           _e_: Elixir           _c_: Conf Mode        _Q_: Electric Quotes
  _m_: Markdown      _r_: Ruby             _f_: Fundamental      _a_: Auto-fill Mode
- ^ ^                _j_: JavaScript
+ ^ ^                _j_: JavaScript       _y_: YAML
  ^ ^                _g_: GraphQL
  ^ ^                _l_: Emacs-Lisp
  ^ ^                _s_: Shell-Script
@@ -78,6 +78,7 @@ that was stored with ska-point-to-register."
   ("o" org-mode)
   ("r" ruby-mode)
   ("s" shell-script-mode)
+  ("y" yaml-mode)
 
   ("q" nil "Quit")
   ;; ("q" quit-window "quit" :color blue)

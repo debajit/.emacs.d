@@ -10,7 +10,7 @@
   "Load a file in the current user’s Emacs configuration directory"
   (load-file (expand-file-name file user-init-dir)))
 
-;; TODO: Use constant for .emacs.d directory
+;; Update load paths to load files from
 (add-to-list 'load-path "~/.emacs.d/custom-packages/")
 
 (load-user-file "typography.el")
@@ -1034,6 +1034,7 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 (load-user-file "org.el")
 (load-user-file "markdown.el")
 (load-user-file "code-visualization.el")
+(load-user-file "mail.el")
 (load-user-file "playground.el")
 
 

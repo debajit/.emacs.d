@@ -12,3 +12,10 @@
 
 ;; Mark ruby block
 (global-set-key (kbd "M-H") 'er/mark-ruby-block-up)
+
+(with-eval-after-load "ruby-mode"
+  (define-key ruby-mode-map (kbd "M-s-c") 'ruby/class)
+  (define-key ruby-mode-map (kbd "M-s-f") 'ruby/insert-function)
+  (define-key ruby-mode-map (kbd "M-s-m") 'ruby/module)
+  (define-key ruby-mode-map (kbd "M-s-t") 'ruby/test)
+  )

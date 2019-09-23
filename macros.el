@@ -26,3 +26,18 @@
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 89 69 83 84 69 82 68 65 89 32 40 f9 134217839 return 84 79 68 65 89 32 40 f10 up] 0 "%d")) arg)))
 (fset 'standup2
    [?\M-m ?/ ?m ?d ?  S-f9 return ?- ?  return return S-f10 return ?- ?  up up up ?\C-e])
+(fset 'ruby/test
+   [?\C-a tab ?t ?e ?s ?t ?  ?\" ?# backspace ?\C-e ?  ?d ?o return ?e ?n ?d ?\C-p ?\C-f ?\C-f ?\C-f ?\C-f])
+
+(fset 'ruby/class
+   [tab ?c ?l ?a ?s ?s ?  return ?e ?n ?d ?\C-p ?\C-e ? ])
+
+(fset 'ruby/module
+   [?m ?o ?d ?u ?l ?e ?  return ?e ?n ?d ?\C-p ?\C-e ? ])
+
+(fset 'ruby/insert-function
+   [tab ?d ?e ?f return ?e ?n ?d ?\C-p ? ])
+
+;; Convert old-style Ruby symbols to the new style. Very useful!
+(fset 'ruby/symbol/to-new-style
+   [?\C-s ?: return backspace ?\C-s ?= return ?\C-d backspace ?\M-\\ ?: ? ])

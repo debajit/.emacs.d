@@ -69,3 +69,13 @@
 
 (electric-pair-mode 1)                  ; Enable paired characters
 (electric-quote-mode 1)                 ; Use typographic curly quotes
+
+
+;;----------------------------------------------------------------------
+;; Unicode optimizations
+;;----------------------------------------------------------------------
+
+;; Disable font caches to prevent slowness with Unicode characters
+;; like emoji. See
+;; https://emacs.stackexchange.com/questions/33510/unicode-txt-slowness/33514
+(setq inhibit-compacting-font-caches t)

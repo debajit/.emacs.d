@@ -3,6 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(adaptive-wrap-extra-indent 0)
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(auto-image-file-mode t)
@@ -35,13 +36,13 @@
      ("HACK" . "#d0bf8f")
      ("FIXME" . "#cc9393")
      ("XXX" . "#cc9393")
-     ("XXXX" . "#cc9393")
-     ("???" . "#cc9393"))))
+     ("XXXX" . "#cc9393"))))
  '(ivy-display-style (quote fancy))
  '(markdown-asymmetric-header t)
  '(markdown-command "/Users/debajita/.rbenv/shims/octodown --raw")
  '(markdown-gfm-downcase-languages t)
  '(mixfmt-mix "/usr/local/bin/mix")
+ '(nov-variable-pitch nil)
  '(ns-alternate-modifier (quote meta))
  '(ns-command-modifier (quote super))
  '(ns-right-alternate-modifier nil)
@@ -61,10 +62,11 @@
  '(org-blank-before-new-entry (quote ((heading . t) (plain-list-item . t))))
  '(org-hidden-keywords (quote (author date title)))
  '(org-hide-emphasis-markers t)
+ '(org-src-fontify-natively nil)
  '(package-selected-packages
    (quote
-    (js2-mode tide graphql-mode smartparens treemacs-projectile flycheck atomic-chrome xkcd ack imenu-list outline-magic recursive-narrow exec-path-from-shell quickrun dumb-jump edit-indirect etags-select inf-ruby flycheck-credo google-this alchemist fastnav emmet-mode unfill gitignore-mode gitattributes-mode gitconfig-mode sort-words git-timemachine htmlize ox-twbs magit use-package multiple-cursors helm-projectile projectile yaml-mode counsel swiper org-bullets helm-org-rifle deft pabbrev undo-tree typescript-mode gotham-theme neotree expand-region crux aggressive-indent helm-google easy-kill)))
- '(ruby-insert-encoding-magic-comment nil)
+    (helm-dired-recent-dirs nov json-mode grip-mode org-super-agenda vterm pandoc ox-gfm ox-pandoc pandoc-mode jinja2-mode fringe-mode js2-mode tide graphql-mode smartparens treemacs-projectile flycheck atomic-chrome xkcd ack imenu-list outline-magic recursive-narrow exec-path-from-shell quickrun dumb-jump edit-indirect etags-select inf-ruby flycheck-credo google-this alchemist fastnav emmet-mode unfill gitignore-mode gitattributes-mode gitconfig-mode sort-words git-timemachine htmlize ox-twbs magit use-package multiple-cursors helm-projectile projectile yaml-mode counsel swiper org-bullets helm-org-rifle deft pabbrev undo-tree typescript-mode gotham-theme neotree expand-region crux aggressive-indent helm-google easy-kill)))
+ '(send-mail-function (quote smtpmail-send-it))
  '(sentence-end-double-space nil)
  '(show-trailing-whitespace t)
  '(vlf-application (quote dont-ask))
@@ -101,6 +103,7 @@
  '(org-level-3 ((t (:weight bold :height 1.5 :family "Verlag"))))
  '(org-level-4 ((t (:weight bold :height 1.3 :family "Verlag"))))
  '(org-link ((t (:foreground "#4280b8" :underline t))))
+ '(trailing-whitespace ((t (:background "#faf8f5" :foreground "faf8f5"))))
  '(treemacs-directory-collapsed-face ((t (:inherit treemacs-directory-face :slant italic))))
  '(treemacs-directory-face ((t (:foreground "#2d1f06" :family "Ideal Sans"))))
  '(treemacs-file-face ((t (:foreground "#005486" :family "Ideal Sans"))))

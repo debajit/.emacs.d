@@ -209,6 +209,7 @@
                          ,work-tasks-file
                          ,finances-tasks-file
                          ,projects-tasks-file
+                         ,people-tasks-file
                          ,home-journal-file
                          ,work-journal-file))
 
@@ -216,6 +217,7 @@
 
 (setq org-refile-targets `((,projects-tasks-file :maxlevel . 3)
                            (,events-file :level . 1)
+                           (,people-tasks-file :level . 1)
                            (,home-tasks-file :level . 1)
                            (,work-tasks-file :maxlevel . 2)
                            (,finances-tasks-file :maxlevel . 2)
@@ -492,7 +494,7 @@
          ("C-s-n" . deft)
          )
   :init
-  (setq deft-directory "~/Documents/org")
+  (setq deft-directory "~/Documents/notes")
   (setq deft-extensions '("org" "txt" "md" "markdown"))
   (setq deft-default-extension "org")
   (setq deft-recursive t)
@@ -695,8 +697,8 @@
 (use-package imenu-list
   :commands (imenu-list imenu-list-smart-toggle)
   :bind ("M-H" . imenu-list-smart-toggle)
-  ;; :config
-  ;; (setq org-imenu-depth 2)
+  :config
+  (setq org-imenu-depth 5)
   )
 
 ;; (use-package jump-char
@@ -1029,6 +1031,7 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
   :ensure t)
 
 (load-user-file "programming.el")
+(load-user-file "reading.el")
 (load-user-file "elixir.el")
 (load-user-file "javascript.el")
 (load-user-file "org.el")
@@ -1055,3 +1058,4 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
     ;; (load-theme 'gruvbox t)
     (load-theme 'two-firewatch-light t)
   (load-theme 'stygian t))
+(put 'list-timers 'disabled nil)

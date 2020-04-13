@@ -38,5 +38,6 @@
         mark-whole-buffer
         markdown-exdent-or-delete
         markdown-outdent-or-delete
+        mouse-set-region
         yaml-electric-backspace
         ))

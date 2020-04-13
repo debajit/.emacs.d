@@ -38,4 +38,4 @@ handles slow updates better (doesn't snowball)."
 
 ;; (marc/mu4e-update-mail-and-index)
 
-(run-with-timer 10 60 #'marc/mu4e-update-mail-and-index)
+;; (run-with-timer 10 300 #'marc/mu4e-update-mail-and-index)

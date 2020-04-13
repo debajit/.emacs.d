@@ -81,10 +81,9 @@
 (use-package ox-twbs
   :ensure t)
 
-(use-package ox-pandoc
-  :ensure t)
 
 (with-eval-after-load 'org
+
   ;; Markup
 
   ;;
@@ -100,17 +99,6 @@
         (helm-bookmarks))))
   (define-key org-mode-map (kbd "s-i") (lambda () (interactive) (org-emphasize ?\/)))
 
-  ;; Use x to mark tasks as done in Org agenda. See
-  ;; https://sachachua.com/blog/2013/01/emacs-org-task-related-keyboard-shortcuts-agenda/
-  (defun sacha/org-agenda-done (&optional arg)
-    "Mark current TODO as done.
-This changes the line at point, all other lines in the agenda referring to
-the same tree node, and the headline of the tree node in the Org-mode file."
-    (interactive "P")
-    (org-agenda-todo "DONE"))
-  ;; Override the key definition for org-exit
-  (define-key org-agenda-mode-map "x" 'sacha/org-agenda-done)
-
   ;; Navigation
   (define-key org-mode-map (kbd "M-p") 'org-previous-visible-heading)
   (define-key org-mode-map (kbd "M-n") 'org-next-visible-heading)
@@ -121,4 +109,34 @@ the same tree node, and the headline of the tree node in the Org-mode file."
   (define-key org-mode-map (kbd "s-I") 'italicize-line)
   (define-key org-mode-map (kbd "s-H") 'list-item-with-heading)
   (define-key org-mode-map (kbd "s-U") 'codify-line)
+
+  )
+
+(with-eval-after-load 'org-agenda
+
+  ;; Use x to mark tasks as done in Org agenda. See
+  ;; https://sachachua.com/blog/2013/01/emacs-org-task-related-keyboard-shortcuts-agenda/
+  (defun sacha/org-agenda-done (&optional arg)
+    "Mark current TODO as done. This changes the line at point,
+     all other lines in the agenda referring to the same tree
+     node, and the headline of the tree node in the Org-mode
+     file."
+    (interactive "P")
+    (org-agenda-todo "DONE"))
+  ;; Override the key definition for org-exit
+  (define-key org-agenda-mode-map "x" 'sacha/org-agenda-done)
+
+  (defun sacha/org-agenda-mark-done-and-add-followup ()
+    "Mark the current TODO as done and add another task after it.
+     Creates it at the same level as the previous task, so it's
+     better to use this with to-do items than with projects or
+     headings."
+    (interactive)
+    (org-agenda-todo "DONE")
+    (org-agenda-switch-to)
+    (org-capture 0 "i"))
+  ;; Override the key definition
+  (define-key org-agenda-mode-map "X" 'sacha/org-agenda-mark-done-and-add-followup)
+
+
   )

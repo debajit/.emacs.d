@@ -1,3 +1,16 @@
+;; ;; https://orgmode.org/manual/Editing-source-code.html
+;; ;; https://stackoverflow.com/a/53979381/2288585
+;; (require 'color)
+;; (set-face-attribute 'org-block nil :background
+;;                     (color-darken-name
+;;                      (face-attribute 'default :background) 3))
+;; (set-face-attribute 'org-block-begin-line nil :background
+;;                     (color-darken-name
+;;                      (face-attribute 'default :background) 4))
+;; (set-face-attribute 'org-block-end-line nil :background
+;;                     (color-darken-name
+;;                      (face-attribute 'default :background) 4))
+
 (use-package treemacs-projectile
   :ensure t
   :bind ("M-T" . treemacs))
@@ -52,40 +65,9 @@ that was stored with ska-point-to-register."
 
 (global-set-key (kbd "M-+") 'calc-eval-region)
 
-(defhydra hydra-switch-mode (:color blue
-                                    :hint nil
-                                    )
-  "
- ^Writing^          ^Programming^         ^Other^                 ^Formatting
--------------    ---------------    -----------------     -------------
- _o_: Org           _e_: Elixir           _c_: Conf Mode        _Q_: Electric Quotes
- _m_: Markdown      _r_: Ruby             _f_: Fundamental      _a_: Auto-fill Mode
- ^ ^                _j_: JavaScript       _y_: YAML
- ^ ^                _g_: GraphQL
- ^ ^                _l_: Emacs-Lisp
- ^ ^                _s_: Shell-Script
-"
-  ("Q" electric-quote-mode)
-  ("R" Buffer-menu-isearch-buffers-regexp :color blue)
-  ("a" auto-fill-mode)
-  ("c" conf-mode)
-  ("e" elixir-mode)
-  ("f" fundamental-mode)
-  ("g" graphql-mode)
-  ("j" js2-mode)
-  ("l" emacs-lisp-mode)
-  ("m" gfm-mode)
-  ("o" org-mode)
-  ("r" ruby-mode)
-  ("s" shell-script-mode)
-  ("y" yaml-mode)
-
-  ("q" nil "Quit")
-  ;; ("q" quit-window "quit" :color blue)
-  )
-
-;; (Key chord) - What the key does
-(global-set-key (kbd "M-M") 'hydra-switch-mode/body)
-
 (setq ispell-program-name (executable-find "hunspell")
       ispell-dictionary "en_US")
+
+(global-set-key (kbd "M-I") 'org-agenda-show-custom-perspective)
+
+(global-set-key (kbd "M-i") 'crux-switch-to-previous-buffer)

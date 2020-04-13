@@ -1,8 +1,6 @@
-;; (fset 'listify-old
-;;    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 45 32 134217827 down 1] 0 "%d")) arg)))
-
-;; (fset 'list-itemify-old
-;;    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 45 134217760 134217848 117 112 99 97 115 101 down down down return 14 134217837] 0 "%d")) arg)))
+;; Mark all text inside a sexp like a string, or a set of parentheses etc.
+(fset 'debajit-mark-sexp
+   [?\C-\M-u ?\C-f ?\C-  ?\C-o ?\C-b])
 
 (fset 'list-itemify
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 45 134217760 134217848 117 112 99 97 115 101 45 99 104 97 114 return 14 134217837] 0 "%d")) arg)))
@@ -22,10 +20,13 @@
 ;; (fset 'standup
 ;;    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 134217848 121 97 115 32 105 110 down return down down down down down return f9 tab f10 tab] 0 "%d")) arg)))
 
+;; (fset 'standup
+;;    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 89 69 83 84 69 82 68 65 89 32 40 f9 134217839 return 84 79 68 65 89 32 40 f10 up] 0 "%d")) arg)))
+;; (fset 'standup2
+;;    [?\M-m ?/ ?m ?d ?  S-f9 return ?- ?  return return S-f10 return ?- ?  up up up ?\C-e])
 (fset 'standup
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 89 69 83 84 69 82 68 65 89 32 40 f9 134217839 return 84 79 68 65 89 32 40 f10 up] 0 "%d")) arg)))
-(fset 'standup2
-   [?\M-m ?/ ?m ?d ?  S-f9 return ?- ?  return return S-f10 return ?- ?  up up up ?\C-e])
+   [?/ ?m ?d ?  ?# ?# ?# ?  ?Y ?e ?s ?t ?e ?r ?d ?a ?y return return ?# ?# ?# ?  ?T ?o ?d ?a ?y return])
+
 (fset 'ruby/test
    [?\C-a tab ?t ?e ?s ?t ?  ?\" ?# backspace ?\C-e ?  ?d ?o return ?e ?n ?d ?\C-p ?\C-f ?\C-f ?\C-f ?\C-f])
 
@@ -41,3 +42,6 @@
 ;; Convert old-style Ruby symbols to the new style. Very useful!
 (fset 'ruby/symbol/to-new-style
    [?\C-s ?: return backspace ?\C-s ?= return ?\C-d backspace ?\M-\\ ?: ? ])
+
+(fset 'write-standup
+   [?\s-\S-  ?s ?t ?a ?n return ?\M-> ?\s-j ?\M-> return ?\M-x ?s ?t ?a ?n ?d ?u ?p return up up])

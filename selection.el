@@ -20,7 +20,7 @@
 ;; Select all: s-a   (default: C-x h)
 (global-set-key (kbd "s-a") 'mark-whole-buffer)
 
-;; (global-set-key (kbd "C-m") 'mark-sexp)
+(global-set-key (kbd "<C-return>") 'debajit-mark-sexp)
 
 ;;----------------------------------------------------------------------
 ;; Narrowing and widening

@@ -10,11 +10,12 @@
         org-export-with-section-numbers nil  ; TODO: Not working
         htmlize-output-type 'css
         org-html-htmlize-output-type 'css
-        org-use-speed-commands t
+        org-use-speed-commands t             ; Navigate and control org headings quickly.
+        org-use-fast-todo-selection t        ; Mark agenda task as complete quickly. https://orgmode.org/manual/TODO-basics.html
         )
 
   (setq org-todo-keywords
-        '((sequence "TODO" "IN PROGRESS" "WAITING-FOR" "WAITING_FOR_CUSTOMER" "CODE-REVIEW" "DEPLOYING" "WAITING_FOR_SCHEDULE" "BLOCKED" "|" "DONE" "HANDED OFF" "DELEGATED" "CANCELED")))
+        '((sequence "TODO(t)" "IN PROGRESS" "WAITING-FOR" "WAITING_FOR_CUSTOMER" "CODE-REVIEW" "DEPLOYING" "WAITING_FOR_SCHEDULE" "BLOCKED" "|" "DONE(x!)" "HANDED OFF" "DELEGATED" "CANCELED(c@)")))
 
   ;; Org mode keyboard shortcuts
   :bind (:map org-mode-map
@@ -80,9 +81,10 @@
 (use-package ox-twbs
   :ensure t)
 
+(use-package ox-pandoc
+  :ensure t)
 
 (with-eval-after-load 'org
-
   ;; Markup
 
   ;;
@@ -97,6 +99,17 @@
           (org-emphasize ?\*)
         (helm-bookmarks))))
   (define-key org-mode-map (kbd "s-i") (lambda () (interactive) (org-emphasize ?\/)))
+
+  ;; Use x to mark tasks as done in Org agenda. See
+  ;; https://sachachua.com/blog/2013/01/emacs-org-task-related-keyboard-shortcuts-agenda/
+  (defun sacha/org-agenda-done (&optional arg)
+    "Mark current TODO as done.
+This changes the line at point, all other lines in the agenda referring to
+the same tree node, and the headline of the tree node in the Org-mode file."
+    (interactive "P")
+    (org-agenda-todo "DONE"))
+  ;; Override the key definition for org-exit
+  (define-key org-agenda-mode-map "x" 'sacha/org-agenda-done)
 
   ;; Navigation
   (define-key org-mode-map (kbd "M-p") 'org-previous-visible-heading)

@@ -1027,13 +1027,11 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
   :config
   (atomic-chrome-start-server))
 
-(use-package lua-mode
-  :ensure t)
-
 (load-user-file "programming.el")
 (load-user-file "reading.el")
 (load-user-file "elixir.el")
 (load-user-file "javascript.el")
+;; (load-user-file "cpp.el")
 (load-user-file "org.el")
 (load-user-file "markdown.el")
 (load-user-file "code-visualization.el")

@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: cpp
+# key: cpp
+# --
+#+begin_src C++ :includes '(<vector> <numeric> <iostream> <map>) :flags -std=c++17 :results verbatim
+  #include <iostream>
+  #include <vector>
+  #include <utility>
+  #include <unordered_map>
+  using namespace std;
+
+  int main() {
+    $0
+  }
+#+end_src

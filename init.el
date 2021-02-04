@@ -13,6 +13,7 @@
 ;; Update load paths to load files from
 (add-to-list 'load-path "~/.emacs.d/custom-packages/")
 
+(load-user-file "calendar.el")
 (load-user-file "typography.el")
 (load-user-file "autocomplete.el")
 (load-user-file "text-editing.el")

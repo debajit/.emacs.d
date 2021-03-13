@@ -47,4 +47,4 @@
 (recentf-mode 1)
 
 ;; Revert buffers automatically when underlying files are changed externally
-(global-auto-revert-mode t)
+;; (global-auto-revert-mode t)

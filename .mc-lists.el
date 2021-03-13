@@ -3,12 +3,14 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        c-electric-lt-gt
         comment-dwim-2
         crux-duplicate-current-line-or-region
         crux-smart-open-line
         crux-top-join-line
         delete-horizontal-space
         easy-kill
+        embolden-line
         end-of-visual-line
         fastnav-zap-up-to-char-forward
         fill-paragraph
@@ -20,20 +22,27 @@
         kill-region
         mac-mwheel-scroll
         org-delete-char
+        org-edit-special
+        org-emphasize
         org-end-of-line
+        org-force-self-insert
+        org-mark-element
         org-return-indent
         org-self-insert-command
+        org-yank
         pabbrev-expand-maybe
         sh-assignment
         sp-backward-delete-char
         sp-delete-char
         text-scale-increase
         typescript-insert-and-indent
+        wdired-downcase-word
         web-mode-element-clone
         ))
 
 (setq mc/cmds-to-run-once
       '(
+        electric-pair-delete-pair
         iedit-switch-to-mc-mode
         mark-whole-buffer
         markdown-exdent-or-delete

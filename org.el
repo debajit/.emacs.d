@@ -81,6 +81,23 @@
 (use-package ox-twbs
   :ensure t)
 
+(use-package org-roam
+      :ensure t
+      :hook
+      (after-init . org-roam-mode)
+      :custom
+      ;; (org-roam-directory "~/Projects/Knowledge/notes")
+      (org-roam-directory "~/Projects/Code/algo-and-data-structures")
+      :bind (:map org-roam-mode-map
+              (("C-c n l" . org-roam)
+               ("C-c n c" . org-roam-db-build-cache)
+               ("C-c n f" . org-roam-find-file)
+               ("C-c n g" . org-roam-graph))
+              :map org-mode-map
+              (("C-c n i" . org-roam-insert))
+              (("C-c n I" . org-roam-insert-immediate))
+              (("C-c n t" . org-roam-tag-add))
+              ))
 
 (with-eval-after-load 'org
 

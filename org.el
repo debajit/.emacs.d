@@ -37,7 +37,7 @@
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((C . t)
-     (elixir . t)
+     ;; (elixir . t)
      (R . t)
      (ruby . t)
      (shell . t)
@@ -79,25 +79,71 @@
   :ensure t)
 
 (use-package ox-twbs
-  :ensure t)
+  :ensure t
+  )
+
+;; Org-Roam basic configuration
+(setq org-directory (concat (getenv "HOME") "/Archive/Notes/"))
+
+;; (use-package org-roam
+;;       :ensure t
+;;       :hook
+;;       ;; (after-init . org-roam-mode)
+;;       (org-roam-db-autosync-mode)
+;;       ;; (setq org-roam-directory (file-truename "~/org-roam"))
+;;       :custom
+;;       (org-roam-directory "~/Projects/Knowledge/notes")
+;;       :bind (:map org-roam-mode-map
+;;               (("C-c n l" . org-roam)
+;;                ("C-c n c" . org-roam-db-build-cache)
+;;                ("C-c n f" . org-roam-find-file)
+;;                ("s-T" . org-roam-find-file)
+;;                ("C-c n g" . org-roam-graph))
+;;               :map org-mode-map
+;;               (("C-c n i" . org-roam-insert))
+;;               (("C-c n I" . org-roam-insert-immediate))
+;;               (("C-c n t" . org-roam-tag-add))
+;;               ))
 
 (use-package org-roam
-      :ensure t
-      :hook
-      (after-init . org-roam-mode)
-      :custom
-      ;; (org-roam-directory "~/Projects/Knowledge/notes")
-      (org-roam-directory "~/Projects/Code/algo-and-data-structures")
-      :bind (:map org-roam-mode-map
-              (("C-c n l" . org-roam)
-               ("C-c n c" . org-roam-db-build-cache)
-               ("C-c n f" . org-roam-find-file)
-               ("C-c n g" . org-roam-graph))
-              :map org-mode-map
-              (("C-c n i" . org-roam-insert))
-              (("C-c n I" . org-roam-insert-immediate))
-              (("C-c n t" . org-roam-tag-add))
-              ))
+  ;; See https://org-roam.discourse.group/t/use-of-property-drawers-after-headlines/1687/11
+
+  :ensure t
+  :config
+  (setq org-id-link-to-org-use-id nil)
+  :custom
+  (org-roam-directory (file-truename org-directory))
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("s-T" . org-roam-node-find)
+         ("C-c n g" . org-roam-graph)
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n c" . org-roam-capture)
+         ("C-c n s" . org-roam-db-sync)
+         ;; Dailies
+         ("C-c n j" . org-roam-dailies-capture-today))
+  :config
+  (org-roam-db-autosync-mode))
+
+;; (use-package org-roam
+;;   :after org
+;;   :init (setq org-roam-v2-ack t) ;; Acknowledge V2 upgrade
+;;   :custom
+;;   (org-roam-directory (file-truename org-directory))
+;;   :config
+;;   (org-roam-setup)
+;;   (org-roam-db-autosync-mode)
+;;   :bind (:map org-roam-mode-map
+;;               (("C-c n l" . org-roam)
+;;                ("C-c n c" . org-roam-db-build-cache)
+;;                ("C-c n f" . org-roam-find-file)
+;;                ("s-T" . org-roam-find-file)
+;;                ("C-c n g" . org-roam-graph))
+;;               :map org-mode-map
+;;               (("C-c n i" . org-roam-insert)
+;;                ("C-c n I" . org-roam-insert-immediate)
+;;                ("C-c n t" . org-roam-tag-add))
+;;               ))
 
 (with-eval-after-load 'org
 

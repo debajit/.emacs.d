@@ -252,6 +252,7 @@
    `(org-date ((,class (:underline t :foreground ,var) )))
    `(org-document-info-keyword ((,class (:foreground ,func))))
    `(org-document-title ((,class (:foreground ,blue-01 :bold t :height 2.4))))
+   `(org-drawer ((t (:foreground ,brown-35))))
    `(org-done ((,class (:box (:line-width 1 :color ,peacock-green) :bold t :foreground ,green-20 :background ,seafoam-green))))
    `(org-ellipsis ((,class (:foreground ,builtin))))
    `(org-footnote  ((,class (:underline t :foreground ,fg4))))

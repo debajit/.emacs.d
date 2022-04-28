@@ -980,15 +980,18 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
   :config
   (defun my-web-mode-hook ()
     "Hooks for Web mode."
-
     (setq web-mode-markup-indent-offset 2               ; Indent with two spaces
           web-mode-css-indent-offset 2
           web-mode-code-indent-offset 2
           web-mode-style-padding 2                      ; Padding on the left of inline style blocks
           web-mode-script-padding 2                     ; Padding on the left of inline script blocks
           web-mode-enable-current-element-highlight t)) ; Highlight the element under the cursor.
+  (add-hook 'web-mode-hook 'my-web-mode-hook)
 
-  (add-hook 'web-mode-hook 'my-web-mode-hook))
+  :custom
+  (web-mode-markup-indent-offset 2)
+  (web-mode-css-indent-offset 2)
+  (web-mode-code-indent-offset 2))
 
 ;; ;; Whitespace mode
 ;; ;; https://www.emacswiki.org/emacs/WhiteSpace

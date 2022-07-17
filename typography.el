@@ -8,24 +8,28 @@
 ;; Default font settings
 ;;----------------------------------------------------------------------
 
-(defconst monospaced-font-family "Consolas"
+(defconst monospaced-font-family "Cascadia Code"
   "The default monospaced typeface to use for code and other
-  fixed-width text")
+  fixed-width text. Examples:
+  - Cascadia Code (12pt)
+  - Operator Mono (13pt)
+  - Consolas")
 
 (defconst proportional-font-family "Ideal Sans"
   "The default proportional typeface to use for longform text,
-  notes etc.")
-
-;; (defconst heading-font-family "Verlag"
-;;   "The default (proportional) typeface to use for headings.")
+  notes etc. Examples:
+  - Ideal Sans (14pt)")
 
 ;; The default (proportional) typeface to use for headings
 (setq heading-font-family "Verlag")
 
-(defconst monospaced-font-size "16"
-  "The default monospaced font size")
+;; (defconst monospaced-font-size "13"
+(defconst monospaced-font-size "12"
+  "The default monospaced font size. Recommendations:
+  - GNU: Cascadia Code 12pt, Operator Mono 13pt,
+  - macOS: Cascadia Code 12pt, Operator Mono 13pt, Consolas 13pt")
 
-(defconst proportional-font-size "18"
+(defconst proportional-font-size "14"
   "The default proportional font size")
 
 ;; Set default fonts
@@ -79,3 +83,34 @@
 ;; like emoji. See
 ;; https://emacs.stackexchange.com/questions/33510/unicode-txt-slowness/33514
 (setq inhibit-compacting-font-caches t)
+
+
+;;----------------
+;; Ligatures
+;;----------------
+
+(use-package ligature
+  :load-path "ligature.el"
+  :config
+  ;; Enable the "www" ligature in every possible major mode
+  (ligature-set-ligatures 't '("www"))
+  ;; Enable traditional ligature support in eww-mode, if the
+  ;; `variable-pitch' face supports it
+  (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
+  ;; Enable all Cascadia Code ligatures in programming modes
+  (ligature-set-ligatures 'prog-mode '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
+                                       ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
+                                       "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<"
+                                       "<~~" "<~>" "<*>" "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->"
+                                       "<--" "<-<" "<<=" "<<-" "<<<" "<+>" "</>" "###" "#_(" "..<"
+                                       "..." "+++" "/==" "///" "_|_" "www" "&&" "^=" "~~" "~@" "~="
+                                       "~>" "~-" "**" "*>" "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|"
+                                       "[|" "]#" "::" ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:"
+                                       ">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:"
+                                       "<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
+                                       "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:"
+                                       "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
+                                       "\\\\" "://"))
+  ;; Enables ligature checks globally in all buffers. You can also do it
+  ;; per mode with `ligature-mode'.
+  (global-ligature-mode t))

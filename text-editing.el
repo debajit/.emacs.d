@@ -8,6 +8,8 @@
 ;;
 ;; - “Title Case” by John Gruber
 ;;   https://daringfireball.net/2008/05/title_case
+;;   https://daringfireball.net/2008/08/title_case_update
+;;   https://gist.github.com/gruber/9f9e8650d68b13ce4d78
 ;;
 ;; Melpa’s titlecase is a possibly better implementation that can
 ;; still use external programs.
@@ -21,3 +23,6 @@
 (global-set-key (kbd "C-o") 'up-list)
 
 (global-set-key (kbd "M-K") 'clear-sexp)
+
+;; Title case DWIM
+(global-set-key (kbd "s-g") 'titlecase-dwim)

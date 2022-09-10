@@ -29,15 +29,15 @@
 (load-user-file "file-definitions.el")
 (load-user-file "file-jump-keys.el")
 (load-user-file "bookmarks-web.el")
-(load-file "~/WorkDocs/Application Settings/Emacs/bookmarks-work.el")
+;; (load-file "~/WorkDocs/Application Settings/Emacs/bookmarks-work.el")
 (load-user-file "emacs-for-macosx.el")
 (load-user-file "emacs-mac-port.el")
 (load-user-file "macros.el")
 (load-user-file "selection.el")
-(load-user-file "calculator.el")
+;; (load-user-file "calculator.el")
 (load-user-file "ruby.el")
 (load-user-file "emacs-lisp.el")
-(load-user-file "dired.el")
+;; (load-user-file "dired.el")
 
 ;; Save customizations in a separate file (custom.el)
 (setq custom-file "~/.emacs.d/custom.el")
@@ -74,6 +74,17 @@
 
 ;; Desktop mode (Always save and restore the open buffers)
 (desktop-save-mode 1)
+
+;; ;; Do not ask where to save the desktop. Always save desktop in
+;; ;; ~/.emacs.d/emacs.desktop
+;; (setq your-own-path default-directory)
+;; (if (file-exists-p
+;;      (concat your-own-path ".emacs.desktop"))
+;;     (desktop-read your-own-path))
+
+;; (add-hook 'kill-emacs-hook
+;;       `(lambda ()
+;;          (desktop-save ,your-own-path t)))
 
 ;; Highlight the current line
 (global-hl-line-mode +1)
@@ -296,7 +307,7 @@
 ;;
 
 ;; (Command + Shift + Enter) - Webjump (Show list of websites that one can quickly jump to)
-(global-set-key (kbd "s-g") 'webjump)
+;; (global-set-key (kbd "s-g") 'webjump)
 
 
 ;;----------------------------------------------------------------------
@@ -495,7 +506,7 @@
          ("C-s-n" . deft)
          )
   :init
-  (setq deft-directory "~/Documents/notes")
+  (setq deft-directory "~/Projects/Knowledge/notes")
   (setq deft-extensions '("org" "txt" "md" "markdown"))
   (setq deft-default-extension "org")
   (setq deft-recursive t)
@@ -613,12 +624,12 @@
   :ensure t
   :bind ("s-F" . helm-git-grep-at-point))
 
-(use-package helm-org-rifle
-  :ensure t
-  :config
-  (global-set-key (kbd "M-W")
-                  (lambda () (interactive) (helm-org-rifle-directories "~/WorkDocs/Documents")))
-  )
+;; (use-package helm-org-rifle
+;;   :ensure t
+;;   :config
+;;   (global-set-key (kbd "M-W")
+;;                   (lambda () (interactive) (helm-org-rifle-directories "~/WorkDocs/Documents")))
+;;   )
 
 (use-package wgrep-helm
   :ensure t)
@@ -715,6 +726,9 @@
          ("s-L" . magit-log-buffer-file)
          ("s-G" . magit-file-popup)
          ))
+
+(use-package magit-annex
+  :ensure t)
 
 ;; Markdown Mode
 (use-package markdown-mode
@@ -1020,28 +1034,32 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 (use-package yasnippet
   :ensure t
   :diminish yas-minor-mode
+  :init
+  (add-to-list 'load-path "~/.emacs.d/snippets")
   :config
   (yas-global-mode 1)
   (add-hook 'yas-minor-mode-hook
             (lambda ()
               (yas-activate-extra-mode 'fundamental-mode))))
 
-(use-package atomic-chrome
-  :ensure t
-  :config
-  (atomic-chrome-start-server))
+;; (use-package atomic-chrome
+;;   :ensure t
+;;   :config
+;;   (atomic-chrome-start-server))
 
-(load-user-file "programming.el")
-(load-user-file "reading.el")
+(use-package hydra)
+
+;; (load-user-file "programming.el")
+;; (load-user-file "reading.el")
 (load-user-file "elixir.el")
 (load-user-file "javascript.el")
 ;; (load-user-file "cpp.el")
 (load-user-file "org.el")
-(load-user-file "markdown.el")
+;; (load-user-file "markdown.el")
 (load-user-file "code-visualization.el")
-(load-file "~/WorkDocs/Application Settings/Emacs/local-workspaces.el")
+;; (load-file "~/WorkDocs/Application Settings/Emacs/local-workspaces.el")
 (load-user-file "hydras.el")
-(load-user-file "mail.el")
+;; (load-user-file "mail.el")
 (load-user-file "playground.el")
 
 

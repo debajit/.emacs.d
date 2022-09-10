@@ -123,7 +123,13 @@
          ;; Dailies
          ("C-c n j" . org-roam-dailies-capture-today))
   :config
-  (org-roam-db-autosync-mode))
+  (org-roam-db-autosync-mode)
+
+  ;; (setq org-roam-capture-templates '(("d" "default" plain "%?"
+  ;;                                     :target (file+head "${slug}.org.gpg"
+  ;;                                                        "#+title: ${title}\n")
+  ;;                                     :unnarrowed t)))
+  )
 
 ;; (use-package org-roam
 ;;   :after org
@@ -171,9 +177,7 @@
   (define-key org-mode-map (kbd "s-l") 'list-itemify)
   (define-key org-mode-map (kbd "s-I") 'italicize-line)
   (define-key org-mode-map (kbd "s-H") 'list-item-with-heading)
-  (define-key org-mode-map (kbd "s-U") 'codify-line)
-
-  )
+  (define-key org-mode-map (kbd "s-U") 'codify-line))
 
 (with-eval-after-load 'org-agenda
 
@@ -199,7 +203,4 @@
     (org-agenda-switch-to)
     (org-capture 0 "i"))
   ;; Override the key definition
-  (define-key org-agenda-mode-map "X" 'sacha/org-agenda-mark-done-and-add-followup)
-
-
-  )
+  (define-key org-agenda-mode-map "X" 'sacha/org-agenda-mark-done-and-add-followup))

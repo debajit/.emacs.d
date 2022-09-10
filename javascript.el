@@ -10,4 +10,4 @@
   (setq js2-missing-semi-one-line-override t)
   )
 
-(use-package tide)
+;; (use-package tide)

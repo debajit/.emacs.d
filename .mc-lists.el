@@ -9,11 +9,14 @@
         crux-smart-open-line
         crux-top-join-line
         delete-horizontal-space
+        dired-next-line
+        dired-unmark-backward
         easy-kill
         embolden-line
         end-of-visual-line
         fastnav-zap-up-to-char-forward
         fill-paragraph
+        forward-sentence
         haml-electric-backspace
         handle-switch-frame
         helm-M-x
@@ -34,9 +37,13 @@
         sh-assignment
         sp-backward-delete-char
         sp-delete-char
+        swiper
         text-scale-increase
         typescript-insert-and-indent
+        wdired--self-insert
+        wdired-capitalize-word
         wdired-downcase-word
+        wdired-finish-edit
         web-mode-element-clone
         ))
 

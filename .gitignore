@@ -14,7 +14,6 @@ url
 ede-projects.el
 .DS_Store
 places
-.smex-items
 savefile/
 /prelude-modules.el
 projectile-bookmarks.eld
@@ -30,8 +29,16 @@ tramp
 # Ido mode
 ido.last
 
+# Org
+.org-id-locations
+org-roam.db
+
 # Smex
 smex-items
+.smex-items
+
+# Transient items
+/transient
 
 /.edbi-ds-history
 /.cache/treemacs-persist

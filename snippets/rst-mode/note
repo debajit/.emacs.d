@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: note
+# key: note
+# expand-env: ((yas-indent-line 'fixed))
+# --
+.. note::
+
+   $1

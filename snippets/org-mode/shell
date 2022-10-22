@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: shell
+# key: shell
+# --
+
+#+begin_src shell :results verbatim
+$0
+#+end_src

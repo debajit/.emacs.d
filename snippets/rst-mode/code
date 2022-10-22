@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: code
+# key: code
+# expand-env: ((yas-indent-line 'fixed))
+# --
+
+.. code-block:: ${1:python}
+
+   ${2:code goes here}

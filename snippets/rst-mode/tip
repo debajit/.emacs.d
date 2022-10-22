@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: tip
+# key: tip
+# expand-env: ((yas-indent-line 'fixed))
+# --
+
+.. admonition:: 💡 ${1:heading}
+   :class: tip
+
+   ${2:text}

@@ -35,6 +35,7 @@
 (load-user-file "macros.el")
 (load-user-file "selection.el")
 ;; (load-user-file "calculator.el")
+(load-user-file "python.el")
 (load-user-file "ruby.el")
 (load-user-file "emacs-lisp.el")
 ;; (load-user-file "dired.el")
@@ -506,7 +507,7 @@
          ("C-s-n" . deft)
          )
   :init
-  (setq deft-directory "~/Projects/Knowledge/notes")
+  (setq deft-directory "~/Projects/Knowledge/WorkNotes")
   (setq deft-extensions '("org" "txt" "md" "markdown"))
   (setq deft-default-extension "org")
   (setq deft-recursive t)
@@ -622,7 +623,8 @@
 
 (use-package helm-git-grep
   :ensure t
-  :bind ("s-F" . helm-git-grep-at-point))
+  ;; :bind ("s-F" . helm-git-grep-at-point)
+  )
 
 ;; (use-package helm-org-rifle
 ;;   :ensure t
@@ -637,7 +639,8 @@
 (use-package helm-ls-git
   :ensure t
   ;; :bind ("M-t" . helm-ls-git-ls)
-  :bind ("s-t" . helm-ls-git-ls)
+  ;; :bind ("s-t" . helm-ls-git-ls)
+  :bind ("s-t" . helm-projectile-find-file)
   )
 
 (use-package counsel
@@ -725,7 +728,14 @@
          ("<S-s-return>" . magit-status)
          ("s-L" . magit-log-buffer-file)
          ("s-G" . magit-file-popup)
-         ))
+         )
+  :config
+  (setq magit-git-executable "/opt/twitter_mde/bin/git")
+  )
+
+;; Magit Annex
+(use-package magit-annex
+  :ensure t)
 
 (use-package magit-annex
   :ensure t)
@@ -849,8 +859,11 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 (use-package projectile
   :ensure t
   :diminish projectile-mode
-  :bind (("s-P" . helm-projectile-switch-project)
-         ("s-." . open-file-or-jump-dwim))
+  :bind (
+         ("s-P" . helm-projectile-switch-project)
+         ("s-." . open-file-or-jump-dwim)
+         ("s-F" . helm-projectile-rg)
+         )
   :config
   (projectile-global-mode +1))
 
@@ -1051,15 +1064,16 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 
 ;; (load-user-file "programming.el")
 ;; (load-user-file "reading.el")
-(load-user-file "elixir.el")
+;; (load-user-file "elixir.el")
 (load-user-file "javascript.el")
 ;; (load-user-file "cpp.el")
 (load-user-file "org.el")
 ;; (load-user-file "markdown.el")
 (load-user-file "code-visualization.el")
-;; (load-file "~/WorkDocs/Application Settings/Emacs/local-workspaces.el")
+(load-file "~/Archive/Application Settings/Emacs/local-workspaces.el")
 (load-user-file "hydras.el")
 ;; (load-user-file "mail.el")
+(load-user-file "elasticsearch.el")
 (load-user-file "playground.el")
 
 

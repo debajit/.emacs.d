@@ -3,6 +3,8 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        *table--cell-delete-backward-char
+        *table--cell-self-insert-command
         c-electric-lt-gt
         comment-dwim-2
         crux-duplicate-current-line-or-region
@@ -24,6 +26,8 @@
         ignore
         kill-region
         mac-mwheel-scroll
+        mark-word
+        org-backward-sentence
         org-delete-char
         org-edit-special
         org-emphasize
@@ -45,6 +49,7 @@
         wdired-downcase-word
         wdired-finish-edit
         web-mode-element-clone
+        winner-undo
         ))
 
 (setq mc/cmds-to-run-once
@@ -55,5 +60,8 @@
         markdown-exdent-or-delete
         markdown-outdent-or-delete
         mouse-set-region
+        org-beginning-of-line
+        switch-to-buffer
+        winner-undo
         yaml-electric-backspace
         ))

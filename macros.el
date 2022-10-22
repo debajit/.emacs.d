@@ -43,5 +43,11 @@
 (fset 'ruby/symbol/to-new-style
    [?\C-s ?: return backspace ?\C-s ?= return ?\C-d backspace ?\M-\\ ?: ? ])
 
+(fset 'python/function
+   (kmacro-lambda-form [?d ?e ?f ?  ?\( ?\) ?: left left left] 0 "%d"))
+
+(fset 'python/test
+   (kmacro-lambda-form [?d ?e ?f ?  ?t ?e ?s ?t ?_ ?\( ?\) ?: left left left] 0 "%d"))
+
 (fset 'write-standup
    [?\s-\S-  ?s ?t ?a ?n return ?\M-> ?\s-j ?\M-> return ?\M-x ?s ?t ?a ?n ?d ?u ?p return up up])

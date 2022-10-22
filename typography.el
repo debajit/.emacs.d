@@ -11,26 +11,24 @@
 (defconst monospaced-font-family "Cascadia Code"
   "The default monospaced typeface to use for code and other
   fixed-width text. Examples:
-  - Cascadia Code (12pt)
+  - Cascadia Code (12pt on GNU, 18pt on macOS)
   - Operator Mono (13pt)
-  - Consolas")
+  - Consolas (13pt)")
 
-(defconst proportional-font-family "Ideal Sans"
+(defconst monospaced-font-size "18"
+  "The default monospaced font size")
+
+(defconst proportional-font-family "Chirp"
   "The default proportional typeface to use for longform text,
   notes etc. Examples:
-  - Ideal Sans (14pt)")
+  - Ideal Sans (14pt)
+  - Chirp (16pt on macOS)")
+
+(defconst proportional-font-size "16"
+  "The default proportional font size")
 
 ;; The default (proportional) typeface to use for headings
 (setq heading-font-family "Verlag")
-
-;; (defconst monospaced-font-size "13"
-(defconst monospaced-font-size "12"
-  "The default monospaced font size. Recommendations:
-  - GNU: Cascadia Code 12pt, Operator Mono 13pt,
-  - macOS: Cascadia Code 12pt, Operator Mono 13pt, Consolas 13pt")
-
-(defconst proportional-font-size "14"
-  "The default proportional font size")
 
 ;; Set default fonts
 (when (display-graphic-p)

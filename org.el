@@ -12,6 +12,7 @@
         org-html-htmlize-output-type 'css
         org-use-speed-commands t             ; Navigate and control org headings quickly.
         org-use-fast-todo-selection t        ; Mark agenda task as complete quickly. https://orgmode.org/manual/TODO-basics.html
+        org-startup-shrink-all-tables t      ; Shrink all columns containing a width cookie in a file the moment it is visited
         )
 
   (setq org-todo-keywords
@@ -25,6 +26,10 @@
               ("s-1" . org-table-sort-lines)
               ("s-A" . org-archive-subtree)
               ("C-S-SPC" . org-toggle-checkbox)
+
+              ;; See https://github.com/bzg/org-mode/blob/main/etc/ORG-NEWS#L527 and
+              ;; https://emacs.stackexchange.com/a/22/12922
+              ("C-c SPC" . org-table-blank-field)
               )
 
   ;; Global keyboard shortcuts
@@ -38,6 +43,7 @@
    'org-babel-load-languages
    '((C . t)
      ;; (elixir . t)
+     (elasticsearch . t)
      (R . t)
      (ruby . t)
      (shell . t)
@@ -125,10 +131,31 @@
   :config
   (org-roam-db-autosync-mode)
 
-  ;; (setq org-roam-capture-templates '(("d" "default" plain "%?"
-  ;;                                     :target (file+head "${slug}.org.gpg"
-  ;;                                                        "#+title: ${title}\n")
-  ;;                                     :unnarrowed t)))
+  ;; Configure Org-Roam buffer contents
+  (setq org-roam-mode-sections
+        (list #'org-roam-backlinks-section
+              #'org-roam-reflinks-section
+              ;; #'org-roam-unlinked-references-section
+              ))
+
+  ;; Configure Org-Roam buffer display
+
+  ;; (add-to-list 'display-buffer-alist
+  ;;              '("\\*org-roam\\*"
+  ;;                (display-buffer-in-direction)
+  ;;                (direction . right)
+  ;;                (window-width . 0.33)
+  ;;                (window-height . fit-window-to-buffer)))
+
+  (add-to-list 'display-buffer-alist
+               '("\\*org-roam\\*"
+                 (display-buffer-in-side-window)
+                 (side . right)
+                 (slot . 0)
+                 (window-width . 0.33)
+                 (window-parameters . ((no-other-window . t)
+                                       (no-delete-other-windows . t)))))
+
   )
 
 ;; (use-package org-roam

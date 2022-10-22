@@ -71,3 +71,31 @@ that was stored with ska-point-to-register."
 (global-set-key (kbd "M-I") 'org-agenda-show-custom-perspective)
 
 (global-set-key (kbd "M-i") 'crux-switch-to-previous-buffer)
+
+;; Save ivy views
+;; taken from https://github.com/abo-abo/swiper/issues/1079
+
+(defun peng-save-ivy-views ()
+(interactive)
+(with-temp-file "~/.emacs.d/ivy-views"
+(prin1 ivy-views (current-buffer))
+(message "save ivy-views to ~/.emacs.d/ivy-views")))
+
+(defun peng-load-ivy-views ()
+(interactive)
+(setq ivy-views
+(with-temp-buffer
+(insert-file-contents "~/.emacs.d/ivy-views")
+(read (current-buffer))))
+(message "load ivy-views"))
+
+;; (use-package nano-theme
+;;   :ensure nil
+;;   :defer t
+;;   :quelpa (nano-theme
+;;            :fetcher github
+;;            :repo "rougier/nano-theme"))
+
+;; Fireplace
+(use-package fireplace
+  :ensure t)

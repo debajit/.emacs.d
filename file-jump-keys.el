@@ -11,14 +11,18 @@
 
 ;; Jump to Milestones --- Command + Control + k
 (global-set-key (kbd "C-s-m")
-                (lambda () (interactive) (find-file "~/WorkDocs/Documents/Milestones.org")))
+                (lambda () (interactive) (find-file "~/Projects/Knowledge/Milestones.org")))
 
 (global-set-key (kbd "C-s-l")
-                (lambda () (interactive) (find-file "~/WorkDocs/Documents/DEVELOPMENT.org")))
+                (lambda () (interactive) (find-file "~/Projects/Knowledge/DEVELOPMENT.org")))
+
 
 ;; Jump to the Emacs configuration file, init.el --- Command + Control + e
 (global-set-key (kbd "C-s-e")
                 (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+
+(global-set-key (kbd "C-s-o")
+                (lambda () (interactive) (find-file "~/Projects/Knowledge/WorkNotes/Oncall.org")))
 
 (global-set-key (kbd "M-E")
                 (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
@@ -36,3 +40,12 @@
                 (lambda () (interactive) (find-file work-journal-file)))
 ;; (global-set-key (kbd "<C-s-268632074>")
 ;;                 (lambda () (interactive) (find-file work-journal-file)))
+
+(global-set-key (kbd "C-s-g")
+                (lambda () (interactive) (find-file "~/workspace/source/golinks/src/main/web/src/App/index.tsx")))
+
+(global-set-key (kbd "C-s-w")
+                (lambda () (interactive) (find-file "~/Documents/Tasks/Todo/work.org")))
+
+(global-set-key (kbd "C-s-r")
+                (lambda () (interactive) (find-file "~/Documents/Tasks/Todo/work-retrospective.org")))

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: admo
+# key: admo
+# expand-env: ((yas-indent-line 'fixed))
+# --
+.. admonition:: ${1:heading}
+
+   ${2:text}

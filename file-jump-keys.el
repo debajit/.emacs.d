@@ -6,7 +6,7 @@
 
 ;; Jump to scratch file --- Command + Shift + ;
 (global-set-key (kbd "C-s-;")
-                (lambda () (interactive) (find-file "~/Documents/draft.org")))
+                (lambda () (interactive) (find-file "~/Projects/Drafts/draft.org")))
 
 
 ;; Jump to Milestones --- Command + Control + k

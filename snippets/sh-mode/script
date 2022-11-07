@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: script
+# key: script
+# --
+#!/usr/bin/env bash
+
+set -euo pipefail

@@ -729,8 +729,6 @@
          ("s-L" . magit-log-buffer-file)
          ("s-G" . magit-file-popup)
          )
-  :config
-  (setq magit-git-executable "/opt/twitter_mde/bin/git")
   )
 
 ;; Magit Annex
@@ -1070,7 +1068,7 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 (load-user-file "org.el")
 ;; (load-user-file "markdown.el")
 (load-user-file "code-visualization.el")
-(load-file "~/Archive/Application Settings/Emacs/local-workspaces.el")
+;; (load-file "~/Archive/Application Settings/Emacs/local-workspaces.el")
 (load-user-file "hydras.el")
 ;; (load-user-file "mail.el")
 (load-user-file "elasticsearch.el")

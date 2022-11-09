@@ -15,16 +15,16 @@
   - Operator Mono (13pt)
   - Consolas (13pt)")
 
-(defconst monospaced-font-size "18"
+(defconst monospaced-font-size "12"
   "The default monospaced font size")
 
-(defconst proportional-font-family "Chirp"
+(defconst proportional-font-family "Ideal Sans"
   "The default proportional typeface to use for longform text,
   notes etc. Examples:
   - Ideal Sans (14pt)
   - Chirp (16pt on macOS)")
 
-(defconst proportional-font-size "16"
+(defconst proportional-font-size "14"
   "The default proportional font size")
 
 ;; The default (proportional) typeface to use for headings

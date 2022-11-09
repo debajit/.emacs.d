@@ -1,16 +1,12 @@
 ;;
 ;; The Tasks directory is ~/Documents/Tasks.
-;; The Todo directory is ~/Documents/Tasks/Todo.
 ;;
 
-(setq tasks-directory "~/Documents/Tasks"
-      todo-directory (concat (file-name-as-directory tasks-directory) "Todo"))
+(setq tasks-directory "~/Projects/Tasks")
 
 (let ((default-directory tasks-directory))
-  (setq my-diary-file (expand-file-name "diary")))
-
-(let ((default-directory todo-directory))
-  (setq inbox-tasks-file (expand-file-name "inbox.org")
+  (setq my-diary-file (expand-file-name "diary")
+        inbox-tasks-file (expand-file-name "inbox.org")
         events-file (expand-file-name "events.org")
         home-tasks-file (expand-file-name "home.org")
         work-tasks-file (expand-file-name "work.org")

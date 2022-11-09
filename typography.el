@@ -3,6 +3,9 @@
 ;;
 ;; Typography customizations.
 ;;
+;; TODO: See also
+;; https://protesilaos.com/codelog/2020-09-05-emacs-note-mixed-font-heights/
+;;
 
 ;;----------------------------------------------------------------------
 ;; Default font settings
@@ -16,7 +19,9 @@
   - Consolas (13pt)")
 
 (defconst monospaced-font-size "12"
-  "The default monospaced font size")
+  "The default monospaced font size.
+  NOTE: You may need to adjust your fixed-pitch face to match
+  this.")
 
 (defconst proportional-font-family "Ideal Sans"
   "The default proportional typeface to use for longform text,

@@ -82,7 +82,7 @@
  ;; If there is more than one, they won't work right.
  '(css-selector ((t (:foreground "#ad3d3c" :weight bold))))
  '(deft-header-face ((t (:family "Verlag"))))
- '(fixed-pitch ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 180 :width normal :foundry "nil" :family "Cascadia Code"))))
+ '(fixed-pitch ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "nil" :family "Cascadia Code"))))
  '(font-lock-comment-face ((t (:foreground "#c0a386" :slant italic))))
  '(helm-selection ((t (:extend t :background "#4280b8" :foreground "white" :underline nil))))
  '(helm-source-header ((t (:family "Verlag"))))

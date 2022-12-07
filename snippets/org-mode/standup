@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: standup
+# key: su
+# --
+YESTERDAY ($1)
+- $3
+
+TODAY ($2)
+-

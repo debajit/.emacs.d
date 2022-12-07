@@ -1,0 +1,23 @@
+# -*- mode: snippet -*-
+# name: Advent of Code
+# key: aoc
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# group: Advent of Code
+# --
+#+TITLE:Day ${1:Number}: ${2:Problem Title}
+
+* Part 1
+
+** Problem
+
+** Solution (C++)
+
+#+begin_src C++ :includes '(<vector> <numeric> <iostream> <map>) :namespaces std :flags -std=c++20 :results verbatim
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ${3:Add code here}
+}
+#+end_src

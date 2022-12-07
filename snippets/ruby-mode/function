@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: function
+# key: kk
+# --
+def ${1:function_name}
+  $0
+end

@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: vout
+# key: vout
+# --
+ostream& operator<<(ostream& out, const vector<int>& list) {
+    out << "[";
+
+    for (int i = 0; i < list.size(); ++i) {
+        out << list[i];
+        if (i != list.size() - 1)
+            out << ",";
+    }
+
+    out << "]\n";
+
+    return out;
+}

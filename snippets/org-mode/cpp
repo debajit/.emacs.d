@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: cpp
+# key: cpp
+# --
+#+begin_src C++ :includes '(<vector> <numeric> <iostream> <map>) :namespaces std :flags -std=c++20 :results verbatim
+$0
+#+end_src

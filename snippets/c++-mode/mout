@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: mout
+# key: mout
+# --
+ostream& operator<<(ostream& out, const vector<vector<int>>& grid) {
+    int rows = grid.size();
+    int cols = grid[0].size();
+
+    for (int r = 0; r < rows; ++r) {
+        for (int c = 0; c < cols; ++c)
+            cout << setw(3) << grid[r][c];
+
+        cout << "\n";
+    }
+
+    return out;
+}

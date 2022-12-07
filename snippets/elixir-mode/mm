@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: mm
+# key: mm
+# --
+defmodule ${1:ModuleName} do
+  ${2:@moduledoc """
+  $3
+  """}$0
+end

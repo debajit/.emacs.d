@@ -1,0 +1,31 @@
+# -*- mode: snippet -*-
+# name: algo
+# key: algo
+# --
+#+TITLE: $1
+
+* Problem
+
+* Solutions
+
+** My Solution. Θ(n) time, Θ(1) space
+
+#+begin_src C++ :includes '(<vector> <numeric> <iostream> <map>) :namespaces std :flags -std=c++17 :results verbatim
+  #include <iostream>
+  #include <vector>
+  #include <utility>
+  #include <unordered_map>
+  using namespace std;
+
+  int main() {
+
+  }
+#+end_src
+
+* Related
+
+-
+
+* References
+
+-

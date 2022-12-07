@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: sse
+# key: sse
+# --
+#+BEGIN_SRC elixir
+$0
+#+END_SRC

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: skip
+# key: skip
+# --
+@pytest.mark.skip(reason='$1')

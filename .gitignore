@@ -1,0 +1,44 @@
+*~
+*.elc
+auto-save-list
+bookmarks
+recentf
+savehist
+saveplace
+eshell
+elpa
+el-get
+/games/
+semanticdb
+url
+ede-projects.el
+.DS_Store
+places
+savefile/
+/prelude-modules.el
+projectile-bookmarks.eld
+session*
+.cask
+tramp
+/var/pcache
+
+# Desktop mode
+.emacs.desktop
+.emacs.desktop.lock
+
+# Ido mode
+ido.last
+
+# Org
+.org-id-locations
+org-roam.db
+
+# Smex
+smex-items
+.smex-items
+
+# Transient items
+/transient
+
+/.edbi-ds-history
+/.cache/treemacs-persist

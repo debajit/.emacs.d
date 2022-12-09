@@ -1,0 +1,191 @@
+* Installation
+
+** Install Emacs Configuration
+
+#+BEGIN_SRC  shell
+
+cd
+git clone https://github.com/debajit/.emacs.d.git
+
+#+END_SRC
+
+** Install Emacs
+
+*** On macOS
+
+#+BEGIN_SRC  shell
+
+brew tap railwaycat/emacsmacport
+brew cask install emacs-mac
+
+#+END_SRC
+
+Then start Emacs.
+
+* Keyboard Shortcuts — Work in Progress
+
+- s represents the Super key (Command / Windows key)
+- M represents the Meta key (Option / Alt)
+- C represents the Control key
+
+** Smart Shortcuts
+
+*** s-. — Open the item at Point
+
+In programming modes, this will open the definition/declaration of the
+item (the function, for instance) — and ~s-.~ will take you back to
+where you came from.
+
+If you’re on a filename or a hyperlink (e.g. in a comment or in a
+string), it will open that.
+
+If you’re in an Org mode link to a URL or local file, it will open
+that instead.
+
+*** s-r — Run the Code
+
+If some code is selected, that will be run. Otherwise the entire
+buffer will be run by calling the appropriate interpreter/tool.
+
+*** s-n — Narrow or Widen Intelligently
+
+If you’re in a programming mode, it will narrow to the function.
+
+In Org mode, narrows to the current sub-tree if any.
+
+If invoked from a selection, it will narrow to that selection.
+
+If you’re already narrowed, it will widen automatically.
+
+
+** Nifty Shortcuts
+
+| Edit Operation             | Key             | Notes                                                                                         |
+|----------------------------+-----------------+-----------------------------------------------------------------------------------------------|
+| Wrap in parens             | M-(             | Works without or with a selection                                                             |
+| Fill paragraph             | M-q             | How did we live without this? See also auto-fill-mode                                         |
+| Unfill paragraph           | M-Q             | "Unfill" a filled paragraph                                                                   |
+| Clear inside pairs         | ⌘J              | Clear a string's contents, or clear any text inside the innermost paired characters. Nifty 😀 |
+| Align regexp               | ⇧⌘A             | Align multiple lines on a character (e.g. the equals signs in assignments). Wicked 😈         |
+| Correct last misspelt word | Command + Enter |                                                                                               |
+| Git region history         | ⇧⌘H             | See the history of just the selected region. /Very/ useful 🙂                                   |
+| Git diff current file      | ⇧⌘C             | See what new changes you have made to the current files.                                      |
+
+
+** Integration with Other Applications
+
+| Operation                    | Action                               | Notes                              |
+|------------------------------+--------------------------------------+------------------------------------|
+| Open URL                     | Command + click                      |                                    |
+| Look up word in Dictionary   | Command + Control + D or Force Touch | Just like any other native Mac app |
+| Search selection in Google   | Command + Shift + G                  |                                    |
+| Open web bookmark in browser | Command + Shift + Enter              | See webjump settings               |
+
+
+** File Operations
+
+| Operation             | Key   | Notes                                                                       |
+|-----------------------+-------+-----------------------------------------------------------------------------|
+| New                   | s-n   |                                                                             |
+| Save                  | s-s   |                                                                             |
+| Open quickly from git | s-t   | Like TextMate                                                               |
+| Open recent file      | s-SPC | You may need to press Command+Shift+Space as Command+Space is usually bound |
+
+
+** Text Editing
+
+| Edit Operation        | Key        | Notes                                                                                                                    |
+|-----------------------+------------+--------------------------------------------------------------------------------------------------------------------------|
+| Undo                  | ⌘Z         |                                                                                                                          |
+|-----------------------+------------+--------------------------------------------------------------------------------------------------------------------------|
+| Cut                   | ⌘X         |                                                                                                                          |
+| Copy                  | ⌘C         | Copies the current line if nothing is selected                                                                           |
+| Paste                 | ⌘V         |                                                                                                                          |
+|-----------------------+------------+--------------------------------------------------------------------------------------------------------------------------|
+| Comment               | ⌘;         | The default M-; also works. Press repeatedly to toggle commenting the line vs adding the comment at the end of the line. |
+|-----------------------+------------+--------------------------------------------------------------------------------------------------------------------------|
+| Delete a line         | ⌘K         |                                                                                                                          |
+| Insert line at cursor | ⌘O         |                                                                                                                          |
+| Insert line below     | Option + O |                                                                                                                          |
+|-----------------------+------------+--------------------------------------------------------------------------------------------------------------------------|
+
+
+** Navigation
+
+| Operation      | Key     | Notes                                        |
+|----------------+---------+----------------------------------------------|
+| Jump to method | s-i     |                                              |
+| Jump to line   | s-l     | Tip: Try also enabling line numbers with F8  |
+| Open hyperlink | s-click | Click on the link while holding down Command |
+
+
+** Window Management
+
+| Operation           | Key |
+|---------------------+-----|
+| Close a buffer      | s-w |
+| Close a pane        | s-W |
+| Close a window      | s-q |
+|---------------------+-----|
+| Split side-by-side  | s-J |
+| Split top-to-bottom | s-K |
+| Balance windows     | s-: |
+
+
+** Org-Agenda (“OmniFocus” mode)
+
+Start Org-Agenda with Control+Shift+Space. Then press
+
+| Key | Operation         |
+|-----+-------------------|
+| a   | Agenda            |
+| n   | Agenda with TODOs |
+
+On the Agenda screen, the following keys will work:
+
+*** Special Useful Commands
+
+| Key | Operation                    |
+|-----+------------------------------|
+| k   | Enter new task (org-capture) |
+| A   | Agenda command               |
+
+*** Customize View
+
+| Key | Operation           |
+|-----+---------------------|
+| E   | Show notes on tasks |
+| D   | Show diary entries like holidays |
+
+*** Close
+
+| Key | Operation                                    |
+|-----+----------------------------------------------|
+| q   | Close the agenda view                        |
+| x   | Close the agenda view and org buffers opened |
+| s   | Save all org buffers opened                  |
+
+*** Filtering
+
+| Key    | Operation     |
+|--------+---------------|
+| ~/~, tab | Filter by tag |
+| / /    | Reset filters |
+
+*** Clocking
+
+| Key | Operation                            |
+|-----+--------------------------------------|
+| I   | Clock in to a task                   |
+| O   | Clock out of a task                  |
+| J   | Jump to a task that is being clocked |
+
+*** Navigation
+
+| Key | Operation                   |
+|-----+-----------------------------|
+| .   | Jump to today               |
+| p   | Move to line below          |
+| n   | Move to line above          |
+| f   | Show timeline in the future |
+| b   | Show timeline in the past   |

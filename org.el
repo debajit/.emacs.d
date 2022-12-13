@@ -38,10 +38,10 @@
 
   ;; Open PDF links in the external PDF viewer.
   ;; See https://emacs.stackexchange.com/a/28047
-  (case system-type
-    ('gnu/linux
+  (pcase system-type
+    (gnu/linux
      (add-to-list 'org-file-apps '("pdf" . "evince %s")))
-    ('darwin
+    (darwin
      (add-to-list 'org-file-apps '("pdf" . "open %s"))))
 
   (org-babel-do-load-languages

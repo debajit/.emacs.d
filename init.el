@@ -17,6 +17,7 @@
 (load-user-file "typography.el")
 (load-user-file "autocomplete.el")
 (load-user-file "text-editing.el")
+(load-user-file "build.el")
 (load-user-file "whitespace.el")
 (load-user-file "buffers.el")
 (load-user-file "window-management.el")
@@ -603,7 +604,7 @@
          ;; ("s-i" . helm-semantic-or-imenu) ; Jump to method
          ("s-I" . helm-imenu-in-all-buffers) ; Jump to any open method anywhere
          ("M-L" . helm-locate)
-         ("s-b" . helm-bookmarks)
+         ("s-B" . helm-bookmarks)
          ("C-h I" . helm-info)
          )
   :init

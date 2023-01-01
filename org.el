@@ -40,7 +40,8 @@
   ;; See https://emacs.stackexchange.com/a/28047
   (pcase system-type
     (gnu/linux
-     (add-to-list 'org-file-apps '("pdf" . "evince %s")))
+     (add-to-list 'org-file-apps '("pdf" . "evince %s"))
+     (add-to-list 'org-file-apps '("epub" . "foliate %s")))
     (darwin
      (add-to-list 'org-file-apps '("pdf" . "open %s"))))
 

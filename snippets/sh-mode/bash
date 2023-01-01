@@ -1,0 +1,26 @@
+# -*- mode: snippet -*-
+# name: Bash Script Template
+# key: bash
+# --
+#!/usr/bin/env bash
+
+#
+# ${1:script} - ${2:DESCRIPTION}
+#
+# SYNOPSIS
+#   $1 PARAMETER1
+#
+# DESCRIPTION
+#   TODO: Describe what the script does.
+#
+# EXAMPLES
+#   $1 ARG1  # Describe what this does
+#   $1 ARG2  # Describe what this does
+#
+# NOTE
+#   This script works, but is currently a work in progress
+#
+
+set -euxo pipefail
+
+$0

@@ -8,6 +8,8 @@
 (global-set-key (kbd "C-s-;")
                 (lambda () (interactive) (find-file "~/Documents/draft.org")))
 
+(global-set-key (kbd "C-s-p")           ; Programs
+                (lambda () (interactive) (find-file "~/Archive/Notes/20221202172447-algorithms_and_data_structures.org")))
 
 ;; Jump to Milestones --- Command + Control + k
 (global-set-key (kbd "C-s-m")

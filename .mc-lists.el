@@ -7,6 +7,7 @@
         c-electric-delete-forward
         c-electric-lt-gt
         c-electric-semi&comma
+        c-electric-slash
         comment-dwim-2
         crux-duplicate-current-line-or-region
         crux-smart-open-line

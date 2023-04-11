@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: function
-# key: kk
+# key: fn
 # --
 def ${1:function_name}
   $0

@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: Linked List Print
+# key: llp
+# group: Linked List
+# --
+void printList(const Node* head) {
+    for (auto cur = head; cur; cur = cur->next) {
+        cout << cur->val << " ";
+    }
+
+    cout << "\n";
+}

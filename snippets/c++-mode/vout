@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
 # name: vout
 # key: vout
+# group: Vector
 # --
 ostream& operator<<(ostream& out, const vector<int>& list) {
     out << "[";

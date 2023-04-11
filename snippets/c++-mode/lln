@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: Linked List Node
+# key: lln
+# group: Linked List
+# --
+struct Node {
+    int val;
+    Node* next;
+
+    Node(int val, Node* next = nullptr)
+        : val(val), next(next) {
+    }
+};

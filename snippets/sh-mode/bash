@@ -5,7 +5,7 @@
 #!/usr/bin/env bash
 
 #
-# ${1:script} - ${2:DESCRIPTION}
+# ${1:`(file-name-nondirectory (buffer-file-name))`} - ${2:DESCRIPTION}
 #
 # SYNOPSIS
 #   $1 PARAMETER1
@@ -21,6 +21,19 @@
 #   This script works, but is currently a work in progress
 #
 
-set -euxo pipefail
+set -euxo pipefail              # TODO: Remove the x after testing
 
-$0
+source "notification.sh"        # Provides echo_notify, echo_error
+
+# Validate the arguments
+script_name="\${0##*/}"
+if [[ \$# -ne 2 || ! -f "\$1" ]]; then
+  echo_notify "\${script_name} - $2"
+  echo "Usage: \${script_name} argument1 'argument 2'"
+  exit 1
+fi
+
+some_file="\${1}"
+arg2="\${2}"
+
+# Use some_file and arg2

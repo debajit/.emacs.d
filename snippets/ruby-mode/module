@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: module
-# key: mm
+# key: mod
 # --
 module ${1:ModuleName}
   $0

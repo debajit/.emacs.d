@@ -36,7 +36,7 @@
 ;; Previous buffer: Command + w (“Close” the buffer)
 
 ;; Next buffer: Command + e
-(global-set-key (kbd "s-e") 'next-buffer)
+;; (global-set-key (kbd "s-e") 'next-buffer)
 
 
 ;;----------------------------------------------------------------------

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: ruby
+# key: ruby
+# --
+#+begin_src ruby :results verbatim
+$1
+#+end_src

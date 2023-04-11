@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: bullet
-# key: *
-# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
-# --
- •  $0

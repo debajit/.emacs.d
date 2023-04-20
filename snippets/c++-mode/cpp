@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: C++ Template
+# key: cpp
+# --
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+#include <unordered_set>
+#include <iomanip>
+using namespace std;
+
+$1
+
+int main() {
+    $2
+}

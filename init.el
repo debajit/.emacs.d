@@ -490,10 +490,10 @@
 ;;          ;; ("s-." . etags-select-find-tag)
 ;;          ("M-," . pop-tag-mark)))       ; Jump back from tag found
 
-;; Dash-at-point (Lookup in Dash.app)
-(use-package dash-at-point
+;; zeal-at-point (Lookup in Zeal)
+(use-package zeal-at-point
   :ensure t
-  :bind ("s-u" . dash-at-point))
+  :bind ("s-u" . zeal-at-point))
 
 ;; Deft -- A note-taking system like Notational Velocity. The following
 ;; configuration is largely adapted from
@@ -502,8 +502,6 @@
   :ensure t
   :diminish deft-mode
   :bind (
-         ("M-N" . deft)
-         ;; ("<C-s-268632076>" . deft)
          ("C-s-n" . deft)
          )
   :init
@@ -803,9 +801,10 @@
   :ensure t
   :bind ("s-E" . mc/mark-next-word-like-this))
 
-(require 'org-mac-link)
-(add-hook 'org-mode-hook (lambda ()
-  (define-key org-mode-map (kbd "s-L") 'org-mac-grab-link)))
+;; TODO: Add platform check
+;; (require 'org-mac-link)
+;; (add-hook 'org-mode-hook (lambda ()
+;;   (define-key org-mode-map (kbd "s-L") 'org-mac-grab-link)))
 
 ;; Predictive text completion (Predictive Abbreviation mode)
 (use-package pabbrev

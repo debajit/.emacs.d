@@ -12,6 +12,7 @@
         org-html-htmlize-output-type 'css
         org-use-speed-commands t             ; Navigate and control org headings quickly.
         org-use-fast-todo-selection t        ; Mark agenda task as complete quickly. https://orgmode.org/manual/TODO-basics.html
+        org-export-with-footnotes nil        ; See https://emacs.stackexchange.com/questions/68986/ignore-footnotes-when-exporting-org-texts-to-html
         )
 
   (setq org-todo-keywords
@@ -94,7 +95,7 @@
   )
 
 ;; Org-Roam basic configuration
-(setq org-directory (concat (getenv "HOME") "/Archive/Notes/"))
+(setq org-directory (concat (getenv "HOME") "/Archive/Knowledge/Notes/"))
 
 ;; (use-package org-roam
 ;;       :ensure t
@@ -126,7 +127,8 @@
   (org-roam-directory (file-truename org-directory))
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
-         ("s-T" . org-roam-node-find)
+         ;; ("s-T" . org-roam-node-find)
+         ("s-e" . org-roam-node-find)
          ("C-c n g" . org-roam-graph)
          ("C-c n i" . org-roam-node-insert)
          ("C-c n c" . org-roam-capture)
@@ -134,6 +136,9 @@
          ;; Dailies
          ("C-c n j" . org-roam-dailies-capture-today))
   :config
+  ;; See https://github.com/kaushalmodi/ox-hugo/issues/483#issue-1083784843
+  (require 'find-lisp)
+  (setq org-id-extra-files (find-lisp-find-files org-roam-directory "\.org$"))
   (org-roam-db-autosync-mode)
 
   ;; (setq org-roam-capture-templates '(("d" "default" plain "%?"

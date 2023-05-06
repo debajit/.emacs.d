@@ -52,6 +52,7 @@
    'org-babel-load-languages
    '((C . t)
      ;; (elixir . t)
+     (js . t)
      (R . t)
      (ruby . t)
      (shell . t)

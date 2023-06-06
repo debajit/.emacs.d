@@ -25,6 +25,7 @@
 (load-user-file "navigation.el")
 (load-user-file "folding-functions.el")
 (load-user-file "folding.el")
+(load-user-file "mouse.el")
 (load-user-file "wrapping.el")
 (load-user-file "date-time.el")
 (load-user-file "file-definitions.el")
@@ -170,14 +171,6 @@
 
 ;; Jump to saved resigter
 ;; (global-set-key (kbd "s-.") 'jump-to-register)
-
-
-;;----------------------------------------------------------------------
-;; Mouse shortcuts
-;;----------------------------------------------------------------------
-
-;; Open link at mouse pointer: s-click
-(global-set-key [s-mouse-1] 'browse-url-at-mouse)
 
 
 ;;----------------------------------------------------------------------

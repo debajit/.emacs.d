@@ -847,14 +847,6 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
   :config
   (projectile-global-mode +1))
 
-(use-package quickrun
-  :ensure t
-  :bind (
-         ("s-r" . quickrun)
-         ("M-R" . quickrun-region)
-         )
-)
-
 ;; Narrow and widen intelligently, depending on the context (into a
 ;; selection, function, Org subtree etc.), with the same key.
 (use-package recursive-narrow
@@ -1044,9 +1036,9 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 
 ;; (load-user-file "programming.el")
 ;; (load-user-file "reading.el")
+(load-user-file "cpp.el")
 (load-user-file "elixir.el")
 (load-user-file "javascript.el")
-;; (load-user-file "cpp.el")
 (load-user-file "org.el")
 ;; (load-user-file "markdown.el")
 (load-user-file "code-visualization.el")

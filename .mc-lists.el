@@ -4,6 +4,7 @@
 (setq mc/cmds-to-run-for-all
       '(
         beginning-of-visual-line
+        c-electric-brace
         c-electric-delete-forward
         c-electric-lt-gt
         c-electric-semi&comma
@@ -33,11 +34,14 @@
         org-emphasize
         org-end-of-line
         org-force-self-insert
+        org-forward-sentence
+        org-insert-structure-template
         org-mark-element
         org-return-indent
         org-self-insert-command
         org-yank
         pabbrev-expand-maybe
+        ruby-tools-interpolate
         sh-assignment
         sp-backward-delete-char
         sp-delete-char

@@ -170,6 +170,14 @@
 ;;                ("C-c n t" . org-roam-tag-add))
 ;;               ))
 
+;; (use-package anki-editor
+;;   :ensure t)
+
+;; (use-package org-drill
+;;   :defer t
+;;   :config (progn
+;;             (add-to-list 'org-modules 'org-drill)))
+
 (with-eval-after-load 'org
 
   ;; Markup

@@ -42,3 +42,6 @@ smex-items
 
 /.edbi-ds-history
 /.cache/treemacs-persist
+/projectile.cache
+/projects
+/request/

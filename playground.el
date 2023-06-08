@@ -1,3 +1,5 @@
+(setenv "DEBUGINFOD_URLS" "")
+
 ;; ;; https://orgmode.org/manual/Editing-source-code.html
 ;; ;; https://stackoverflow.com/a/53979381/2288585
 ;; (require 'color)

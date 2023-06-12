@@ -736,8 +736,8 @@
   :config
   (add-hook 'markdown-mode-hook
             '(lambda ()
-               (visual-line-mode)
-               )))
+               (visual-line-mode)))
+  (add-hook 'markdown-mode-hook 'markdown-display-inline-images))
 
 ;; Markdown mode
 ;; Use Octodown as Markdown parser

@@ -13,6 +13,7 @@
 ;; Update load paths to load files from
 (add-to-list 'load-path "~/.emacs.d/custom-packages/")
 
+(load-user-file "tree-sitter.el")
 (load-user-file "calendar.el")
 (load-user-file "typography.el")
 (load-user-file "autocomplete.el")
@@ -180,7 +181,7 @@
 (global-set-key [f12] 'vc-annotate)
 (global-set-key (kbd "s-H") 'vc-region-history)
 (global-set-key (kbd "s-C") 'magit-diff-buffer-file)
-(global-set-key (kbd "s-S") 'magit-stage-file)
+(global-set-key (kbd "s-S") 'magit-stage-buffer-file)
 ;; (global-set-key (kbd "s-C") 'magit-diff-visit-file)
 
 
@@ -432,7 +433,8 @@
 (use-package crux
   :ensure t
   :bind (
-         ("s-d" . crux-duplicate-current-line-or-region)
+         ;; ("s-d" . crux-duplicate-current-line-or-region)
+         ("s-d" . duplicate-dwim)
          ("s-D" . crux-duplicate-and-comment-current-line-or-region)
          ("M-o" . crux-smart-open-line)
          ("s-o" . crux-smart-open-line-above)
@@ -524,6 +526,8 @@
 (use-package emmet-mode
   :ensure t
   :config
+  (add-hook 'js-mode-hook 'emmet-mode)
+  (add-hook 'mhtml-mode-hook 'emmet-mode)
   (add-hook 'web-mode-hook 'emmet-mode))
 
 (use-package expand-region
@@ -1037,7 +1041,9 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 ;; (load-user-file "programming.el")
 ;; (load-user-file "reading.el")
 (load-user-file "cpp.el")
+(load-user-file "html.el")
 (load-user-file "elixir.el")
+(load-user-file "java.el")
 (load-user-file "javascript.el")
 (load-user-file "lua.el")
 (load-user-file "org.el")
@@ -1048,6 +1054,11 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 (load-user-file "mail.el")
 (load-user-file "redis.el")
 (load-user-file "playground.el")
+;; (load-user-file "private.el")           ; For local
+
+
+;; Override keybindings from other packages
+;; (global-set-key (kbd "M-i") 'imenu)
 
 
 ;;----------------------------------------------------------------------

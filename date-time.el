@@ -33,3 +33,7 @@
                 (lambda ()
                   (interactive)
                   (insert (day-label (yesterday-time)))))
+
+
+(use-package svg-clock
+  :ensure t)

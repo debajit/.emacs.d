@@ -13,6 +13,7 @@
         org-use-speed-commands t             ; Navigate and control org headings quickly.
         org-use-fast-todo-selection t        ; Mark agenda task as complete quickly. https://orgmode.org/manual/TODO-basics.html
         org-export-with-footnotes nil        ; See https://emacs.stackexchange.com/questions/68986/ignore-footnotes-when-exporting-org-texts-to-html
+        org-imenu-depth 5
         )
 
   (setq org-todo-keywords

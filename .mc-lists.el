@@ -7,12 +7,14 @@
         c-electric-brace
         c-electric-delete-forward
         c-electric-lt-gt
+        c-electric-paren
         c-electric-semi&comma
         c-electric-slash
         comment-dwim-2
         crux-duplicate-current-line-or-region
         crux-smart-open-line
         crux-top-join-line
+        cycle-spacing
         delete-horizontal-space
         dired-next-line
         dired-unmark-backward
@@ -41,6 +43,7 @@
         org-self-insert-command
         org-yank
         pabbrev-expand-maybe
+        query-replace
         ruby-tools-interpolate
         sh-assignment
         sp-backward-delete-char
@@ -52,6 +55,7 @@
         wdired-capitalize-word
         wdired-downcase-word
         wdired-finish-edit
+        wdired-upcase-word
         web-mode-element-clone
         ))
 

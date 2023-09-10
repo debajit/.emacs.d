@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: class
+# key: cl
+# --
+class ${1:NAME} {
+public:
+
+    $1() {
+    }
+
+private:
+
+};

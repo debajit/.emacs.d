@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: sample
+# key: sample
+# --
+*Sample Input*
+
+#+begin_example
+$1
+#+end_example
+
+*Sample Output*
+
+#+begin_example
+
+#+end_example

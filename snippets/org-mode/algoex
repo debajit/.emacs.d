@@ -1,0 +1,32 @@
+# -*- mode: snippet -*-
+# name: algoex
+# key: algoex
+# --
+
+\#+title: Tournament Winner (Easy$1, AlgoExpert)
+ [[id:a568c947-71c1-48bf-8e80-0bd34a756ddc][AlgoExpert Top Questions]]  •  [[id:ce381abb-caff-40b7-a71d-bfcbb70a88d6][Algorithms]]
+
+* Problem
+
+$2
+
+*Sample Input*
+
+#+begin_example
+
+#+end_example
+
+*Sample Output*
+
+#+begin_example
+
+#+end_example
+
+
+
+* Solutions
+
+** ★ . Θ(n) time, Θ(1) space
+
+#+begin_src C++ :includes '(<vector> <numeric> <iostream> <map>) :namespaces std :flags -std=c++17 :results verbatim
+#+end_src

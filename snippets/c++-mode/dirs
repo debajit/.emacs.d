@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: dirs
+# key: dirs
+# --
+const vector<ii> dirs = {{0,1}, {1,0}, {0,-1}, {-1,0}};

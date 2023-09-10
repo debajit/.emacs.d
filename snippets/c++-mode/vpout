@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: vpout
+# key: vpout
+# --
+for (auto& [k, v] : path)
+    cout << "(" << k << "," << v << ") ";

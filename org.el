@@ -53,6 +53,7 @@
    'org-babel-load-languages
    '((C . t)
      ;; (elixir . t)
+     (java . t)
      (js . t)
      (R . t)
      (ruby . t)
@@ -194,7 +195,7 @@
       (if (use-region-p)
           (org-emphasize ?\*)
         (helm-bookmarks))))
-  (define-key org-mode-map (kbd "s-i") (lambda () (interactive) (org-emphasize ?\/)))
+  ;; (define-key org-mode-map (kbd "s-i") (lambda () (interactive) (org-emphasize ?\/)))
 
   ;; Navigation
   (define-key org-mode-map (kbd "M-p") 'org-previous-visible-heading)

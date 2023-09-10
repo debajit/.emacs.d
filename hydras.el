@@ -18,7 +18,7 @@
   ("e" elixir-mode)
   ("f" fundamental-mode)
   ("g" graphql-mode)
-  ("j" js2-mode)
+  ("j" js-mode)
   ("l" emacs-lisp-mode)
   ("m" gfm-mode)
   ("o" org-mode)

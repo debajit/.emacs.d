@@ -28,6 +28,13 @@ Then start Emacs.
 - M represents the Meta key (Option / Alt)
 - C represents the Control key
 
+** Widgets
+
+| Widget      | Key                 |
+|-------------+---------------------|
+| Calendar    | Super + Control + c |
+| World Clock | Super + Control + w |
+
 ** Smart Shortcuts
 
 *** s-. — Open the item at Point

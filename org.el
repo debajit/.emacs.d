@@ -19,6 +19,15 @@
   (setq org-todo-keywords
         '((sequence "TODO(t)" "IN PROGRESS" "WAITING-FOR" "WAITING_FOR_CUSTOMER" "CODE-REVIEW" "DEPLOYING" "WAITING_FOR_SCHEDULE" "BLOCKED" "|" "DONE(x!)" "HANDED OFF" "DELEGATED" "CANCELED(c@)")))
 
+  ;; Set up link abbreviations. See
+  ;; https://orgmode.org/manual/Link-Abbreviations.html
+  (setq org-link-abbrev-alist
+      '(("bugzilla"        . "https://10.1.2.9/bugzilla/show_bug.cgi?id=")
+        ("Nu Html Checker" . "https://validator.w3.org/nu/?doc=%h")
+        ("duckduckgo"      . "https://duckduckgo.com/?q=%s")
+        ("omap"            . "https://nominatim.openstreetmap.org/search?q=%s&polygon=1")
+        ("ads"             . "https://ui.adsabs.harvard.edu/search/q=%20author%3A\"%s\"")))
+
   ;; Org mode keyboard shortcuts
   :bind (:map org-mode-map
               ("s-." . org-open-at-point)
@@ -209,6 +218,8 @@
   (define-key org-mode-map (kbd "s-U") 'codify-line))
 
 (with-eval-after-load 'org-agenda
+
+  (require 'ol-man)                     ; See https://orgmode.org/manual/Adding-Hyperlink-Types.html
 
   ;; Use x to mark tasks as done in Org agenda. See
   ;; https://sachachua.com/blog/2013/01/emacs-org-task-related-keyboard-shortcuts-agenda/

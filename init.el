@@ -79,6 +79,11 @@
 ;; Desktop mode (Always save and restore the open buffers)
 (desktop-save-mode 1)
 
+;; Start the Emacs server for emacsclient connections.
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
 ;; ;; Do not ask where to save the desktop. Always save desktop in
 ;; ;; ~/.emacs.d/emacs.desktop
 ;; (setq your-own-path default-directory)

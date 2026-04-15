@@ -28,6 +28,7 @@
 (load-user-file "folding.el")
 (load-user-file "mouse.el")
 (load-user-file "wrapping.el")
+(load-user-file "zoom-chat.el")
 (load-user-file "date-time.el")
 (load-user-file "file-definitions.el")
 (load-user-file "file-jump-keys.el")

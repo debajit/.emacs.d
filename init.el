@@ -732,6 +732,16 @@
 (use-package magit-annex
   :ensure t)
 
+(use-package browse-at-remote
+  :ensure t
+  :bind (("C-c g g" . browse-at-remote)
+         ("C-c g y" . browse-at-remote-kill))
+  :config
+  (add-to-list 'browse-at-remote-remote-type-regexps
+               `(:host ,(rx bol "bitbucket.oci.oraclecorp.com" eol)
+                       :type "stash"
+                       :actual-host "bitbucket.oci.oraclecorp.com")))
+
 ;; Markdown Mode
 (use-package markdown-mode
   :ensure t

@@ -737,6 +737,54 @@
   :bind (("C-c g g" . browse-at-remote)
          ("C-c g y" . browse-at-remote-kill))
   :config
+  (require 'cl-lib)
+  (require 'url-util)
+
+  (defun my-browse-at-remote-git-canonical-path (path)
+    "Return PATH using Git's tracked casing when possible."
+    (let ((tracked-paths (ignore-errors (process-lines "git" "ls-files"))))
+      (or (car (cl-member (downcase path) tracked-paths
+                          :test (lambda (wanted candidate)
+                                  (string= wanted (downcase candidate)))))
+          path)))
+
+  (defun my-browse-at-remote-git-head-revision ()
+    "Return the current Git HEAD revision, or nil outside Git."
+    (car (ignore-errors (process-lines "git" "rev-parse" "HEAD"))))
+
+  (defun my-browse-at-remote-url-encode-path (path)
+    "URL-encode PATH for use as an OCI DevOps filePath query value."
+    (mapconcat #'url-hexify-string (split-string path "/" t) "/"))
+
+  (defun my-browse-at-remote-oci-devops-repo-url (repo-url)
+    "Convert OCI DevOps SCM REPO-URL to its browser URL."
+    (replace-regexp-in-string
+     "\\`https://oci\\.private\\.devops\\.scmservice\\.[^/]+\\.oci\\.oracleiaas\\.com/"
+     "https://devops.oci.oraclecorp.com/devops-coderepository/"
+     repo-url))
+
+  (defun browse-at-remote--format-region-url-as-oci-devops
+      (repo-url location filename &optional _linestart _lineend)
+    "Format an OCI DevOps Code Repository URL."
+    (let ((filename (my-browse-at-remote-git-canonical-path filename))
+          (revision (or (my-browse-at-remote-git-head-revision) location)))
+      (format "%s/files/%s?filePath=%s"
+              (my-browse-at-remote-oci-devops-repo-url repo-url)
+              (url-hexify-string revision)
+              (my-browse-at-remote-url-encode-path filename))))
+
+  (defun browse-at-remote--format-commit-url-as-oci-devops (repo-url commithash)
+    "Format an OCI DevOps Code Repository commit URL."
+    (format "%s/commits/%s"
+            (my-browse-at-remote-oci-devops-repo-url repo-url)
+            commithash))
+
+  (add-to-list 'browse-at-remote-remote-type-regexps
+               `(:host ,(rx bol "oci.private.devops.scmservice."
+                            (one-or-more not-newline)
+                            ".oci.oracleiaas.com" eol)
+                       :type "oci-devops"))
+
   (add-to-list 'browse-at-remote-remote-type-regexps
                `(:host ,(rx bol "bitbucket.oci.oraclecorp.com" eol)
                        :type "stash"

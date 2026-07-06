@@ -153,3 +153,15 @@ that was stored with ska-point-to-register."
                 (new-empty-buffer))
             )
           t) ;; append this hook to the tail
+
+(defun deadhika-bug-reference-url ()
+  "Return a URL for the current `bug-reference-bug-regexp' match."
+  (let ((jira-issue (match-string-no-properties 2))
+        (github-issue (match-string-no-properties 3)))
+    (if github-issue
+        (format "https://github.com/openai/codex/issues/%s" github-issue)
+      (format "https://jira.oci.oraclecorp.com/browse/%s" jira-issue))))
+
+(setq bug-reference-bug-regexp "\\(\\b\\([A-Za-z][A-Za-z0-9]\\{1,10\\}-[0-9]+\\)\\|#\\([0-9]+\\)\\)"
+      bug-reference-url-format 'deadhika-bug-reference-url)
+(add-hook 'org-mode-hook 'bug-reference-mode)

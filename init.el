@@ -696,7 +696,33 @@
           typesript-mode
           yaml-mode))
   :config
-  (global-hl-todo-mode))
+  ;; Overlay faces take precedence over Font Lock faces.  Mirror TODO faces
+  ;; just above hl-line so both keep their original colors on the current line.
+  (defvar my-hl-line-hl-todo-overlays nil)
+
+  (defun my-hl-line-preserve-hl-todo-face ()
+    "Render hl-todo faces above the current-line overlay."
+    (mapc #'delete-overlay my-hl-line-hl-todo-overlays)
+    (setq my-hl-line-hl-todo-overlays nil)
+    (when (and global-hl-line-mode
+               (bound-and-true-p hl-todo-mode)
+               (overlayp global-hl-line-overlay))
+      (save-excursion
+        (save-match-data
+          (let ((end (line-end-position)))
+            (goto-char (line-beginning-position))
+            (while (hl-todo--search nil end)
+              (let ((overlay (make-overlay (match-beginning 1)
+                                           (match-end 1))))
+                (overlay-put overlay 'face (hl-todo--get-face))
+                (overlay-put overlay 'priority
+                             (1+ hl-line-overlay-priority))
+                (overlay-put overlay 'window
+                             (overlay-get global-hl-line-overlay 'window))
+                (push overlay my-hl-line-hl-todo-overlays))))))))
+
+  (global-hl-todo-mode)
+  (add-hook 'post-command-hook #'my-hl-line-preserve-hl-todo-face t))
 
 ;; FIXME: javascript-mode
 ;; ;; TODO: Add typesript mode

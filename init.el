@@ -790,14 +790,17 @@
      repo-url))
 
   (defun browse-at-remote--format-region-url-as-oci-devops
-      (repo-url location filename &optional _linestart _lineend)
+      (repo-url location filename &optional linestart _lineend)
     "Format an OCI DevOps Code Repository URL."
     (let ((filename (my-browse-at-remote-git-canonical-path filename))
           (revision (or (my-browse-at-remote-git-head-revision) location)))
-      (format "%s/files/%s?filePath=%s"
+      (format "%s/files/%s?filePath=%s%s"
               (my-browse-at-remote-oci-devops-repo-url repo-url)
               (url-hexify-string revision)
-              (my-browse-at-remote-url-encode-path filename))))
+              (my-browse-at-remote-url-encode-path filename)
+              (if linestart
+                  (format "&highlightLines=L-%d" linestart)
+                ""))))
 
   (defun browse-at-remote--format-commit-url-as-oci-devops (repo-url commithash)
     "Format an OCI DevOps Code Repository commit URL."

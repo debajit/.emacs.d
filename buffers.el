@@ -46,5 +46,12 @@
 ;; Save recently closed buffers list, so that they can be opened quickly
 (recentf-mode 1)
 
-;; Revert buffers automatically when underlying files are changed externally
-;; (global-auto-revert-mode t)
+;; Revert buffers automatically when underlying files are changed
+;; externally. Emacs uses file notification (inotify on Linux) rather
+;; than polling, so this is cheap.
+(setq auto-revert-use-notify t              ; Use inotify instead of polling
+      auto-revert-avoid-polling t           ; Don't also poll watched buffers
+      auto-revert-remote-files nil          ; Never auto-revert TRAMP buffers
+      auto-revert-verbose nil               ; No “Reverting buffer...” messages
+      global-auto-revert-non-file-buffers t) ; Also refresh Dired, Buffer Menu, etc.
+(global-auto-revert-mode 1)

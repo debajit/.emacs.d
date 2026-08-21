@@ -72,9 +72,6 @@ that was stored with ska-point-to-register."
 
 (global-set-key (kbd "M-I") 'org-agenda-show-custom-perspective)
 
-(global-set-key (kbd "M-i") 'crux-switch-to-previous-buffer)
-
-
 ;; Make emacs open all files in last emacs session.
 ;; Taken from ergoemacs, credits go to ergoemacs authors.
 

@@ -159,6 +159,6 @@ that was stored with ska-point-to-register."
         (format "https://github.com/openai/codex/issues/%s" github-issue)
       (format "https://jira.oci.oraclecorp.com/browse/%s" jira-issue))))
 
-(setq bug-reference-bug-regexp "\\(\\b\\([A-Za-z][A-Za-z0-9]\\{1,10\\}-[0-9]+\\)\\|#\\([0-9]+\\)\\)"
+(setq bug-reference-bug-regexp "\\(\\_<\\([A-Za-z][A-Za-z0-9]\\{1,10\\}-[0-9]+\\)\\_>\\|#\\([0-9]+\\)\\_>\\)"
       bug-reference-url-format 'deadhika-bug-reference-url)
 (add-hook 'org-mode-hook 'bug-reference-mode)

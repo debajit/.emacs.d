@@ -159,6 +159,16 @@ that was stored with ska-point-to-register."
         (format "https://github.com/openai/codex/issues/%s" github-issue)
       (format "https://jira.oci.oraclecorp.com/browse/%s" jira-issue))))
 
-(setq bug-reference-bug-regexp "\\(\\_<\\([A-Za-z][A-Za-z0-9]\\{1,10\\}-[0-9]+\\)\\_>\\|#\\([0-9]+\\)\\_>\\)"
+;; `deadhika-bug-reference-url' reads the Jira key from group 2 and the GitHub
+;; issue number from group 3.  Jira symbol boundaries prevent matches inside
+;; names such as service_catalog-2095.conf.
+(setq bug-reference-bug-regexp
+      (rx (group-n 1
+            (or (seq symbol-start
+                     (group-n 2
+                       (seq alpha (repeat 1 10 alnum) "-"
+                            (one-or-more digit)))
+                     symbol-end)
+                (seq "#" (group-n 3 (one-or-more digit)) symbol-end))))
       bug-reference-url-format 'deadhika-bug-reference-url)
 (add-hook 'org-mode-hook 'bug-reference-mode)

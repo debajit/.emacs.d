@@ -138,8 +138,8 @@
    `(magit-diff-add ((t (:foreground ,green-2))))
    `(magit-diff-del ((t (:foreground ,red-7))))
    `(magit-item-highlight ((t (:background ,brown-6))))
-   `(magit-section-heading ((t (:foreground ,yellow-5 :background ,brown-1 :weight bold :family "Verlag" :height 1.5 :inherit nil))))
-   `(magit-header-line ((t (:family "Verlag" :height 1.5))))
+   `(magit-section-heading ((t (:foreground ,yellow-5 :background ,brown-1 :weight bold :height 1.5 :inherit nil))))
+   `(magit-header-line ((t (:height 1.5))))
 
    ;; Multiple cursors
    `(mc/cursor-face ((t (:foreground ,white-1 :background ,orange-1))))

@@ -238,10 +238,21 @@
    `(neo-header-face ((,class (:foreground ,comment))))
 
    ;; Treemacs
+   `(treemacs-directory-collapsed-face ((,class (:inherit treemacs-directory-face :slant italic))))
    `(treemacs-directory-face ((,class (:foreground ,black-10 :family "IBM Plex Sans Condensed" :weight bold))))
-   `(treemacs-file-face ((,class (:foreground ,blue-01 :family "IBM Plex Sans Condensed"))))
-   `(treemacs-header-face ((,class (:foreground ,blue-01))))
+   `(treemacs-file-face ((,class (:foreground ,blue-01 :family "IBM Plex Sans Condensed" :weight normal))))
    `(treemacs-fringe-indicator-face ((,class (:foreground ,blue-01))))
+   `(treemacs-git-added-face ((,class (:inherit treemacs-file-face :foreground ,dark-green))))
+   `(treemacs-git-conflict-face ((,class (:inherit treemacs-file-face :foreground ,red-bright :weight bold))))
+   `(treemacs-git-ignored-face ((,class (:inherit treemacs-file-face :foreground ,brown-15 :slant italic))))
+   `(treemacs-git-modified-face ((,class (:inherit treemacs-file-face :foreground ,red-10))))
+   `(treemacs-git-renamed-face ((,class (:inherit treemacs-file-face :foreground ,eggplant))))
+   `(treemacs-git-unmodified-face ((,class (:inherit treemacs-file-face :foreground ,brown-00))))
+   `(treemacs-git-untracked-face ((,class (:inherit treemacs-file-face :foreground ,brown-10))))
+   `(treemacs-header-button-face ((,class (:foreground ,blue-01 :height 1.3))))
+   `(treemacs-on-failure-pulse-face ((,class (:background ,red-30 :foreground ,white-00))))
+   `(treemacs-on-success-pulse-face ((,class (:background ,dark-green :foreground ,white-00))))
+   `(treemacs-root-face ((,class (:foreground ,blue-01 :family "IBM Plex Sans Condensed" :weight bold :height 1.2))))
 
    ;; Org mode
 
@@ -517,6 +528,21 @@
    `(jde-java-font-lock-modifier-face ((t (:foreground ,fg2))))
    `(jde-jave-font-lock-protected-face ((t (:foreground ,keyword))))
    `(jde-java-font-lock-number-face ((t (:foreground ,var))))))
+
+(let ((treemacs-scale 0.6))
+  (custom-theme-set-variables
+   'two-firewatch-light
+   `(treemacs-text-scale ,treemacs-scale))
+
+  ;; `treemacs-text-scale' is normally applied only when `treemacs-mode'
+  ;; starts.  Keep existing Treemacs buffers in sync when this active theme is
+  ;; re-evaluated during development.
+  (when (custom-theme-enabled-p 'two-firewatch-light)
+    (setq treemacs-text-scale treemacs-scale)
+    (dolist (buffer (buffer-list))
+      (with-current-buffer buffer
+        (when (eq major-mode 'treemacs-mode)
+          (text-scale-set treemacs-scale))))))
 
 ;;;###autoload
 (when load-file-name

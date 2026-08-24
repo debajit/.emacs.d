@@ -68,7 +68,9 @@
       (red-80 "#ffc9c9")
       (pale-orange-red "#fad3ca")
       (white-80 "#eae6e1")
-      (white-99 "#faf8f5")
+      ;; (white-99 "#faf8f5")
+      ;; (white-99 "#fafaf5")
+      (white-99 "#ffffff")
       (white-00 "#ffffff")
 
       ;; (fg1 "#89662C")
@@ -79,6 +81,8 @@
       (fg5 "#aeb3b6")
       (fg6 "#d1cec7")
       (bg1 "#faf8f5")
+      ;; (bg1 "#fafaf5")
+      ;; (bg1 "#f5fafa")
       (bg2 "#e6e4e1")
       (bg3 "#d2d0ce")
       (bg4 "#bebcba")
@@ -234,9 +238,10 @@
    `(neo-header-face ((,class (:foreground ,comment))))
 
    ;; Treemacs
-   `(treemacs-file-face ((,class (:foreground ,blue-01))))
-   `(treemacs-directory-face ((,class (:foreground ,black-10))))
+   `(treemacs-directory-face ((,class (:foreground ,black-10 :family "IBM Plex Sans Condensed" :weight bold))))
+   `(treemacs-file-face ((,class (:foreground ,blue-01 :family "IBM Plex Sans Condensed"))))
    `(treemacs-header-face ((,class (:foreground ,blue-01))))
+   `(treemacs-fringe-indicator-face ((,class (:foreground ,blue-01))))
 
    ;; Org mode
 

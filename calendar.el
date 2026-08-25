@@ -3,6 +3,12 @@
 (setq calendar-longitude -122.2)
 (setq calendar-location-name "Bellevue, WA")
 
+(defun my-calendar-hide-trailing-whitespace ()
+  "Do not highlight the padding spaces in Calendar buffers."
+  (setq-local show-trailing-whitespace nil))
+
+(add-hook 'calendar-mode-hook #'my-calendar-hide-trailing-whitespace)
+
 (global-set-key (kbd "C-s-c") 'calendar)     ; Super+Control+c => Calendar
 
 ;; World clock.

@@ -134,6 +134,66 @@
 ;;               (("C-c n t" . org-roam-tag-add))
 ;;               ))
 
+;; Org-roam startup and completion-cache policy
+;;
+;; Org-roam deliberately remains deferred below.  The key bindings created by
+;; `use-package' are autoloads, so merely starting Emacs does not load Org-roam,
+;; open its SQLite database, or scan the files in `org-roam-directory'.  The
+;; first Org-roam command in an Emacs session pays those one-time costs instead.
+;;
+;; There is a second, otherwise repeated cost: `org-roam-node-find' calls the
+;; internal function `org-roam-node-read--completions', which queries the
+;; database and formats every node for display each time the command runs.  For
+;; a large collection this work is noticeable even when the database itself is
+;; already synchronized.  Cache the ordinary, unfiltered completion list after
+;; its first construction so later node searches in the same Emacs session can
+;; reuse it.
+;;
+;; Database-changing operations invalidate the cache below.  Therefore saving,
+;; renaming, deleting, or synchronizing notes makes the *next* node search
+;; rebuild the list once; subsequent searches are fast again.  Calls that ask
+;; for a custom filter or sort order bypass the cache because their result is
+;; not the same as the ordinary `org-roam-node-find' result.
+;;
+;; Maintenance note: the double hyphen in
+;; `org-roam-node-read--completions' marks it as an Org-roam internal function.
+;; After a major Org-roam upgrade, this advice is the first place to inspect if
+;; node completion stops working.  `M-x my/org-roam-clear-node-completion-cache'
+;; can also be used after changing completion-related settings by hand.
+(defvar my/org-roam-node-completion-cache nil
+  "Cached candidates for an ordinary `org-roam-node-find' prompt.")
+
+(defvar my/org-roam-node-completion-cache-valid-p nil
+  "Non-nil when `my/org-roam-node-completion-cache' may be reused.")
+
+(defun my/org-roam-clear-node-completion-cache (&rest _ignored)
+  "Invalidate the in-memory Org-roam node completion cache.
+
+The unused arguments allow this function to be installed as `:after' advice
+on database functions with different signatures.  The candidate list is
+rebuilt lazily by the next ordinary node lookup, not while the database is
+being updated."
+  (interactive)
+  (setq my/org-roam-node-completion-cache nil
+        my/org-roam-node-completion-cache-valid-p nil)
+  (when (called-interactively-p 'interactive)
+    (message "Org-roam node completion cache cleared")))
+
+(defun my/org-roam-node-read--completions-cached
+    (original-function &optional filter-fn sort-fn)
+  "Cache the result of an ordinary Org-roam node completion request.
+
+ORIGINAL-FUNCTION is `org-roam-node-read--completions'.  FILTER-FN and SORT-FN
+are passed through unchanged.  A request using either function bypasses the
+shared cache because it may produce a different set or order of candidates."
+  (if (or filter-fn sort-fn)
+      (funcall original-function filter-fn sort-fn)
+    (unless my/org-roam-node-completion-cache-valid-p
+      (setq my/org-roam-node-completion-cache
+            (funcall original-function)
+            my/org-roam-node-completion-cache-valid-p t))
+    my/org-roam-node-completion-cache))
+
 (use-package org-roam
   ;; See https://org-roam.discourse.group/t/use-of-property-drawers-after-headlines/1687/11
 
@@ -141,7 +201,18 @@
   :defer t
   :init
   (setq org-id-link-to-org-use-id nil
-        org-roam-directory (file-truename org-directory))
+        org-roam-directory (file-truename org-directory)
+
+        ;; Enabling `org-roam-db-autosync-mode' performs a database sync.  That
+        ;; sync constructs many temporary Org syntax trees and can otherwise
+        ;; pause repeatedly for garbage collection.  Org-roam dynamically uses
+        ;; this higher threshold only while syncing; normal Emacs garbage
+        ;; collection behavior is unchanged afterward.  This trades temporary
+        ;; memory usage for a faster first Org-roam command.
+        ;;
+        ;; Official performance documentation:
+        ;; https://www.orgroam.com/manual#Performance-Optimization
+        org-roam-db-gc-threshold most-positive-fixnum)
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
          ;; ("s-T" . org-roam-node-find)
@@ -154,6 +225,25 @@
          ("C-c n j" . org-roam-dailies-capture-today))
   :config
   (org-roam-db-autosync-mode 1)
+
+  ;; Advice installation is guarded so evaluating this configuration again
+  ;; does not stack duplicate copies of the same advice.
+  (unless (advice-member-p #'my/org-roam-node-read--completions-cached
+                           'org-roam-node-read--completions)
+    (advice-add 'org-roam-node-read--completions :around
+                #'my/org-roam-node-read--completions-cached))
+
+  ;; These are the paths through which Org-roam changes the nodes stored in its
+  ;; database.  Invalidate after the operation completes so the next lookup sees
+  ;; the new database contents.  `org-roam-db-sync' is included explicitly for
+  ;; the no-files-changed case, where neither update nor clear would run.
+  (dolist (database-function '(org-roam-db-update-file
+                               org-roam-db-clear-file
+                               org-roam-db-sync))
+    (unless (advice-member-p #'my/org-roam-clear-node-completion-cache
+                             database-function)
+      (advice-add database-function :after
+                  #'my/org-roam-clear-node-completion-cache)))
 
   ;; (setq org-roam-capture-templates '(("d" "default" plain "%?"
   ;;                                     :target (file+head "${slug}.org.gpg"

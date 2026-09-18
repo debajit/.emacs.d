@@ -1,11 +1,8 @@
 ;;
-;; ~/.emacs.d/dictionary.el
+;; ~/.emacs.d/dictionary-config.el
 ;;
 ;; Dictionary lookup and spelling configuration.
 ;;
-;; This file intentionally does not provide the `dictionary' feature.  That
-;; name belongs to Emacs's built-in DICT client; this configuration file is
-;; loaded directly with `load-user-file' rather than through `require'.
 
 ;; Local dictionary server installed with `make dict' in ~/src/setup/dotfiles.
 (use-package dictionary

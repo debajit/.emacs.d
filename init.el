@@ -1,47 +1,42 @@
-(defconst user-init-dir
-  (cond ((boundp 'user-emacs-directory)
-         user-emacs-directory)
-        ((boundp 'user-init-directory)
-         user-init-directory)
-        (t "~/.emacs.d/")))
-
-(defun load-user-file (file)
-  (interactive "f")
-  "Load a file in the current user’s Emacs configuration directory"
-  (load-file (expand-file-name file user-init-dir)))
+(defun my-load-user-file (file)
+  "Load FILE relative to `user-emacs-directory'."
+  (interactive
+   (list (read-file-name "Load user file: "
+                         user-emacs-directory nil t)))
+  (load-file (expand-file-name file user-emacs-directory)))
 
 ;; Update load paths to load files from
 (add-to-list 'load-path "~/.emacs.d/custom-packages/")
 
-(load-user-file "tree-sitter.el")
-(load-user-file "calendar.el")
-(load-user-file "typography.el")
-(load-user-file "autocomplete.el")
-(load-user-file "text-editing.el")
-(load-user-file "build.el")
-(load-user-file "whitespace.el")
-(load-user-file "buffers.el")
-(load-user-file "window-management.el")
-(load-user-file "navigation-functions.el")
-(load-user-file "navigation.el")
-(load-user-file "folding-functions.el")
-(load-user-file "folding.el")
-(load-user-file "mouse.el")
-(load-user-file "wrapping.el")
-(load-user-file "zoom-chat.el")
-(load-user-file "date-time.el")
-(load-user-file "file-definitions.el")
-(load-user-file "file-jump-keys.el")
-(load-user-file "bookmarks-web.el")
+(my-load-user-file "tree-sitter.el")
+(my-load-user-file "calendar.el")
+(my-load-user-file "typography.el")
+(my-load-user-file "autocomplete.el")
+(my-load-user-file "text-editing.el")
+(my-load-user-file "build.el")
+(my-load-user-file "whitespace.el")
+(my-load-user-file "buffers.el")
+(my-load-user-file "window-management.el")
+(my-load-user-file "navigation-functions.el")
+(my-load-user-file "navigation.el")
+(my-load-user-file "folding-functions.el")
+(my-load-user-file "folding.el")
+(my-load-user-file "mouse.el")
+(my-load-user-file "wrapping.el")
+(my-load-user-file "zoom-chat.el")
+(my-load-user-file "date-time.el")
+(my-load-user-file "file-definitions.el")
+(my-load-user-file "file-jump-keys.el")
+(my-load-user-file "bookmarks-web.el")
 ;; (load-file "~/WorkDocs/Application Settings/Emacs/bookmarks-work.el")
-(load-user-file "emacs-for-macosx.el")
-(load-user-file "emacs-mac-port.el")
-(load-user-file "macros.el")
-(load-user-file "selection.el")
-;; (load-user-file "calculator.el")
-(load-user-file "ruby.el")
-(load-user-file "emacs-lisp.el")
-;; (load-user-file "dired.el")
+(my-load-user-file "emacs-for-macosx.el")
+(my-load-user-file "emacs-mac-port.el")
+(my-load-user-file "macros.el")
+(my-load-user-file "selection.el")
+;; (my-load-user-file "calculator.el")
+(my-load-user-file "ruby.el")
+(my-load-user-file "emacs-lisp.el")
+;; (my-load-user-file "dired.el")
 
 ;; Save customizations in a separate file (custom.el)
 (setq custom-file "~/.emacs.d/custom.el")
@@ -344,7 +339,7 @@
 (require 'diminish)                ;; Since we use :diminish
 (require 'bind-key)                ;; Since we use :bind and its variants
 
-(load-user-file "dictionary.el")
+(my-load-user-file "dictionary-config.el")
 
 
 ;;----------------------------------------------------------------------
@@ -1121,23 +1116,23 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 
 (use-package hydra)
 
-;; (load-user-file "programming.el")
-;; (load-user-file "reading.el")
-(load-user-file "cpp.el")
-(load-user-file "html.el")
-(load-user-file "elixir.el")
-(load-user-file "java.el")
-(load-user-file "javascript.el")
-(load-user-file "lua.el")
-(load-user-file "org.el")
-;; (load-user-file "markdown.el")
-(load-user-file "code-visualization.el")
+;; (my-load-user-file "programming.el")
+;; (my-load-user-file "reading.el")
+(my-load-user-file "cpp.el")
+(my-load-user-file "html.el")
+(my-load-user-file "elixir.el")
+(my-load-user-file "java.el")
+(my-load-user-file "javascript.el")
+(my-load-user-file "lua.el")
+(my-load-user-file "org.el")
+;; (my-load-user-file "markdown.el")
+(my-load-user-file "code-visualization.el")
 ;; (load-file "~/WorkDocs/Application Settings/Emacs/local-workspaces.el")
-(load-user-file "hydras.el")
-(load-user-file "mail.el")
-(load-user-file "redis.el")
-(load-user-file "playground.el")
-;; (load-user-file "private.el")           ; For local
+(my-load-user-file "hydras.el")
+(my-load-user-file "mail.el")
+(my-load-user-file "redis.el")
+(my-load-user-file "playground.el")
+;; (my-load-user-file "private.el")           ; For local
 
 
 ;; Override keybindings from other packages

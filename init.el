@@ -309,29 +309,21 @@
 ;; Adapted from https://github.com/CachesToCaches/getting_started_with_use_package/blob/master/init-use-package.el
 ;;----------------------------------------------------------------------
 
-;; Update package-archive lists
-(require 'package)
-(setq package-enable-at-startup nil)
+;; Update package-archive lists. Packages are already activated before
+;; this file is loaded, so there is no need to call `package-initialize'.
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 ;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 ;; (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(package-initialize)
 
-;; Install 'use-package' if necessary
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-;; Enable use-package
+;; use-package is built in since Emacs 29.1, and its macro is autoloaded,
+;; so it needs neither a bootstrap install nor a `require' here. bind-key
+;; ships with it and is loaded on demand by :bind.
 (setq use-package-verbose nil)
-(eval-when-compile
-  (require 'use-package))
 
+;; diminish is not built in, and we call it directly (see org.el) as well
+;; as through the :diminish keyword.
 (use-package diminish
   :ensure t)
-
-(require 'diminish)                ;; Since we use :diminish
-(require 'bind-key)                ;; Since we use :bind and its variants
 
 (my-load-user-file "dictionary-config.el")
 

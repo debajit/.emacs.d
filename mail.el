@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (require 'mu4e)
 
 (setq

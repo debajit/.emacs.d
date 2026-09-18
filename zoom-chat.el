@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (require 'goto-addr)
 
 (defvar zoom-chat-font-lock-keywords

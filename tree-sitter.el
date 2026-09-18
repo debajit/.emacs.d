@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; See https://www.masteringemacs.org/article/how-to-get-started-tree-sitter
 
 (setq treesit-language-source-alist

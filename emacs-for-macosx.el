@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;;
 ;; ~/.emacs.d/emacs-for-macosx.el
 ;;

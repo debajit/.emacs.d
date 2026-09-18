@@ -1,4 +1,4 @@
-;;; titlecase.el --- convert text to title case
+;;; titlecase.el --- convert text to title case  -*- lexical-binding: t -*-
 
 ;;; Copyright (C) 2013 Jason R. Blevins <jrblevin@sdf.org>
 ;; All rights reserved.

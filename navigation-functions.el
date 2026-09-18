@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (defun xah-open-file-at-cursor ()
   "Open the file path under cursor.
 If there is text selection, uses the text selection for path.

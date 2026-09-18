@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (setenv "DEBUGINFOD_URLS" "")
 
 ;; ;; https://orgmode.org/manual/Editing-source-code.html

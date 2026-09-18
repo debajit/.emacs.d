@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; Rainbow mode. Colorise colour names in certain modes. (Taken from
 ;; https://github.com/bodil/ohai-emacs/blob/master/modules/ohai-html.el)
 (use-package rainbow-mode

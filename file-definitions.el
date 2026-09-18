@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;;
 ;; The Tasks directory is ~/Documents/Tasks.
 ;; The Todo directory is ~/Documents/Tasks/Todo.

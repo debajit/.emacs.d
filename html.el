@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; mhtml Mode
 (use-package mhtml-mode
   :ensure t

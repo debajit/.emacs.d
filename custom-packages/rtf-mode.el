@@ -1,4 +1,4 @@
-;;; rtf-mode.el --- Emacs major mode for viewing/editing raw RTF source
+;;; rtf-mode.el --- Emacs major mode for viewing/editing raw RTF source  -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2006 Sean M. Burke (but released under GPL)
 

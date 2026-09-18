@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; Set longitude and latitude, for sunrise and sunset calculations
 (setq calendar-latitude 47.6)
 (setq calendar-longitude -122.2)

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;;
 ;; ~/.emacs.d/autocomplete.el
 ;;

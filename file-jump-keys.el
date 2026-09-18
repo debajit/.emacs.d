@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;;
 ;; ~/.emacs.d/keys-file-shortcuts.el
 ;;

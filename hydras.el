@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (defhydra hydra-switch-mode (:color blue
                                     :hint nil
                                     )

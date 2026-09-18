@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; hs-deeper and hs-shallower written by Derek Upham
 
 (defvar-local hideshow-current-level nil)

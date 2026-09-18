@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;;
 ;; Make hs-minor-mode understand Ruby delimiters. Taken from
 ;; https://coderwall.com/p/u-l0ra/ruby-code-folding-in-emacs

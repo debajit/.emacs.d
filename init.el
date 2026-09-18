@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (defun my-load-user-file (file)
   "Load FILE relative to `user-emacs-directory'."
   (interactive

@@ -1,4 +1,4 @@
-;;; two-firewatch-light-theme.el --- Theme
+;;; two-firewatch-light-theme.el --- Theme  -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2016 , Debajit Adhikary
 

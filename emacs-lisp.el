@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (defun smart-eval-emacs-lisp (beginning end)
   (interactive "r")
   (if (use-region-p)

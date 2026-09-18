@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; See https://github.com/ludwigpacifici/modern-cpp-font-lock
 (use-package modern-cpp-font-lock
   :ensure t

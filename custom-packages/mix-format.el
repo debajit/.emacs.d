@@ -1,4 +1,4 @@
-;;; mix-format.el --- Emacs plugin to mix format Elixir files
+;;; mix-format.el --- Emacs plugin to mix format Elixir files  -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 Anil Wadghule
 

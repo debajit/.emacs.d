@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; Mark all text inside a sexp like a string, or a set of parentheses etc.
 (fset 'debajit-mark-sexp
    [?\C-\M-u ?\C-f ?\C-  ?\C-o ?\C-b])

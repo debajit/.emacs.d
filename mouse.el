@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (defun browse-url-with-default-browser (event)
   (interactive "e")
   (let ((browse-url-browser-function 'browse-url-default-browser))

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; Title Case Support. See
 ;;
 ;; - “Title Case in Emacs”

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; C-:  Jump to any character on the window
 ;; (global-unset-key "\C-'")
 (global-set-key (kbd "M-s-j") 'avy-goto-char)

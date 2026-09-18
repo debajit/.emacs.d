@@ -1,4 +1,4 @@
-;;; birds-of-paradise-plus-theme.el --- A brown/orange light-on-dark theme for Emacs 24 (deftheme).
+;;; birds-of-paradise-plus-theme.el --- A brown/orange light-on-dark theme for Emacs 24 (deftheme).  -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2012 Jim Myhrberg.
 ;;

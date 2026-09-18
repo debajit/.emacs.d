@@ -16,6 +16,7 @@
         crux-top-join-line
         cycle-spacing
         delete-horizontal-space
+        delete-indentation
         dired-next-line
         dired-unmark-backward
         easy-kill
@@ -31,14 +32,17 @@
         ignore
         kill-region
         mac-mwheel-scroll
+        mark-word
         org-delete-char
         org-edit-special
         org-emphasize
         org-end-of-line
+        org-fill-paragraph
         org-force-self-insert
         org-forward-sentence
         org-insert-structure-template
         org-mark-element
+        org-return-and-maybe-indent
         org-return-indent
         org-self-insert-command
         org-yank
@@ -50,11 +54,14 @@
         sp-delete-char
         swiper
         text-scale-increase
+        transpose-words
         typescript-insert-and-indent
         wdired--self-insert
         wdired-capitalize-word
         wdired-downcase-word
         wdired-finish-edit
+        wdired-next-line
+        wdired-previous-line
         wdired-upcase-word
         web-mode-element-clone
         ))

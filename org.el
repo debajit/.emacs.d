@@ -137,10 +137,10 @@
   ;; See https://org-roam.discourse.group/t/use-of-property-drawers-after-headlines/1687/11
 
   :ensure t
-  :config
-  (setq org-id-link-to-org-use-id nil)
-  :custom
-  (org-roam-directory (file-truename org-directory))
+  :defer t
+  :init
+  (setq org-id-link-to-org-use-id nil
+        org-roam-directory (file-truename org-directory))
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
          ;; ("s-T" . org-roam-node-find)
@@ -152,10 +152,7 @@
          ;; Dailies
          ("C-c n j" . org-roam-dailies-capture-today))
   :config
-  ;; See https://github.com/kaushalmodi/ox-hugo/issues/483#issue-1083784843
-  (require 'find-lisp)
-  (setq org-id-extra-files (find-lisp-find-files org-roam-directory "\.org$"))
-  (org-roam-db-autosync-mode)
+  (org-roam-db-autosync-mode 1)
 
   ;; (setq org-roam-capture-templates '(("d" "default" plain "%?"
   ;;                                     :target (file+head "${slug}.org.gpg"

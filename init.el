@@ -524,7 +524,8 @@
 
 
 (use-package elm-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package emmet-mode
   :ensure t
@@ -580,7 +581,8 @@
 
 ;; HAML mode
 (use-package haml-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package helm
   :ensure t
@@ -643,10 +645,12 @@
          ))
 
 (use-package htmlize
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package inf-ruby
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; Iedit --- easily rename variables + rectangle mode
 (use-package iedit
@@ -741,7 +745,8 @@
          ))
 
 (use-package magit-annex
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package browse-at-remote
   :ensure t
@@ -978,7 +983,8 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 
 ;; Sort words in a line
 (use-package sort-words
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package sql-mode
   :bind (:map sql-mode-map
@@ -1027,6 +1033,7 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 ;; VLF (Very large files) support
 (use-package vlf
   :ensure t
+  :defer t
   :config
   (custom-set-variables '(vlf-application 'dont-ask)))
 
@@ -1088,7 +1095,8 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 ;;   (setq whitespace-style '(face tabs empty trailing)))
 
 (use-package yaml-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; Yard mode
 (use-package yard-mode

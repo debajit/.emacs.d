@@ -102,10 +102,12 @@
 ;;                              (?C . "blue"))))
 
 (use-package org-journal
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package ox-twbs
   :ensure t
+  :defer t
   )
 
 ;; Org-Roam basic configuration

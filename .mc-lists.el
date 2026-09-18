@@ -19,20 +19,26 @@
         delete-indentation
         dired-next-line
         dired-unmark-backward
+        display-line-numbers-mode
         easy-kill
         embolden-line
+        end-of-buffer
         end-of-visual-line
         fastnav-zap-up-to-char-forward
         fill-paragraph
         forward-sentence
+        forward-sexp
         haml-electric-backspace
         handle-switch-frame
         helm-M-x
+        helm-confirm-and-exit-minibuffer
+        hydra-switch-mode/body
         iedit-mode
         ignore
         kill-region
         mac-mwheel-scroll
         mark-word
+        markdown-end-of-line
         org-delete-char
         org-edit-special
         org-emphasize
@@ -49,7 +55,9 @@
         pabbrev-expand-maybe
         query-replace
         ruby-tools-interpolate
+        scroll-bar-toolkit-scroll
         sh-assignment
+        sh-end-of-command
         sp-backward-delete-char
         sp-delete-char
         swiper
@@ -64,15 +72,19 @@
         wdired-previous-line
         wdired-upcase-word
         web-mode-element-clone
+        yaml-electric-dash-and-dot
         ))
 
 (setq mc/cmds-to-run-once
       '(
         electric-pair-delete-pair
+        hydra-switch-mode/nil
         iedit-switch-to-mc-mode
+        magit-status
         mark-whole-buffer
         markdown-exdent-or-delete
         markdown-outdent-or-delete
         mouse-set-region
+        suspend-frame
         yaml-electric-backspace
         ))

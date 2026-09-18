@@ -329,7 +329,7 @@
   (package-install 'use-package))
 
 ;; Enable use-package
-(setq use-package-verbose t)
+(setq use-package-verbose nil)
 (eval-when-compile
   (require 'use-package))
 

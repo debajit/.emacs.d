@@ -344,6 +344,8 @@
 (require 'diminish)                ;; Since we use :diminish
 (require 'bind-key)                ;; Since we use :bind and its variants
 
+(load-user-file "dictionary.el")
+
 
 ;;----------------------------------------------------------------------
 ;; End setup for use-package
@@ -515,14 +517,6 @@
   (setq deft-use-filter-string-for-filename t)
   (setq deft-auto-save-interval 0))
 
-;; Local dictionary server installed with `make dict' in ~/src/setup/dotfiles.
-(use-package dictionary
-  :ensure nil
-  :commands dictionary-search
-  :custom
-  (dictionary-server "127.0.0.1")
-  (dictionary-search-interface 'help))
-
 (use-package dumb-jump
   :ensure t
   :bind (
@@ -561,18 +555,6 @@
   ;; :config
   ;; (add-hook 'prog-mode-hook 'fci-mode)
   )
-
-;; Spellcheck with flyspell
-(use-package flyspell
-  :diminish flyspell-mode
-  :bind ("<s-return>" . flyspell-auto-correct-previous-word)
-  :config
-  (when (eq system-type 'windows-nt)
-    (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/"))
-  (setq ispell-program-name "hunspell"
-        ispell-local-dictionary "en_US")
-  (add-hook 'text-mode-hook #'flyspell-mode)
-  (add-hook 'prog-mode-hook #'flyspell-prog-mode))
 
 ;; FIXME:
 ;; ;; Flyspell with Credo

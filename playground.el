@@ -67,9 +67,6 @@ that was stored with ska-point-to-register."
 
 (global-set-key (kbd "M-+") 'calc-eval-region)
 
-(setq ispell-program-name (executable-find "hunspell")
-      ispell-dictionary "en_US")
-
 (global-set-key (kbd "M-I") 'org-agenda-show-custom-perspective)
 
 ;; Make emacs open all files in last emacs session.

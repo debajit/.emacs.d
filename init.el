@@ -515,6 +515,14 @@
   (setq deft-use-filter-string-for-filename t)
   (setq deft-auto-save-interval 0))
 
+;; Local dictionary server installed with `make dict' in ~/src/setup/dotfiles.
+(use-package dictionary
+  :ensure nil
+  :commands dictionary-search
+  :custom
+  (dictionary-server "127.0.0.1")
+  (dictionary-search-interface 'help))
+
 (use-package dumb-jump
   :ensure t
   :bind (

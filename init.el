@@ -937,7 +937,7 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
   :bind (("s-P" . helm-projectile-switch-project)
          ("s-." . open-file-or-jump-dwim))
   :config
-  (projectile-global-mode +1))
+  (projectile-mode +1))
 
 ;; Narrow and widen intelligently, depending on the context (into a
 ;; selection, function, Org subtree etc.), with the same key.

@@ -27,7 +27,6 @@
 (my-load-user-file "date-time.el")
 (my-load-user-file "file-definitions.el")
 (my-load-user-file "file-jump-keys.el")
-(my-load-user-file "bookmarks-web.el")
 ;; (load-file "~/WorkDocs/Application Settings/Emacs/bookmarks-work.el")
 (my-load-user-file "emacs-for-macosx.el")
 (my-load-user-file "emacs-mac-port.el")
@@ -299,15 +298,6 @@
 
 ;; a => Open in same buffer
 (put 'dired-find-alternate-file 'disabled nil)
-
-;;
-;; Webjump settings.
-;; Quickly jump to websites from Emacs.
-;;
-
-;; (Command + Shift + Enter) - Webjump (Show list of websites that one can quickly jump to)
-;; (global-set-key (kbd "s-g") 'webjump)
-
 
 ;;----------------------------------------------------------------------
 ;; External Packages

@@ -12,6 +12,21 @@
 ;;       s-q     Close buffer (i.e. kill current buffer)
 ;;   s-S-SPC Show buffers
 
+;; Packages
+(use-package ultra-scroll
+  ;; See https://github.com/jdtsmith/ultra-scroll
+  ;;
+  ;; Ultra Scroll is available from MELPA.  `:ensure t' makes this
+  ;; declaration self-contained: use-package installs it when missing,
+  ;; without requiring a separate `package-vc-install' step.
+  :ensure t
+  :init
+  (setq scroll-conservatively 101
+        scroll-margin 0)
+  :config
+  (ultra-scroll-mode 1))
+
+
 ;;----------------------------------------------------------------------
 ;; Keybindings
 ;;----------------------------------------------------------------------

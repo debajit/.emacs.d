@@ -72,6 +72,9 @@
 ;; (setq tab-always-indent 'complete)
 
 ;; Desktop mode (Always save and restore the open buffers)
+(setq desktop-restore-eager 2
+      desktop-lazy-idle-delay 3
+      desktop-lazy-verbose nil)
 (desktop-save-mode 1)
 
 ;; Start the Emacs server for emacsclient connections.

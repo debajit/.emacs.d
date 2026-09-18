@@ -8,6 +8,7 @@
 (use-package dictionary
   :ensure nil
   :commands dictionary-search
+  :bind ("M-#" . dictionary-lookup-definition)
   :custom
   (dictionary-server "127.0.0.1")
   (dictionary-search-interface 'help))

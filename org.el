@@ -281,6 +281,10 @@ shared cache because it may produce a different set or order of candidates."
 
 (with-eval-after-load 'org
 
+  ;; man: links.  See https://orgmode.org/manual/Adding-Hyperlink-Types.html
+  (require 'ol-man)
+  (setq org-man-command 'woman)         ; Open man pages with woman
+
   ;; Markup
 
   ;;
@@ -308,8 +312,6 @@ shared cache because it may produce a different set or order of candidates."
   (define-key org-mode-map (kbd "s-U") 'codify-line))
 
 (with-eval-after-load 'org-agenda
-
-  (require 'ol-man)                     ; See https://orgmode.org/manual/Adding-Hyperlink-Types.html
 
   ;; Use x to mark tasks as done in Org agenda. See
   ;; https://sachachua.com/blog/2013/01/emacs-org-task-related-keyboard-shortcuts-agenda/

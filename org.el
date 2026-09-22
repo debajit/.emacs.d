@@ -318,9 +318,12 @@ shared cache because it may produce a different set or order of candidates."
   ;; Macros
   (define-key org-mode-map (kbd "s-B") 'embolden-line)
   (define-key org-mode-map (kbd "s-l") 'list-itemify)
-  (define-key org-mode-map (kbd "s-I") 'italicize-line)
   (define-key org-mode-map (kbd "s-H") 'list-item-with-heading)
-  (define-key org-mode-map (kbd "s-U") 'codify-line))
+  ;; s-I and s-U are deliberately left unbound here so the global bindings
+  ;; (helm-imenu-in-all-buffers, visual-line-mode) stay available in Org
+  ;; buffers.  The italicize-line and codify-line macros still live in
+  ;; macros.el.
+  )
 
 (with-eval-after-load 'org-agenda
 

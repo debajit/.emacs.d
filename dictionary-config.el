@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;;
 ;; ~/.emacs.d/dictionary-config.el
 ;;

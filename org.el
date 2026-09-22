@@ -281,6 +281,13 @@ shared cache because it may produce a different set or order of candidates."
 
 (with-eval-after-load 'org
 
+  ;; Fontify emphasis (*bold*, /italic/ etc.) that spans hard-wrapped lines.
+  ;; The fifth component is the maximum number of newlines allowed inside one
+  ;; emphasis span; the default of 1 leaves most wrapped markup unfontified.
+  ;; `org-set-emph-re' both sets the variable and recomputes `org-emph-re'.
+  (org-set-emph-re 'org-emphasis-regexp-components
+                   (append (butlast org-emphasis-regexp-components) '(20)))
+
   ;; man: links.  See https://orgmode.org/manual/Adding-Hyperlink-Types.html
   (require 'ol-man)
   (setq org-man-command 'woman)         ; Open man pages with woman

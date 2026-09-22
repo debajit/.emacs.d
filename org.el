@@ -111,6 +111,10 @@
   :defer t
   )
 
+(use-package org-web-tools
+  :ensure t
+  :defer t)
+
 ;; Org-Roam basic configuration
 (setq org-directory (concat (getenv "HOME") "/Archive/Knowledge/Notes/"))
 

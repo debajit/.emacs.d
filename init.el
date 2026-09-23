@@ -614,7 +614,7 @@
          ([remap bookmark-jump] . consult-bookmark)
          ([remap goto-line] . consult-goto-line)
          ([remap yank-pop] . consult-yank-pop)
-         ("s-SPC" . consult-recent-file)
+         ("s-SPC" . consult-buffer)
          ("s-i" . consult-imenu)
          ("s-I" . consult-imenu-multi)
          ("s-f" . consult-line)

@@ -14,7 +14,7 @@
 ;;                     (color-darken-name
 ;;                      (face-attribute 'default :background) 4))
 
-(use-package treemacs-projectile
+(use-package treemacs
   :ensure t
   :bind ("M-T" . treemacs))
 

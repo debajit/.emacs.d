@@ -615,7 +615,6 @@
          ("s-SPC" . consult-recent-file)
          ("s-i" . consult-imenu)
          ("s-I" . consult-imenu-multi)
-         ("s-t" . consult-fd)
          ("s-f" . consult-line)
          ("M-F" . consult-line-multi)
          ("s-F" . consult-ripgrep)
@@ -725,10 +724,6 @@
   :init
   (setq ivy-use-virtual-buffers t)
   )
-
-(use-package helm-projectile
-  :disabled t
-  :ensure t)
 
 ;; Highlight TODO, FIXME etc
 (use-package hl-todo
@@ -980,16 +975,13 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
     (dumb-jump-go))
   )
 
-(global-set-key (kbd "s->") 'projectile-find-file-dwim)
-
-;; Projectile -- Project management
-(use-package projectile
-  :ensure t
-  :diminish projectile-mode
-  :bind (("s-P" . projectile-switch-project)
-         ("s-." . open-file-or-jump-dwim))
-  :config
-  (projectile-mode +1))
+;; Built-in project management
+(use-package project
+  :ensure nil
+  :bind (("s-P" . project-switch-project)
+         ("s-t" . project-find-file)
+         ("s->" . project-find-file)
+         ("s-." . open-file-or-jump-dwim)))
 
 ;; Narrow and widen intelligently, depending on the context (into a
 ;; selection, function, Org subtree etc.), with the same key.

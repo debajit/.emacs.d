@@ -115,7 +115,7 @@
                    fireplace git-timemachine gitattributes-mode
                    gitconfig-mode gitignore-mode google-this
                    gruvbox-theme haml-mode helm-git-grep helm-ls-git
-                   helm-org-rifle helm-projectile hl-todo htmlize
+                   helm-org-rifle hl-todo htmlize
                    hyperbole iedit imenu-list inf-ruby java-snippets
                    js2-mode ligature lua-mode magit-annex marginalia
                    markdown-mode modern-cpp-font-lock move-text
@@ -124,7 +124,7 @@
                    plantuml-mode quickrun rainbow-delimiters
                    rainbow-mode recursive-narrow redis reformatter
                    ruby-tools scss-mode sort-words svg-clock
-                   transpose-frame treemacs-projectile typescript-mode vertico
+                   transpose-frame treemacs typescript-mode vertico
                    unfill use-package vlf web-mode wgrep-helm
                    writeroom-mode yaml-mode yard-mode zeal-at-point))
  '(quote (vlf-application 'dont-ask))

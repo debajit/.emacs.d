@@ -257,7 +257,7 @@
                               ;; http://www.howardism.org/Technical/Emacs/journaling-org.html
                               ;;
                               ("j" "Journal Entry — Work"
-                               entry (file+datetree work-journal-file)
+                               entry (file+olp+datetree work-journal-file)
                                "* %?")
 
                               ;; Add Retrospective entry

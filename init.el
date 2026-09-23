@@ -596,7 +596,7 @@
   (completion-styles '(orderless basic))
   (completion-category-defaults nil)
   (orderless-matching-styles
-   '(orderless-literal orderless-regexp orderless-initialism))
+   '(orderless-literal orderless-regexp orderless-initialism orderless-flex))
   ;; Retain convenient path input such as ~/.e/i.el, then fall back to
   ;; Orderless for file lists such as `consult-recent-file'.
   (completion-category-overrides

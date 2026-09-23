@@ -31,6 +31,7 @@
 
   ;; Org mode keyboard shortcuts
   :bind (:map org-mode-map
+              ("s-i" . consult-org-heading)
               ("s-." . org-open-at-point)
               ("s-," . org-mark-ring-goto)
               ;; ("s-u" . org-up-element)

@@ -258,10 +258,10 @@ result without restarting Emacs."
   (interactive)
   (variable-pitch-mode t)
   (setq line-spacing 3)
-  (set-face-attribute 'markdown-pre-face nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
+  ;; Package-defined faces may not exist until their package has loaded.
+  (dolist (face '(markdown-pre-face org-table org-code org-block))
+    (when (facep face)
+      (set-face-attribute face nil :inherit 'fixed-pitch)))
   )
 
 (add-hook 'org-mode-hook 'set-buffer-variable-pitch)

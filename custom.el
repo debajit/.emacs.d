@@ -77,10 +77,6 @@
  '(gdb-show-main t)
  '(global-hl-line-mode t)
  '(global-pabbrev-mode t)
- '(helm-completion-style 'emacs)
- '(helm-locate-command "locate -i -r %s")
- '(helm-mode t)
- '(helm-truncate-lines t)
  '(hl-todo-keyword-faces
    '(("HOLD" . "#fdf4c1") ("TODO" . "#fdf4c1") ("OPTIMIZE" . "#fdf4c1")
      ("NEXT" . "#fdf4c1") ("THEM" . "#fdf4c1") ("PROG" . "#7cb8bb")
@@ -111,7 +107,7 @@
  '(package-selected-packages
    '(adaptive-wrap aggressive-indent alchemist anki-editor atomic-chrome
                    beacon birds-of-paradise-plus-theme
-                   browse-at-remote comment-dwim-2 corral counsel crux
+                   browse-at-remote comment-dwim-2 consult corral counsel crux
                    dash-at-point deft diminish dumb-jump easy-kill
                    edit-indirect elixir-yasnippets emacsql-sqlite
                    emacsql-sqlite3 emmet-mode exec-path-from-shell
@@ -121,14 +117,14 @@
                    gruvbox-theme haml-mode helm-git-grep helm-ls-git
                    helm-org-rifle helm-projectile hl-todo htmlize
                    hyperbole iedit imenu-list inf-ruby java-snippets
-                   js2-mode ligature lua-mode magit-annex
+                   js2-mode ligature lua-mode magit-annex marginalia
                    markdown-mode modern-cpp-font-lock move-text
-                   multiple-cursors olivetti org-bullets org-drill
+                   multiple-cursors olivetti orderless org-bullets org-drill
                    org-journal org-roam org-web-tools ox-twbs pabbrev
                    plantuml-mode quickrun rainbow-delimiters
                    rainbow-mode recursive-narrow redis reformatter
                    ruby-tools scss-mode sort-words svg-clock
-                   transpose-frame treemacs-projectile typescript-mode
+                   transpose-frame treemacs-projectile typescript-mode vertico
                    unfill use-package vlf web-mode wgrep-helm
                    writeroom-mode yaml-mode yard-mode zeal-at-point))
  '(quote (vlf-application 'dont-ask))

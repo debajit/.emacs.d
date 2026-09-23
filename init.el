@@ -127,7 +127,7 @@
 ;; (global-set-key (kbd "<f5>") 'apply-macro-to-region-lines)
 
 ;; Copy-paste
-(global-set-key (kbd "s-V") 'helm-show-kill-ring)
+(global-set-key (kbd "s-V") 'consult-yank-from-kill-ring)
 
 ;; Toggle read-only mode: s-j
 ;; (global-set-key (kbd "s-j") 'view-mode)
@@ -313,7 +313,7 @@
 ;; this file is loaded, so there is no need to call `package-initialize'.
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 ;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-;; (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 
 ;; use-package is built in since Emacs 29.1, and its macro is autoloaded,
 ;; so it needs neither a bootstrap install nor a `require' here. bind-key
@@ -447,7 +447,6 @@
 
 (use-package css-mode
   :diminish aggressive-indent-mode
-  :diminish helm-mode
   :init
   (setq css-indent-offset 2)
   :config
@@ -572,7 +571,70 @@
   :ensure t
   :defer t)
 
+;; Modern completion.  Vertico supplies the minibuffer UI, Orderless
+;; supplies flexible matching, Marginalia supplies annotations, and
+;; Consult supplies search/navigation commands with live previews.
+(use-package savehist
+  :init
+  (savehist-mode 1))
+
+(use-package vertico
+  :ensure t
+  :custom
+  (vertico-cycle t)
+  :init
+  ;; Only one global completion UI should advise `completing-read'.
+  (when (bound-and-true-p helm-mode)
+    (helm-mode -1))
+  (when (bound-and-true-p ivy-mode)
+    (ivy-mode -1))
+  (vertico-mode 1))
+
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-defaults nil)
+  ;; Retain convenient path input such as ~/.e/i.el, then fall back to
+  ;; Orderless for file lists such as `consult-recent-file'.
+  (completion-category-overrides
+   '((file (styles partial-completion orderless)))))
+
+(use-package marginalia
+  :ensure t
+  :init
+  (marginalia-mode 1))
+
+(use-package consult
+  :ensure t
+  :bind (([remap switch-to-buffer] . consult-buffer)
+         ([remap switch-to-buffer-other-window] . consult-buffer-other-window)
+         ([remap bookmark-jump] . consult-bookmark)
+         ([remap goto-line] . consult-goto-line)
+         ([remap yank-pop] . consult-yank-pop)
+         ("s-SPC" . consult-recent-file)
+         ("s-i" . consult-imenu)
+         ("s-I" . consult-imenu-multi)
+         ("s-t" . consult-fd)
+         ("s-f" . consult-line)
+         ("M-F" . consult-line-multi)
+         ("s-F" . consult-ripgrep)
+         ("s-B" . consult-bookmark)
+         ("M-L" . consult-locate)
+         ("M-O" . consult-org-agenda)
+         ("C-h I" . consult-info)
+         ("C-h F" . describe-face)
+         ("C-h S" . info-lookup-symbol))
+  :init
+  ;; Preserve the previous macOS Spotlight-backed locate behavior.
+  (when (eq system-type 'darwin)
+    (setq consult-locate-args "mdfind -name")))
+
+;; Keep the previous completion stack available for rollback while the
+;; Vertico setup settles in.  These packages remain installed but do not
+;; install bindings or global completion advice.
 (use-package helm
+  :disabled t
   :ensure t
   :bind (("M-x" . helm-M-x)
          ;; ("s-SPC" . helm-mini)        ; List buffers, like C-x b
@@ -584,7 +646,9 @@
          ("C-h I" . helm-info)
          )
   :init
-  (setq helm-truncate-lines t)
+  (setq helm-completion-style 'emacs
+        helm-locate-command "locate -i -r %s"
+        helm-truncate-lines t)
   (setq helm-locate-fuzzy-match nil)    ; Required for mdfind
   (setq helm-locate-command
         (case system-type
@@ -609,15 +673,18 @@
 ;;   )
 
 (use-package wgrep-helm
+  :disabled t
   :ensure t)
 
 (use-package helm-ls-git
+  :disabled t
   :ensure t
   ;; :bind ("M-t" . helm-ls-git-ls)
   :bind ("s-t" . helm-ls-git-ls)
   )
 
 (use-package counsel
+  :disabled t
   :ensure t
   :init
   (setq locate-command "mdfind")
@@ -646,6 +713,7 @@
   :bind* ("C-;" . iedit-mode))
 
 (use-package ivy
+  :disabled t
   :diminish ivy-mode
   :config
   (progn
@@ -659,6 +727,7 @@
   )
 
 (use-package helm-projectile
+  :disabled t
   :ensure t)
 
 ;; Highlight TODO, FIXME etc
@@ -911,13 +980,13 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
     (dumb-jump-go))
   )
 
-(global-set-key (kbd "s->") 'helm-projectile-find-file-dwim)
+(global-set-key (kbd "s->") 'projectile-find-file-dwim)
 
 ;; Projectile -- Project management
 (use-package projectile
   :ensure t
   :diminish projectile-mode
-  :bind (("s-P" . helm-projectile-switch-project)
+  :bind (("s-P" . projectile-switch-project)
          ("s-." . open-file-or-jump-dwim))
   :config
   (projectile-mode +1))
@@ -991,6 +1060,7 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 ;; Swiper - A better helm-swoop (for incremental search)
 ;; http://oremacs.com/2015/03/10/no-swiping/
 (use-package swiper
+  :disabled t
   :ensure t
   :bind (
          ("s-f" . swiper)

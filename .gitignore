@@ -4,6 +4,7 @@ auto-save-list
 bookmarks
 recentf
 savehist
+/history
 saveplace
 eshell
 elpa

@@ -110,17 +110,19 @@
 (use-package nice-org-html
   :ensure t
   :hook (org-mode . nice-org-html-mode)
-  :custom
-  (nice-org-html-theme-alist
-   '((light . tsdh-light)
-     (dark . tsdh-dark)))
-  (nice-org-html-default-mode 'query)
-  (nice-org-html-headline-bullets nil)
-  (nice-org-html-css
-   (expand-file-name "assets/css/nice-org-html.css"
-                     user-emacs-directory))
-  (nice-org-html-options
-   '(:layout "compact" :collapsing t :src-lang t)))
+  :init
+  ;; nice-org-html defines these as ordinary variables rather than Custom
+  ;; options, so `:custom' does not apply them before the package is loaded.
+  (setq nice-org-html-theme-alist
+        '((light . tsdh-light)
+          (dark . tsdh-dark))
+        nice-org-html-default-mode 'query
+        nice-org-html-headline-bullets nil
+        nice-org-html-css
+        (expand-file-name "assets/css/nice-org-html.css"
+                          user-emacs-directory)
+        nice-org-html-options
+        '(:layout "compact" :collapsing t :src-lang t)))
 
 (use-package org-web-tools
   :ensure t

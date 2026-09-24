@@ -24,6 +24,31 @@ h6 {
         "Helvetica Neue",
         Arial,
         sans-serif;
+    color: #005486;
+    font-weight: 400;
+}
+
+h2 {
+    margin-top: 3rem;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    margin-top: calc(1em + 1rem);
+}
+
+b,
+strong,
+th {
+    font-family:
+        "Ideal Sans Semibold",
+        "Ideal Sans",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+    font-weight: normal;
 }
 
 code,

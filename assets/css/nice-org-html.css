@@ -1,0 +1,40 @@
+/* Personal overrides for nice-org-html exports.
+ *
+ * This stylesheet is loaded after nice-org-html's bundled CSS, allowing these
+ * declarations to override package defaults without modifying package files.
+ */
+
+body {
+    font-family:
+        "Ideal Sans",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family:
+        "Verlag",
+        "Ideal Sans",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+}
+
+code,
+kbd,
+samp,
+pre {
+    font-family:
+        "Cascadia Code",
+        SFMono-Regular,
+        Menlo,
+        Consolas,
+        "Liberation Mono",
+        monospace;
+}

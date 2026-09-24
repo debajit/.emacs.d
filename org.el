@@ -116,6 +116,9 @@
      (dark . tsdh-dark)))
   (nice-org-html-default-mode 'query)
   (nice-org-html-headline-bullets nil)
+  (nice-org-html-css
+   (expand-file-name "assets/css/nice-org-html.css"
+                     user-emacs-directory))
   (nice-org-html-options
    '(:layout "compact" :collapsing t :src-lang t)))
 

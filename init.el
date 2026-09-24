@@ -1190,6 +1190,7 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 ;; (load-file "~/WorkDocs/Application Settings/Emacs/local-workspaces.el")
 (my-load-user-file "hydras.el")
 (my-load-user-file "mail.el")
+(my-load-user-file "http.el")
 (my-load-user-file "redis.el")
 (my-load-user-file "playground.el")
 ;; (my-load-user-file "private.el")           ; For local

@@ -39,6 +39,25 @@ h6 {
     margin-top: calc(1em + 1rem);
 }
 
+h1.title {
+    text-align: left;
+}
+
+h1.title .title-first-word {
+    font-family:
+        "Verlag Black",
+        "Verlag",
+        "Ideal Sans Semibold",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+    font-weight: normal;
+}
+
+#content p + p {
+    margin-top: 1.5rem;
+}
+
 b,
 strong,
 th {

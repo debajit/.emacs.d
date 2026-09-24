@@ -107,10 +107,17 @@
   :ensure t
   :defer t)
 
-(use-package ox-twbs
+(use-package nice-org-html
   :ensure t
-  :defer t
-  )
+  :hook (org-mode . nice-org-html-mode)
+  :custom
+  (nice-org-html-theme-alist
+   '((light . tsdh-light)
+     (dark . tsdh-dark)))
+  (nice-org-html-default-mode 'query)
+  (nice-org-html-headline-bullets nil)
+  (nice-org-html-options
+   '(:layout "compact" :collapsing t :src-lang t)))
 
 (use-package org-web-tools
   :ensure t

@@ -74,13 +74,17 @@ h1.title {
 
 h1.title .title-first-word {
     font-family:
-        "Verlag Black",
-        "Verlag",
-        "Ideal Sans Semibold",
+        "Ideal Sans Bold",
+        "Ideal Sans",
         "Helvetica Neue",
         Arial,
         sans-serif;
     font-weight: normal;
+}
+
+#content p,
+#content li {
+    line-height: 1.55;
 }
 
 #content p + p {

@@ -1,4 +1,9 @@
 ;;; -*- lexical-binding: t -*-
+;; (setq url-proxy-services '(("no_proxy" . "localhost|127.0.0.1|.us.oracle.com|.oraclecorp.com|.oraclevpn.com|.oraclevcn.com")
+;;                            ("http" . "http://www-proxy-hqdc.us.oracle.com:80")
+;;                            ("https" . "http://www-proxy-hqdc.us.oracle.com:80")
+;;             ))
+
 (defun my-load-user-file (file)
   "Load FILE relative to `user-emacs-directory'."
   (interactive
@@ -9,9 +14,8 @@
 ;; Update load paths to load files from
 (add-to-list 'load-path "~/.emacs.d/custom-packages/")
 
-(my-load-user-file "tree-sitter.el")
 (my-load-user-file "calendar.el")
-(my-load-user-file "typography.el")
+(my-load-user-file "contacts.el")
 (my-load-user-file "autocomplete.el")
 (my-load-user-file "text-editing.el")
 (my-load-user-file "build.el")
@@ -28,14 +32,15 @@
 (my-load-user-file "date-time.el")
 (my-load-user-file "file-definitions.el")
 (my-load-user-file "file-jump-keys.el")
-;; (load-file "~/WorkDocs/Application Settings/Emacs/bookmarks-work.el")
 (my-load-user-file "emacs-for-macosx.el")
 (my-load-user-file "emacs-mac-port.el")
 (my-load-user-file "macros.el")
 (my-load-user-file "selection.el")
 ;; (my-load-user-file "calculator.el")
+(my-load-user-file "terraform.el")
 (my-load-user-file "ruby.el")
 (my-load-user-file "emacs-lisp.el")
+;; (my-load-user-file "tree-sitter.el")
 ;; (my-load-user-file "dired.el")
 
 ;; Save customizations in a separate file (custom.el)
@@ -182,7 +187,7 @@
 ;; Version control / Source control
 ;;----------------------------------------------------------------------
 
-(global-set-key [f12] 'vc-annotate)
+;; (global-set-key [f12] 'vc-annotate)
 (global-set-key (kbd "s-H") 'vc-region-history)
 (global-set-key (kbd "s-C") 'magit-diff-buffer-file)
 (global-set-key (kbd "s-S") 'magit-stage-buffer-file)
@@ -219,6 +224,7 @@
                          ,home-tasks-file
                          ,work-tasks-file
                          ,finances-tasks-file
+                         ,holidays-file
                          ,projects-tasks-file
                          ,people-tasks-file
                          ,home-journal-file
@@ -256,7 +262,7 @@
                               ;; Taken from
                               ;; http://www.howardism.org/Technical/Emacs/journaling-org.html
                               ;;
-                              ("j" "Journal Entry — Work"
+                              ("w" "Journal Entry — Work"
                                entry (file+olp+datetree work-journal-file)
                                "* %?")
 
@@ -356,8 +362,11 @@
     (if (bound-and-true-p visual-line-mode)
         (toggle-truncate-lines)
       (visual-line-mode)))
-  (global-set-key (kbd "s-p") 'toggle-wrap-dwim)
+
+  ;; (global-set-key (kbd "s-p") 'toggle-wrap-dwim)
   )
+
+(global-set-key (kbd "s-p") 'toggle-truncate-lines)
 
 ;; Aggressive indent
 (use-package aggressive-indent
@@ -475,10 +484,10 @@
 ;;          ;; ("s-." . etags-select-find-tag)
 ;;          ("M-," . pop-tag-mark)))       ; Jump back from tag found
 
-;; zeal-at-point (Lookup in Zeal)
-(use-package zeal-at-point
-  :ensure t
-  :bind ("s-u" . zeal-at-point))
+;; ;; zeal-at-point (Lookup in Zeal)
+;; (use-package zeal-at-point
+;;   :ensure t
+;;   :bind ("s-u" . zeal-at-point))
 
 ;; Deft -- A note-taking system like Notational Velocity. The following
 ;; configuration is largely adapted from
@@ -505,6 +514,8 @@
          ("s-." . dumb-jump-go)
          ("s-," . dumb-jump-back)
          )
+  :config
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
   :init
   (dumb-jump-mode)
   )
@@ -534,7 +545,7 @@
 ;; Fill column indicator (Print margin — Enable for all files)
 (use-package fill-column-indicator
   :ensure t
-  :bind ("<f12>" . fci-mode)
+  ;; :bind ("<f12>" . fci-mode)
   ;; :config
   ;; (add-hook 'prog-mode-hook 'fci-mode)
   )
@@ -552,14 +563,14 @@
 ;;   :config
 ;;   (fringe-mode 32 32))                  ; Make fringes wider for more comfortable reading
 
-(use-package gitattributes-mode
-  :ensure t)
+;; (use-package gitattributes-mode
+;;   :ensure t)
 
-(use-package gitconfig-mode
-  :ensure t)
+;; (use-package gitconfig-mode
+;;   :ensure t)
 
-(use-package gitignore-mode
-  :ensure t)
+;; (use-package gitignore-mode
+;;   :ensure t)
 
 (use-package google-this
   :ensure t
@@ -639,11 +650,10 @@
   :ensure t
   :bind (("M-x" . helm-M-x)
          ;; ("s-SPC" . helm-mini)        ; List buffers, like C-x b
-         ("s-SPC" . switch-to-buffer)     ; We should be able to remove this line
-         ;; ("s-i" . helm-semantic-or-imenu) ; Jump to method
+         ("s-i" . helm-semantic-or-imenu) ; Jump to method
          ("s-I" . helm-imenu-in-all-buffers) ; Jump to any open method anywhere
-         ("M-L" . helm-locate)
-         ("s-B" . helm-bookmarks)
+         ;; ("M-L" . helm-locate)
+         ;; ("s-B" . helm-bookmarks)
          ("C-h I" . helm-info)
          )
   :init
@@ -651,20 +661,19 @@
         helm-locate-command "locate -i -r %s"
         helm-truncate-lines t)
   (setq helm-locate-fuzzy-match nil)    ; Required for mdfind
-  (setq helm-locate-command
-        (case system-type
-          ('darwin "mdfind -name %s %s")
-          ('gnu/linux "locate -i -r %s")
-          ('windows-nt "es %s")
-          ('berkeley-unix "locate -i %s")
-          (t "locate %s")))
+  ;; (setq helm-locate-command
+  ;;       (pcase system-type
+  ;;         ('darwin "mdfind -name %s %s")
+  ;;         ('gnu/linux "locate -i -r %s")
+  ;;         ('windows-nt "es %s")
+  ;;         ('berkeley-unix "locate -i %s")))
   :config
   (helm-mode 1)
   (eval-after-load 'helm-mode '(diminish 'helm-mode)))
 
-(use-package helm-git-grep
-  :ensure t
-  :bind ("s-F" . helm-git-grep-at-point))
+;; (use-package helm-git-grep
+;;   :ensure t
+;;   :bind ("s-F" . helm-git-grep-at-point))
 
 ;; (use-package helm-org-rifle
 ;;   :ensure t
@@ -692,8 +701,12 @@
   (setq counsel-locate-cmd 'counsel-locate-cmd-mdfind)
   (setq counsel-find-file-at-point t)
   :bind (
-         ;; ("s-t" . counsel-git)
-         ("s-i" . counsel-imenu)
+         ("s-t" . counsel-git)
+         ("s-F" . counsel-git-grep)
+         ("s-B" . counsel-bookmark)
+         ("s-SPC" . counsel-recentf)
+         ;; ("s-i" . counsel-imenu)
+         ("M-L" . counsel-locate)
          ("M-O" . counsel-org-goto-all)
          ("C-h F" . counsel-faces)
          ("C-h S" . counsel-info-lookup-symbol)
@@ -778,6 +791,7 @@
 ;;   (add-hook 'javascript-mode-hook 'my-javascript-mode-hook))
 
 (use-package imenu-list
+  :ensure t
   :commands (imenu-list imenu-list-smart-toggle)
   :bind ("M-H" . imenu-list-smart-toggle)
   :config
@@ -866,8 +880,8 @@
 ;; Markdown Mode
 (use-package markdown-mode
   :ensure t
-  :mode (("\\.markdown$" . markdown-mode)
-         ("\\.md$" . markdown-mode))
+  :mode (("\\.markdown$" . gfm-mode)
+         ("\\.md$" . gfm-mode))
   :init
   (setq markdown-asymmetric-header t)
   (setq-default markdown-hide-markup t)
@@ -948,7 +962,7 @@
         pabbrev-read-only-error nil
         pabbrev-scavenge-on-large-move nil)
   :config
-  (put 'yas-expand 'pabbrev-expand-after-command t)
+  (put 'yas/expand 'pabbrev-expand-after-command t)
   (global-pabbrev-mode)
   ;; Fix for pabbrev not working in org mode
   ;; http://lists.gnu.org/archive/html/emacs-orgmode/2016-02/msg00311.html
@@ -1176,10 +1190,19 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 
 (use-package hydra)
 
+;; ;; TODO: Move to appropriate location
+;; (use-package default-text-scale
+;;   :ensure t
+;;   :bind
+;;   (("s-0" . default-text-scale-reset)
+;;    ("s-=" . default-text-scale-increase)
+;;    ("s--" . default-text-scale-decrease)))
+
 ;; (my-load-user-file "programming.el")
 ;; (my-load-user-file "reading.el")
 (my-load-user-file "cpp.el")
 (my-load-user-file "html.el")
+;; (my-load-user-file "eaf.el")
 (my-load-user-file "elixir.el")
 (my-load-user-file "java.el")
 (my-load-user-file "javascript.el")
@@ -1189,7 +1212,7 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 (my-load-user-file "code-visualization.el")
 ;; (load-file "~/WorkDocs/Application Settings/Emacs/local-workspaces.el")
 (my-load-user-file "hydras.el")
-(my-load-user-file "mail.el")
+;; (my-load-user-file "mail.el")
 (my-load-user-file "http.el")
 (my-load-user-file "redis.el")
 (my-load-user-file "playground.el")
@@ -1199,6 +1222,18 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 ;; Override keybindings from other packages
 ;; (global-set-key (kbd "M-i") 'imenu)
 
+;; Have C-s incremental search position the cursor at the start of the match
+;; From https://www.emacswiki.org/emacs/IncrementalSearch#toc4
+
+(add-hook 'isearch-mode-end-hook 'my-goto-match-beginning)
+(defun my-goto-match-beginning ()
+  (when (and isearch-forward isearch-other-end)
+    (goto-char isearch-other-end)))
+
+(defadvice isearch-exit (after my-goto-match-beginning activate)
+  "Go to beginning of match."
+  (when (and isearch-forward isearch-other-end)
+    (goto-char isearch-other-end)))
 
 ;;----------------------------------------------------------------------
 ;; Theme
@@ -1216,3 +1251,6 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
     (load-theme 'two-firewatch-light t)
   (load-theme 'stygian t))
 (put 'list-timers 'disabled nil)
+
+(my-load-user-file "typography.el")
+(put 'upcase-region 'disabled nil)

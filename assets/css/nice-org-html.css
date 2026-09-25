@@ -141,10 +141,11 @@ kbd,
 samp,
 pre {
     font-family:
-        "Cascadia Code",
+        "JetBrains Mono",
         SFMono-Regular,
         Menlo,
         Consolas,
         "Liberation Mono",
         monospace;
+    font-size: 0.85em;
 }

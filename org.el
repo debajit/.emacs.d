@@ -107,6 +107,28 @@
   :ensure t
   :defer t)
 
+(defun my/nice-org-html-source-link (original-function link description info)
+  "Export numeric source-file line links without fuzzy-link resolution.
+
+Org's HTML exporter passes every file-link search suffix to the publishing
+resolver.  Numeric suffixes such as ::25 on non-Org source files are line
+numbers, not fuzzy Org targets, so export the file link without that suffix."
+  (let ((search-option (org-element-property :search-option link))
+        (path (org-element-property :path link))
+        (backend (plist-get info :back-end)))
+    (if (and backend
+             (eq (org-export-backend-name backend) 'nice-html)
+             (equal (org-element-property :type link) "file")
+             (stringp search-option)
+             (string-match-p "\\`[[:digit:]]+\\'" search-option)
+             (not (string-match-p "\\.org\\(?:\\.gpg\\)?\\'" path)))
+        (let ((source-link (org-element-copy link t)))
+          (org-element-put-property source-link :parent
+                                    (org-element-parent link))
+          (org-element-put-property source-link :search-option nil)
+          (funcall original-function source-link description info))
+      (funcall original-function link description info))))
+
 (use-package nice-org-html
   :ensure t
   :hook (org-mode . nice-org-html-mode)
@@ -125,7 +147,10 @@
         (expand-file-name "assets/js/nice-org-html.js"
                           user-emacs-directory)
         nice-org-html-options
-        '(:layout "compact" :collapsing t :src-lang t)))
+        '(:layout "compact" :collapsing t :src-lang t))
+  :config
+  (unless (advice-member-p #'my/nice-org-html-source-link 'org-html-link)
+    (advice-add 'org-html-link :around #'my/nice-org-html-source-link)))
 
 (use-package org-web-tools
   :ensure t

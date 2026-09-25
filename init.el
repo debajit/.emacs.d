@@ -1,8 +1,4 @@
 ;;; -*- lexical-binding: t -*-
-;; (setq url-proxy-services '(("no_proxy" . "localhost|127.0.0.1|.us.oracle.com|.oraclecorp.com|.oraclevpn.com|.oraclevcn.com")
-;;                            ("http" . "http://www-proxy-hqdc.us.oracle.com:80")
-;;                            ("https" . "http://www-proxy-hqdc.us.oracle.com:80")
-;;             ))
 
 (defun my-load-user-file (file)
   "Load FILE relative to `user-emacs-directory'."
@@ -1209,7 +1205,7 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 (my-load-user-file "http.el")
 (my-load-user-file "redis.el")
 (my-load-user-file "playground.el")
-;; (my-load-user-file "private.el")           ; For local
+(my-load-user-file "local.el")
 
 
 ;; Override keybindings from other packages

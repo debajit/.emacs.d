@@ -448,42 +448,6 @@
 
    `(rainbow-delimiters-unmatched-face ((,class :foreground ,warning)))
 
-   ;; Helm
-   `(helm-match ((,class (:foreground ,black-10 :background ,red-80))))
-   `(helm-header ((,class (:foreground ,fg2 :background ,bg1 :underline nil :box nil))))
-   `(helm-source-header ((,class (:foreground ,blue-01 :underline nil :weight bold :height 1.5))))
-   `(helm-selection ((,class (:background ,blue-10 :underline nil))))
-   `(helm-selection-line ((,class (:background ,bg2))))
-   `(helm-visible-mark ((,class (:foreground ,bg1 :background ,bg3))))
-   `(helm-candidate-number ((,class (:foreground ,bg1 :background ,fg1))))
-   `(helm-separator ((,class (:foreground ,type :background ,bg1))))
-   `(helm-time-zone-current ((,class (:foreground ,builtin :background ,bg1))))
-   `(helm-time-zone-home ((,class (:foreground ,type :background ,bg1))))
-   `(helm-buffer-not-saved ((,class (:foreground ,type :background ,bg1))))
-   `(helm-buffer-process ((,class (:foreground ,builtin :background ,bg1))))
-   `(helm-buffer-saved-out ((,class (:foreground ,fg1 :background ,bg1))))
-   `(helm-buffer-size ((,class (:foreground ,fg1 :background ,bg1))))
-   `(helm-ff-directory ((,class (:foreground ,func :background ,bg1 :weight bold))))
-   `(helm-ff-file ((,class (:foreground ,fg1 :background ,bg1 :weight normal))))
-   `(helm-ff-executable ((,class (:foreground ,var :background ,bg1 :weight normal))))
-   `(helm-ff-invalid-symlink ((,class (:foreground ,warning2 :background ,bg1 :weight bold))))
-   `(helm-ff-symlink ((,class (:foreground ,keyword :background ,bg1 :weight bold))))
-   `(helm-ff-prefix ((,class (:foreground ,bg1 :background ,keyword :weight normal))))
-   `(helm-grep-cmd-line ((,class (:foreground ,fg1 :background ,bg1))))
-   `(helm-grep-file ((,class (:foreground ,fg1 :background ,bg1))))
-   `(helm-grep-finish ((,class (:foreground ,fg2 :background ,bg1))))
-   `(helm-grep-lineno ((,class (:foreground ,fg1 :background ,bg1))))
-   `(helm-grep-match ((,class (:foreground nil :background nil :inherit helm-match))))
-   `(helm-grep-running ((,class (:foreground ,func :background ,bg1))))
-   `(helm-moccur-buffer ((,class (:foreground ,func :background ,bg1))))
-   `(helm-source-go-package-godoc-description ((,class (:foreground ,str))))
-   `(helm-bookmark-w3m ((,class (:foreground ,type))))
-   `(helm-action ((t (:foreground ,brown-10))))
-
-   ;; Helm Git
-   `(helm-ls-git-modified-not-staged-face ((t (:foreground ,warning2))))
-   `(helm-ls-git-added-copied-face ((t (:foreground ,dark-green))))
-
    ;; hl-todo mode
    `(hl-todo ((t (:background ,red-bright :foreground ,pastel-yellow :bold nil))))
 

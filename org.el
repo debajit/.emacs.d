@@ -349,7 +349,7 @@ shared cache because it may produce a different set or order of candidates."
       (interactive)
       (if (use-region-p)
           (org-emphasize ?\*)
-        (helm-bookmarks))))
+        (call-interactively #'consult-bookmark))))
   ;; (define-key org-mode-map (kbd "s-i") (lambda () (interactive) (org-emphasize ?\/)))
 
   ;; Navigation
@@ -361,9 +361,8 @@ shared cache because it may produce a different set or order of candidates."
   (define-key org-mode-map (kbd "s-l") 'list-itemify)
   (define-key org-mode-map (kbd "s-H") 'list-item-with-heading)
   ;; s-I and s-U are deliberately left unbound here so the global bindings
-  ;; (helm-imenu-in-all-buffers, visual-line-mode) stay available in Org
-  ;; buffers.  The italicize-line and codify-line macros still live in
-  ;; macros.el.
+  ;; (consult-imenu-multi, visual-line-mode) stay available in Org buffers.
+  ;; The italicize-line and codify-line macros still live in macros.el.
   )
 
 (with-eval-after-load 'org-agenda

@@ -610,8 +610,6 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
   (vertico-cycle t)
   :init
   ;; Only one global completion UI should advise `completing-read'.
-  (when (bound-and-true-p helm-mode)
-    (helm-mode -1))
   (when (bound-and-true-p ivy-mode)
     (ivy-mode -1))
   (vertico-mode 1))
@@ -656,77 +654,6 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
   ;; Preserve the previous macOS Spotlight-backed locate behavior.
   (when (eq system-type 'darwin)
     (setq consult-locate-args "mdfind -name")))
-
-;; Keep the previous completion stack available for rollback while the
-;; Vertico setup settles in.  These packages remain installed but do not
-;; install bindings or global completion advice.
-(use-package helm
-  :disabled t
-  :ensure t
-  :bind (("M-x" . helm-M-x)
-         ;; ("s-SPC" . helm-mini)        ; List buffers, like C-x b
-         ("s-i" . helm-semantic-or-imenu) ; Jump to method
-         ("s-I" . helm-imenu-in-all-buffers) ; Jump to any open method anywhere
-         ;; ("M-L" . helm-locate)
-         ;; ("s-B" . helm-bookmarks)
-         ("C-h I" . helm-info)
-         )
-  :init
-  (setq helm-completion-style 'emacs
-        helm-locate-command "locate -i -r %s"
-        helm-truncate-lines t)
-  (setq helm-locate-fuzzy-match nil)    ; Required for mdfind
-  ;; (setq helm-locate-command
-  ;;       (pcase system-type
-  ;;         ('darwin "mdfind -name %s %s")
-  ;;         ('gnu/linux "locate -i -r %s")
-  ;;         ('windows-nt "es %s")
-  ;;         ('berkeley-unix "locate -i %s")))
-  :config
-  (helm-mode 1)
-  (eval-after-load 'helm-mode '(diminish 'helm-mode)))
-
-;; (use-package helm-git-grep
-;;   :ensure t
-;;   :bind ("s-F" . helm-git-grep-at-point))
-
-;; (use-package helm-org-rifle
-;;   :ensure t
-;;   :config
-;;   (global-set-key (kbd "M-W")
-;;                   (lambda () (interactive) (helm-org-rifle-directories "~/WorkDocs/Documents")))
-;;   )
-
-(use-package wgrep-helm
-  :disabled t
-  :ensure t)
-
-(use-package helm-ls-git
-  :disabled t
-  :ensure t
-  ;; :bind ("M-t" . helm-ls-git-ls)
-  :bind ("s-t" . helm-ls-git-ls)
-  )
-
-(use-package counsel
-  :disabled t
-  :ensure t
-  :init
-  (setq locate-command "mdfind")
-  (setq counsel-locate-cmd 'counsel-locate-cmd-mdfind)
-  (setq counsel-find-file-at-point t)
-  :bind (
-         ("s-t" . counsel-git)
-         ("s-F" . counsel-git-grep)
-         ("s-B" . counsel-bookmark)
-         ("s-SPC" . counsel-recentf)
-         ;; ("s-i" . counsel-imenu)
-         ("M-L" . counsel-locate)
-         ("M-O" . counsel-org-goto-all)
-         ("C-h F" . counsel-faces)
-         ("C-h S" . counsel-info-lookup-symbol)
-         ([remap find-file]  . counsel-find-file)
-         ))
 
 (use-package htmlize
   :ensure t
@@ -1080,7 +1007,7 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
   :init (global-subword-mode)
   :diminish subword-mode)
 
-;; Swiper - A better helm-swoop (for incremental search)
+;; Swiper - incremental search
 ;; http://oremacs.com/2015/03/10/no-swiping/
 (use-package swiper
   :disabled t

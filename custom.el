@@ -107,15 +107,14 @@
  '(package-selected-packages
    '(adaptive-wrap aggressive-indent alchemist anki-editor atomic-chrome
                    beacon birds-of-paradise-plus-theme
-                   browse-at-remote comment-dwim-2 consult corral counsel crux
+                   browse-at-remote comment-dwim-2 consult corral crux
                    dash-at-point deft diminish dumb-jump easy-kill
                    edit-indirect elixir-yasnippets emacsql-sqlite
                    emacsql-sqlite3 emmet-mode exec-path-from-shell
                    expand-region fastnav fill-column-indicator
                    fireplace git-timemachine gitattributes-mode
                    gitconfig-mode gitignore-mode google-this
-                   gruvbox-theme haml-mode helm-git-grep helm-ls-git
-                   helm-org-rifle hl-todo htmlize
+                   gruvbox-theme haml-mode hl-todo htmlize
                    hyperbole iedit imenu-list inf-ruby java-snippets
                    js2-mode ligature lua-mode magit-annex marginalia
                    markdown-mode modern-cpp-font-lock move-text
@@ -125,7 +124,7 @@
                    rainbow-mode recursive-narrow redis reformatter
                    ruby-tools scss-mode sort-words svg-clock
                    transpose-frame treemacs typescript-mode vertico
-                   unfill use-package vlf web-mode wgrep-helm
+                   unfill use-package vlf web-mode
                    writeroom-mode yaml-mode yard-mode zeal-at-point))
  '(quote (vlf-application 'dont-ask))
  '(send-mail-function 'smtpmail-send-it)
@@ -148,7 +147,6 @@
  '(font-lock-builtin-face ((t (:foreground "#B19465"))))
  '(font-lock-comment-face ((t (:foreground "#c0a386" :slant italic))))
  '(font-lock-keyword-face ((t (:weight bold))))
- '(helm-selection ((t (:extend t :background "#4280b8" :foreground "white" :underline nil))))
  '(info-header-xref ((t (:inherit info-xref :foreground "#c0a386"))))
  '(markdown-italic-face ((t (:foreground "#005486" :slant italic))))
  '(markdown-link-face ((t (:weight normal))))

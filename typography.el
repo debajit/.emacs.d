@@ -190,7 +190,6 @@ above to see the result without restarting Emacs."
     magit-section-heading
     magit-header-line
     deft-header-face
-    helm-source-header
     treemacs-header-face)
   "Faces that should be rendered in `heading-font-family'.
 Only the family and `heading-font-weight' are touched; colours and

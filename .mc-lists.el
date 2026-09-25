@@ -30,8 +30,6 @@
         forward-sexp
         haml-electric-backspace
         handle-switch-frame
-        helm-M-x
-        helm-confirm-and-exit-minibuffer
         hydra-switch-mode/body
         iedit-mode
         ignore

@@ -42,10 +42,8 @@
 
 ;; Switch to buffer --- Control + Shift + Space.
 ;;
-;; We will override this keybinding later to use helm for more
-;; features. (This is done so that if external package loading (for
-;; helm) fails for any reason, this keybinding will still work with
-;; vanilla Emacs)
+;; This fallback remains useful if the external completion packages fail to
+;; load; Consult overrides it later during normal startup.
 ;;
 (global-set-key (kbd "s-SPC") 'switch-to-buffer)
 

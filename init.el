@@ -13,6 +13,26 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
 ;; Update load paths to load files from
 (add-to-list 'load-path "~/.emacs.d/custom-packages/")
 
+;; Treat every package that use-package ensures as "selected", so
+;; `package-autoremove' never offers to delete one declared in this
+;; config, whatever `package-selected-packages' in custom.el says. The
+;; names are merged after init because loading custom.el would
+;; overwrite them.
+(defvar my/use-package-ensured-packages nil
+  "Packages ensured by `use-package' forms during this session.")
+
+(advice-add 'use-package-ensure-elpa :after
+            (lambda (name args _state &optional _no-refresh)
+              (dolist (ensure args)
+                (let ((pkg (if (eq ensure t) name ensure)))
+                  (when (symbolp pkg)
+                    (add-to-list 'my/use-package-ensured-packages pkg))))))
+
+(add-hook 'after-init-hook
+          (lambda ()
+            (dolist (pkg my/use-package-ensured-packages)
+              (add-to-list 'package-selected-packages pkg))))
+
 (my-load-user-file "calendar.el")
 (my-load-user-file "autocomplete.el")
 (my-load-user-file "text-editing.el")

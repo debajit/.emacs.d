@@ -223,7 +223,6 @@
                          ,home-tasks-file
                          ,work-tasks-file
                          ,finances-tasks-file
-                         ,holidays-file
                          ,projects-tasks-file
                          ,people-tasks-file
                          ,home-journal-file

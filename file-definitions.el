@@ -4,10 +4,10 @@
 ;; The Todo directory is ~/Documents/Tasks/Todo.
 ;;
 
-(setq tasks-directory "~/Documents/Tasks"
-      todo-directory (concat (file-name-as-directory tasks-directory) "Todo"))
+(setq tasks-directory "~/Projects/Tasks"
+      todo-directory (concat (file-name-as-directory tasks-directory) "org-agenda"))
 
-(let ((default-directory tasks-directory))
+(let ((default-directory todo-directory))
   (setq my-diary-file (expand-file-name "diary")))
 
 (let ((default-directory todo-directory))

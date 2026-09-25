@@ -46,3 +46,6 @@ smex-items
 /projectile.cache
 /projects
 /request/
+
+# Machine-local config
+/local.el

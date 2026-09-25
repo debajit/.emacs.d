@@ -1,11 +1,14 @@
 ;;; -*- lexical-binding: t -*-
 
-(defun my-load-user-file (file)
-  "Load FILE relative to `user-emacs-directory'."
+(defun my-load-user-file (file &optional if-exists)
+  "Load FILE relative to `user-emacs-directory'.
+If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
   (interactive
    (list (read-file-name "Load user file: "
                          user-emacs-directory nil t)))
-  (load-file (expand-file-name file user-emacs-directory)))
+  (let ((path (expand-file-name file user-emacs-directory)))
+    (when (or (not if-exists) (file-exists-p path))
+      (load-file path))))
 
 ;; Update load paths to load files from
 (add-to-list 'load-path "~/.emacs.d/custom-packages/")
@@ -1205,7 +1208,7 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 (my-load-user-file "http.el")
 (my-load-user-file "redis.el")
 (my-load-user-file "playground.el")
-(my-load-user-file "local.el")
+(my-load-user-file "local.el" :if-exists)
 
 
 ;; Override keybindings from other packages

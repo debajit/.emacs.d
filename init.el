@@ -15,7 +15,6 @@
 (add-to-list 'load-path "~/.emacs.d/custom-packages/")
 
 (my-load-user-file "calendar.el")
-(my-load-user-file "contacts.el")
 (my-load-user-file "autocomplete.el")
 (my-load-user-file "text-editing.el")
 (my-load-user-file "build.el")

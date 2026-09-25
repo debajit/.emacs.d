@@ -12,6 +12,10 @@ body {
         sans-serif;
 }
 
+#content {
+    padding-bottom: 4rem;
+}
+
 h1,
 h2,
 h3,
@@ -19,7 +23,7 @@ h4,
 h5,
 h6 {
     font-family:
-        "Verlag",
+        "Ideal Sans Medium",
         "Ideal Sans",
         "Helvetica Neue",
         Arial,
@@ -28,8 +32,33 @@ h6 {
     font-weight: 400;
 }
 
+h1 {
+    font-size: 2.1em;
+}
+
+h2 {
+    font-size: 1.575em;
+}
+
+h3 {
+    font-size: 1.2285em;
+}
+
+h4 {
+    font-size: 1.05em;
+}
+
+h5 {
+    font-size: 0.8715em;
+}
+
+h6 {
+    font-size: 0.7035em;
+}
+
 h2 {
     margin-top: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 h3,
@@ -56,6 +85,39 @@ h1.title .title-first-word {
 
 #content p + p {
     margin-top: 1.5rem;
+}
+
+#content li {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#content ul,
+#content ol {
+    margin-top: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+#content li > ul,
+#content li > ol {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+#content .org-src-wrapper,
+#content pre {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#content table {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+#content .org-src-wrapper pre {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 b,

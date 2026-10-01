@@ -1,9 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-(defconst my/markdown2html-css
-  (expand-file-name "assets/css/markdown2html.css" user-emacs-directory)
-  "Personal CSS appended to markdown2html-converter output.")
-
 (defun my/markdown2html-document-title-p (begin end)
   "Return non-nil when Markdown between BEGIN and END supplies a title."
   (or (save-excursion
@@ -48,8 +44,7 @@ preview and exported files remain portable."
                  "--base-path" source-directory
                  "--math-mode" "katex-embedded"
                  "--mermaid-mode" "embedded"
-                 "--no-cjk-fonts"
-                 "--extra-css-path" my/markdown2html-css)
+                 "--no-cjk-fonts")
            (unless (my/markdown2html-document-title-p begin end)
              (list "--title" title))))
          (status (apply #'call-process-region

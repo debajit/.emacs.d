@@ -51,6 +51,9 @@ preview and exported files remain portable."
                  "--base-path" source-directory
                  "--math-mode" "katex-embedded"
                  "--mermaid-mode" "embedded"
+                 "--extra-css-path"
+                 (expand-file-name "assets/css/markdown.css"
+                                   user-emacs-directory)
                  "--no-cjk-fonts")
            (unless (my/markdown2html-document-title-p begin end)
              (list "--title" title))))

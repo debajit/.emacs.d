@@ -1,6 +1,10 @@
 .markdown-body {
-  font-family: "Ideal Sans", sans-serif;
+  font-family: "Ideal Sans", var(--fontStack-sansSerif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji");
   font-size: 18px;
+}
+
+.markdown-body :is(h1, h2, h3, h4, h5, h6) {
+  color: #005486;
 }
 
 .markdown-body :is(h1, h2, h3, h4, h5, h6) ~ :is(h1, h2, h3, h4, h5, h6) {

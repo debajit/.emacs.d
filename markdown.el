@@ -1,4 +1,11 @@
-;;; -*- lexical-binding: t -*-
+;;; markdown.el --- Markdown editing and HTML export -*- lexical-binding: t; -*-
+
+;; Install the external renderer (requires Rust and Cargo):
+;;
+;;   cargo install markdown2html-converter
+;;
+;; Cargo normally installs the executable in ~/.cargo/bin.  Confirm that it is
+;; available with `markdown2html-converter --version`.
 
 (defun my/markdown2html-document-title-p (begin end)
   "Return non-nil when Markdown between BEGIN and END supplies a title."

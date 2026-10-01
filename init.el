@@ -217,10 +217,6 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
 ;; (global-set-key (kbd "s-u") 'narrow-to-defun)
 
 
-(global-set-key (kbd "s-3") 'highlight-symbol-at-point)
-(global-set-key (kbd "s-4") 'unhighlight-regexp)
-
-
 ;;--------------------------------------------------------------------
 ;; Getting Things Done.
 ;;

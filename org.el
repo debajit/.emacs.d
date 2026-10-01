@@ -35,7 +35,6 @@
               ("s-." . org-open-at-point)
               ("s-," . org-mark-ring-goto)
               ;; ("s-u" . org-up-element)
-              ("s-1" . org-table-sort-lines)
               ("s-A" . org-archive-subtree)
               ("M-N" . org-next-link)
               ("M-P" . org-previous-link)

@@ -85,8 +85,6 @@
      ("HACK" . "#d0bf8f") ("FIXME" . "#cc9393") ("XXX" . "#cc9393")
      ("XXXX" . "#cc9393")))
  '(ivy-display-style 'fancy)
- '(markdown-asymmetric-header t)
- '(markdown-gfm-downcase-languages t)
  '(mixfmt-mix "/usr/local/bin/mix")
  '(nov-variable-pitch nil)
  '(ns-alternate-modifier 'meta)

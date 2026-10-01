@@ -86,7 +86,6 @@
      ("XXXX" . "#cc9393")))
  '(ivy-display-style 'fancy)
  '(markdown-asymmetric-header t)
- '(markdown-command "/Users/debajita/.rbenv/shims/octodown --raw")
  '(markdown-gfm-downcase-languages t)
  '(mixfmt-mix "/usr/local/bin/mix")
  '(nov-variable-pitch nil)

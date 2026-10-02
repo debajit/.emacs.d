@@ -15,10 +15,19 @@
         org-use-fast-todo-selection t        ; Mark agenda task as complete quickly. https://orgmode.org/manual/TODO-basics.html
         org-export-with-footnotes nil        ; See https://emacs.stackexchange.com/questions/68986/ignore-footnotes-when-exporting-org-texts-to-html
         org-imenu-depth 5
-        )
+        org-babel-python-command "python3")
 
   (setq org-todo-keywords
-        '((sequence "TODO(t)" "IN PROGRESS" "WAITING-FOR" "WAITING_FOR_CUSTOMER" "CODE-REVIEW" "DEPLOYING" "WAITING_FOR_SCHEDULE" "BLOCKED" "|" "DONE(x!)" "HANDED OFF" "DELEGATED" "CANCELED(c@)")))
+        '((sequence "TODO(t)"
+                    "IN PROGRESS"
+                    "REVIEW"
+                    "DEPLOYING"
+                    "WAITING-FOR-DELIVERY(d)"
+                    "WAITING-FOR-BUILD(b)"
+                    "WAITING-FOR-DEPLOYMENT"
+                    "WAITING-FOR-REQUESTER"
+                    "BLOCKED" "|"
+                    "DONE(x!)" "HANDED OFF" "DELEGATED" "CANCELED(c@)")))
 
   ;; Set up link abbreviations. See
   ;; https://orgmode.org/manual/Link-Abbreviations.html
@@ -40,6 +49,8 @@
               ("M-P" . org-previous-link)
               ("C-S-SPC" . org-toggle-checkbox)
               ("C-c SPC" . org-table-blank-field) ; See https://emacs.stackexchange.com/a/22
+              ("C-c l" . org-store-link)
+              ("C-c i" . org-id-store-link)
               )
 
   ;; Global keyboard shortcuts
@@ -65,6 +76,7 @@
      ;; (elixir . t)
      (java . t)
      (js . t)
+     (python . t)
      (R . t)
      (ruby . t)
      (shell . t)
@@ -87,7 +99,7 @@
   :diminish org-bullets-mode
   :init
   (setq org-bullets-bullet-list
-        '("◉" "○" "✸" "○" "☯" "⚫" "►" "◇"))
+        '("◉" "○" "✸" "🟤" "⭕" "◕" "◇"))
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
@@ -356,7 +368,7 @@ shared cache because it may produce a different set or order of candidates."
   (define-key org-mode-map (kbd "M-n") 'org-next-visible-heading)
 
   ;; Macros
-  (define-key org-mode-map (kbd "s-B") 'embolden-line)
+  ;; (define-key org-mode-map (kbd "s-B") 'embolden-line)
   (define-key org-mode-map (kbd "s-l") 'list-itemify)
   (define-key org-mode-map (kbd "s-H") 'list-item-with-heading)
   ;; s-I and s-U are deliberately left unbound here so the global bindings
@@ -389,3 +401,11 @@ shared cache because it may produce a different set or order of candidates."
     (org-capture 0 "i"))
   ;; Override the key definition
   (define-key org-agenda-mode-map "X" 'sacha/org-agenda-mark-done-and-add-followup))
+
+;; Taken from https://emacs.stackexchange.com/a/41619/12922
+(defun markdown-convert-buffer-to-org ()
+    "Convert the current buffer's content from markdown to orgmode format and save it with the current buffer's file name but with .org extension."
+    (interactive)
+    (shell-command-on-region (point-min) (point-max)
+                             (format "pandoc -f markdown -t org -o %s"
+                                     (concat (file-name-sans-extension (buffer-file-name)) ".org"))))

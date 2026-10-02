@@ -1084,6 +1084,7 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 ;;    ("s-=" . default-text-scale-increase)
 ;;    ("s--" . default-text-scale-decrease)))
 
+(my-load-user-file "code-completion.el")
 (my-load-user-file "cpp.el")
 (my-load-user-file "html.el")
 ;; (my-load-user-file "eaf.el")

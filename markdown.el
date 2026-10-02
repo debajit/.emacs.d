@@ -80,6 +80,10 @@ preview and exported files remain portable."
 
 (defun markdown-mode-keyboard-shortcuts ()
   "Set personal keyboard shortcuts in Markdown buffers."
+  ;; Keep the renderer buffer-local so a stale value restored by Customize
+  ;; cannot replace it in an existing Markdown buffer.
+  (setq-local markdown-command #'my/markdown2html-convert-region
+              markdown-command-needs-filename nil)
   (local-set-key (kbd "s-r") #'markdown-preview)
   (local-set-key (kbd "M-r") #'markdown-preview)
   (local-set-key (kbd "s-b") #'markdown-insert-bold))

@@ -27,6 +27,3 @@
 
 ;; Title case DWIM
 (global-set-key (kbd "s-g") 'titlecase-dwim)
-
-;; Capitalize the last word.
-(global-set-key (kbd "s-u") (lambda () (interactive) (capitalize-word -1)))

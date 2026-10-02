@@ -9,36 +9,71 @@
 ;; Default font settings
 ;;----------------------------------------------------------------------
 
-(defconst monospaced-font-family "Cascadia Code"
+(defconst typography-font-profiles
+  '((darwin
+     :monospaced-family "Cascadia Code"
+     :monospaced-size "16"
+     :proportional-family "IBM Plex Sans Condensed"
+     :proportional-size "19"
+     :heading-family "Verlag"
+     :heading-weight normal)
+    (gnu/linux
+     :monospaced-family "Cascadia Code"
+     :monospaced-size "12"
+     :proportional-family "Ideal Sans"
+     :proportional-size "14"
+     :heading-family "Verlag"
+     :heading-weight bold))
+  "Font settings keyed by `system-type'.
+
+Keep machine-independent typography behavior below this table and
+edit these profiles when macOS and GNU/Linux need different fonts
+or sizes.")
+
+(defconst typography-font-profile
+  (or (alist-get system-type typography-font-profiles)
+      (error "No typography font profile for system type %S" system-type))
+  "The font profile selected for the current operating system.")
+
+(defconst monospaced-font-family
+  (plist-get typography-font-profile :monospaced-family)
   "The default monospaced typeface to use for code and other
   fixed-width text. Examples:
   - Cascadia Code (12pt)
   - Operator Mono (13pt)
   - Consolas")
 
-(defconst proportional-font-family "Ideal Sans"
+(defconst monospaced-font-size
+  (plist-get typography-font-profile :monospaced-size)
+  "The default monospaced font size. Recommendations:
+  - GNU: Cascadia Code 12pt, Operator Mono 13pt,
+  - macOS: Cascadia Code 12pt, Operator Mono 13pt, Consolas 13pt")
+
+(defconst proportional-font-family
+  (plist-get typography-font-profile :proportional-family)
   "The default proportional typeface to use for longform text,
   notes etc. Examples:
   - Ideal Sans (14pt)")
 
-;; (defconst proportional-font-family "IBM Plex Sans Condensed"
-;;   "The default proportional typeface to use for longform text,
-;;   notes etc. Examples:
-;;   - Ideal Sans (14pt)")
+(defconst proportional-font-size
+  (plist-get typography-font-profile :proportional-size)
+  "The default proportional font size")
 
 ;; The default (proportional) typeface to use for headings. This is
 ;; the single place to change the heading font: `apply-heading-font'
 ;; below pushes it onto every heading face listed in
 ;; `heading-faces', overriding whatever the active theme or
 ;; custom.el says.
-(defconst heading-font-family "Verlag"
+(defconst heading-font-family
+  (plist-get typography-font-profile :heading-family)
   "The default proportional typeface to use for headings. Examples:
   - Verlag Condensed
   - Verlag Compressed
   - Verlag
   - Ideal Sans")
 
-(defconst heading-font-weight 'bold
+(defconst heading-font-weight
+  (plist-get typography-font-profile :heading-weight)
   "The weight to use for every heading face, or nil.
 
 This overrides the per-heading weights set by the active theme and
@@ -64,13 +99,6 @@ weight against `heading-font-weights' and falls back to `normal'
 rather than let the family fall back. Use \\[heading-font-weights]
 to see what the current family actually offers.")
 
-(defconst monospaced-font-size "12"
-  "The default monospaced font size. Recommendations:
-  - GNU: Cascadia Code 12pt, Operator Mono 13pt,
-  - macOS: Cascadia Code 12pt, Operator Mono 13pt, Consolas 13pt")
-
-(defconst proportional-font-size "14"
-  "The default proportional font size")
 
 ;; Set default fonts.
 ;;

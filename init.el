@@ -355,7 +355,7 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
   :init
   (setq exec-path-from-shell-arguments '("-l"))
   :config
-  (when (memq window-system '(mac ns x))
+  (when (memq window-system '(mac ns x pgtk))
     (exec-path-from-shell-initialize)))
 
 ;; Ace window --- switch windows

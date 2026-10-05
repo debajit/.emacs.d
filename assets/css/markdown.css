@@ -3,6 +3,20 @@
   font-size: 18px;
 }
 
+/* Let standalone images use the viewport without scaling up smaller images. */
+.markdown-body > p:has(> img:only-child),
+.markdown-body > p:has(> a:only-child > img:only-child) {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  text-align: center;
+}
+
+.markdown-body > p:has(> img:only-child) img,
+.markdown-body > p:has(> a:only-child > img:only-child) img {
+  max-width: 100%;
+  height: auto;
+}
+
 .markdown-body :is(h1, h2, h3, h4, h5, h6) {
   color: #005486;
 }

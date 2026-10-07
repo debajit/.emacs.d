@@ -161,6 +161,23 @@ to the source directory even though the browser opens a temporary file."
                         (org-html-encode-plain-text source-url)))
         (browse-url-of-buffer)))))
 
+(defun my/nice-org-html-preserve-heading-display (render-style &rest args)
+  "Call RENDER-STYLE with ARGS without changing hidden Org heading stars.
+Nice-org-html switches themes while generating CSS.  Reloading the editor
+theme resets `org-hide', which `org-bullets' uses to hide leading stars.
+Preserve its foreground on existing frames and for future frames, even
+when CSS generation fails."
+  (let ((foregrounds
+         (mapcar (lambda (frame)
+                   (cons frame (face-attribute 'org-hide :foreground frame)))
+                 (cons t (frame-list)))))
+    (unwind-protect
+        (apply render-style args)
+      (dolist (entry foregrounds)
+        (when (or (eq (car entry) t) (frame-live-p (car entry)))
+          (set-face-attribute 'org-hide (car entry)
+                              :foreground (cdr entry)))))))
+
 (defun my/nice-org-html-markdown-style (style)
   "Append the Markdown styles and Org layout adaptations to STYLE.
 Embed all CSS so previews and ordinary nice-html exports are standalone."
@@ -197,6 +214,10 @@ Embed all CSS so previews and ordinary nice-html exports are standalone."
         nice-org-html-options
         '(:layout "compact" :collapsing t :src-lang t))
   :config
+  (unless (advice-member-p #'my/nice-org-html-preserve-heading-display
+                          'nice-org-html--style)
+    (advice-add 'nice-org-html--style :around
+                #'my/nice-org-html-preserve-heading-display))
   (unless (advice-member-p #'my/nice-org-html-markdown-style
                           'nice-org-html--style)
     (advice-add 'nice-org-html--style :filter-return

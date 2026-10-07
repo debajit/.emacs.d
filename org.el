@@ -40,6 +40,7 @@
 
   ;; Org mode keyboard shortcuts
   :bind (:map org-mode-map
+              ("s-r" . my/org-html-preview)
               ("s-i" . consult-org-heading)
               ("s-." . org-open-at-point)
               ("s-," . org-mark-ring-goto)
@@ -140,6 +141,42 @@ numbers, not fuzzy Org targets, so export the file link without that suffix."
           (funcall original-function source-link description info))
       (funcall original-function link description info))))
 
+(defun my/org-html-preview ()
+  "Render the current Org buffer as styled HTML and open it in the browser.
+Preview current edits, including folded content, without saving the source
+or prompting for export options.  Keep relative links and images anchored
+to the source directory even though the browser opens a temporary file."
+  (interactive)
+  (require 'nice-org-html)
+  (require 'browse-url)
+  (nice-org-html-mode 1)
+  (let ((source-url (browse-url-file-url default-directory))
+        (org-export-use-babel nil)
+        (org-export-show-temporary-export-buffer nil))
+    (org-export-to-buffer 'nice-html "*Org HTML Preview*"
+      nil nil nil nil '(:html-content-class "content markdown-body")
+      (lambda ()
+        (search-forward "<head>")
+        (insert (format "\n<base href=\"%s\" />"
+                        (org-html-encode-plain-text source-url)))
+        (browse-url-of-buffer)))))
+
+(defun my/nice-org-html-markdown-style (style)
+  "Append the Markdown styles and Org layout adaptations to STYLE.
+Embed all CSS so previews and ordinary nice-html exports are standalone."
+  (concat style "<style type=\"text/css\">\n"
+          (mapconcat
+           (lambda (file)
+             (with-temp-buffer
+               (insert-file-contents
+                (expand-file-name file user-emacs-directory))
+               (buffer-string)))
+           '("assets/css/github-markdown.css"
+             "assets/css/markdown.css"
+             "assets/css/nice-org-html.css")
+           "\n")
+          "\n</style>\n"))
+
 (use-package nice-org-html
   :ensure t
   :hook (org-mode . nice-org-html-mode)
@@ -151,15 +188,19 @@ numbers, not fuzzy Org targets, so export the file link without that suffix."
           (dark . tsdh-dark))
         nice-org-html-default-mode 'query
         nice-org-html-headline-bullets nil
-        nice-org-html-css
-        (expand-file-name "assets/css/nice-org-html.css"
-                          user-emacs-directory)
+        ;; The style advice embeds the shared CSS before the Org adaptations.
+        nice-org-html-css nil
+        org-html-content-class "content markdown-body"
         nice-org-html-js
         (expand-file-name "assets/js/nice-org-html.js"
                           user-emacs-directory)
         nice-org-html-options
         '(:layout "compact" :collapsing t :src-lang t))
   :config
+  (unless (advice-member-p #'my/nice-org-html-markdown-style
+                          'nice-org-html--style)
+    (advice-add 'nice-org-html--style :filter-return
+                #'my/nice-org-html-markdown-style))
   (unless (advice-member-p #'my/nice-org-html-source-link 'org-html-link)
     (advice-add 'org-html-link :around #'my/nice-org-html-source-link)))
 

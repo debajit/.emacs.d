@@ -1,151 +1,131 @@
-/* Personal overrides for nice-org-html exports.
- *
- * This stylesheet is loaded after nice-org-html's bundled CSS, allowing these
- * declarations to override package defaults without modifying package files.
+/* Org adaptations, loaded after the same GitHub and personal Markdown CSS.
+ * Keep nice-org-html's controls, folding and code-copy buttons functional.
  */
+html {
+  font-size: 16px;
+}
 
 body {
-    font-family:
-        "Ideal Sans",
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
+  display: block;
+  font-family: "Ideal Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-#content {
-    padding-bottom: 4rem;
+body[data-mode="light"] {
+  --bg: #ffffff;
+  --clr: #1f2328;
+  --bg-code: #f6f8fa;
+  --clr-code: #1f2328;
+  --clr-doc: #59636e;
+  background: var(--bg);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family:
-        "Ideal Sans Medium",
-        "Ideal Sans",
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
-    color: #005486;
-    font-weight: 400;
+body[data-mode="dark"] {
+  --bg: #0d1117;
+  --clr: #f0f6fc;
+  --bg-code: #151b23;
+  --clr-code: #f0f6fc;
+  --clr-doc: #9198a1;
+  background: var(--bg);
 }
 
-h1 {
-    font-size: 2.1em;
+/* Also honor the nice-org-html mode button when it differs from the OS. */
+body[data-mode="light"] #content {
+  --bgColor-default: #ffffff;
+  --bgColor-muted: #f6f8fa;
+  --bgColor-neutral-muted: #818b981f;
+  --fgColor-default: #1f2328;
+  --fgColor-muted: #59636e;
+  --fgColor-accent: #0969da;
+  --borderColor-default: #d1d9e0;
+  --borderColor-muted: #d1d9e0b3;
+  --heading-color: #005486;
 }
 
-h2 {
-    font-size: 1.575em;
+body[data-mode="dark"] #content {
+  --bgColor-default: #0d1117;
+  --bgColor-muted: #151b23;
+  --bgColor-neutral-muted: #656c7633;
+  --fgColor-default: #f0f6fc;
+  --fgColor-muted: #9198a1;
+  --fgColor-accent: #4493f8;
+  --borderColor-default: #3d444d;
+  --borderColor-muted: #3d444db3;
+  --heading-color: #bbb3e6;
 }
 
-h3 {
-    font-size: 1.2285em;
+body #content.markdown-body {
+  width: 100%;
+  max-width: 980px;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 45px;
 }
 
-h4 {
-    font-size: 1.05em;
+#content :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--heading-color, #005486);
+  text-align: left;
 }
 
-h5 {
-    font-size: 0.8715em;
+/* Org nests sections, unlike Markdown's sibling headings. */
+#content :is(.outline-2, .outline-3, .outline-4, .outline-5, .outline-6)
+  ~ :is(.outline-2, .outline-3, .outline-4, .outline-5, .outline-6) > :is(h2, h3, h4, h5, h6) {
+  margin-top: 2em;
 }
 
-h6 {
-    font-size: 0.7035em;
-}
-
-h2 {
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-}
-
-h3,
-h4,
-h5,
-h6 {
-    margin-top: calc(1em + 1rem);
-}
-
-h1.title {
-    text-align: left;
-}
-
-h1.title .title-first-word {
-    font-family:
-        "Ideal Sans Bold",
-        "Ideal Sans",
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
-    font-weight: normal;
-}
-
-#content p,
-#content li {
-    line-height: 1.55;
-}
-
-#content p + p {
-    margin-top: 1.5rem;
-}
-
-#content li {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-#content ul,
-#content ol {
-    margin-top: 2.5rem;
-    margin-bottom: 3rem;
-}
-
-#content li > ul,
-#content li > ol {
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-}
-
-#content .org-src-wrapper,
-#content pre {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+#content :is(b, strong, th) {
+  font-weight: 600;
 }
 
 #content table {
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
+  width: max-content;
+  max-width: 100%;
+  border: 0;
 }
 
-#content .org-src-wrapper pre {
-    margin-top: 0;
-    margin-bottom: 0;
+#content table tbody :is(b, strong) {
+  font-weight: 500;
 }
 
-b,
-strong,
-th {
-    font-family:
-        "Ideal Sans Semibold",
-        "Ideal Sans",
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
-    font-weight: normal;
+#content code {
+  color: inherit;
 }
 
-code,
-kbd,
-samp,
-pre {
-    font-family:
-        "JetBrains Mono",
-        SFMono-Regular,
-        Menlo,
-        Consolas,
-        "Liberation Mono",
-        monospace;
-    font-size: 0.85em;
+#content .org-src-wrapper {
+  margin-bottom: 16px;
+  border-radius: 6px;
+  background: var(--bgColor-muted);
+}
+
+#content .org-src-wrapper .org-src-bar,
+#content .org-src-wrapper .org-src-container,
+#content .org-src-wrapper pre.src {
+  background: var(--bgColor-muted) !important;
+}
+
+#content .org-src-wrapper pre.src {
+  padding: 16px;
+  margin: 0;
+  color: var(--fgColor-default);
+}
+
+/* Org wraps standalone images in figures or outline paragraphs. */
+#content .figure,
+#content :is(.outline-text-2, .outline-text-3, .outline-text-4, .outline-text-5, .outline-text-6)
+  > p:has(> img:only-child),
+#content :is(.outline-text-2, .outline-text-3, .outline-text-4, .outline-text-5, .outline-text-6)
+  > p:has(> a:only-child > img:only-child) {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  text-align: center;
+}
+
+#content .figure img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  body #content.markdown-body {
+    padding: 15px;
+  }
 }

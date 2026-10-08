@@ -60,6 +60,7 @@
          )
 
   :config
+  (require 'my-org-browser-dnd)
   (custom-set-variables '(org-hide-emphasis-markers t)) ; Hide bold, italic markers
 
   ;; Open PDF links in the external PDF viewer.

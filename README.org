@@ -2,25 +2,68 @@
 
 ** Install Emacs Configuration
 
-#+BEGIN_SRC  shell
-
+#+begin_src shell :results verbatim
 cd
-git clone https://github.com/debajit/.emacs.d.git
-
-#+END_SRC
+git clone git@git.sr.ht:~debajit/.emacs.d
+#+end_src
 
 ** Install Emacs
 
-*** On macOS
+*** On Arch GNU/Linux
 
-#+BEGIN_SRC  shell
+#+begin_src shell :results verbatim
+sudo pacman -S emacs-wayland
+#+end_src
 
-brew tap railwaycat/emacsmacport
-brew cask install emacs-mac
+*** On [[https://www.gnu.org/software/emacs/download.html#nonfree][macOS]]
 
+#+begin_src shell :results verbatim
+brew install --cask emacs
+#+end_src
+
+** Insert the current browser page into Org
+
+Place the cursor in an Org buffer, switch to the browser, and click an
+~Insert into Org~ bookmarklet.  The page URL and title are inserted at the
+last Org cursor position as ~[[URL][Title]]~.  The Org file stays unsaved,
+just as with drag-and-drop.  Successive clicks insert at the end of the
+previous link; add your preferred spacing in Org between clicks.
+
+The configuration loads the ~insert-link~ Org Protocol handler
+automatically.  Register the operating system's URL handler once on each
+machine (Emacs must be running with this configuration):
+
+#+BEGIN_SRC shell
+python3 ~/.emacs.d/integrations/org-browser-link/install.py
 #+END_SRC
 
-Then start Emacs.
+On macOS the installer builds a local ~Emacs Org Protocol.app~ in
+~~/Applications~ using Apple's command-line compiler.  On Arch Linux it
+installs a desktop entry under ~${XDG_DATA_HOME:-~/.local/share}/applications~
+and registers it with ~xdg-mime~ (from ~xdg-utils~).  Use ~--emacsclient~
+to choose a different Emacs installation.  This forwards the URL to the
+existing Emacs server; the URL handler does not start a new editor.
+
+Open [[file:integrations/org-browser-link/bookmarklet.html][the bookmarklet install page]] in your browser and drag ~Insert into Org~
+onto its bookmarks toolbar.  Alternatively, create a browser bookmark
+named ~Insert into Org~ and set its URL to the contents of
+[[file:integrations/org-browser-link/bookmarklet.js][bookmarklet.js]]:
+
+#+BEGIN_SRC javascript
+javascript:location.href='org-protocol://insert-link?'+new URLSearchParams({url:location.href,title:document.title});void(0);
+#+END_SRC
+
+On first use, the browser may ask permission to open ~org-protocol~ links.
+Allow ~Emacs Org Protocol~ and remember the choice if offered.  The
+bookmarklet works on normal HTTP(S) pages; browser settings pages cannot
+run it.  An empty title uses the URL as the label.  If the last Org buffer
+was closed, made read-only, or narrowed away from the saved cursor, the
+handler reports an error without inserting into another buffer.
+
+References: [[https://orgmode.org/manual/Protocols.html][Org Protocols]],
+[[https://orgmode.org/manual/The-store_002dlink-protocol.html][Org bookmarklet encoding]], and
+[[https://orgmode.org/worg/org-contrib/org-protocol.html][Org Protocol setup and custom handlers]].
+
 
 * Keyboard Shortcuts — Work in Progress
 

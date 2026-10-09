@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install Insert into Org</title>
+<style>
+  :root { color-scheme: light dark; font: 17px/1.6 system-ui, sans-serif; }
+  body { max-width: 640px; margin: 8vh auto; padding: 0 24px; }
+  h1 { font-size: 2rem; line-height: 1.2; }
+  .bookmarklet { display: inline-block; background: #4169d1; color: white;
+    border-radius: 8px; padding: 12px 24px; font-weight: 600; text-decoration: none; }
+  pre { overflow-wrap: anywhere; white-space: pre-wrap; font-size: 13px;
+    padding: 16px; border: 1px solid #8886; border-radius: 8px; }
+</style>
+<h1>Insert the current page into Org</h1>
+<p>Send a page's title and link to the cursor position in the Org buffer
+you were editing.</p>
+<p><strong>Drag this link onto your browser's bookmarks toolbar:</strong></p>
+<p><a class="bookmarklet" draggable="true" href="javascript:location.href='org-protocol://insert-link?'+new URLSearchParams({url:location.href,title:document.title});void(0);">Insert into Org</a></p>
+<ol>
+  <li>Place your cursor in an Org buffer in Emacs.</li>
+  <li>Switch to the web page you want to link.</li>
+  <li>Click <strong>Insert into Org</strong> in your bookmarks toolbar.</li>
+</ol>
+<p>On first use, allow your browser to open <strong>Emacs Org Protocol</strong>.
+Remember that choice if offered. The link is inserted as an ordinary,
+undoable edit; save your Org file when you are ready.</p>
+<p>If dragging is unavailable, create a bookmark named <strong>Insert into
+Org</strong> and paste this as its URL:</p>
+<pre>javascript:location.href='org-protocol://insert-link?'+new URLSearchParams({url:location.href,title:document.title});void(0);</pre>
+<p>Emacs must be running with the browser-link configuration. Register the
+URL handler once on each computer using the setup steps in the
+  <a href="../../README.org">configuration README</a>.</p>
+</html>

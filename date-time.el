@@ -3,7 +3,7 @@
 ;; Date shortcuts
 ;;
 ;;       F9 - Insert today’s date
-;;      F10 - Insert tomorrow’s date
+;;      F10 - Pick and insert a date as YYYY-MM-DD
 ;; Shift+F9 - Insert yesterday’s date
 ;;
 
@@ -25,10 +25,7 @@
                   (interactive)
                   (insert (day-label))))
 
-(global-set-key (kbd "<f10>")
-                (lambda ()
-                  (interactive)
-                  (insert (day-label (tomorrow-time)))))
+(global-set-key (kbd "<f10>") #'my-insert-date)
 
 (global-set-key (kbd "<S-f9>")
                 (lambda ()

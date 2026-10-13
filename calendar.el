@@ -35,6 +35,14 @@
 
 (global-set-key (kbd "C-s-c") 'calendar)     ; Super+Control+c => Calendar
 
+(defun my-insert-date ()
+  "Pick a date from the calendar and insert it as YYYY-MM-DD at point."
+  (interactive)
+  (barf-if-buffer-read-only)
+  (require 'org)
+  (let ((org-read-date-popup-calendar t))
+    (insert (format-time-string "%Y-%m-%d" (org-read-date nil t)))))
+
 
 ;;
 ;; World clock.

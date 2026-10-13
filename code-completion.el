@@ -43,6 +43,7 @@
 (use-package corfu
   :ensure t
   :custom
+  (global-corfu-modes '((not org-mode) t)) ; Org prose uses pabbrev
   (corfu-auto t)                        ; Show popup automatically
   (corfu-auto-delay 0.2)
   (corfu-auto-prefix 2)                 ; ...after 2 characters
@@ -103,3 +104,19 @@
   (add-hook 'completion-at-point-functions #'cape-dabbrev 20)
   (add-hook 'completion-at-point-functions #'cape-file 20)
   (add-hook 'completion-at-point-functions #'cape-elisp-block 20))
+
+
+;;----------------------------------------------------------------------
+;; Org prose --- pabbrev only for automatic completion
+;;----------------------------------------------------------------------
+
+(defun my/org-prose-completion ()
+  "Use pabbrev for Org prose, without Corfu or global Cape fallbacks."
+  (corfu-mode -1)
+  (pabbrev-mode 1)
+  ;; The trailing t runs global CAPFs, including Cape.  Keep Org's local
+  ;; CAPFs available for explicit completion of links and other Org syntax.
+  (setq-local completion-at-point-functions
+              (remq t completion-at-point-functions)))
+
+(add-hook 'org-mode-hook #'my/org-prose-completion)

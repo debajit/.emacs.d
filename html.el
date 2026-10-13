@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-(define-minor-mode debajit-html-preview-mode
+(define-minor-mode my-html-preview-mode
   "Provide a browser preview shortcut throughout an HTML buffer."
   :lighter nil
   :keymap (let ((map (make-sparse-keymap)))
@@ -11,7 +11,7 @@
 ;; shadowed by the separate CSS and JavaScript keymaps in <style> and
 ;; <script> blocks.  The minor-mode map applies throughout the buffer, and
 ;; `html-mode-hook' enables it for both ordinary HTML and HTML+ buffers.
-(add-hook 'html-mode-hook (lambda () (debajit-html-preview-mode 1)))
+(add-hook 'html-mode-hook (lambda () (my-html-preview-mode 1)))
 
 ;; mhtml Mode
 (use-package mhtml-mode

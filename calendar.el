@@ -27,15 +27,15 @@
 (setq calendar-longitude -122.2)
 (setq calendar-location-name "Bellevue, WA")
 
-(defun my-calendar-hide-trailing-whitespace ()
+(defun debajit-calendar-hide-trailing-whitespace ()
   "Do not highlight the padding spaces in Calendar buffers."
   (setq-local show-trailing-whitespace nil))
 
-(add-hook 'calendar-mode-hook #'my-calendar-hide-trailing-whitespace)
+(add-hook 'calendar-mode-hook #'debajit-calendar-hide-trailing-whitespace)
 
 (global-set-key (kbd "C-s-c") 'calendar)     ; Super+Control+c => Calendar
 
-(defun my-insert-date ()
+(defun debajit-insert-date ()
   "Pick a date from the calendar and insert it as YYYY-MM-DD at point."
   (interactive)
   (barf-if-buffer-read-only)

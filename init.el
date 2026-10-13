@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(defun my-load-user-file (file &optional if-exists)
+(defun debajit-load-user-file (file &optional if-exists)
   "Load FILE relative to `user-emacs-directory'.
 If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
   (interactive
@@ -33,31 +33,31 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
             (dolist (pkg my/use-package-ensured-packages)
               (add-to-list 'package-selected-packages pkg))))
 
-(my-load-user-file "calendar.el")
-(my-load-user-file "autocomplete.el")
-(my-load-user-file "text-editing.el")
-(my-load-user-file "build.el")
-(my-load-user-file "whitespace.el")
-(my-load-user-file "buffers.el")
-(my-load-user-file "window-management.el")
-(my-load-user-file "navigation-functions.el")
-(my-load-user-file "navigation.el")
-(my-load-user-file "folding-functions.el")
-(my-load-user-file "folding.el")
-(my-load-user-file "mouse.el")
-(my-load-user-file "wrapping.el")
-(my-load-user-file "zoom-chat.el")
-(my-load-user-file "date-time.el")
-(my-load-user-file "file-definitions.el")
-(my-load-user-file "file-jump-keys.el")
-(my-load-user-file "emacs-for-macosx.el")
-(my-load-user-file "emacs-mac-port.el")
-(my-load-user-file "macros.el")
-(my-load-user-file "selection.el")
-(my-load-user-file "terraform.el")
-(my-load-user-file "ruby.el")
-(my-load-user-file "emacs-lisp.el")
-;; (my-load-user-file "tree-sitter.el")
+(debajit-load-user-file "calendar.el")
+(debajit-load-user-file "autocomplete.el")
+(debajit-load-user-file "text-editing.el")
+(debajit-load-user-file "build.el")
+(debajit-load-user-file "whitespace.el")
+(debajit-load-user-file "buffers.el")
+(debajit-load-user-file "window-management.el")
+(debajit-load-user-file "navigation-functions.el")
+(debajit-load-user-file "navigation.el")
+(debajit-load-user-file "folding-functions.el")
+(debajit-load-user-file "folding.el")
+(debajit-load-user-file "mouse.el")
+(debajit-load-user-file "wrapping.el")
+(debajit-load-user-file "zoom-chat.el")
+(debajit-load-user-file "date-time.el")
+(debajit-load-user-file "file-definitions.el")
+(debajit-load-user-file "file-jump-keys.el")
+(debajit-load-user-file "emacs-for-macosx.el")
+(debajit-load-user-file "emacs-mac-port.el")
+(debajit-load-user-file "macros.el")
+(debajit-load-user-file "selection.el")
+(debajit-load-user-file "terraform.el")
+(debajit-load-user-file "ruby.el")
+(debajit-load-user-file "emacs-lisp.el")
+;; (debajit-load-user-file "tree-sitter.el")
 
 ;; Save customizations in a separate file (custom.el)
 (setq custom-file "~/.emacs.d/custom.el")
@@ -342,7 +342,7 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
 (use-package diminish
   :ensure t)
 
-(my-load-user-file "dictionary-config.el")
+(debajit-load-user-file "dictionary-config.el")
 
 
 ;;----------------------------------------------------------------------
@@ -470,9 +470,9 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
   :init
   (setq css-indent-offset 2)
   :config
-  (defun my-css-mode-hook ()
+  (defun debajit-css-mode-hook ()
     (set-fill-column 72))
-  (add-hook 'css-mode-hook 'my-css-mode-hook))
+  (add-hook 'css-mode-hook 'debajit-css-mode-hook))
 
 ;; (use-package c++-mode
 ;;   :config
@@ -694,7 +694,7 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
   ;; just above hl-line so both keep their original colors on the current line.
   (defvar my-hl-line-hl-todo-overlays nil)
 
-  (defun my-hl-line-preserve-hl-todo-face ()
+  (defun debajit-hl-line-preserve-hl-todo-face ()
     "Render hl-todo faces above the current-line overlay."
     (mapc #'delete-overlay my-hl-line-hl-todo-overlays)
     (setq my-hl-line-hl-todo-overlays nil)
@@ -716,7 +716,7 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
                 (push overlay my-hl-line-hl-todo-overlays))))))))
 
   (global-hl-todo-mode)
-  (add-hook 'post-command-hook #'my-hl-line-preserve-hl-todo-face t))
+  (add-hook 'post-command-hook #'debajit-hl-line-preserve-hl-todo-face t))
 
 ;; FIXME: javascript-mode
 ;; ;; TODO: Add typesript mode
@@ -724,9 +724,9 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
 ;;   :init
 ;;   (setq js-indent-level 2)
 ;;   :config
-;;   (defun my-javascript-mode-hook ()
+;;   (defun debajit-javascript-mode-hook ()
 ;;     (set-fill-column 72))
-;;   (add-hook 'javascript-mode-hook 'my-javascript-mode-hook))
+;;   (add-hook 'javascript-mode-hook 'debajit-javascript-mode-hook))
 
 (use-package imenu-list
   :ensure t
@@ -762,7 +762,7 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
   (require 'cl-lib)
   (require 'url-util)
 
-  (defun my-browse-at-remote-git-canonical-path (path)
+  (defun debajit-browse-at-remote-git-canonical-path (path)
     "Return PATH using Git's tracked casing when possible."
     (let ((tracked-paths (ignore-errors (process-lines "git" "ls-files"))))
       (or (car (cl-member (downcase path) tracked-paths
@@ -770,15 +770,15 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
                                   (string= wanted (downcase candidate)))))
           path)))
 
-  (defun my-browse-at-remote-git-head-revision ()
+  (defun debajit-browse-at-remote-git-head-revision ()
     "Return the current Git HEAD revision, or nil outside Git."
     (car (ignore-errors (process-lines "git" "rev-parse" "HEAD"))))
 
-  (defun my-browse-at-remote-url-encode-path (path)
+  (defun debajit-browse-at-remote-url-encode-path (path)
     "URL-encode PATH for use as an OCI DevOps filePath query value."
     (mapconcat #'url-hexify-string (split-string path "/" t) "/"))
 
-  (defun my-browse-at-remote-oci-devops-repo-url (repo-url)
+  (defun debajit-browse-at-remote-oci-devops-repo-url (repo-url)
     "Convert OCI DevOps SCM REPO-URL to its browser URL."
     (replace-regexp-in-string
      "\\`https://oci\\.private\\.devops\\.scmservice\\.[^/]+\\.oci\\.oracleiaas\\.com/"
@@ -788,12 +788,12 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
   (defun browse-at-remote--format-region-url-as-oci-devops
       (repo-url location filename &optional linestart _lineend)
     "Format an OCI DevOps Code Repository URL."
-    (let ((filename (my-browse-at-remote-git-canonical-path filename))
-          (revision (or (my-browse-at-remote-git-head-revision) location)))
+    (let ((filename (debajit-browse-at-remote-git-canonical-path filename))
+          (revision (or (debajit-browse-at-remote-git-head-revision) location)))
       (format "%s/files/%s?filePath=%s%s"
-              (my-browse-at-remote-oci-devops-repo-url repo-url)
+              (debajit-browse-at-remote-oci-devops-repo-url repo-url)
               (url-hexify-string revision)
-              (my-browse-at-remote-url-encode-path filename)
+              (debajit-browse-at-remote-url-encode-path filename)
               (if linestart
                   (format "&highlightLines=L-%d" linestart)
                 ""))))
@@ -801,7 +801,7 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
   (defun browse-at-remote--format-commit-url-as-oci-devops (repo-url commithash)
     "Format an OCI DevOps Code Repository commit URL."
     (format "%s/commits/%s"
-            (my-browse-at-remote-oci-devops-repo-url repo-url)
+            (debajit-browse-at-remote-oci-devops-repo-url repo-url)
             commithash))
 
   (add-to-list 'browse-at-remote-remote-type-regexps
@@ -904,9 +904,9 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 ;; Ruby mode
 (use-package ruby-mode
   :config
-  (defun my-ruby-mode-hook ()
+  (defun debajit-ruby-mode-hook ()
     (set-fill-column 72))
-  (add-hook 'ruby-mode-hook 'my-ruby-mode-hook))
+  (add-hook 'ruby-mode-hook 'debajit-ruby-mode-hook))
 
 ;; Ruby tools
 ;; Autocompletes string interpolations
@@ -1018,7 +1018,7 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
               ("C-S-SPC" . web-mode-element-content-select)
               ("C-W" . web-mode-element-wrap))
   :config
-  (defun my-web-mode-hook ()
+  (defun debajit-web-mode-hook ()
     "Hooks for Web mode."
     (setq web-mode-markup-indent-offset 2               ; Indent with two spaces
           web-mode-css-indent-offset 2
@@ -1026,7 +1026,7 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
           web-mode-style-padding 2                      ; Padding on the left of inline style blocks
           web-mode-script-padding 2                     ; Padding on the left of inline script blocks
           web-mode-enable-current-element-highlight t)) ; Highlight the element under the cursor.
-  (add-hook 'web-mode-hook 'my-web-mode-hook)
+  (add-hook 'web-mode-hook 'debajit-web-mode-hook)
 
   :custom
   (web-mode-markup-indent-offset 2)
@@ -1084,24 +1084,24 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 ;;    ("s-=" . default-text-scale-increase)
 ;;    ("s--" . default-text-scale-decrease)))
 
-(my-load-user-file "code-completion.el")
-(my-load-user-file "cpp.el")
-(my-load-user-file "html.el")
-;; (my-load-user-file "eaf.el")
-(my-load-user-file "elixir.el")
-(my-load-user-file "java.el")
-(my-load-user-file "javascript.el")
-(my-load-user-file "lua.el")
-(my-load-user-file "markdown.el")
-(my-load-user-file "org.el")
-(my-load-user-file "code-visualization.el")
+(debajit-load-user-file "code-completion.el")
+(debajit-load-user-file "cpp.el")
+(debajit-load-user-file "html.el")
+;; (debajit-load-user-file "eaf.el")
+(debajit-load-user-file "elixir.el")
+(debajit-load-user-file "java.el")
+(debajit-load-user-file "javascript.el")
+(debajit-load-user-file "lua.el")
+(debajit-load-user-file "markdown.el")
+(debajit-load-user-file "org.el")
+(debajit-load-user-file "code-visualization.el")
 ;; (load-file "~/WorkDocs/Application Settings/Emacs/local-workspaces.el")
-(my-load-user-file "hydras.el")
-;; (my-load-user-file "mail.el")
-(my-load-user-file "http.el")
-(my-load-user-file "redis.el")
-(my-load-user-file "playground.el")
-(my-load-user-file "local.el" :if-exists)
+(debajit-load-user-file "hydras.el")
+;; (debajit-load-user-file "mail.el")
+(debajit-load-user-file "http.el")
+(debajit-load-user-file "redis.el")
+(debajit-load-user-file "playground.el")
+(debajit-load-user-file "local.el" :if-exists)
 
 
 ;; Override keybindings from other packages
@@ -1110,12 +1110,12 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
 ;; Have C-s incremental search position the cursor at the start of the match
 ;; From https://www.emacswiki.org/emacs/IncrementalSearch#toc4
 
-(add-hook 'isearch-mode-end-hook 'my-goto-match-beginning)
-(defun my-goto-match-beginning ()
+(add-hook 'isearch-mode-end-hook 'debajit-goto-match-beginning)
+(defun debajit-goto-match-beginning ()
   (when (and isearch-forward isearch-other-end)
     (goto-char isearch-other-end)))
 
-(defadvice isearch-exit (after my-goto-match-beginning activate)
+(defadvice isearch-exit (after debajit-goto-match-beginning activate)
   "Go to beginning of match."
   (when (and isearch-forward isearch-other-end)
     (goto-char isearch-other-end)))
@@ -1137,5 +1137,5 @@ http://ergoemacs.org/emacs/elisp_determine_cursor_inside_string_or_comment.html"
   (load-theme 'stygian t))
 (put 'list-timers 'disabled nil)
 
-(my-load-user-file "typography.el")
+(debajit-load-user-file "typography.el")
 (put 'upcase-region 'disabled nil)

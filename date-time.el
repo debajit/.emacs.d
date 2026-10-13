@@ -25,7 +25,7 @@
                   (interactive)
                   (insert (day-label))))
 
-(global-set-key (kbd "<f10>") #'my-insert-date)
+(global-set-key (kbd "<f10>") #'debajit-insert-date)
 
 (global-set-key (kbd "<S-f9>")
                 (lambda ()

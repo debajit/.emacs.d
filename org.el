@@ -314,6 +314,52 @@ shared cache because it may produce a different set or order of candidates."
             my/org-roam-node-completion-cache-valid-p t))
     my/org-roam-node-completion-cache))
 
+(defun my/org-roam-literal-matches-first (candidates input)
+  "Promote literal substring matches of INPUT in sorted CANDIDATES.
+Preserve the existing order within both groups, and keep every candidate.
+Ignore surrounding whitespace in INPUT and use Orderless smart case when
+enabled, otherwise respect `completion-ignore-case'."
+  (let ((input (string-trim input)))
+    (if (string-empty-p input)
+        candidates
+      (let ((regexp (regexp-quote input))
+            (case-fold-search
+             (if (bound-and-true-p orderless-smart-case)
+                 (isearch-no-upper-case-p (regexp-quote input) t)
+               completion-ignore-case))
+            literal other)
+        (dolist (candidate candidates)
+          (if (string-match-p regexp candidate)
+              (push candidate literal)
+            (push candidate other)))
+        (nconc (nreverse literal) (nreverse other))))))
+
+(defun my/org-roam-node-find-literal-first (original-function &rest args)
+  "Prefer literal matches while ORIGINAL-FUNCTION reads an Org-roam node.
+Wrap the existing Vertico sorter only in this command's node minibuffer.
+Matching styles, completion history, and the cached candidates are retained."
+  (minibuffer-with-setup-hook
+      (:append
+       (lambda ()
+         (when (bound-and-true-p vertico-mode)
+           (let ((metadata (completion-metadata
+                            (minibuffer-contents-no-properties)
+                            minibuffer-completion-table
+                            minibuffer-completion-predicate)))
+             (when (eq (completion-metadata-get metadata 'category)
+                       'org-roam-node)
+               (let ((sort-function
+                      (or vertico-sort-override-function
+                          (completion-metadata-get metadata 'display-sort-function)
+                          vertico-sort-function
+                          #'identity)))
+                 (setq-local vertico-sort-override-function
+                             (lambda (candidates)
+                               (my/org-roam-literal-matches-first
+                                (funcall sort-function candidates)
+                                (minibuffer-contents-no-properties))))))))))
+    (apply original-function args)))
+
 (use-package org-roam
   ;; See https://org-roam.discourse.group/t/use-of-property-drawers-after-headlines/1687/11
 
@@ -345,6 +391,11 @@ shared cache because it may produce a different set or order of candidates."
          ("C-c n j" . org-roam-dailies-capture-today))
   :config
   (org-roam-db-autosync-mode 1)
+
+  (unless (advice-member-p #'my/org-roam-node-find-literal-first
+                           'org-roam-node-find)
+    (advice-add 'org-roam-node-find :around
+                #'my/org-roam-node-find-literal-first))
 
   ;; Advice installation is guarded so evaluating this configuration again
   ;; does not stack duplicate copies of the same advice.

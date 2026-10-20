@@ -27,3 +27,10 @@ if (personalTitle) {
         }
     }
 }
+
+document.addEventListener("keydown", (event) => {
+    if (event.altKey && !event.ctrlKey && !event.metaKey && event.code === "KeyT") {
+        event.preventDefault();
+        document.getElementById("toggle-mode")?.click();
+    }
+});

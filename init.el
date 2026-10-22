@@ -206,7 +206,7 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
 ;; (global-set-key [f12] 'vc-annotate)
 (global-set-key (kbd "s-H") 'vc-region-history)
 (global-set-key (kbd "s-C") 'magit-diff-buffer-file)
-(global-set-key (kbd "s-S") 'magit-stage-buffer-file)
+(global-set-key (kbd "s-S") 'magit-file-stage)
 ;; (global-set-key (kbd "s-C") 'magit-diff-visit-file)
 
 

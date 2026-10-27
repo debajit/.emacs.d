@@ -583,6 +583,11 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
 ;; (use-package gitignore-mode
 ;;   :ensure t)
 
+;; Ghostel -- terminal emulator powered by libghostty.
+(use-package ghostel
+  :ensure t
+  :commands (ghostel ghostel-new))
+
 (use-package google-this
   :ensure t
   ;; :bind ("s-G" . google-this-noconfirm)

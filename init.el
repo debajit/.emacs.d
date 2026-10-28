@@ -561,6 +561,10 @@ If IF-EXISTS is non-nil, skip FILE silently when it does not exist."
   ;; (add-hook 'prog-mode-hook 'fci-mode)
   )
 
+(use-package fireplace
+  :ensure t
+  :commands fireplace)
+
 ;; FIXME:
 ;; ;; Flyspell with Credo
 ;; (use-package 'flycheck-credo

@@ -274,7 +274,7 @@
    `(org-ellipsis ((,class (:foreground ,builtin))))
    `(org-footnote  ((,class (:underline t :foreground ,fg4))))
    `(org-formula  ((,class (:foreground ,red-30))))
-   `(org-hide ((,class (:foreground ,fg4))))
+   `(org-hide ((,class (:foreground ,bg1))))
    `(org-level-1 ((,class (:bold t :foreground ,blue-01 :height 1.5))))
    `(org-level-2 ((,class (:bold t :foreground ,blue-15 :height 1.5))))
    `(org-level-3 ((,class (:bold t :foreground ,brown-10 :height 1.5))))
